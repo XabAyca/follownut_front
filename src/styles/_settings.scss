@@ -1,0 +1,75 @@
+// Color variables //
+$primary-color: #19535F;
+$secondary-color: #0B7A75;
+$third-color:#D7C9AA;
+$background-color:transparent;
+$success:#3BB273;
+$danger:#E15554;
+$warning:#E1BC29;
+
+// Dark Color variables //
+$primary-color-dark: #19535F;
+$secondary-color-dark: #0B7A75;
+$third-color-dark:#D7C9AA;
+$background-color-dark:transparent;
+$success-dark:#3BB273;
+$danger-dark:#E15554;
+$warning-dark:#E1BC29;
+
+// Other variables & mixin //
+$phone-viewport:800px;
+
+@mixin phone {
+  @media (max-width: $phone-viewport) { @content; }
+}
+
+//****************************************//
+// Don't modify
+:root{
+  --primary-color: #{$primary-color};
+  --secondary-color:#{$secondary-color};
+  --third-color:#{$third-color};
+  --background-color:#{$background-color};
+  --success-color:#{$success};
+  --danger-color:#{$danger};
+  --warning-color:#{$warning};
+}
+.dark-mode{
+  --primary-color: #{$primary-color-dark};
+  --secondary-color:#{$secondary-color-dark};
+  --third-color:#{$third-color-dark};
+  --background-color:#{$background-color-dark};  
+  --success-color:#{$success-dark};
+  --danger-color:#{$danger-dark};
+  --warning-color:#{$warning-dark};
+}
+//****************************************//
+
+
+// All app CSS //
+*{
+  font-family:'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html,body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
