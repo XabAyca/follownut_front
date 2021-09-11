@@ -1,9 +1,25 @@
+// CONFIG IMPORTS
 import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/images/logo.png'
+import { useDispatch } from 'react-redux';
+import { nutritionistLogout, patientLogout } from "services/apiManager";
+import Cookies from 'js-cookie';
 
-const Navigation = () => {
+// ASSETS IMPORTS
+import logo from 'assets/images/logo.png'
+
+const Navigation = ({auth}) => {
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    Cookies.remove('token_cookie')
+    Cookies.remove("id_cookie");
+    dispatch(nutritionistLogout());
+    dispatch(patientLogout());
+    window.location.reload();
+  }
+
   return (
     <div className="navigation d-flex align-items-center justify-content-between px-5">
       <div className="d-flex justify-content-between align-items-center">
@@ -20,22 +36,29 @@ const Navigation = () => {
         </div>
       </div>
       <div className="connection d-flex justify-content-between">
-        <DropdownButton title="S'inscrire">
-          <Dropdown.Item>
-            <NavLink exact to="/signup-patient" activeClassName="nav-active">Signup Patient</NavLink>
-          </Dropdown.Item>
-          <Dropdown.Item>
-            <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Signup Nutritionist</NavLink>          
-          </Dropdown.Item>
-        </DropdownButton>
-        <DropdownButton title="Se connecter">
-          <Dropdown.Item>
-            <NavLink exact to="/login-patient" activeClassName="nav-active">Login Patient</NavLink>
-          </Dropdown.Item>
-          <Dropdown.Item>
-            <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Login Nutritionist</NavLink>
-          </Dropdown.Item>
-        </DropdownButton>
+        {!auth && (
+          <>
+            <DropdownButton title="S'inscrire">
+              <Dropdown.Item>
+                <NavLink exact to="/signup-patient" activeClassName="nav-active">Signup Patient</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Signup Nutritionist</NavLink>          
+              </Dropdown.Item>
+            </DropdownButton>
+            <DropdownButton title="Se connecter">
+              <Dropdown.Item>
+                <NavLink exact to="/login-patient" activeClassName="nav-active">Login Patient</NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Login Nutritionist</NavLink>
+              </Dropdown.Item>
+            </DropdownButton>
+          </>
+        )}
+        {auth && (
+          <button onClick={() => handleLogOut()} className="btn btn-danger mx-2">Log Out</button>
+         )}
       </div>
     </div>
   );

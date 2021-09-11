@@ -15,7 +15,7 @@ const NutritionistSignupForm = () => {
     e.preventDefault();
     if (email && password && passwordConfirmation) {
       const nutritionistData = {
-        user: {
+        nutritionist: {
             email: email,
             password: password,
             password_confirmation: passwordConfirmation

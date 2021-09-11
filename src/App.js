@@ -1,6 +1,10 @@
 // CONFIG IMPORTS
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
+import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
+import Cookies from 'js-cookie';
 
 // PAGES IMPORTS
 import Home from 'pages/Home';
@@ -17,10 +21,6 @@ import NutritionistProfile from 'pages/NutritionistProfile';
 import PatientProfile from 'pages/PatientProfile';
 import DashboardPatient from 'pages/DashboardPatient';
 import DashboardNutritionist from 'pages/DashboardNutritionist';
-
-
-
-
 
 
 const App = () => {
@@ -75,19 +75,78 @@ const App = () => {
     });
   /////////////////// Web app /////////////////////////////////////////////////////////////
 
+
+  const loginPatient = useSelector((state) => state.patient.login);
+  const registerPatient = useSelector((state) => state.patient.register);
+  const loginNutritionist = useSelector((state) => state.nutritionists.login);
+  const registerNutritionist = useSelector((state) => state.nutritionists.register);
+  const [loading, setLoading] = useState(false);
+
+  
+  
+    useEffect(() => {
+      checkPatientAuth().then(res => {
+        setLoading(true);
+      });
+      checkNutritionistAuth().then(res => {
+        setLoading(true);
+      });
+    }, []);
+  
+  
+    const checkPatientAuth = async() => {
+      return await (loginPatientWithCookie());
+    }
+
+    const checkNutritionistAuth = async() => {
+      return await (loginNutritionistWithCookie());
+    }
+  
+
+    const isPatientAuth = () => {
+      return (
+        registerPatient === '' &&
+        loginPatient === '' &&
+        registerNutritionist === '' &&
+        loginNutritionist === '' &&
+          Cookies.get('token_cookie') === undefined ? false : true)
+    };
+
+    // const isNutritionistAuth = () => {
+    //   return (
+    //     registerNutritionist === '' &&
+    //     loginNutritionist === '' &&
+    //       Cookies.get('token_cookie') === undefined ? false : true)
+    // };
+
   return (
     <>
       <BrowserRouter>
-        <Navigation />
+        <Navigation auth={isPatientAuth()}/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
           <Route path="/patient-profile" exact component={PatientProfile} />
           <Route path="/nutritionist-profile" exact component={NutritionistProfile} />
+
           <Route path="/patient-dashboard" exact component={DashboardPatient} />
           <Route path="/nutritionist-dashboard" exact component={DashboardNutritionist} />
-          <Route path="/signup-patient" exact component={SignupPatient} />
-          <Route path="/login-patient" exact component={LoginPatient} />
+
+          <Route path="/signup-patient">
+            { isPatientAuth() ? <Redirect to="/" /> : <SignupPatient /> }
+          </Route>
+          <Route path="/login-patient">
+            { isPatientAuth() ? <Redirect to="/" /> : <LoginPatient /> }
+          </Route>
+
+          <Route path="/signup-nutritionist">
+            { isPatientAuth() ? <Redirect to="/" /> : <SignupNutritionist /> }
+          </Route>
+          <Route path="/login-nutritionist">
+            { isPatientAuth() ? <Redirect to="/" /> : <LoginNutritionist /> }
+          </Route>
+          
+
           <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
           <Route path="/login-nutritionist" exact component={LoginNutritionist} />
           <Route component={NotFound} />
