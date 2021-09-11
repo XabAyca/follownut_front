@@ -103,14 +103,14 @@ const App = () => {
     }
   
 
-    const isAuth = () => {
-      return (
-        registerPatient === '' &&
-        loginPatient === '' &&
-        registerNutritionist === '' &&
-        loginNutritionist === '' &&
-          Cookies.get('token_cookie') === undefined ? false : true)
-    };
+    // const isAuth = () => {
+    //   return (
+    //     registerPatient === '' &&
+    //     loginPatient === '' &&
+    //     registerNutritionist === '' &&
+    //     loginNutritionist === '' &&
+    //       Cookies.get('token_cookie') === undefined ? false : true)
+    // };
 
     const isPatientAuth = () => {
       return (
@@ -129,15 +129,25 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navigation auth={isAuth()}/>
+        <Navigation patientAuth={isPatientAuth()} nutritionistAuth={isNutritionistAuth()}/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
-          <Route path="/patient-profile" exact component={PatientProfile} />
-          <Route path="/nutritionist-profile" exact component={NutritionistProfile} />
 
-          <Route path="/patient-dashboard" exact component={DashboardPatient} />
-          <Route path="/nutritionist-dashboard" exact component={DashboardNutritionist} />
+          <Route path="/patient-profile">
+            { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }
+          </Route>
+          <Route path="/nutritionist-profile">
+            { isNutritionistAuth() ? <NutritionistProfile /> : <Redirect to="/" /> }
+          </Route>
+
+          <Route path="/patient-dashboard">
+            { isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" /> }
+          </Route>
+          <Route path="/nutritionist-dashboard">
+            { isNutritionistAuth() ? <DashboardNutritionist /> : <Redirect to="/" /> }
+          </Route>
+
 
           <Route path="/signup-patient">
             { isPatientAuth() ? <Redirect to="/" /> : <SignupPatient /> }
