@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/images/logo.png'
 
 const Navigation = () => {
   return (
     <div className="navigation">
+      <img className="logo" src={logo} alt="FollowNut' logo"/>
       <NavLink exact to="/" activeClassName="nav-active">Home</NavLink>
       <NavLink exact to="/about" activeClassName="nav-active">About</NavLink>
       <NavLink exact to="/signup-patient" activeClassName="nav-active">Signup Patient</NavLink>
