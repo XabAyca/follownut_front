@@ -2,5 +2,13 @@
 @import './settings';
 
 // Import pages styles
+@import './pages/about';
+@import './pages/home';
+@import './pages/notFound';
+@import './pages/signupPatient';
+@import './pages/loginPatient';
+@import './pages/signupNutritionist';
+@import './pages/loginNutritionist';
 
 // Import components styles
+@import './components/navigation';
