@@ -103,7 +103,7 @@ const App = () => {
     }
   
 
-    const isPatientAuth = () => {
+    const isAuth = () => {
       return (
         registerPatient === '' &&
         loginPatient === '' &&
@@ -112,17 +112,24 @@ const App = () => {
           Cookies.get('token_cookie') === undefined ? false : true)
     };
 
-    // const isNutritionistAuth = () => {
-    //   return (
-    //     registerNutritionist === '' &&
-    //     loginNutritionist === '' &&
-    //       Cookies.get('token_cookie') === undefined ? false : true)
-    // };
+    const isPatientAuth = () => {
+      return (
+        registerPatient === '' &&
+        loginPatient === '' &&
+          Cookies.get('token_cookie') === undefined ? false : true)
+    };
+
+    const isNutritionistAuth = () => {
+      return (
+        registerNutritionist === '' &&
+        loginNutritionist === '' &&
+          Cookies.get('token_cookie') === undefined ? false : true)
+    };
 
   return (
     <>
       <BrowserRouter>
-        <Navigation auth={isPatientAuth()}/>
+        <Navigation auth={isAuth()}/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
@@ -140,15 +147,12 @@ const App = () => {
           </Route>
 
           <Route path="/signup-nutritionist">
-            { isPatientAuth() ? <Redirect to="/" /> : <SignupNutritionist /> }
+            { isNutritionistAuth() ? <Redirect to="/" /> : <SignupNutritionist /> }
           </Route>
           <Route path="/login-nutritionist">
-            { isPatientAuth() ? <Redirect to="/" /> : <LoginNutritionist /> }
+            { isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist /> }
           </Route>
           
-
-          <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
-          <Route path="/login-nutritionist" exact component={LoginNutritionist} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
@@ -157,6 +161,3 @@ const App = () => {
 };
 
 export default App;
-
-// to install bootstrap
-// npm install react-bootstrap bootstrap
