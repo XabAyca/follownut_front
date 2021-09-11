@@ -13,6 +13,8 @@ import SignupPatient from 'pages/SignupPatient';
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
+import NutritionistProfile from 'pages/NutritionistProfile';
+import PatientProfile from 'pages/PatientProfile';
 
 
 
@@ -78,6 +80,8 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
+          <Route path="/patient-profile" exact component={PatientProfile} />
+          <Route path="/nutritionist-profile" exact component={NutritionistProfile} />
           <Route path="/signup-patient" exact component={SignupPatient} />
           <Route path="/login-patient" exact component={LoginPatient} />
           <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
