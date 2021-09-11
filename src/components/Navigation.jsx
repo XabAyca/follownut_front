@@ -15,6 +15,8 @@ const Navigation = () => {
           <NavLink exact to="/about" activeClassName="nav-active">À propos</NavLink>
           <NavLink exact to="/patient-profile" activeClassName="nav-active">Profil patient</NavLink>
           <NavLink exact to="/nutritionist-profile" activeClassName="nav-active">Profil nutritioniste</NavLink>
+          <NavLink exact to="/patient-dashboard" activeClassName="nav-active">Tableau de bord patient</NavLink>
+          <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">Tableau de bord nutritioniste</NavLink>
         </div>
       </div>
       <div className="connection d-flex justify-content-between">
