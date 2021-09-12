@@ -58,7 +58,7 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
                 <NavLink exact to="/signup-patient" activeClassName="nav-active">Inscription Patient</NavLink>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Inscription Nutritionist</NavLink>          
+                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Inscription Nutritioniste</NavLink>          
               </Dropdown.Item>
             </DropdownButton>
             <DropdownButton title="Se connecter">
@@ -66,7 +66,7 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
                 <NavLink exact to="/login-patient" activeClassName="nav-active">Connexion Patient</NavLink>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Connexion Nutritionist</NavLink>
+                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Connexion Nutritioniste</NavLink>
               </Dropdown.Item>
             </DropdownButton>
           </>
