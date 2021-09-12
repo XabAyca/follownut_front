@@ -1,17 +1,29 @@
-import React from 'react';
+import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { nutritionistPasswordResetFetch } from 'services/apiManager';
 
 const NutritionistForgottenForm = () => {
   
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
 
-  const handleNutritionistLogin = async (e) => {
+  const handleNutritionistForgottenPassword = async (e) => {
     e.preventDefault();
+    if (email) {
+      const nutritionistResetEmail = {
+        email: email,
+      }
+      await dispatch(nutritionistPasswordResetFetch(nutritionistResetEmail))
+    } else {
+      alert("Veuillez renseigner un email")
     }
+  };
   
   return (
     <div className="nutritionist-forgotten-form d-flex justify-content-center">
       <div className="form-container">
-        <form onSubmit={ (e) => handleNutritionistLogin(e) }>
+      <p className="text-white">Cher nutritioniste, renseignez votre email pour recevoir un lien et réinitialiser votre mot de passe.</p>
+        <form onSubmit={ (e) => handleNutritionistForgottenPassword(e) }>
           <label htmlFor="email" className="text-white">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>

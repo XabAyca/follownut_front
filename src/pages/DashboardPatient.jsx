@@ -1,38 +1,52 @@
 import GraphWeight from "components/GraphWeight";
 import CalculateBMI from "components/CalculateBMI";
+import LeftMenu from "components/LeftMenu";
 
 const DashboardPatient = () => {
   return (
     <>
-    <div className="container-fluid border d-flex">
-      <div className="row boxsizing-width-mini-menu">
-        <div className="small-menu-left">
-          <div className="ico-user"></div>
-          <div className="ico-heart"></div>
-          <div className="ico-exclamation"></div>
-        </div>
-      </div>
-      <div className=" menu-profile-patient border w-100">
-          <ul className="list-menu-patient">
-            <li>Dashboard</li>
-            <li>My Appointments</li>
-          </ul>
+    <div className="container-fluid d-flex">
+      <LeftMenu/>
 
-          <div className="container-fluid border">
-            <div className="row">
-              <div className="col-6 resizing-box-line-graphic">
-                <div className="border line-graphic" >
-                  <GraphWeight/>
-                </div>
-              </div>
-              <div className="border w-50">
-                <CalculateBMI/>
-              </div>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col data-patient">
+            <div className="col-10">
+              <h5>Mathieu Paradis</h5>
+              <h5>Mathieu.Paradis@gmail.com</h5>
+              <h5>Height : 1.78</h5>
+
             </div>
-            <div className="border">
-              teste
+            <div className="col">
+              <h5>Current Weight : 82Kg</h5>
+              <h5>Current Body Fat : 82Kg</h5>
+              <h5>Visceral Fat : 82Kg</h5>
+              <h5>BMI : 82Kg</h5>
             </div>
           </div>
+
+        </div>
+        <div className="row mt-2 first-line-graphic">
+          <div className="col">
+            <h3>Weight</h3>
+            <GraphWeight/>
+          </div>
+          <div className="col">
+            <h3>Body Fat</h3>
+            <GraphWeight/>
+          </div>
+        </div>
+        <div className="row mt-3 second-line-graphic">
+          <div className="col">
+            <h3>Muscle Mass</h3>
+            <GraphWeight/>
+          </div>
+          <div className="col">
+            <h3>Viceral Mass</h3>
+            <GraphWeight/>
+          </div>
+        </div>
+        
       </div>
     </div>
     </>

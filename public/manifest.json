@@ -1,8 +1,8 @@
 {
   "short_name": "FollowNut'",
   "name": "FollowNut'",
-  "description":"Web site for nutritionist and patient",
-  "lang":"en",
+  "description":"Mise en relation de nutritionniste et patient",
+  "lang":"fr",
   "icons": [
     {
       "src": "images/logo128.png",

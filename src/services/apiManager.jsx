@@ -127,6 +127,37 @@ export const nutritionistsFetch = () => {
   };
 };
 
+// BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A NUTRITIONIST
+export const nutritionistPasswordResetFetch = (nutritionistResetEmail) => {
+
+  return (dispatch) => {
+    // let token
+    // dispatch(fetchNutritionistRegisterRequest());
+    fetch(baseUrl + "/api/nutritionist/password/forgot", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(nutritionistResetEmail),
+    // })
+    //   .then((response) => {
+    //     if (response.headers.get("authorization")) {
+    //       token = response.headers.get("authorization").split("Bearer ")[1];
+    //     }
+    //     return response.json()
+    //   })
+    //   .then((response ) => {
+    //     if (response.errors || response.error) {
+    //       dispatch(fetchNutritionistRegisterFailure(response.errors));
+    //     } else {
+    //       dispatch(fetchNutritionistRegisterSuccess(response));
+    //     }
+      });
+  };
+};
+
+
+
 // ------------------------------------------------------------------------------------------
 // -------------------- BELOW ARE ALL THE PATIENT RELATED FUNCTIONS --------------------
 // ------------------------------------------------------------------------------------------
@@ -247,4 +278,32 @@ export const patientsFetch = () => {
   };
 };
 
+// BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A PATIENT
+export const patientPasswordResetFetch = (patientResetEmail) => {
+
+  return (dispatch) => {
+    // let token
+    // dispatch(fetchNutritionistRegisterRequest());
+    fetch(baseUrl + "/api/patient/password/forgot", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(patientResetEmail),
+    // })
+    //   .then((response) => {
+    //     if (response.headers.get("authorization")) {
+    //       token = response.headers.get("authorization").split("Bearer ")[1];
+    //     }
+    //     return response.json()
+    //   })
+    //   .then((response ) => {
+    //     if (response.errors || response.error) {
+    //       dispatch(fetchNutritionistRegisterFailure(response.errors));
+    //     } else {
+    //       dispatch(fetchNutritionistRegisterSuccess(response));
+    //     }
+      });
+  };
+};
 
