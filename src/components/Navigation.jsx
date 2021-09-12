@@ -30,21 +30,21 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
         </NavLink>
         <div>
           <NavLink exact to="/" activeClassName="nav-active" className="links">Accueil</NavLink>
-          <NavLink exact to="/about" activeClassName="nav-active">À propos</NavLink>
+          {/* <NavLink exact to="/about" activeClassName="nav-active">À propos</NavLink> */}
 
 
           {patientAuth && (
             <>
-              <NavLink exact to="/patient-profile" activeClassName="nav-active">Profil patient</NavLink>
-              <NavLink exact to="/patient-dashboard" activeClassName="nav-active">Tableau de bord patient</NavLink>
+              <NavLink exact to="/patient-profile" activeClassName="nav-active">Profil</NavLink>
+              <NavLink exact to="/patient-dashboard" activeClassName="nav-active">Tableau de bord</NavLink>
             </>
           )}
 
 
           {nutritionistAuth && (
             <>
-              <NavLink exact to="/nutritionist-profile" activeClassName="nav-active">Profil nutritioniste</NavLink>
-              <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">Tableau de bord nutritioniste</NavLink>
+              <NavLink exact to="/nutritionist-profile" activeClassName="nav-active">Profil</NavLink>
+              <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">tableau de bord</NavLink>
             </>
           )}
         </div>
@@ -55,25 +55,25 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
           <>
             <DropdownButton title="S'inscrire">
               <Dropdown.Item>
-                <NavLink exact to="/signup-patient" activeClassName="nav-active">Signup Patient</NavLink>
+                <NavLink exact to="/signup-patient" activeClassName="nav-active">Inscription Patient</NavLink>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Signup Nutritionist</NavLink>          
+                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Inscription Nutritionist</NavLink>          
               </Dropdown.Item>
             </DropdownButton>
             <DropdownButton title="Se connecter">
               <Dropdown.Item>
-                <NavLink exact to="/login-patient" activeClassName="nav-active">Login Patient</NavLink>
+                <NavLink exact to="/login-patient" activeClassName="nav-active">Connexion Patient</NavLink>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Login Nutritionist</NavLink>
+                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Connexion Nutritionist</NavLink>
               </Dropdown.Item>
             </DropdownButton>
           </>
         )}
 
         {(patientAuth || nutritionistAuth) && (
-          <button onClick={() => handleLogOut()} className="btn btn-danger mx-2">Log Out</button>
+          <button onClick={() => handleLogOut()} className="btn btn-danger mx-2">Se déconnecter</button>
          )}
       </div>
 
