@@ -104,15 +104,6 @@ const App = () => {
     }
   
 
-    // const isAuth = () => {
-    //   return (
-    //     registerPatient === '' &&
-    //     loginPatient === '' &&
-    //     registerNutritionist === '' &&
-    //     loginNutritionist === '' &&
-    //       Cookies.get('token_cookie') === undefined ? false : true)
-    // };
-
     const isPatientAuth = () => {
       return (
         registerPatient === '' &&
