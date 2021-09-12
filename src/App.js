@@ -1,6 +1,9 @@
+import About from 'pages/About';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+
 
 const App = () => {
   /////////////////// Web app /////////////////////////////////////////////////////////////
@@ -56,9 +59,14 @@ const App = () => {
 
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" exact component={Home} />
+      <Route path="/about" exact component={About} />
+      <Route component={NotFound} />
     </Switch>
   );
 };
 
 export default App;
+
+// to install bootstrap
+// npm install react-bootstrap bootstrap

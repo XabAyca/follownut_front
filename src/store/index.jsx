@@ -1,15 +1,23 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunkMiddleware from 'redux-thunk';
+import { patientReducer } from "store/reducers/patientReducer";
+import { nutritionistReducer } from "./reducers/nutritionistsReducer";
 
 const rootReducers = combineReducers({
-// reducer:reducer,
-// reducer:reducer
+  patient: patientReducer,
+  nutritionists: nutritionistReducer,
 });
 
-export  const store = createStore(
+export const store = createStore(
   rootReducers,
   compose(
     applyMiddleware(thunkMiddleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
+
+
+
+
+
+
