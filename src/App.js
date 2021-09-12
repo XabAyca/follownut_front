@@ -67,3 +67,6 @@ const App = () => {
 };
 
 export default App;
+
+// to install bootstrap
+// npm install react-bootstrap bootstrap
