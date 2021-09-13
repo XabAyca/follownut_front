@@ -1,13 +1,13 @@
 import React from 'react';
 import Navigation from 'components/Navigation';
 
-const Home = () => {
+const LoginPatient = () => {
   return (
-    <div>
+    <div className="login-patient">
       <Navigation />  
-      <h1>Home</h1>
+      <h1>Login Patient</h1>
     </div>
   );
 };
 
-export default Home;
+export default LoginPatient;
