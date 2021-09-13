@@ -1,11 +1,16 @@
+import PatientLoginForm from 'components/PatientLoginForm';
 import React from 'react';
 
-const LoginPatient = () => {
+const SignupPatient = () => {
   return (
-    <div className="login-patient"> 
-      <h1>Login Patient</h1>
+    <div className="login-patient">
+      <div className="default-background d-flex align-items-center py-5">
+        <div className="d-flex justify-content-center col-12 my-5">
+          <PatientLoginForm />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default LoginPatient;
+export default SignupPatient;
