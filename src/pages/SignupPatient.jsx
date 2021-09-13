@@ -1,11 +1,13 @@
 import React from 'react';
-import Navigation from 'components/Navigation';
 
 const SignupPatient = () => {
   return (
     <div className="signup-patient">
-      <Navigation />  
-      <h1>Signup Patient</h1>
+      <div className="default-background d-flex align-items-center py-5">
+        <div className="d-flex justify-content-center col-12 my-5">
+          {/* <PatientSignupForm /> */}
+        </div>
+      </div>
     </div>
   );
 };

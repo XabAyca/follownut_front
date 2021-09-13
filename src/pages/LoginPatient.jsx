@@ -1,10 +1,8 @@
 import React from 'react';
-import Navigation from 'components/Navigation';
 
 const LoginPatient = () => {
   return (
-    <div className="login-patient">
-      <Navigation />  
+    <div className="login-patient"> 
       <h1>Login Patient</h1>
     </div>
   );
