@@ -11,7 +11,7 @@ const PatientSignupForm = () => {
   const dispatch = useDispatch();
 
 
-  const handleLogin = async (e) => {
+  const handlePatientLogin = async (e) => {
     e.preventDefault();
     if (email && password && passwordConfirmation) {
       const patientData = {
@@ -27,8 +27,8 @@ const PatientSignupForm = () => {
 
   return (
     <div className="patient-signup-form">
-      <div className="register-form px-4 py-5 rounded">
-        <form className="" onSubmit={ (e) => handleLogin(e) }>
+      <div className="form-container">
+        <form onSubmit={ (e) => handlePatientLogin(e) }>
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="email" className="text-white">Email*</label>
