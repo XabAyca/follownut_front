@@ -15,7 +15,7 @@ const PatientSignupForm = () => {
     e.preventDefault();
     if (email && password && passwordConfirmation) {
       const patientData = {
-        user: {
+        patient: {
             email: email,
             password: password,
             password_confirmation: passwordConfirmation
