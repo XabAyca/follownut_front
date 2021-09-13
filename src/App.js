@@ -1,8 +1,22 @@
-import About from 'pages/About';
+// CONFIG IMPORTS
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+// PAGES IMPORTS
+import Home from 'pages/Home';
+import NotFound from 'pages/NotFound';
+import About from 'pages/About';
+import LoginNutritionist from 'pages/LoginNutritionist';
+import LoginPatient from 'pages/LoginPatient';
+import SignupNutritionist from 'pages/SignupNutritionist';
+import SignupPatient from 'pages/SignupPatient';
+
+// COMPONENTS IMPORTS
+import Navigation from 'components/Navigation';
+
+
+
+
 
 
 const App = () => {
@@ -58,11 +72,20 @@ const App = () => {
   /////////////////// Web app /////////////////////////////////////////////////////////////
 
   return (
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/about" exact component={About} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <BrowserRouter>
+        <Navigation />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={About} />
+          <Route path="/signup-patient" exact component={SignupPatient} />
+          <Route path="/login-patient" exact component={LoginPatient} />
+          <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
+          <Route path="/login-nutritionist" exact component={LoginNutritionist} />
+          <Route component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 };
 
