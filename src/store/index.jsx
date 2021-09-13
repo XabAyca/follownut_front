@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunkMiddleware from 'redux-thunk';
 import { patientReducer } from "store/reducers/patientReducer";
-import { nutritionistReducer } from "./reducers/nutritionistsReducer";
+import { nutritionistReducer } from "store/reducers/nutritionistReducer";
 
 const rootReducers = combineReducers({
   patient: patientReducer,
