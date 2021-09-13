@@ -152,6 +152,7 @@ export const patientRegisterFetch = (patientData) => {
       })
       .then((response ) => {
         if (response.errors || response.error) {
+          console.log(response.errors);
           dispatch(fetchPatientRegisterFailure(response.errors));
         } else {
           Cookies.set("patient_token_cookie", token);
@@ -245,3 +246,5 @@ export const patientsFetch = () => {
       });
   };
 };
+
+
