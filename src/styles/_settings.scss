@@ -8,6 +8,7 @@ $primary-font: "Hind";
 $primary-color: #002bba;
 $transparency-primary-color: rgba(0, 43, 186, 0.7);
 $secondary-color: #e1eaf7;
+$transparency-secondary-color: rgba(225, 234, 247, 0.9);
 $third-color:#D7C9AA;
 $background-color:transparent;
 $success:#3BB273;
@@ -63,6 +64,13 @@ $phone-viewport:800px;
   outline: none;
   border: none;
   text-decoration: none;
+
+  a {
+    color: #FFF;
+  }
+  a:hover {
+     color: $secondary-color;
+  }
 }
 
 html,body{
@@ -77,10 +85,39 @@ html,body{
 }
 
 
-// Boxes styling //
+// Boxes //
 
 .form-container {
   background: $transparency-primary-color;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 3rem 3rem;
+}
+
+
+// Forms //
+
+.form-input-display {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+// Buttons //
+
+.primary-button {
+  background-color: $primary-color;
+}
+
+.secondary-button {
+  background-color: $secondary-color;
 }
