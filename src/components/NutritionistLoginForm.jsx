@@ -1,33 +1,33 @@
 import React from 'react';
-import { patientLoginFetch } from 'services/apiManager';
+import { nutritionistLoginFetch } from 'services/apiManager';
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const PatientLoginForm = () => {
+const NutritionistLoginForm = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
 
-  const handlePatientLogin = async (e) => {
+  const handleNutritionistLogin = async (e) => {
     e.preventDefault();
     if (email && password) {
-      const patientData = {
+      const nutritionistData = {
         user: {
             email: email,
             password: password
         }
       }
-      await dispatch(patientLoginFetch(patientData))
+      await dispatch(nutritionistLoginFetch(nutritionistData))
     }
 };
 
   return (
-    <div className="patient-signup-form d-flex justify-content-center">
+    <div className="nutritionist-signup-form d-flex justify-content-center">
       <div className="form-container">
-        <form onSubmit={ (e) => handlePatientLogin(e) }>
+        <form onSubmit={ (e) => handleNutritionistLogin(e) }>
           <label htmlFor="email" className="text-white">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
@@ -45,4 +45,4 @@ const PatientLoginForm = () => {
   );
 };
 
-export default PatientLoginForm;
+export default NutritionistLoginForm;
