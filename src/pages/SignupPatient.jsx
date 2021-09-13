@@ -1,3 +1,6 @@
+
+
+import PatientSignupForm from 'components/PatientSignupForm';
 import React from 'react';
 
 const SignupPatient = () => {
@@ -5,7 +8,8 @@ const SignupPatient = () => {
     <div className="signup-patient">
       <div className="default-background d-flex align-items-center py-5">
         <div className="d-flex justify-content-center col-12 my-5">
-          {/* <PatientSignupForm /> */}
+          <PatientSignupForm />
+          <button className="btn primary-btn">dd</button>
         </div>
       </div>
     </div>
