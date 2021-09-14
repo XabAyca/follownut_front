@@ -22,6 +22,7 @@ const PatientForgottenForm = () => {
   return (
     <div className="patient-forgotten-form d-flex justify-content-center">
       <div className="form-container">
+      <p className="text-white">Cher patient, renseignez votre email pour recevoir un lien et réinitialiser votre mot de passe.</p>
         <form onSubmit={ (e) => handlePatientForgottenForm(e) }>
           <label htmlFor="email" className="text-white">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
