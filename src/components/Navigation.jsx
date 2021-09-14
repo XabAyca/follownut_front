@@ -55,18 +55,18 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
           <>
             <DropdownButton title="S'inscrire">
               <Dropdown.Item>
-                <NavLink exact to="/signup-patient" activeClassName="nav-active">Inscription Patient</NavLink>
+                <NavLink exact to="/signup-patient" activeClassName="nav-active">Patient</NavLink>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Inscription Nutritionist</NavLink>          
+                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Nutritionist</NavLink>          
               </Dropdown.Item>
             </DropdownButton>
             <DropdownButton title="Se connecter">
               <Dropdown.Item>
-                <NavLink exact to="/login-patient" activeClassName="nav-active">Connexion Patient</NavLink>
+                <NavLink exact to="/login-patient" activeClassName="nav-active">Patient</NavLink>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Connexion Nutritionist</NavLink>
+                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Nutritionist</NavLink>
               </Dropdown.Item>
             </DropdownButton>
           </>
