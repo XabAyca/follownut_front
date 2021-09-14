@@ -1,3 +1,4 @@
+import CalendlyBtn from 'components/CalendlyBtn';
 import React from 'react';
 
 const Home = () => {
