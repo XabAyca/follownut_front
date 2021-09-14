@@ -14,13 +14,16 @@ import LoginNutritionist from 'pages/LoginNutritionist';
 import LoginPatient from 'pages/LoginPatient';
 import SignupNutritionist from 'pages/SignupNutritionist';
 import SignupPatient from 'pages/SignupPatient';
-
-// COMPONENTS IMPORTS
-import Navigation from 'components/Navigation';
 import NutritionistProfile from 'pages/NutritionistProfile';
 import PatientProfile from 'pages/PatientProfile';
 import DashboardPatient from 'pages/DashboardPatient';
 import DashboardNutritionist from 'pages/DashboardNutritionist';
+import ResetPasswordPatient from 'pages/ResetPasswordPatient';
+import ResetPassworNutritionist from 'pages/ResetPassworNutritionist';
+
+// COMPONENTS IMPORTS
+import Navigation from 'components/Navigation';
+
 
 
 const App = () => {
@@ -162,6 +165,8 @@ const App = () => {
           </Route>
           
           <Route component={NotFound} />
+          <Route path="/password-reset-nutritionist/:slug" component={ResetPassworNutritionist} />
+          <Route path="/password-reset-patient/:slug" component={ResetPasswordPatient} />
         </Switch>
       </BrowserRouter>
     </>
