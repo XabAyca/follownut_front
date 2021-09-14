@@ -1,0 +1,9 @@
+
+.calendly-badge-widget .calendly-badge-content{
+  transition: all .5s;
+  text-transform: uppercase;
+  &:hover{
+    background-color: #F5D01F !important;
+    transform: scale(1.05);
+  }   
+}
