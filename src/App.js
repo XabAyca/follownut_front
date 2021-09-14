@@ -138,7 +138,9 @@ const App = () => {
           <Route path="/login-patient" exact component={LoginPatient} />
           <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
           <Route path="/login-nutritionist" exact component={LoginNutritionist} />
-          <Route path="/dashboard" exact component={ProfilePatient} />
+          <Route path="/patient/dashboard" exact component={DashboardPatient} />
+          <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
+          <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
 
           <Route path="/patient-profile">
             { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }
