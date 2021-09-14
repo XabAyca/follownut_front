@@ -1,17 +1,11 @@
 .navigation {
-  margin: 0;
   display: flex;
   background-color: $secondary-color;
   width: 100%;
   z-index: 10;
-  padding: 10px;
   align-items: center;
-  @include phone {
-    display: none;
-  }
 
   a {
-    margin: 10px;
     padding: 10px;
     position: relative;
     color: $primary-color;
@@ -32,7 +26,21 @@
   }
 
   .logo{
-    height: 75px;
+    height: 65px;
+  }
+
+  .connection {
+    margin: 0;
+    display: flex;
+    background-color: $secondary-color;
+    z-index: 10;
+    padding: 10px;
+    align-items: center;
+
+    .dropdown-toggle {
+      background-color: $primary-color;
+      margin: 8%;
+    }
   }
 
 }

@@ -1,6 +1,10 @@
 // CONFIG IMPORTS
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
+import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
+import Cookies from 'js-cookie';
 
 // PAGES IMPORTS
 import Home from 'pages/Home';
@@ -14,10 +18,10 @@ import ProfilePatient from 'pages/DashBoard';
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
-
-
-
-
+import NutritionistProfile from 'pages/NutritionistProfile';
+import PatientProfile from 'pages/PatientProfile';
+import DashboardPatient from 'pages/DashboardPatient';
+import DashboardNutritionist from 'pages/DashboardNutritionist';
 
 
 const App = () => {
@@ -72,10 +76,61 @@ const App = () => {
     });
   /////////////////// Web app /////////////////////////////////////////////////////////////
 
+
+  const loginPatient = useSelector((state) => state.patient.login);
+  const registerPatient = useSelector((state) => state.patient.register);
+  const loginNutritionist = useSelector((state) => state.nutritionists.login);
+  const registerNutritionist = useSelector((state) => state.nutritionists.register);
+  const [loading, setLoading] = useState(false);
+
+  
+  
+    useEffect(() => {
+      checkPatientAuth().then(res => {
+        setLoading(true);
+      });
+      checkNutritionistAuth().then(res => {
+        setLoading(true);
+      });
+    }, []);
+  
+  
+    const checkPatientAuth = async() => {
+      return await (loginPatientWithCookie());
+    }
+
+    const checkNutritionistAuth = async() => {
+      return await (loginNutritionistWithCookie());
+    }
+  
+
+    // const isAuth = () => {
+    //   return (
+    //     registerPatient === '' &&
+    //     loginPatient === '' &&
+    //     registerNutritionist === '' &&
+    //     loginNutritionist === '' &&
+    //       Cookies.get('token_cookie') === undefined ? false : true)
+    // };
+
+    const isPatientAuth = () => {
+      return (
+        registerPatient === '' &&
+        loginPatient === '' &&
+          Cookies.get('patient_token_cookie') === undefined ? false : true)
+    };
+
+    const isNutritionistAuth = () => {
+      return (
+        registerNutritionist === '' &&
+        loginNutritionist === '' &&
+          Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
+    };
+
   return (
     <>
       <BrowserRouter>
-        <Navigation />
+        <Navigation patientAuth={isPatientAuth()} nutritionistAuth={isNutritionistAuth()}/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
@@ -84,6 +139,36 @@ const App = () => {
           <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
           <Route path="/login-nutritionist" exact component={LoginNutritionist} />
           <Route path="/dashboard" exact component={ProfilePatient} />
+
+          <Route path="/patient-profile">
+            { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }
+          </Route>
+          <Route path="/nutritionist-profile">
+            { isNutritionistAuth() ? <NutritionistProfile /> : <Redirect to="/" /> }
+          </Route>
+
+          <Route path="/patient-dashboard">
+            { isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" /> }
+          </Route>
+          <Route path="/nutritionist-dashboard">
+            { isNutritionistAuth() ? <DashboardNutritionist /> : <Redirect to="/" /> }
+          </Route>
+
+
+          <Route path="/signup-patient">
+            { isPatientAuth() ? <Redirect to="/" /> : <SignupPatient /> }
+          </Route>
+          <Route path="/login-patient">
+            { isPatientAuth() ? <Redirect to="/" /> : <LoginPatient /> }
+          </Route>
+
+          <Route path="/signup-nutritionist">
+            { isNutritionistAuth() ? <Redirect to="/" /> : <SignupNutritionist /> }
+          </Route>
+          <Route path="/login-nutritionist">
+            { isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist /> }
+          </Route>
+          
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
@@ -92,6 +177,3 @@ const App = () => {
 };
 
 export default App;
-
-// to install bootstrap
-// npm install react-bootstrap bootstrap
