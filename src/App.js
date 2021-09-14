@@ -6,6 +6,9 @@ import { useSelector } from "react-redux";
 import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
 import Cookies from 'js-cookie';
 
+// COMPONENTS IMPORTS
+import Navigation from 'components/Navigation';
+
 // PAGES IMPORTS
 import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
@@ -14,13 +17,15 @@ import LoginNutritionist from 'pages/LoginNutritionist';
 import LoginPatient from 'pages/LoginPatient';
 import SignupNutritionist from 'pages/SignupNutritionist';
 import SignupPatient from 'pages/SignupPatient';
-
-// COMPONENTS IMPORTS
-import Navigation from 'components/Navigation';
 import NutritionistProfile from 'pages/NutritionistProfile';
 import PatientProfile from 'pages/PatientProfile';
 import DashboardPatient from 'pages/DashboardPatient';
 import DashboardNutritionist from 'pages/DashboardNutritionist';
+import ResetPasswordPatient from 'pages/ResetPasswordPatient';
+import ResetPasswordNutritionist from 'pages/ResetPasswordNutritionist';
+import ForgottenPasswordNutritionist from 'pages/ForgottenPasswordNutritionist';
+import ForgottenPasswordPatient from 'pages/ForgottenPasswordPatient';
+
 
 
 const App = () => {
@@ -131,6 +136,8 @@ const App = () => {
           <Route path="/login-patient" exact component={LoginPatient} />
           <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
           <Route path="/login-nutritionist" exact component={LoginNutritionist} />
+          <Route path="/nutritionist/forgotten-password" exact component={ForgottenPasswordNutritionist} />
+          <Route path="/patient/forgotten-password" exact component={ForgottenPasswordPatient} />
           <Route path="/patient/dashboard" exact component={DashboardPatient} />
           <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
           <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
@@ -176,6 +183,8 @@ const App = () => {
           </Route>
 
           <Route component={NotFound} />
+          <Route path="/password-reset-nutritionist/:slug" component={ResetPasswordNutritionist} />
+          <Route path="/password-reset-patient/:slug" component={ResetPasswordPatient} />
         </Switch>
       </BrowserRouter>
     </>
