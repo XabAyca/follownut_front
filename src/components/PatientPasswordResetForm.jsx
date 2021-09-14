@@ -1,17 +1,17 @@
-import React from 'react';
+import { useState } from 'react';
 
-const PatientForgottenForm = () => {
-  
+const PatientPasswordResetForm = () => {
+
   const [email, setEmail] = useState('');
 
-  const handlePatientForgottenForm = async (e) => {
+  const handleNutritionistLogin = async (e) => {
     e.preventDefault();
     }
-  
+
   return (
-    <div className="patient-forgotten-form d-flex justify-content-center">
+    <div className="patient-reset-password-form d-flex justify-content-center">
       <div className="form-container">
-        <form onSubmit={ (e) => handlePatientForgottenForm(e) }>
+        <form onSubmit={ (e) => handleNutritionistLogin(e) }>
           <label htmlFor="email" className="text-white">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
@@ -22,4 +22,4 @@ const PatientForgottenForm = () => {
   );
 };
 
-export default PatientForgottenForm;
+export default PatientPasswordResetForm;

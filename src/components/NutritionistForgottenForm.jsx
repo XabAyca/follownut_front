@@ -4,14 +4,14 @@ const NutritionistForgottenForm = () => {
   
   const [email, setEmail] = useState('');
 
-  const handleNutritionistLogin = async (e) => {
+  const handleNutritionistForgottenPassword = async (e) => {
     e.preventDefault();
     }
   
   return (
     <div className="nutritionist-forgotten-form d-flex justify-content-center">
       <div className="form-container">
-        <form onSubmit={ (e) => handleNutritionistLogin(e) }>
+        <form onSubmit={ (e) => handleNutritionistForgottenPassword(e) }>
           <label htmlFor="email" className="text-white">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
