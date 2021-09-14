@@ -11,6 +11,7 @@ $secondary-color: #e1eaf7;
 $transparency-secondary-color: rgba(225, 234, 247, 0.9);
 $third-color:#D7C9AA;
 $background-color:transparent;
+$background-color-blue:#91b2e2;
 $success:#3BB273;
 $danger:#E15554;
 $warning:#E1BC29;
@@ -114,11 +115,29 @@ html,body{
 }
 
 // Buttons //
-
 .primary-button {
   background-color: $primary-color;
+  text-decoration: none;
 }
 
 .secondary-button {
   background-color: $secondary-color;
+}
+
+
+
+// TEXT //
+.text-secondary-color {
+  color: $secondary-color;
+}
+
+.text-justify {
+  text-align: justify;
+  line-height: 1.4em;
+}
+
+
+// BACKGROUND //
+.bg-blue {
+  background-color: $background-color-blue;
 }
