@@ -1,16 +1,28 @@
-import React from 'react';
+import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { patientPasswordResetFetch } from 'services/apiManager';
 
 const PatientForgottenForm = () => {
   
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
 
-  const handlePatientLogin = async (e) => {
+  const handlePatientForgottenForm = async (e) => {
     e.preventDefault();
+    if (email) {
+      const patientResetEmail = {
+        email: email,
+      }
+      await dispatch(patientPasswordResetFetch(patientResetEmail))
+    } else {
+      alert("Veuillez renseigner un email")
     }
+  };
   
   return (
     <div className="patient-forgotten-form d-flex justify-content-center">
       <div className="form-container">
+      <p className="text-white">Cher patient, renseignez votre email pour recevoir un lien et réinitialiser votre mot de passe.</p>
         <form onSubmit={ (e) => handlePatientForgottenForm(e) }>
           <label htmlFor="email" className="text-white">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 
-function GraphWeight () {
+function GraphicWeight () {
   const data = {
     labels: [
       'Jan',
@@ -18,20 +18,12 @@ function GraphWeight () {
     ],
     datasets: [
       {
-        label: 'Your Weight 2020',
+        label: "Graphic",
         data: [3, 2, 2, 1, 5, 8, 5, 2, 6, 8, 7],
         borderColor: ['rgba(255, 206, 86, 1)'],
         backgroundColor: ['rgba(255, 206, 86, 1)'],
         pointBackgroundColor: 'rgba(255, 206, 86, 1)',
         pointBorderColor: 'rgba(255, 206, 86, '
-      },
-      {
-        label: 'Your Weight 2019',
-        data: [2, 3, 2, 2, 3, 5, 4, 8, 2, 4, 5],
-        borderColor: ['rgba(54, 162, 235, 1)'],
-        backgroundColor: ['rgba(54, 162, 235, 1)'],
-        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
-        pointBorderColor: 'rgba(54, 162, 235, 1)'
       }
     ]
   }
@@ -57,4 +49,4 @@ function GraphWeight () {
   return <Line data={data} options={options} />
 }
 
-export default GraphWeight
+export default GraphicWeight
