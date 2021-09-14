@@ -130,45 +130,67 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navigation patientAuth={isPatientAuth()} nutritionistAuth={isNutritionistAuth()}/>
+        <Navigation
+          patientAuth={isPatientAuth()}
+          nutritionistAuth={isNutritionistAuth()}
+        />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
           <Route path="/signup-patient" exact component={SignupPatient} />
           <Route path="/login-patient" exact component={LoginPatient} />
-          <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
-          <Route path="/login-nutritionist" exact component={LoginNutritionist} />
+          <Route
+            path="/signup-nutritionist"
+            exact
+            component={SignupNutritionist}
+          />
+          <Route
+            path="/login-nutritionist"
+            exact
+            component={LoginNutritionist}
+          />
           <Route path="/dashboard" exact component={ProfilePatient} />
 
           <Route path="/patient-profile">
-            { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }
+            {isPatientAuth() ? <PatientProfile /> : <Redirect to="/" />}
           </Route>
           <Route path="/nutritionist-profile">
-            { isNutritionistAuth() ? <NutritionistProfile /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <NutritionistProfile />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
 
           <Route path="/patient-dashboard">
-            { isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" /> }
+            {isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" />}
           </Route>
           <Route path="/nutritionist-dashboard">
-            { isNutritionistAuth() ? <DashboardNutritionist /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <DashboardNutritionist />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
-
 
           <Route path="/signup-patient">
-            { isPatientAuth() ? <Redirect to="/" /> : <SignupPatient /> }
+            {isPatientAuth() ? <Redirect to="/" /> : <SignupPatient />}
           </Route>
           <Route path="/login-patient">
-            { isPatientAuth() ? <Redirect to="/" /> : <LoginPatient /> }
+            {isPatientAuth() ? <Redirect to="/" /> : <LoginPatient />}
           </Route>
 
           <Route path="/signup-nutritionist">
-            { isNutritionistAuth() ? <Redirect to="/" /> : <SignupNutritionist /> }
+            {isNutritionistAuth() ? (
+              <Redirect to="/" />
+            ) : (
+              <SignupNutritionist />
+            )}
           </Route>
           <Route path="/login-nutritionist">
-            { isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist /> }
+            {isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist />}
           </Route>
-          
+
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
