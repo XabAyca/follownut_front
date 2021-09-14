@@ -132,7 +132,7 @@ export const nutritionistPasswordResetFetch = (nutritionistResetEmail) => {
 
   return (dispatch) => {
     // let token
-    dispatch(fetchNutritionistRegisterRequest());
+    // dispatch(fetchNutritionistRegisterRequest());
     fetch(baseUrl + "/api/nutritionist/password/forgot", {
       method: "post",
       headers: {
@@ -283,7 +283,7 @@ export const patientPasswordResetFetch = (patientResetEmail) => {
 
   return (dispatch) => {
     // let token
-    dispatch(fetchNutritionistRegisterRequest());
+    // dispatch(fetchNutritionistRegisterRequest());
     fetch(baseUrl + "/api/patient/password/forgot", {
       method: "post",
       headers: {
