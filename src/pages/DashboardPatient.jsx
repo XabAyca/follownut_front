@@ -1,38 +1,41 @@
 import GraphWeight from "components/GraphWeight";
 import CalculateBMI from "components/CalculateBMI";
+import LeftMenu from "components/LeftMenu";
 
 const DashboardPatient = () => {
   return (
     <>
-    <div className="container-fluid border d-flex">
-      <div className="row boxsizing-width-mini-menu">
-        <div className="small-menu-left">
-          <div className="ico-user"></div>
-          <div className="ico-heart"></div>
-          <div className="ico-exclamation"></div>
-        </div>
-      </div>
-      <div className=" menu-profile-patient border w-100">
-          <ul className="list-menu-patient">
-            <li>Dashboard</li>
-            <li>My Appointments</li>
-          </ul>
+    <div className="container-fluid d-flex">
+      <LeftMenu/>
 
-          <div className="container-fluid border">
-            <div className="row">
-              <div className="col-6 resizing-box-line-graphic">
-                <div className="border line-graphic" >
-                  <GraphWeight/>
-                </div>
-              </div>
-              <div className="border w-50">
-                <CalculateBMI/>
-              </div>
-            </div>
-            <div className="border">
-              teste
-            </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <h6 className="mt-5">
+              Current Weight: 82Kg
+            </h6>
+            <h6 className="">
+              Current Body Fat: 82Kg
+            </h6>
           </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <h3>Weight</h3>
+            <GraphWeight/>
+          </div>
+          <div className="col">
+            <h3>Body Fat</h3>
+            <GraphWeight/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <h3>Muscle Mass</h3>
+            <GraphWeight/>
+          </div>
+        </div>
+        
       </div>
     </div>
     </>
