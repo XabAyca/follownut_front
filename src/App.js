@@ -87,43 +87,46 @@ const App = () => {
 
   
   
-    useEffect(() => {
-      checkPatientAuth().then(res => {
-        setLoading(true);
-      });
-      checkNutritionistAuth().then(res => {
-        setLoading(true);
-      });
-    }, []);
+  useEffect(() => {
+    checkPatientAuth().then(res => {
+      setLoading(true);
+    });
+    checkNutritionistAuth().then(res => {
+      setLoading(true);
+    });
+  }, []);
   
   
-    const checkPatientAuth = async() => {
-      return await (loginPatientWithCookie());
-    }
+  const checkPatientAuth = async () => {
+    return await (loginPatientWithCookie());
+  }
 
-    const checkNutritionistAuth = async() => {
-      return await (loginNutritionistWithCookie());
-    }
+  const checkNutritionistAuth = async () => {
+    return await (loginNutritionistWithCookie());
+  }
   
 
-    const isPatientAuth = () => {
-      return (
-        registerPatient === '' &&
+  const isPatientAuth = () => {
+    return (
+      registerPatient === '' &&
         loginPatient === '' &&
-          Cookies.get('patient_token_cookie') === undefined ? false : true)
-    };
+        Cookies.get('patient_token_cookie') === undefined ? false : true)
+  };
 
-    const isNutritionistAuth = () => {
-      return (
-        registerNutritionist === '' &&
+  const isNutritionistAuth = () => {
+    return (
+      registerNutritionist === '' &&
         loginNutritionist === '' &&
-          Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
-    };
+        Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
+  };
 
   return (
     <>
       <BrowserRouter>
-        <Navigation patientAuth={isPatientAuth()} nutritionistAuth={isNutritionistAuth()}/>
+        <Navigation
+          patientAuth={isPatientAuth()}
+          nutritionistAuth={isNutritionistAuth()}
+        />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
@@ -136,34 +139,45 @@ const App = () => {
           <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
 
           <Route path="/patient-profile">
-            { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }
+            {isPatientAuth() ? <PatientProfile /> : <Redirect to="/" />}
           </Route>
           <Route path="/nutritionist-profile">
-            { isNutritionistAuth() ? <NutritionistProfile /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <NutritionistProfile />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
 
           <Route path="/patient-dashboard">
-            { isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" /> }
+            {isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" />}
           </Route>
           <Route path="/nutritionist-dashboard">
-            { isNutritionistAuth() ? <DashboardNutritionist /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <DashboardNutritionist />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
-
 
           <Route path="/signup-patient">
-            { isPatientAuth() ? <Redirect to="/" /> : <SignupPatient /> }
+            {isPatientAuth() ? <Redirect to="/" /> : <SignupPatient />}
           </Route>
           <Route path="/login-patient">
-            { isPatientAuth() ? <Redirect to="/" /> : <LoginPatient /> }
+            {isPatientAuth() ? <Redirect to="/" /> : <LoginPatient />}
           </Route>
 
           <Route path="/signup-nutritionist">
-            { isNutritionistAuth() ? <Redirect to="/" /> : <SignupNutritionist /> }
+            {isNutritionistAuth() ? (
+              <Redirect to="/" />
+            ) : (
+              <SignupNutritionist />
+            )}
           </Route>
           <Route path="/login-nutritionist">
-            { isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist /> }
+            {isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist />}
           </Route>
-          
+
           <Route component={NotFound} />
           <Route path="/password-reset-nutritionist/:slug" component={ResetPassworNutritionist} />
           <Route path="/password-reset-patient/:slug" component={ResetPasswordPatient} />

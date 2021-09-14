@@ -1,12 +1,12 @@
 .boxsizing-width-mini-menu{
   width: 10%;
-  height: 73rem;
+  height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   .small-menu-left{
     background-color: $transparency-primary-color;
     width: 50%;
-    height: 70%;
+    height: 30%;
     border-radius: 0px 20px 20px 0px;
     display: flex;
     flex-direction: column;
@@ -54,31 +54,5 @@
     width: 100%;
     z-index: 10;
     transition: all 0.5s ease-in-out ;
-  }
-}
-
-.menu-profile-patient {
-
-  .list-menu-patient{
-    display: flex;
-    justify-content: space-around;
-    color: $primary-color;
-    margin-top: 30px;
-  }
-  .list-menu-patient li{
-    font-size: 25px;
-  }
-  .list-menu-patient li:hover{
-    border-bottom: 2px solid $transparency-primary-color;
-    cursor: pointer;
-  }
-
-  .resizing-box-line-graphic{
-    display: flex;
-    justify-content: center;
-    .line-graphic{
-      width: 40%;
-    }
-
   }
 }
