@@ -19,7 +19,7 @@ import PatientProfile from 'pages/PatientProfile';
 import DashboardPatient from 'pages/DashboardPatient';
 import DashboardNutritionist from 'pages/DashboardNutritionist';
 import ResetPasswordPatient from 'pages/ResetPasswordPatient';
-import ResetPassworNutritionist from 'pages/ResetPassworNutritionist';
+import ResetPasswordNutritionist from 'pages/ResetPasswordNutritionist';
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
@@ -179,7 +179,7 @@ const App = () => {
           </Route>
 
           <Route component={NotFound} />
-          <Route path="/password-reset-nutritionist/:slug" component={ResetPassworNutritionist} />
+          <Route path="/password-reset-nutritionist/:slug" component={ResetPasswordNutritionist} />
           <Route path="/password-reset-patient/:slug" component={ResetPasswordPatient} />
         </Switch>
       </BrowserRouter>
