@@ -6,6 +6,9 @@ import { useSelector } from "react-redux";
 import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
 import Cookies from 'js-cookie';
 
+// COMPONENTS IMPORTS
+import Navigation from 'components/Navigation';
+
 // PAGES IMPORTS
 import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
@@ -20,9 +23,8 @@ import DashboardPatient from 'pages/DashboardPatient';
 import DashboardNutritionist from 'pages/DashboardNutritionist';
 import ResetPasswordPatient from 'pages/ResetPasswordPatient';
 import ResetPasswordNutritionist from 'pages/ResetPasswordNutritionist';
-
-// COMPONENTS IMPORTS
-import Navigation from 'components/Navigation';
+import ForgottenPasswordNutritionist from 'pages/ForgottenPasswordNutritionist';
+import ForgottenPasswordPatient from 'pages/ForgottenPasswordPatient';
 
 
 
@@ -134,6 +136,8 @@ const App = () => {
           <Route path="/login-patient" exact component={LoginPatient} />
           <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
           <Route path="/login-nutritionist" exact component={LoginNutritionist} />
+          <Route path="/nutritionist/forgotten-password" exact component={ForgottenPasswordNutritionist} />
+          <Route path="/patient/forgotten-password" exact component={ForgottenPasswordPatient} />
           <Route path="/patient/dashboard" exact component={DashboardPatient} />
           <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
           <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
