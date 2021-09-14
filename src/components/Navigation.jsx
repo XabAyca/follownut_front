@@ -9,7 +9,7 @@ import Cookies from 'js-cookie';
 // ASSETS IMPORTS
 import logo from 'assets/images/logo.png'
 
-const Navigation = ({auth}) => {
+const Navigation = ({patientAuth, nutritionistAuth}) => {
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
@@ -29,14 +29,27 @@ const Navigation = ({auth}) => {
         <div>
           <NavLink exact to="/" activeClassName="nav-active" className="links">Accueil</NavLink>
           <NavLink exact to="/about" activeClassName="nav-active">À propos</NavLink>
-          <NavLink exact to="/patient-profile" activeClassName="nav-active">Profil patient</NavLink>
-          <NavLink exact to="/nutritionist-profile" activeClassName="nav-active">Profil nutritioniste</NavLink>
-          <NavLink exact to="/patient-dashboard" activeClassName="nav-active">Tableau de bord patient</NavLink>
-          <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">Tableau de bord nutritioniste</NavLink>
+
+
+          {patientAuth && (
+            <>
+              <NavLink exact to="/patient-profile" activeClassName="nav-active">Profil patient</NavLink>
+              <NavLink exact to="/patient-dashboard" activeClassName="nav-active">Tableau de bord patient</NavLink>
+            </>
+          )}
+
+
+          {nutritionistAuth && (
+            <>
+              <NavLink exact to="/nutritionist-profile" activeClassName="nav-active">Profil nutritioniste</NavLink>
+              <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">Tableau de bord nutritioniste</NavLink>
+            </>
+          )}
         </div>
       </div>
+
       <div className="connection d-flex justify-content-between">
-        {!auth && (
+        {!patientAuth && !nutritionistAuth && (
           <>
             <DropdownButton title="S'inscrire">
               <Dropdown.Item>
@@ -56,10 +69,12 @@ const Navigation = ({auth}) => {
             </DropdownButton>
           </>
         )}
-        {auth && (
+
+        {(patientAuth || nutritionistAuth) && (
           <button onClick={() => handleLogOut()} className="btn btn-danger mx-2">Log Out</button>
          )}
       </div>
+
     </div>
   );
 };
