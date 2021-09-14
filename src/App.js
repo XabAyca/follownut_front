@@ -14,7 +14,6 @@ import LoginNutritionist from 'pages/LoginNutritionist';
 import LoginPatient from 'pages/LoginPatient';
 import SignupNutritionist from 'pages/SignupNutritionist';
 import SignupPatient from 'pages/SignupPatient';
-import ProfilePatient from 'pages/DashBoard';
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
