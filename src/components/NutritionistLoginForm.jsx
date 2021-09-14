@@ -1,8 +1,8 @@
 import React from 'react';
-import { nutritionistLoginFetch } from 'services/apiManager';
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { nutritionistLoginFetch } from 'services/apiManager';
 
 const NutritionistLoginForm = () => {
 

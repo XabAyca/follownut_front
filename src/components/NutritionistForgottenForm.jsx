@@ -1,12 +1,23 @@
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { nutritionistPasswordResetFetch } from 'services/apiManager';
 
 const NutritionistForgottenForm = () => {
   
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
 
   const handleNutritionistForgottenPassword = async (e) => {
     e.preventDefault();
+    if (email) {
+      const nutritionistResetEmail = {
+        email: email,
+      }
+      await dispatch(nutritionistPasswordResetFetch(nutritionistResetEmail))
+    } else {
+      alert("Veuillez renseigner un email")
     }
+  };
   
   return (
     <div className="nutritionist-forgotten-form d-flex justify-content-center">

@@ -22,7 +22,7 @@ const PatientLoginForm = () => {
       }
       await dispatch(patientLoginFetch(patientData))
     }
-};
+  };
 
   return (
     <div className="patient-signup-form d-flex justify-content-center">
