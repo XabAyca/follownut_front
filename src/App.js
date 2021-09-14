@@ -14,7 +14,6 @@ import LoginNutritionist from 'pages/LoginNutritionist';
 import LoginPatient from 'pages/LoginPatient';
 import SignupNutritionist from 'pages/SignupNutritionist';
 import SignupPatient from 'pages/SignupPatient';
-import ProfilePatient from 'pages/DashBoard';
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
@@ -104,15 +103,6 @@ const App = () => {
     }
   
 
-    // const isAuth = () => {
-    //   return (
-    //     registerPatient === '' &&
-    //     loginPatient === '' &&
-    //     registerNutritionist === '' &&
-    //     loginNutritionist === '' &&
-    //       Cookies.get('token_cookie') === undefined ? false : true)
-    // };
-
     const isPatientAuth = () => {
       return (
         registerPatient === '' &&
@@ -138,7 +128,9 @@ const App = () => {
           <Route path="/login-patient" exact component={LoginPatient} />
           <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
           <Route path="/login-nutritionist" exact component={LoginNutritionist} />
-          <Route path="/dashboard" exact component={ProfilePatient} />
+          <Route path="/patient/dashboard" exact component={DashboardPatient} />
+          <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
+          <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
 
           <Route path="/patient-profile">
             { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }

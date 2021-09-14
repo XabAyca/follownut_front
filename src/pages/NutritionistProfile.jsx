@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { nutritionistsFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
+import { fetchNutritionistLoginSuccess } from 'store/actions/nutritionistActions';
+import { fetchNutritionistRegisterSuccess } from 'store/actions/nutritionistActions';
 
 const NutritionistProfile = () => {
   const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
