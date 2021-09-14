@@ -13,8 +13,10 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
-    Cookies.remove('token_cookie')
-    Cookies.remove("id_cookie");
+    Cookies.remove('patient_token_cookie');
+    Cookies.remove("patient_id_cookie");
+    Cookies.remove('nutritionist_token_cookie');
+    Cookies.remove("nutritionist_id_cookie");
     dispatch(nutritionistLogout());
     dispatch(patientLogout());
     window.location.reload();
