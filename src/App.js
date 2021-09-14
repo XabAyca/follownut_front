@@ -116,14 +116,14 @@ const App = () => {
       return (
         registerPatient === '' &&
         loginPatient === '' &&
-          Cookies.get('token_cookie') === undefined ? false : true)
+          Cookies.get('patient_token_cookie') === undefined ? false : true)
     };
 
     const isNutritionistAuth = () => {
       return (
         registerNutritionist === '' &&
         loginNutritionist === '' &&
-          Cookies.get('token_cookie') === undefined ? false : true)
+          Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
     };
 
   return (
