@@ -1,18 +1,13 @@
 import GraphWeight from "components/GraphWeight";
 import CalculateBMI from "components/CalculateBMI";
+import LeftMenu from "components/LeftMenu";
 
 const DashBoard = () => {
 
   return (
     <>
     <div className="container-fluid border d-flex">
-      <div className="row boxsizing-width-mini-menu">
-        <div className="small-menu-left">
-          <div className="ico-user"></div>
-          <div className="ico-heart"></div>
-          <div className="ico-exclamation"></div>
-        </div>
-      </div>
+      <LeftMenu/>
       <div className=" menu-profile-patient border w-100">
           <ul className="list-menu-patient">
             <li>Dashboard</li>
