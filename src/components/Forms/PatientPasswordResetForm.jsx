@@ -15,11 +15,9 @@ const PatientPasswordResetForm = () => {
     e.preventDefault();
     if (email && newPassword) {
       const newPatientData = {
-        patient: {
             email: email,
             password: newPassword,
             token: tokenSlug
-        }
       }
       await dispatch(patientResetPasswordFetch(newPatientData))
     }
@@ -35,7 +33,7 @@ const PatientPasswordResetForm = () => {
           <label htmlFor="password" className="text-white">Nouveau mot de passe*</label>
           <input type="password" className="form-input-display" placeholder="Votre nouveau mot de passe"
           value={newPassword} onChange={ (e) => setNewPassword(e.target.value) }/>
-          <input type="submit" className="btn btn-light register-btn mt-5 w-100" value="S'enregistrer" />
+          <input type="submit" className="btn btn-light register-btn mt-5 w-100" value="Valider" />
         </form>
       </div>
     </div>

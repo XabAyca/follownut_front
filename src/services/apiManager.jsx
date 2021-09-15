@@ -1,4 +1,10 @@
 import Cookies from "js-cookie";
+import { deleteAppointmentRequest } from "store/actions/appointmentActions";
+import { deleteAppointmentFailure } from "store/actions/appointmentActions";
+import { fetchAppointmentsSuccess } from "store/actions/appointmentActions";
+import { fetchAppointmentsFailure } from "store/actions/appointmentActions";
+import { deleteAppointmentSuccess } from "store/actions/appointmentActions";
+import { fetchAppointmentsRequest } from "store/actions/appointmentActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
@@ -130,7 +136,7 @@ export const nutritionistsFetch = () => {
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A NUTRITIONIST
 export const nutritionistPasswordForgottenFetch = (nutritionistResetEmail) => {
 
-  return (dispatch) => {
+  return () => {
     fetch(baseUrl + "/api/nutritionist/password/forgot", {
       method: "post",
       headers: {
@@ -138,6 +144,20 @@ export const nutritionistPasswordForgottenFetch = (nutritionistResetEmail) => {
       },
       body: JSON.stringify(nutritionistResetEmail),
       });
+  };
+};
+
+// BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A NUTRITIONIST
+export const nutritionistResetPasswordFetch = (newNutritionistData) => {
+
+  return () => {
+    fetch(baseUrl + "/api/nutritionist/password/reset", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newNutritionistData),
+    }).then((response) => console.log(response))
   };
 };
 
@@ -266,7 +286,7 @@ export const patientsFetch = () => {
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A PATIENT
 export const patientPasswordForgottenFetch = (patientResetEmail) => {
 
-  return (dispatch) => {
+  return () => {
     fetch(baseUrl + "/api/patient/password/forgot", {
       method: "post",
       headers: {
@@ -280,9 +300,7 @@ export const patientPasswordForgottenFetch = (patientResetEmail) => {
 // BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A PATIENT
 export const patientResetPasswordFetch = (newPatientData) => {
 
-  return (dispatch) => {
-    let token;
-    dispatch(fetchPatientLoginRequest());
+  return () => {
     fetch(baseUrl + "/api/patient/password/reset", {
       method: "post",
       headers: {
@@ -290,19 +308,53 @@ export const patientResetPasswordFetch = (newPatientData) => {
       },
       body: JSON.stringify(newPatientData),
     })
+  };
+};
+
+// ------------------------------------------------------------------------------------------
+// -------------------- BELOW ARE ALL THE APPOINTMENTS RELATED FUNCTIONS --------------------
+// ------------------------------------------------------------------------------------------
+
+// BELOW IS THE FUNCTION TO FETCH ALL APPOINTMENTS
+export const appointmentsFetch = () => {
+  return (dispatch) => {
+    dispatch(fetchAppointmentsRequest());
+    fetch(baseUrl + "/api/v1/appointments", {
+      method: "get",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
       .then((response) => {
-        if (response.headers.get("authorization")) {
-        token = response.headers.get("authorization").split("Bearer ")[1];
-        }
-        return response.json();
-      })
-      .then((response) => {
-        if (response.errors || response.error) {
-          dispatch(fetchPatientLoginFailure(response.errors));
+        if (response.errors) {
+          dispatch(fetchAppointmentsFailure(response.errors));
         } else {
-          Cookies.set("patient_token_cookie", token);
-          Cookies.set('patient_id_cookie',response.data.id);
-          dispatch(fetchPatientLoginSuccess(response));
+          dispatch(fetchAppointmentsSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO DELETE ONE APPOINTMENT
+export const deleteAppointmentFetch = (id) => {
+  return (dispatch) => {
+    const token = Cookies.get("nutritionist_token_cookie");
+    dispatch(deleteAppointmentRequest());
+    fetch(baseUrl + `/api/v1/appointments/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(deleteAppointmentFailure(response.errors));
+        } else {
+          dispatch(deleteAppointmentSuccess(response));
+          console.log(response);
         }
       });
   };
