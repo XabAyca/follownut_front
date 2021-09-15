@@ -131,7 +131,6 @@ export const nutritionistsFetch = () => {
 export const nutritionistPasswordForgottenFetch = (nutritionistResetEmail) => {
 
   return () => {
-    console.log("123")
     fetch(baseUrl + "/api/nutritionist/password/forgot", {
       method: "post",
       headers: {
@@ -281,7 +280,7 @@ export const patientsFetch = () => {
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A PATIENT
 export const patientPasswordForgottenFetch = (patientResetEmail) => {
 
-  return (dispatch) => {
+  return () => {
     fetch(baseUrl + "/api/patient/password/forgot", {
       method: "post",
       headers: {
@@ -295,10 +294,7 @@ export const patientPasswordForgottenFetch = (patientResetEmail) => {
 // BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A PATIENT
 export const patientResetPasswordFetch = (newPatientData) => {
 
-  return (dispatch) => {
-    let token;
-    console.log("inside fetch function");
-    dispatch(fetchPatientLoginRequest());
+  return () => {
     fetch(baseUrl + "/api/patient/password/reset", {
       method: "post",
       headers: {
