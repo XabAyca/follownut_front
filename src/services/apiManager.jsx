@@ -277,3 +277,33 @@ export const patientPasswordForgottenFetch = (patientResetEmail) => {
   };
 };
 
+// BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A PATIENT
+export const patientResetPasswordFetch = (newPatientData) => {
+
+  return (dispatch) => {
+    let token;
+    dispatch(fetchPatientLoginRequest());
+    fetch(baseUrl + "/api/patient/password/reset", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newPatientData),
+    })
+      .then((response) => {
+        if (response.headers.get("authorization")) {
+        token = response.headers.get("authorization").split("Bearer ")[1];
+        }
+        return response.json();
+      })
+      .then((response) => {
+        if (response.errors || response.error) {
+          dispatch(fetchPatientLoginFailure(response.errors));
+        } else {
+          Cookies.set("patient_token_cookie", token);
+          Cookies.set('patient_id_cookie',response.data.id);
+          dispatch(fetchPatientLoginSuccess(response));
+        }
+      });
+  };
+};

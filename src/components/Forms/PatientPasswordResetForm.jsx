@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
+import { useParams } from 'react-router';
+import { patientResetPasswordFetch } from 'services/apiManager';
 
 const PatientPasswordResetForm = () => {
 
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const dispatch = useDispatch();
+  const { token } = useParams();
+  console.log(token)
 
   const handlePatientPasswordReset = async (e) => {
     e.preventDefault();
@@ -13,7 +17,7 @@ const PatientPasswordResetForm = () => {
       const newPatientData = {
         patient: {
             email: email,
-            password: password,
+            password: newPassword,
             token: token
         }
       }
