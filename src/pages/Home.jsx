@@ -4,6 +4,8 @@ import CalendlyBtn from 'components/CalendlyBtn';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import SignupNutritionist from 'pages/Auth/SignupNutritionist';
+
 // ASSETS IMPORTS
 import calendar from 'assets/images/online_calendar.png';
 import doctors from 'assets/images/doctors.png';
