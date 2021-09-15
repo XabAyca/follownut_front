@@ -44,7 +44,7 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
           {nutritionistAuth && (
             <>
               <NavLink exact to="/nutritionist-profile" activeClassName="nav-active">Profil</NavLink>
-              <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">tableau de bord</NavLink>
+              <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">Tableau de bord</NavLink>
             </>
           )}
         </div>

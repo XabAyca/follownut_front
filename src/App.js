@@ -13,18 +13,21 @@ import Navigation from 'components/Navigation';
 import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
 import About from 'pages/About';
-import LoginNutritionist from 'pages/LoginNutritionist';
-import LoginPatient from 'pages/LoginPatient';
-import SignupNutritionist from 'pages/SignupNutritionist';
-import SignupPatient from 'pages/SignupPatient';
+import LoginNutritionist from 'pages/Auth/LoginNutritionist';
+import LoginPatient from 'pages/Auth/LoginPatient';
+import SignupNutritionist from 'pages/Auth/SignupNutritionist';
+import SignupPatient from 'pages/Auth/SignupPatient';
 import NutritionistProfile from 'pages/NutritionistProfile';
 import PatientProfile from 'pages/PatientProfile';
 import DashboardPatient from 'pages/DashboardPatient';
 import DashboardNutritionist from 'pages/DashboardNutritionist';
-import ResetPasswordPatient from 'pages/ResetPasswordPatient';
-import ResetPasswordNutritionist from 'pages/ResetPasswordNutritionist';
-import ForgottenPasswordNutritionist from 'pages/ForgottenPasswordNutritionist';
-import ForgottenPasswordPatient from 'pages/ForgottenPasswordPatient';
+import ResetPasswordPatient from 'pages/Auth/ResetPasswordPatient';
+import ResetPasswordNutritionist from 'pages/Auth/ResetPasswordNutritionist';
+import ForgottenPasswordNutritionist from 'pages/Auth/ForgottenPasswordNutritionist';
+import ForgottenPasswordPatient from 'pages/Auth/ForgottenPasswordPatient';
+import DashboardNutritionistPatients from 'pages/DashboardNutritionistPatients';
+import DashboardNutritionistAppointments from 'pages/DashboardNutritionistAppointments';
+import PatientEditProfile from 'pages/PatientEditProfile';
 
 
 
@@ -134,16 +137,33 @@ const App = () => {
           <Route path="/about" exact component={About} />
           <Route path="/signup-patient" exact component={SignupPatient} />
           <Route path="/login-patient" exact component={LoginPatient} />
-          <Route path="/signup-nutritionist" exact component={SignupNutritionist} />
-          <Route path="/login-nutritionist" exact component={LoginNutritionist} />
-          <Route path="/nutritionist/forgotten-password" exact component={ForgottenPasswordNutritionist} />
-          <Route path="/patient/forgotten-password" exact component={ForgottenPasswordPatient} />
+          <Route
+            path="/signup-nutritionist"
+            exact
+            component={SignupNutritionist}
+          />
+          <Route
+            path="/login-nutritionist"
+            exact
+            component={LoginNutritionist}
+          />
+          <Route
+            path="/nutritionist/forgotten-password"
+            exact
+            component={ForgottenPasswordNutritionist}
+          />
+          <Route
+            path="/patient/forgotten-password"
+            exact
+            component={ForgottenPasswordPatient}
+          />
           <Route path="/patient/dashboard" exact component={DashboardPatient} />
-          <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
-          <Route path="/nutritionist/dashboard" exact component={DashboardNutritionist} />
 
           <Route path="/patient-profile">
             {isPatientAuth() ? <PatientProfile /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/patient-edit-profile">
+            {isPatientAuth() ? <PatientEditProfile /> : <Redirect to="/" />}
           </Route>
           <Route path="/nutritionist-profile">
             {isNutritionistAuth() ? (
@@ -156,9 +176,24 @@ const App = () => {
           <Route path="/patient-dashboard">
             {isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" />}
           </Route>
-          <Route path="/nutritionist-dashboard">
+
+          <Route path="/nutritionist-dashboard" exact>
             {isNutritionistAuth() ? (
               <DashboardNutritionist />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
+          <Route path="/nutritionist-dashboard/patients" exact>
+            {isNutritionistAuth() ? (
+              <DashboardNutritionistPatients />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
+          <Route path="/nutritionist-dashboard/appointments" exact>
+            {isNutritionistAuth() ? (
+              <DashboardNutritionistAppointments />
             ) : (
               <Redirect to="/" />
             )}
@@ -182,9 +217,17 @@ const App = () => {
             {isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist />}
           </Route>
 
+          <Route
+            path="/password-reset-nutritionist/:tokenSlug"
+            component={ResetPasswordNutritionist}
+          />
+          <Route
+            path="/password-reset-patient/:tokenSlug"
+            component={ResetPasswordPatient}
+          />
+
           <Route component={NotFound} />
-          <Route path="/password-reset-nutritionist/:slug" component={ResetPasswordNutritionist} />
-          <Route path="/password-reset-patient/:slug" component={ResetPasswordPatient} />
+
         </Switch>
       </BrowserRouter>
     </>

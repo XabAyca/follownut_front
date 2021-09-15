@@ -6,20 +6,18 @@
 @import './pages/about';
 @import './pages/home';
 @import './pages/notFound';
-@import './pages/signupPatient';
-@import './pages/loginPatient';
-@import './pages/signupNutritionist';
-@import './pages/loginNutritionist';
 @import './pages/nutritionistProfile';
 @import './pages/dashboardPatient';
 @import './pages/dashboardNutritionist';
+@import './pages/patientEditProfile';
 
 // Import components styles
 @import './components/navigation';
-@import './components/signupFormPatient';
-@import './components/loginFormPatient';
-@import './components/signupFormNutritionist';
-@import './components/loginFormNutritionist';
+@import './components/jumbotronAuth';
 @import './components/leftMenu';
 @import './components/graphWeight';
 @import './components/calendlyBtn';
+@import './components/sidebarNutritionist';
+@import './components/appointmentsList';
+@import './components/appointmentModal';
+@import './components/footer';
