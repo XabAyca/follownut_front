@@ -27,6 +27,7 @@ import ForgottenPasswordNutritionist from 'pages/Auth/ForgottenPasswordNutrition
 import ForgottenPasswordPatient from 'pages/Auth/ForgottenPasswordPatient';
 import DashboardNutritionistPatients from 'pages/DashboardNutritionistPatients';
 import DashboardNutritionistAppointments from 'pages/DashboardNutritionistAppointments';
+import PatientEditProfile from 'pages/PatientEditProfile';
 
 
 
@@ -143,8 +144,20 @@ const App = () => {
           <Route exact path="/signup-nutritionist">
             { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <SignupNutritionist /> }
           </Route>
+
+          <Route path="/patient-edit-profile">
+            {isPatientAuth() ? <PatientEditProfile /> : <Redirect to="/" />}
+          </Route>
+          <Route path="/nutritionist-profile">
+            {isNutritionistAuth() ? (
+              <NutritionistProfile />
+            ) : (
+              <Redirect to="/" />
+            )}
+
           <Route exact path="/login-nutritionist">
             { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <LoginNutritionist /> }
+
           </Route>
           <Route exact path="/nutritionist/forgotten-password">
             { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <ForgottenPasswordNutritionist /> }
