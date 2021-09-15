@@ -13,18 +13,18 @@ import Navigation from 'components/Navigation';
 import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
 import About from 'pages/About';
-import LoginNutritionist from 'pages/LoginNutritionist';
-import LoginPatient from 'pages/LoginPatient';
-import SignupNutritionist from 'pages/SignupNutritionist';
-import SignupPatient from 'pages/SignupPatient';
+import LoginNutritionist from 'pages/Auth/LoginNutritionist';
+import LoginPatient from 'pages/Auth/LoginPatient';
+import SignupNutritionist from 'pages/Auth/SignupNutritionist';
+import SignupPatient from 'pages/Auth/SignupPatient';
 import NutritionistProfile from 'pages/NutritionistProfile';
 import PatientProfile from 'pages/PatientProfile';
 import DashboardPatient from 'pages/DashboardPatient';
 import DashboardNutritionist from 'pages/DashboardNutritionist';
-import ResetPasswordPatient from 'pages/ResetPasswordPatient';
-import ResetPasswordNutritionist from 'pages/ResetPasswordNutritionist';
-import ForgottenPasswordNutritionist from 'pages/ForgottenPasswordNutritionist';
-import ForgottenPasswordPatient from 'pages/ForgottenPasswordPatient';
+import ResetPasswordPatient from 'pages/Auth/ResetPasswordPatient';
+import ResetPasswordNutritionist from 'pages/Auth/ResetPasswordNutritionist';
+import ForgottenPasswordNutritionist from 'pages/Auth/ForgottenPasswordNutritionist';
+import ForgottenPasswordPatient from 'pages/Auth/ForgottenPasswordPatient';
 import DashboardNutritionistPatients from 'pages/DashboardNutritionistPatients';
 import DashboardNutritionistAppointments from 'pages/DashboardNutritionistAppointments';
 
@@ -213,15 +213,17 @@ const App = () => {
             {isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist />}
           </Route>
 
-          <Route component={NotFound} />
           <Route
-            path="/password-reset-nutritionist/:slug"
+            path="/password-reset-nutritionist/:tokenSlug"
             component={ResetPasswordNutritionist}
           />
           <Route
-            path="/password-reset-patient/:slug"
+            path="/password-reset-patient/:tokenSlug"
             component={ResetPasswordPatient}
           />
+
+          <Route component={NotFound} />
+
         </Switch>
       </BrowserRouter>
     </>
