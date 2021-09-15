@@ -3,13 +3,10 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { nutritionistsFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
-
-// COMPONENTS IMPORTS
-import SidebarNutritionist from 'components/SidebarNutritionist';
-import PatientsList from 'components/PatientsList';
+import Loading from './Loading';
 
 
-const DashboardNutritionistPatients = () => {
+const PatientsList = () => {
   const [nutritionistPatients, setNutritionistPatients] = useState();
 
   const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
@@ -31,26 +28,25 @@ const DashboardNutritionistPatients = () => {
     getNutritionistPatients();
   },[]);
 
-  
-
   return (
-    <div className="dashboard-nutritionist">
-      <div className="dashboard-nutritionist-left">
-        <SidebarNutritionist />
-      </div>
-      <div className="dashboard-nutritionist-right">
-        <h1>Patients</h1>
-        {/* {
-          nutritionistPatients ? 
-          nutritionistPatients.map((patient) => {
-            return patient.first_name
-          }) :
-          <Loading color={"blue"} />
-        } */}
-        <PatientsList />
-      </div>
+    <div className="patients-list">
+      {
+        nutritionistPatients ? 
+        nutritionistPatients.map((patient) => {
+          return (
+            <div className="list-row">
+              <p key={patient.id}>
+                {patient.last_name ? patient.last_name : ""} {patient.first_name ? patient.first_name : ""} - {patient.email ? patient.email : ""} 
+              </p>
+            </div>
+          )
+        }) :
+        <Loading color={"blue"} />
+      }
+
+
     </div>
   );
 };
 
-export default DashboardNutritionistPatients;
+export default PatientsList;
