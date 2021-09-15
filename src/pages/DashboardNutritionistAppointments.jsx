@@ -1,3 +1,4 @@
+import AppointmentCreateForm from 'components/Forms/AppointmentCreateForm';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import React from 'react';
 
@@ -9,6 +10,7 @@ const DashboardNutritionistAppointments = () => {
       </div>
       <div className="dashboard-nutritionist-right">
         <h1>Create appointment</h1>
+        <AppointmentCreateForm/>
       </div>
     </div>
   );

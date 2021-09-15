@@ -35,8 +35,6 @@ const DashboardNutritionist = () => {
     modal.style.visibility = 'visible'
   }
 
-
-
   useEffect(() => {
     appointments && filter()
   }, [appointments])
@@ -45,17 +43,22 @@ const DashboardNutritionist = () => {
     <div className="dashboard-nutritionist">
       <div className="dashboard-nutritionist-left">
         <SidebarNutritionist />
-        <AppointmentModal appointment={currentAppointment}/>
+        <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-nutritionist-right">
         <Tabs
           id="controlled-tab-example"
           activeKey={key}
           onSelect={(k) => setKey(k)}
-          className="mb-3"
         >
-          <Tab eventKey="appointments" title="Comptes-rendu">
-            {filteredAppointments && <AppointmentsList filteredAppointments={filteredAppointments} setOpenModal={openModal} />}
+          <Tab
+            eventKey="appointments"
+            title="Comptes-rendu">
+            {filteredAppointments &&
+              <AppointmentsList
+                filteredAppointments={filteredAppointments}
+                setOpenModal={openModal} />
+            }
           </Tab>
           <Tab eventKey="to-do" title="À venir">
             A venir
