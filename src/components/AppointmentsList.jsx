@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';
 
-const AppointmentsList = ({ filteredAppointments }) => {
+const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
   const dispatch = useDispatch()
   const [appointments, setAppointments] = useState(filteredAppointments)
   
@@ -38,9 +38,14 @@ const AppointmentsList = ({ filteredAppointments }) => {
                   : appointment.patient.email}
               </p>
               <div className="options">
-                <i class="far fa-eye"></i>
-                <i class="fas fa-trash-alt"
-                  onClick={(e) => deleteAppointment(appointment, e)}></i>
+                <i
+                  class="far fa-eye"
+                  onClick={() => setOpenModal(appointment)}
+                ></i>
+                <i
+                  class="fas fa-trash-alt"
+                  onClick={(e) => deleteAppointment(appointment, e)}
+                ></i>
               </div>
             </div>
           );
