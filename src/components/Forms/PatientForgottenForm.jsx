@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { patientPasswordResetFetch } from 'services/apiManager';
+import { patientPasswordForgottenFetch } from 'services/apiManager';
 
 const PatientForgottenForm = () => {
   
@@ -13,7 +13,7 @@ const PatientForgottenForm = () => {
       const patientResetEmail = {
         email: email,
       }
-      await dispatch(patientPasswordResetFetch(patientResetEmail))
+      await dispatch(patientPasswordForgottenFetch(patientResetEmail))
     } else {
       alert("Veuillez renseigner un email")
     }

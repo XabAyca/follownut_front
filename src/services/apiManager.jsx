@@ -128,30 +128,15 @@ export const nutritionistsFetch = () => {
 };
 
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A NUTRITIONIST
-export const nutritionistPasswordResetFetch = (nutritionistResetEmail) => {
+export const nutritionistPasswordForgottenFetch = (nutritionistResetEmail) => {
 
   return (dispatch) => {
-    // let token
-    // dispatch(fetchNutritionistRegisterRequest());
     fetch(baseUrl + "/api/nutritionist/password/forgot", {
       method: "post",
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify(nutritionistResetEmail),
-    // })
-    //   .then((response) => {
-    //     if (response.headers.get("authorization")) {
-    //       token = response.headers.get("authorization").split("Bearer ")[1];
-    //     }
-    //     return response.json()
-    //   })
-    //   .then((response ) => {
-    //     if (response.errors || response.error) {
-    //       dispatch(fetchNutritionistRegisterFailure(response.errors));
-    //     } else {
-    //       dispatch(fetchNutritionistRegisterSuccess(response));
-    //     }
       });
   };
 };
@@ -279,31 +264,46 @@ export const patientsFetch = () => {
 };
 
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A PATIENT
-export const patientPasswordResetFetch = (patientResetEmail) => {
+export const patientPasswordForgottenFetch = (patientResetEmail) => {
 
   return (dispatch) => {
-    // let token
-    // dispatch(fetchNutritionistRegisterRequest());
     fetch(baseUrl + "/api/patient/password/forgot", {
       method: "post",
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify(patientResetEmail),
-    // })
-    //   .then((response) => {
-    //     if (response.headers.get("authorization")) {
-    //       token = response.headers.get("authorization").split("Bearer ")[1];
-    //     }
-    //     return response.json()
-    //   })
-    //   .then((response ) => {
-    //     if (response.errors || response.error) {
-    //       dispatch(fetchNutritionistRegisterFailure(response.errors));
-    //     } else {
-    //       dispatch(fetchNutritionistRegisterSuccess(response));
-    //     }
       });
   };
 };
 
+// BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A PATIENT
+export const patientResetPasswordFetch = (newPatientData) => {
+
+  return (dispatch) => {
+    let token;
+    dispatch(fetchPatientLoginRequest());
+    fetch(baseUrl + "/api/patient/password/reset", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newPatientData),
+    })
+      .then((response) => {
+        if (response.headers.get("authorization")) {
+        token = response.headers.get("authorization").split("Bearer ")[1];
+        }
+        return response.json();
+      })
+      .then((response) => {
+        if (response.errors || response.error) {
+          dispatch(fetchPatientLoginFailure(response.errors));
+        } else {
+          Cookies.set("patient_token_cookie", token);
+          Cookies.set('patient_id_cookie',response.data.id);
+          dispatch(fetchPatientLoginSuccess(response));
+        }
+      });
+  };
+};

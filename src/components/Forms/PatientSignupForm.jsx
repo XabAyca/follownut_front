@@ -42,7 +42,6 @@ const PatientSignupForm = () => {
         </form>
       </div>
     </div>
-
   );
 };
 
