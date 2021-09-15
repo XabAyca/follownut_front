@@ -16,18 +16,18 @@ $secondary-color: #e1eaf7;
 $transparency-secondary-color: rgba(225, 234, 247, 0.9);
 $third-color:#D7C9AA;
 $background-color:transparent;
-$success:#3BB273;
-$danger:#E15554;
-$warning:#E1BC29;
+$success:#4fba81;
+$danger:#fb3333;
+$warning:#efef5b;
 
 // Dark Colors //
 $primary-color-dark: #19535F;
 $secondary-color-dark: #0B7A75;
 $third-color-dark:#D7C9AA;
 $background-color-dark:transparent;
-$success-dark:#3BB273;
-$danger-dark:#E15554;
-$warning-dark:#E1BC29;
+$success-dark:#35a068;
+$danger-dark:#e10000;
+$warning-dark:#e8e815;
 
 // Other variables & mixin //
 $phone-viewport:800px;
@@ -132,6 +132,7 @@ html,body{
 
   &:hover {
     background-color: $success-dark;
+    color: $secondary-color;
   }
 }
 
@@ -142,6 +143,7 @@ html,body{
 
   &:hover {
     background-color: $danger-dark;
+    color: $secondary-color;
   }
 }
 
