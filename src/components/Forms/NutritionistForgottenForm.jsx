@@ -24,10 +24,10 @@ const NutritionistForgottenForm = () => {
       <div className="form-container">
       <p className="text-white">Cher nutritioniste, renseignez votre email pour recevoir un lien et réinitialiser votre mot de passe.</p>
         <form onSubmit={ (e) => handleNutritionistForgottenPassword(e) }>
-          <label htmlFor="email" className="text-white">Email*</label>
+          <label htmlFor="email" className="text-white pt-2">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
-          <input type="submit" className="btn secondary-button mt-5 w-100" value="Envoyer" />
+          <input type="submit" className="btn success-button mt-5 w-100" value="Envoyer" />
         </form>
       </div>
     </div>
