@@ -148,6 +148,7 @@ const App = () => {
           <Route path="/patient-edit-profile">
             {isPatientAuth() ? <PatientEditProfile /> : <Redirect to="/" />}
           </Route>
+
           <Route path="/nutritionist-profile">
             {isNutritionistAuth() ? (
               <NutritionistProfile />
