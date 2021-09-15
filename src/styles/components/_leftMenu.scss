@@ -1,8 +1,7 @@
 .boxsizing-width-mini-menu{
   width: 10%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
+  height: 90%;
+  position: absolute;
   .small-menu-left{
     background-color: $transparency-primary-color;
     width: 50%;
