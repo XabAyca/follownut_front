@@ -14,7 +14,7 @@ const DashboardNutritionist = () => {
   const [key, setKey] = useState("appointments");
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
-  const [currentAppointment, setCurrentAppointment] = useState()
+  const [currentAppointment, setCurrentAppointment] = useState(null)
 
   useEffect(() => {
     dispatch(appointmentsFetch())
