@@ -1,11 +1,11 @@
 import NutritionistSignupForm from 'components/Forms/NutritionistSignupForm';
-import React from 'react';
 
 const SignupNutritionist = () => {
   return (
     <div className="signup-nutritionist">
-      <div className="default-background d-flex align-items-center py-5">
-        <div className="d-flex justify-content-center col-12 my-5">
+      <div className="default-background d-flex align-items-center">
+        <div className="d-flex justify-content-center col-12 row">
+        <h1 className="d-flex justify-content-center text-white my-2">Bienvenue sur Follownut'</h1>
           <NutritionistSignupForm />
         </div>
       </div>

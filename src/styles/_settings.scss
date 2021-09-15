@@ -115,20 +115,68 @@ html,body{
 }
 
 // Buttons //
+
 .primary-button {
   background-color: $primary-color;
+  text-decoration: none;
   text-decoration: none;
 }
 
 .secondary-button {
   background-color: $secondary-color;
+  color: black;
+  text-decoration: none;
+}
+
+.third-button {
+  background-color: $third-color;
+  text-decoration: none;
+}
+
+.success-button {
+  background-color: $success;
+  text-decoration: none;
+}
+
+.danger-button {
+  background-color: $danger;
+  text-decoration: none;
+}
+
+.warning-button {
+  background-color: $warning;
+  text-decoration: none;
 }
 
 
 
-// TEXT //
+// TEXT COLORS //
 .text-secondary-color {
   color: $secondary-color;
+}
+
+.text-primary-color {
+  color: $primary-color;
+}
+
+.text-secondary-color {
+  color: $secondary-color;
+}
+
+.text-third-color {
+  color: $third-color;
+}
+
+.text-success-color {
+  color: $success;
+}
+
+.text-danger-color {
+  color: $danger;
+}
+
+.text-warning-color {
+  color: $warning;
 }
 
 .text-justify {
