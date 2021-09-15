@@ -1,29 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
 
-// Fonts variables //
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ VARIABLES $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ VARIABLES $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ VARIABLES $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+// -------------------- FONTS VARIABLES -------------------- //
 $primary-font: "Hind";
 
-// Color variables //
+// -------------------- COLORS VARIABLES -------------------- //
 $primary-color: #002bba;
 $transparency-primary-color: rgba(0, 43, 186, 0.7);
 $secondary-color: #e1eaf7;
 $transparency-secondary-color: rgba(225, 234, 247, 0.9);
 $third-color:#D7C9AA;
 $background-color:transparent;
-$background-color-blue:#91b2e2;
-$success:#3BB273;
-$danger:#E15554;
-$warning:#E1BC29;
+$success:#4fba81;
+$danger:#fb3333;
+$warning:#efef5b;
 
-// Dark Color variables //
+// Dark Colors //
 $primary-color-dark: #19535F;
 $secondary-color-dark: #0B7A75;
 $third-color-dark:#D7C9AA;
 $background-color-dark:transparent;
-$success-dark:#3BB273;
-$danger-dark:#E15554;
-$warning-dark:#E1BC29;
+$success-dark:#35a068;
+$danger-dark:#e10000;
+$warning-dark:#e8e815;
 
 // Other variables & mixin //
 $phone-viewport:800px;
@@ -32,8 +36,8 @@ $phone-viewport:800px;
   @media (max-width: $phone-viewport) { @content; }
 }
 
-//****************************************//
-// Don't modify
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// DO NOT EDIT
 :root{
   --primary-color: #{$primary-color};
   --secondary-color:#{$secondary-color};
@@ -52,7 +56,7 @@ $phone-viewport:800px;
   --danger-color:#{$danger-dark};
   --warning-color:#{$warning-dark};
 }
-//****************************************//
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
 // All app CSS //
@@ -85,8 +89,111 @@ html,body{
   overflow-x: hidden;
 }
 
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ UI KIT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ UI KIT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ UI KIT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-// Boxes //
+
+// -------------------- BUTTONS -------------------- //
+
+.primary-button {
+  background-color: $primary-color;
+  text-decoration: none;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $primary-color-dark;
+  }
+}
+
+.secondary-button {
+  background-color: $secondary-color;
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $secondary-color-dark;
+  }
+}
+
+.third-button {
+  background-color: $third-color;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $third-color-dark;
+  }
+}
+
+.success-button {
+  background-color: $success;
+  text-decoration: none;
+  color: $secondary-color;
+
+  &:hover {
+    background-color: $success-dark;
+    color: $secondary-color;
+  }
+}
+
+.danger-button {
+  background-color: $danger;
+  text-decoration: none;
+  color: $secondary-color;
+
+  &:hover {
+    background-color: $danger-dark;
+    color: $secondary-color;
+  }
+}
+
+.warning-button {
+  background-color: $warning;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $warning-dark;
+  }
+}
+
+
+
+// -------------------- TEXT COLORS -------------------- //
+.text-secondary-color {
+  color: $secondary-color;
+}
+
+.text-primary-color {
+  color: $primary-color;
+}
+
+.text-secondary-color {
+  color: $secondary-color;
+}
+
+.text-third-color {
+  color: $third-color;
+}
+
+.text-success-color {
+  color: $success;
+}
+
+.text-danger-color {
+  color: $danger;
+}
+
+.text-warning-color {
+  color: $warning;
+}
+
+.text-justify {
+  text-align: justify;
+  line-height: 1.4em;
+}
+
+
+// -------------------- BOXES -------------------- //
 
 .form-container {
   background: $transparency-primary-color;
@@ -96,7 +203,7 @@ html,body{
 }
 
 
-// Forms //
+// -------------------- FORMS -------------------- //
 
 .form-input-display {
   width: 100%;
@@ -112,32 +219,4 @@ html,body{
   appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-// Buttons //
-.primary-button {
-  background-color: $primary-color;
-  text-decoration: none;
-}
-
-.secondary-button {
-  background-color: $secondary-color;
-}
-
-
-
-// TEXT //
-.text-secondary-color {
-  color: $secondary-color;
-}
-
-.text-justify {
-  text-align: justify;
-  line-height: 1.4em;
-}
-
-
-// BACKGROUND //
-.bg-blue {
-  background-color: $background-color-blue;
 }

@@ -20,6 +20,8 @@ const NutritionistLoginForm = () => {
         }
       }
       await dispatch(nutritionistLoginFetch(nutritionistData))
+    } else {
+      alert("Merci de renseigner un email et un mot de passe")
     }
 };
 
@@ -27,17 +29,22 @@ const NutritionistLoginForm = () => {
     <div className="nutritionist-signup-form d-flex justify-content-center">
       <div className="form-container">
         <form onSubmit={ (e) => handleNutritionistLogin(e) }>
-          <label htmlFor="email" className="text-white">Email*</label>
+          <label htmlFor="email" className="text-white pt-2">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
-          <label htmlFor="password" className="text-white">Mot de passe*</label>
+          <label htmlFor="password" className="text-white pt-2">Mot de passe*</label>
           <input type="password" className="form-input-display" placeholder="Votre mot de passe"
           value={password} onChange={ (e) => setPassword(e.target.value) }/>
-          <input type="submit" className="btn secondary-button mt-5 w-100" value="Se connecter" />
+          <input type="submit" className="btn success-button mt-5 w-100" value="Se connecter" />
         </form>
-        <div className="d-flex justify-content-center mt-2">
-          <Link to="/nutritionist/forgotten-password">Mot de passe oublié ?</Link>
-        </div>
+        <Link to="/signup-nutritiont">
+          <button className="d-flex justify-content-center mt-2 btn secondary-button w-100">
+            S'inscrire
+          </button>
+        </Link>
+        <Link to="/patient/forgotten-password">
+          <div className="d-flex justify-content-center mt-2">Mot de passe oublié ?</div>
+        </Link>
       </div>
     </div>
 

@@ -1,7 +1,7 @@
 import CalendlyBtn from 'components/CalendlyBtn';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignupNutritionist from './SignupNutritionist';
+import SignupNutritionist from 'pages/Auth/SignupNutritionist';
 
 
 
