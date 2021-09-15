@@ -125,6 +125,13 @@ const App = () => {
         Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
   };
 
+  // const isPatientAuth = () => {
+  //   return (
+  //     Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
+  // };
+
+  // console.log(isPatientAuth())
+
   return (
     <>
       <BrowserRouter>
@@ -133,35 +140,11 @@ const App = () => {
           nutritionistAuth={isNutritionistAuth()}
         />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" exact component={About} />
-          <Route path="/signup-patient" exact component={SignupPatient} />
-          <Route path="/login-patient" exact component={LoginPatient} />
-          <Route
-            path="/signup-nutritionist"
-            exact
-            component={SignupNutritionist}
-          />
-          <Route
-            path="/login-nutritionist"
-            exact
-            component={LoginNutritionist}
-          />
-          <Route
-            path="/nutritionist/forgotten-password"
-            exact
-            component={ForgottenPasswordNutritionist}
-          />
-          <Route
-            path="/patient/forgotten-password"
-            exact
-            component={ForgottenPasswordPatient}
-          />
-          <Route path="/patient/dashboard" exact component={DashboardPatient} />
 
-          <Route path="/patient-profile">
-            {isPatientAuth() ? <PatientProfile /> : <Redirect to="/" />}
+          <Route exact path="/signup-nutritionist">
+            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <SignupNutritionist /> }
           </Route>
+
           <Route path="/patient-edit-profile">
             {isPatientAuth() ? <PatientEditProfile /> : <Redirect to="/" />}
           </Route>
@@ -171,61 +154,53 @@ const App = () => {
             ) : (
               <Redirect to="/" />
             )}
+
+          <Route exact path="/login-nutritionist">
+            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <LoginNutritionist /> }
+
+          </Route>
+          <Route exact path="/nutritionist/forgotten-password">
+            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <ForgottenPasswordNutritionist /> }
+          </Route>
+          <Route exact path="/password-reset-nutritionist/:tokenSlug">
+            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <ResetPasswordNutritionist /> }
+          </Route>
+          <Route exact path="/nutritionist-profile">
+            { isNutritionistAuth() ? <NutritionistProfile /> : <Redirect to="/" /> }
+          </Route>
+          <Route exact path="/nutritionist-dashboard">
+            { isNutritionistAuth() ? <DashboardNutritionist /> : <Redirect to="/" /> }
+          </Route>
+          <Route exact path="/nutritionist-dashboard/patients">
+            { isNutritionistAuth() ? <DashboardNutritionistPatients /> : <Redirect to="/" /> }
+          </Route>
+          <Route exact path="/nutritionist-dashboard/appointments">
+            { isNutritionistAuth() ? <DashboardNutritionistAppointments /> : <Redirect to="/" /> }
           </Route>
 
-          <Route path="/patient-dashboard">
-            {isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" />}
+
+          <Route exact path="/signup-patient">
+            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : <SignupPatient /> }
+          </Route>
+          <Route exact path="/login-patient">
+            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : <LoginPatient /> }
+          </Route>
+          <Route exact path="/patient/forgotten-password">
+            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : <ForgottenPasswordPatient /> }
+          </Route>
+          <Route exact path="/password-reset-patient/:tokenSlug">
+            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : < ResetPasswordPatient /> }
+          </Route>
+          <Route exact path="/patient-profile">
+            { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }
+          </Route>
+          <Route exact path="/patient-dashboard">
+            { isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" /> }
           </Route>
 
-          <Route path="/nutritionist-dashboard" exact>
-            {isNutritionistAuth() ? (
-              <DashboardNutritionist />
-            ) : (
-              <Redirect to="/" />
-            )}
-          </Route>
-          <Route path="/nutritionist-dashboard/patients" exact>
-            {isNutritionistAuth() ? (
-              <DashboardNutritionistPatients />
-            ) : (
-              <Redirect to="/" />
-            )}
-          </Route>
-          <Route path="/nutritionist-dashboard/appointments" exact>
-            {isNutritionistAuth() ? (
-              <DashboardNutritionistAppointments />
-            ) : (
-              <Redirect to="/" />
-            )}
-          </Route>
 
-          <Route path="/signup-patient">
-            {isPatientAuth() ? <Redirect to="/" /> : <SignupPatient />}
-          </Route>
-          <Route path="/login-patient">
-            {isPatientAuth() ? <Redirect to="/" /> : <LoginPatient />}
-          </Route>
-
-          <Route path="/signup-nutritionist">
-            {isNutritionistAuth() ? (
-              <Redirect to="/" />
-            ) : (
-              <SignupNutritionist />
-            )}
-          </Route>
-          <Route path="/login-nutritionist">
-            {isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist />}
-          </Route>
-
-          <Route
-            path="/password-reset-nutritionist/:tokenSlug"
-            component={ResetPasswordNutritionist}
-          />
-          <Route
-            path="/password-reset-patient/:tokenSlug"
-            component={ResetPasswordPatient}
-          />
-
+          <Route exact path="/" exact component={Home} />
+          <Route exact path="/about" exact component={About} />
           <Route component={NotFound} />
 
         </Switch>
