@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { nutritionistsFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
+import Loading from 'components/Loading';
 
 const NutritionistProfile = () => {
+  const [nutritionist, setNutritionist] = useState();
   const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
 
   const nutritionists = useSelector(state => state.nutritionists)
@@ -12,6 +14,12 @@ const NutritionistProfile = () => {
 
   const getNutritionist = () => {
     dispatch(nutritionistsFetch());
+    if (nutritionists.nutritionist) {
+      let nutritionist = nutritionists.nutritionist.filter((nutritionist) => {
+        return nutritionist.id === nutritionist_id
+      })
+      setNutritionist(nutritionist[0])
+    }
   }
 
   useEffect(() => { 
@@ -26,43 +34,43 @@ const NutritionistProfile = () => {
         className="avatar"
         src=
         {
-          nutritionists.nutritionist && nutritionist_id ?  
-          nutritionists.nutritionist[nutritionist_id-1].avatar : "https://images.pexels.com/photos/5733422/pexels-photo-5733422.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          nutritionist ?  
+          nutritionist.avatar : "https://images.pexels.com/photos/5733422/pexels-photo-5733422.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         }
         alt="avatar" />
       <p>
         <strong>Prenom</strong> : 
         {
-          nutritionists.nutritionist && nutritionist_id ? 
-          nutritionists.nutritionist[nutritionist_id-1].first_name : "Loading"
+          nutritionist ?
+         nutritionist.first_name : <Loading color={"blue"} />
         }
       </p>
       <p>
         <strong>Nom</strong> : 
         {
-          nutritionists.nutritionist && nutritionist_id ?
-          nutritionists.nutritionist[nutritionist_id-1].last_name : "Loading"
+          nutritionist ?
+         nutritionist.last_name : <Loading color={"blue"} />
         }
       </p>
       <p>
         <strong>Email</strong> : 
         {
-          nutritionists.nutritionist && nutritionist_id ? 
-          nutritionists.nutritionist[nutritionist_id-1].email : "Loading"
+          nutritionist ?
+         nutritionist.email : <Loading color={"blue"} />
         }
       </p>
       <p>
         <strong>Numero de tel</strong> :   
         {
-          nutritionists.nutritionist && nutritionist_id ?
-          nutritionists.nutritionist[nutritionist_id-1].phone_number : "Loading"
+          nutritionist ?
+         nutritionist.phone_number : <Loading color={"blue"} />
         }
       </p>
       <p>
         <strong>Compte Calendly</strong> : 
         {
-          nutritionists.nutritionist && nutritionist_id ?
-          nutritionists.nutritionist[nutritionist_id-1].slug_calendly : "Loading"
+          nutritionist ?
+         nutritionist.slug_calendly : <Loading color={"blue"} />
         }
       </p>
     </div>

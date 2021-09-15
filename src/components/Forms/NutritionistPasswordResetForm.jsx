@@ -27,13 +27,13 @@ const NutritionistPasswordResetForm = () => {
     <div className="nutritionist-reset-password-form d-flex justify-content-center">
       <div className="form-container">
         <form onSubmit={ (e) => handleNutritionistPasswordReset(e) }>
-          <label htmlFor="email" className="text-white">Email*</label>
+          <label htmlFor="email" className="text-white pt-2">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
-          <label htmlFor="password" className="text-white">Nouveau mot de passe*</label>
+          <label htmlFor="password" className="text-white pt-2">Nouveau mot de passe*</label>
           <input type="password" className="form-input-display" placeholder="Votre nouveau mot de passe"
           value={newPassword} onChange={ (e) => setNewPassword(e.target.value) }/>
-          <input type="submit" className="btn btn-light register-btn mt-5 w-100" value="Valider" />
+          <input type="submit" className="btn success-button register-btn mt-5 w-100" value="Valider" />
         </form>
       </div>
     </div>
