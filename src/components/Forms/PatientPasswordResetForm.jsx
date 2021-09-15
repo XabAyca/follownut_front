@@ -8,8 +8,8 @@ const PatientPasswordResetForm = () => {
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const dispatch = useDispatch();
-  const { token } = useParams();
-  console.log(token)
+  const { tokenSlug } = useParams();
+  console.log(tokenSlug)
 
   const handlePatientPasswordReset = async (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const PatientPasswordResetForm = () => {
         patient: {
             email: email,
             password: newPassword,
-            token: token
+            token: tokenSlug
         }
       }
       await dispatch(patientResetPasswordFetch(newPatientData))

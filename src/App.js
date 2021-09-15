@@ -213,15 +213,17 @@ const App = () => {
             {isNutritionistAuth() ? <Redirect to="/" /> : <LoginNutritionist />}
           </Route>
 
-          <Route component={NotFound} />
           <Route
-            path="/password-reset-nutritionist/:slug"
+            path="/password-reset-nutritionist/:tokenSlug"
             component={ResetPasswordNutritionist}
           />
           <Route
-            path="/password-reset-patient/:slug"
+            path="/password-reset-patient/:tokenSlug"
             component={ResetPasswordPatient}
           />
+
+          <Route component={NotFound} />
+
         </Switch>
       </BrowserRouter>
     </>
