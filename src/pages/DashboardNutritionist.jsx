@@ -1,3 +1,4 @@
+import AppointmentModal from 'components/AppointmentModal';
 import AppointmentsList from 'components/AppointmentsList';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import Cookies from 'js-cookie';
@@ -13,6 +14,7 @@ const DashboardNutritionist = () => {
   const [key, setKey] = useState("appointments");
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
+  const [currentAppointment, setCurrentAppointment] = useState()
 
   useEffect(() => {
     dispatch(appointmentsFetch())
@@ -26,6 +28,13 @@ const DashboardNutritionist = () => {
     );
   };
 
+  const openModal = (appointment) => {
+    setCurrentAppointment(appointment)
+    let modal = document.querySelector(".appointment-modal");
+    modal.style.opacity=1
+    modal.style.visibility = 'visible'
+  }
+
 
 
   useEffect(() => {
@@ -36,6 +45,7 @@ const DashboardNutritionist = () => {
     <div className="dashboard-nutritionist">
       <div className="dashboard-nutritionist-left">
         <SidebarNutritionist />
+        <AppointmentModal appointment={currentAppointment}/>
       </div>
       <div className="dashboard-nutritionist-right">
         <Tabs
@@ -45,7 +55,7 @@ const DashboardNutritionist = () => {
           className="mb-3"
         >
           <Tab eventKey="appointments" title="Comptes-rendu">
-            {filteredAppointments && <AppointmentsList filteredAppointments={filteredAppointments} />}
+            {filteredAppointments && <AppointmentsList filteredAppointments={filteredAppointments} setOpenModal={openModal} />}
           </Tab>
           <Tab eventKey="to-do" title="À venir">
             A venir
