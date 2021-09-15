@@ -1,4 +1,3 @@
-import React from 'react';
 import { patientLoginFetch } from 'services/apiManager';
 import { useState } from 'react';
 import { useDispatch } from "react-redux";

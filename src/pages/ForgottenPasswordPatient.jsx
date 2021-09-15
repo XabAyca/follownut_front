@@ -1,4 +1,3 @@
-import React from 'react';
 import PatientForgottenForm from 'components/PatientForgottenForm';
 
 const ForgottenPasswordPatient = () => {
