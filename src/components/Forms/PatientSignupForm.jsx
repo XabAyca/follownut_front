@@ -22,6 +22,8 @@ const PatientSignupForm = () => {
         }
       }
       await dispatch(patientRegisterFetch(patientData))
+    } else {
+      alert("Merci de renseigner un email, un mot de passe et de répéter votre mot de passe")
     }
 };
 
