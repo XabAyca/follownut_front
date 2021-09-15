@@ -1,4 +1,4 @@
-import PatientLoginForm from 'components/PatientLoginForm';
+import PatientLoginForm from 'components/Forms/PatientLoginForm';
 import React from 'react';
 
 const SignupPatient = () => {

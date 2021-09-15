@@ -1,4 +1,4 @@
-import NutritionistLoginForm from 'components/NutritionistLoginForm';
+import NutritionistLoginForm from 'components/Forms/NutritionistLoginForm';
 import React from 'react';
 
 const LoginNutritionist = () => {
