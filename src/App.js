@@ -155,7 +155,8 @@ const App = () => {
             ) : (
               <Redirect to="/" />
             )}
-          <Route/>
+            </Route>
+
           <Route exact path="/login-nutritionist">
             { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <LoginNutritionist /> }
 
