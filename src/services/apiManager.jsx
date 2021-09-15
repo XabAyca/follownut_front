@@ -1,4 +1,7 @@
 import Cookies from "js-cookie";
+import { fetchAppointmentsSuccess } from "store/actions/appointmentActions";
+import { fetchAppointmentsFailure } from "store/actions/appointmentActions";
+import { fetchAppointmentsRequest } from "store/actions/appointmentActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
@@ -277,3 +280,28 @@ export const patientPasswordForgottenFetch = (patientResetEmail) => {
   };
 };
 
+// ------------------------------------------------------------------------------------------
+// -------------------- BELOW ARE ALL THE APPOINTMENTS RELATED FUNCTIONS --------------------
+// ------------------------------------------------------------------------------------------
+
+// BELOW IS THE FUNCTION TO FETCH ALL APPOINTMENTS
+export const appointmentsFetch = () => {
+  return (dispatch) => {
+    dispatch(fetchAppointmentsRequest());
+    fetch(baseUrl + "/api/v1/appointments", {
+      method: "get",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchAppointmentsFailure(response.errors));
+        } else {
+          console.log(response);
+          dispatch(fetchAppointmentsSuccess(response));
+        }
+      });
+  };
+};
