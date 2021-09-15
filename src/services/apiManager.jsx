@@ -128,7 +128,7 @@ export const nutritionistsFetch = () => {
 };
 
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A NUTRITIONIST
-export const nutritionistPasswordResetFetch = (nutritionistResetEmail) => {
+export const nutritionistPasswordForgottenFetch = (nutritionistResetEmail) => {
 
   return (dispatch) => {
     // let token
@@ -279,7 +279,7 @@ export const patientsFetch = () => {
 };
 
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A PATIENT
-export const patientPasswordResetFetch = (patientResetEmail) => {
+export const patientPasswordForgottenFetch = (patientResetEmail) => {
 
   return (dispatch) => {
     // let token
