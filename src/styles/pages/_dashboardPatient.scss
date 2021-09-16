@@ -1,9 +1,16 @@
-.data-patient{
-  border-radius: 0px 0px 15px 15px;
-  background-color: $primary-color;
-  color: white;
+.background-of-dashboard-patient{
+  background-color: $secondary-color;
+  height: 80vh;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 15px;
+  flex-direction: column;
+  justify-content: center;
+  .data-patient{
+    border-radius: 0px 0px 15px 15px;
+    background-color: $primary-color;
+    color: white;
+    padding: 15px;
+  }
+  
 }
+
+

@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { patientsFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
+import Loading from 'components/Loading';
+import SidebarPatient from 'components/SidebarPatient';
+import { Link } from 'react-router-dom';
+import { deletePatientFetch } from 'services/apiManager';
+import { patientLogout } from 'services/apiManager';
 
 const PatientProfile = () => {
+  const [patient, setPatient] = useState();
   const patient_id = parseInt(Cookies.get('patient_id_cookie'));
 
   const patients = useSelector(state => state.patient)
@@ -12,36 +18,105 @@ const PatientProfile = () => {
 
   const getPatient = () => {
     dispatch(patientsFetch());
+    if (patients.patient) {
+      let patient = patients.patient
+        .filter((patient) => {
+          return patient.id === patient_id
+        })
+      setPatient(patient[0])
+    }
   }
 
   useEffect(() => { 
     getPatient();
-  },[]);
+  },[patient]);
+
+  const handleLogOut = () => {
+    Cookies.remove('patient_token_cookie');
+    Cookies.remove("patient_id_cookie");
+    dispatch(patientLogout()); 
+    window.location.reload();
+  }
+
+  const deleteProfilePatient = (e) => {
+    if (window.confirm("Vous êtes sur le point de supprimer votre compte. Êtes vous sur ?")) {
+      dispatch(deletePatientFetch());
+      handleLogOut();
+    }
+  }
+
+
   return (
-    <div className="patient-profile">
-      <h1>Profil du patient</h1>
-      <p>
-        <strong>Prenom</strong> : 
-        {
-          patients.patient && patient_id ? 
-          patients.patient[patient_id-1].first_name : "Loading"
-        }
-      </p>
-      <p>
-        <strong>Nom</strong> : 
-        {
-          patients.patient && patient_id ?
-          patients.patient[patient_id-1].last_name : "Loading"
-        }
-      </p>
-      <p>
-        <strong>Email</strong> : 
-        {
-          patients.patient && patient_id ? 
-          patients.patient[patient_id-1].email : "Loading"
-        } 
-      </p>
-    </div>
+    <>
+      <div className="dashboard-nutritionist">
+        <div className="dashboard-nutritionist-left">
+          <SidebarPatient />
+        </div>
+        <div className="dashboard-nutritionist-right">
+          <div className="container rounded bg-white">
+            <div className="row">
+              <div className="col-md-3 border-right">
+                <div className="d-flex flex-column align-items-center text-center ">
+                  <img className="rounded-circle mt-5" width="150px" 
+                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                  alt="profile"/><span className="font-weight-bold">Edogaru</span>
+                  <span className="text-black-50">edogaru@mail.com.my</span>
+                </div>
+              </div>
+              <div className="col-md-5 mt-5 border-right">
+                <div className="p-3">
+                  <div className="mb-5">
+                      <h4 className="text-right">Patient Profile</h4>
+                  </div>
+                  <div className="row mt-2">
+                    <div className="col-md-6">
+                      <p>
+                        <strong>Prenom : </strong>
+                        {
+                          patient ? 
+                          patient.first_name : <Loading color={"blue"} />
+                        }
+                      </p>
+                    </div>
+                    <div className="col-md-6">
+                      <p>
+                        <strong>Nom : </strong>
+                        {
+                          patient ? 
+                          patient.last_name : <Loading color={"blue"} />
+                        }
+                      </p>
+                    </div>
+                  </div>
+                  <div className="row mt-3">
+                    <div className="col-md-12">
+                      <p>
+                        <strong>E-mail : </strong>
+                        {
+                          patient ? 
+                          patient.email : <Loading color={"blue"} />
+                        } 
+                      </p>
+                    </div>
+                    <Link
+                      exact
+                      to="/patient-edit-profile"
+                      className="sidebar-nutritionist-link text-dark"
+                    >
+                      <i class="fas fa-plus-circle"></i>
+                      Edit Profile
+                    </Link>
+                    <form onSubmit={deleteProfilePatient} >
+                      <input type="submit" value="Supprimer mon compte" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
