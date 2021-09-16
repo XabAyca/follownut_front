@@ -48,30 +48,6 @@ const DashboardPatient = () => {
           <SidebarPatient />
         </div>
         <div className="dashboard-nutritionist-right">
-<<<<<<< HEAD
-          <Tabs
-            id="controlled-tab-example"
-            activeKey={key}
-            onSelect={(k) => setKey(k)}
-            className="mb-3"
-          >
-            <Tab eventKey="appointments" title="Comptes-rendu">
-            
-            </Tab>
-            <Tab eventKey="weight" title="Weight">
-              <GraphWeight/>
-            </Tab>
-            <Tab eventKey="body-fat" title="Body Fat">
-              <GraphWeight/>
-            </Tab>
-            <Tab eventKey="muscle-mass" title="Muscle mass">
-              A venir
-            </Tab>
-            <Tab eventKey="viceral-mass" title="Viceral mass">
-              A venir
-            </Tab>
-          </Tabs>
-=======
           <h1 className="mx-5 my-2 text-primary-color">Bienvenue sur votre dashboard, Jean-Paul</h1>
           <div className="mx-5 my-4">
               <PatientSituation />
@@ -79,7 +55,6 @@ const DashboardPatient = () => {
           <div className="mx-5 my-4">
               <PatientCharts />
           </div>
->>>>>>> patient-dashboard
         </div>
       </div>
     </>
