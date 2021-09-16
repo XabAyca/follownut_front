@@ -27,14 +27,6 @@ const SidebarPatient = () => {
         <i class="fas fa-plus-circle"></i>
         Créer un compte rendu
       </Link>
-      <Link
-        exact
-        to="/patient-edit-profile"
-        className="sidebar-patient-dashboard-link"
-      >
-        <i class="fas fa-plus-circle"></i>
-        Edit Profile
-      </Link>
     </div>
   )
 }

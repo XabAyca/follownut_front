@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { appointmentsFetch } from 'services/apiManager';
 import SidebarPatient from "components/SidebarPatient";
+import GraphicWeight from "components/GraphWeight";
 
 const DashboardPatient = () => {
   const dispatch = useDispatch()
@@ -44,7 +45,7 @@ const DashboardPatient = () => {
 
   return (
     <>
-      <div className="dashboard-nutritionist">
+      <div className="dashboard-nutritionist page-padding">
         <div className="dashboard-nutritionist-left">
           <SidebarPatient />
         </div>
@@ -59,10 +60,10 @@ const DashboardPatient = () => {
             
             </Tab>
             <Tab eventKey="weight" title="Weight">
-              Weight
+              <GraphWeight/>
             </Tab>
             <Tab eventKey="body-fat" title="Body Fat">
-              Body fat
+              <GraphWeight/>
             </Tab>
             <Tab eventKey="muscle-mass" title="Muscle mass">
               A venir

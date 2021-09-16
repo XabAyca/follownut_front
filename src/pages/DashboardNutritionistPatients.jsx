@@ -7,7 +7,7 @@ import PatientsList from 'components/PatientsList';
 
 const DashboardNutritionistPatients = () => {
   return (
-    <div className="dashboard-nutritionist">
+    <div className="dashboard-nutritionist page-padding">
       <div className="dashboard-nutritionist-left">
         <SidebarNutritionist />
       </div>

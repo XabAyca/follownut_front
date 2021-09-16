@@ -1,46 +1,97 @@
 .navigation {
+  position: absolute;
   display: flex;
-  background-color: $secondary-color;
+  background-color: transparent;
   width: 100%;
   z-index: 10;
   align-items: center;
+  height: 5rem;
+  padding: 1rem;
 
-  a {
-    padding: 10px;
-    position: relative;
-    color: $primary-color;
-    text-decoration: none;
+  @include phone {
+    display:none;
   }
 
-  .nav-active {
+  .nav-link{
+    padding: 10px;
+    position: relative;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all .5s;
     &::after {
       content: '';
-      width: 85%;
-      height: 5px;
-      background: $primary-color;
+      width: 0;
+      height: 3px;
+      background: var(--secondary-color);
       position: absolute;
       bottom: 1px;
       left: 50%;
+      bottom:10px;
+      transform: translateX(-50%);
+      transition: all .5s;
+    }
+    &:hover{
+    color:var(--secondary-color);
+      &::after{
+        width: 85%;
+      }
+    }
+  }
+
+  .nav-active {
+    color:var(--secondary-color);
+    &::after {
+      content: '';
+      width: 85%;
+      height: 3px;
+      background: var(--secondary-color);
+      position: absolute;
+      left: 50%;
+      bottom:10px;
       transform: translateX(-50%);
     }
   }
 
   .logo{
     height: 65px;
+    cursor: pointer;
   }
 
-  .connection {
-    margin: 0;
-    display: flex;
-    background-color: $secondary-color;
-    z-index: 10;
-    padding: 10px;
-    align-items: center;
 
-    .dropdown-toggle {
-      background-color: $primary-color;
-      margin: 8%;
+
+  .dropdown-toggle {
+    background-color: $primary-color;
+    margin: 15px;
+  }
+  .dropdown-item a{
+    color:#454545;
+    text-decoration: none;
+  }
+  .dropdown-item-text{
+    color:#8186FE;
+  }
+  
+
+  .deconnexion{
+    background-color: none;
+    margin: 0;
+    font-size: 0.9rem;
+    color:#454545;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    &::before{
+      content: '';
+      width: 0;
+      height: 2px;
+      background: #454545;
+      position: absolute;
+      left: 0;
+      bottom:0px;
+      transition: all .5s;
+    }
+    &:hover::before{
+      width: 100%;
     }
   }
-
 }

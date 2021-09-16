@@ -2,3 +2,11 @@ footer p a {
   text-decoration: none;
   color: $primary-color;
 }
+
+footer{
+
+  .copyright{
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
