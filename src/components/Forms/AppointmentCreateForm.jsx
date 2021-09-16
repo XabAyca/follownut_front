@@ -82,7 +82,7 @@ const AppointmentCreateForm = () => {
         </div>
 
 
-        <div className="d-flex">
+        <div className="d-flex row justify-content-between">
           <div className="col-lg-2 col-sm-12">
             <label >Graisse viscérale</label>
             <input
