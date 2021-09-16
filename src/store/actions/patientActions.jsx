@@ -73,6 +73,29 @@ export const fetchPatientUpdateFailure = (error) => {
 };
 
 
+export const FETCH_PATIENT_DELETE_REQUEST = "FETCH_PATIENT_DELETE_REQUEST";
+export const FETCH_PATIENT_DELETE_SUCCESS = "FETCH_PATIENT_DELETE_SUCCESS";
+export const FETCH_PATIENT_DELETE_FAILURE = "FETCH_PATIENT_DELETE_FAILURE";
+
+export const fetchPatientDeleteRequest = () => {
+  return {
+    type: FETCH_PATIENT_DELETE_REQUEST,
+  };
+};
+export const fetchPatientDeleteSuccess = (patient) => {
+  return {
+    type: FETCH_PATIENT_DELETE_SUCCESS,
+    patient,
+  };
+};
+export const fetchPatientDeleteFailure = (error) => {
+  return {
+    type: FETCH_PATIENT_DELETE_FAILURE,
+    error,
+  };
+};
+
+
 export const FETCH_PATIENT_REGISTER_REQUEST = "FETCH_PATIENT_REGISTER_REQUEST";
 export const FETCH_PATIENT_REGISTER_SUCCESS = "FETCH_PATIENT_REGISTER_SUCCESS";
 export const FETCH_PATIENT_REGISTER_FAILURE = "FETCH_PATIENT_REGISTER_FAILURE";
