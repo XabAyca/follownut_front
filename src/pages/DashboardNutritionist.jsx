@@ -42,7 +42,7 @@ const DashboardNutritionist = () => {
   }, [appointments])
 
   return (
-    <div className="dashboard-nutritionist">
+    <div className="dashboard-nutritionist page-padding">
       {appointments && (
         <CalendlyBtn slug={appointments[0].nutritionist.slug_calendly} />
       )}

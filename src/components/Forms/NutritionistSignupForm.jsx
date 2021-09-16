@@ -44,9 +44,9 @@ const NutritionistSignupForm = () => {
           <input type="submit" className="btn success-button register-btn mt-5 w-100" value="S'enregistrer" />
         </form>
         <Link to="/login-nutritionist">
-          <button className="d-flex justify-content-center mt-2 btn secondary-button w-100">
+          <div className="d-flex justify-content-center mt-2 w-100">
             Se connecter
-          </button>
+          </div>
         </Link>
       </div>
     </div>
