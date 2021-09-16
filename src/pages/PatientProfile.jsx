@@ -27,7 +27,7 @@ const PatientProfile = () => {
 
   useEffect(() => { 
     getPatient();
-  },[]);
+  },[patient]);
 
   console.log(patient ? patient : "test")
 
