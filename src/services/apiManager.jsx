@@ -1,15 +1,11 @@
 import Cookies from "js-cookie";
-import { deleteAppointmentRequest } from "store/actions/appointmentActions";
-import { deleteAppointmentFailure } from "store/actions/appointmentActions";
-import { fetchAppointmentsSuccess } from "store/actions/appointmentActions";
-import { fetchAppointmentsFailure } from "store/actions/appointmentActions";
-import { deleteAppointmentSuccess } from "store/actions/appointmentActions";
-import {  } from "store/actions/appointmentActions";
+import { deleteAppointmentFailure, deleteAppointmentRequest, deleteAppointmentSuccess, fetchAppointmentsSuccess, fetchAppointmentsFailure } from "store/actions/appointmentActions";
 import { createAppointmentFailure, createAppointmentSuccess, createAppointmentRequest, fetchAppointmentsRequest } from "store/actions/appointmentActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
+import { fetchPatientDeleteFailure, fetchPatientDeleteSuccess, fetchPatientDeleteRequest } from "store/actions/patientActions";
 import { fetchPatientLoginFailure, fetchPatientLoginLogout, fetchPatientLoginRequest, fetchPatientLoginSuccess } from "store/actions/patientActions";
 import { fetchPatientRegisterFailure, fetchPatientRegisterRequest, fetchPatientRegisterSuccess, fetchPatientRegisterUnregister } from "store/actions/patientActions";
 import { fetchPatientsFailure, fetchPatientsRequest, fetchPatientsSuccess } from "store/actions/patientActions";
@@ -343,6 +339,32 @@ export const updatePatientFetch = (patientData) => {
           dispatch(fetchPatientUpdateFailure (response.errors));
         } else {
           dispatch(fetchPatientUpdateSuccess(response));
+        }
+      });
+  };
+};
+
+
+// BELOW IS THE FUNCTION TO DELETE A PATIENT
+export const deletePatientFetch = () => {
+  return (dispatch) => {
+    const id = Cookies.get('patient_id_cookie');
+    const token = Cookies.get('patient_token_cookie');
+    dispatch(fetchPatientDeleteRequest ());
+
+    fetch(baseUrl + `/api/v1/patients/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchPatientDeleteFailure (response.errors));
+        } else {
+          dispatch(fetchPatientDeleteSuccess(response));
         }
       });
   };
