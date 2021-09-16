@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   return (
-    <div className="not-found">
+    <div className="not-found page-padding">
       <h1 className="title-not-found">Oups! Erreur 404</h1>
       <h3>Désolé mais la page que vous recherchez n'existe pas...</h3>
       <div className="div-not-found">

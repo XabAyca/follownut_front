@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store/index';
+import Footer from 'components/Footer';
 import "styles/index.scss";
 
 ReactDOM.render(
@@ -13,6 +14,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <App />
+        <Footer/>
       </Router>
     </Provider>
   </React.StrictMode>,

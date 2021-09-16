@@ -4,6 +4,9 @@ import { deleteAppointmentFailure } from "store/actions/appointmentActions";
 import { fetchAppointmentsSuccess } from "store/actions/appointmentActions";
 import { fetchAppointmentsFailure } from "store/actions/appointmentActions";
 import { deleteAppointmentSuccess } from "store/actions/appointmentActions";
+import { createAppointmentSuccess } from "store/actions/appointmentActions";
+import { createAppointmentFailure } from "store/actions/appointmentActions";
+import { createAppointmentRequest } from "store/actions/appointmentActions";
 import { fetchAppointmentsRequest } from "store/actions/appointmentActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
@@ -354,8 +357,32 @@ export const deleteAppointmentFetch = (id) => {
           dispatch(deleteAppointmentFailure(response.errors));
         } else {
           dispatch(deleteAppointmentSuccess(response));
-          console.log(response);
         }
       });
   };
 };
+
+// BELOW IS THE FUNCTION TO DELETE ONE APPOINTMENT
+export const createAppointment = (data) => {
+  return (dispatch) => {
+    const token = Cookies.get("nutritionist_token_cookie");
+    dispatch(createAppointmentRequest());
+    fetch(baseUrl + `/api/v1/appointments`, {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body:JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(createAppointmentFailure(response.errors));
+        } else {
+          dispatch(createAppointmentSuccess(response));
+        }
+      });
+  };
+};
+

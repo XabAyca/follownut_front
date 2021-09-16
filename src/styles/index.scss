@@ -9,13 +9,18 @@
 @import './pages/nutritionistProfile';
 @import './pages/dashboardPatient';
 @import './pages/dashboardNutritionist';
+@import './pages/patientEditProfile';
 
 // Import components styles
 @import './components/navigation';
 @import './components/jumbotronAuth';
-@import './components/leftMenu';
+@import './components/SidebarPatient';
 @import './components/graphWeight';
 @import './components/calendlyBtn';
 @import './components/sidebarNutritionist';
 @import './components/appointmentsList';
 @import './components/appointmentModal';
+@import "./components/patientsList";
+@import './components/footer';
+@import './components/appointmentCreateForm';
+@import './components/hamburgerMenu';

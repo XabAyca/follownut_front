@@ -40,3 +40,25 @@ export const deleteAppointmentFailure = (error) => {
     error,
   };
 };
+
+export const CREATE_APPOINTMENT_REQUEST = "CREATE_APPOINTMENT_REQUEST";
+export const CREATE_APPOINTMENT_SUCCESS = "CREATE_APPOINTMENT_SUCCESS";
+export const CREATE_APPOINTMENT_FAILURE = "CREATE_APPOINTMENT_FAILURE";
+
+export const createAppointmentRequest = () => {
+  return {
+    type: CREATE_APPOINTMENT_REQUEST,
+  };
+};
+export const createAppointmentSuccess = (appointment) => {
+  return {
+    type: CREATE_APPOINTMENT_SUCCESS,
+    appointment
+  };
+};
+export const createAppointmentFailure = (error) => {
+  return {
+    type: CREATE_APPOINTMENT_FAILURE,
+    error,
+  };
+};

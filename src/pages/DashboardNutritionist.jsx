@@ -1,5 +1,6 @@
 import AppointmentModal from 'components/AppointmentModal';
 import AppointmentsList from 'components/AppointmentsList';
+import CalendlyBtn from 'components/CalendlyBtn';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
@@ -14,7 +15,7 @@ const DashboardNutritionist = () => {
   const [key, setKey] = useState("appointments");
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
-  const [currentAppointment, setCurrentAppointment] = useState()
+  const [currentAppointment, setCurrentAppointment] = useState(null)
 
   useEffect(() => {
     dispatch(appointmentsFetch())
@@ -36,26 +37,32 @@ const DashboardNutritionist = () => {
   }
 
 
-
   useEffect(() => {
     appointments && filter()
   }, [appointments])
 
   return (
-    <div className="dashboard-nutritionist">
+    <div className="dashboard-nutritionist page-padding">
+      {appointments && (
+        <CalendlyBtn slug={appointments[0].nutritionist.slug_calendly} />
+      )}
       <div className="dashboard-nutritionist-left">
         <SidebarNutritionist />
-        <AppointmentModal appointment={currentAppointment}/>
+        <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-nutritionist-right">
         <Tabs
           id="controlled-tab-example"
           activeKey={key}
           onSelect={(k) => setKey(k)}
-          className="mb-3"
         >
           <Tab eventKey="appointments" title="Comptes-rendu">
-            {filteredAppointments && <AppointmentsList filteredAppointments={filteredAppointments} setOpenModal={openModal} />}
+            {filteredAppointments && (
+              <AppointmentsList
+                filteredAppointments={filteredAppointments}
+                setOpenModal={openModal}
+              />
+            )}
           </Tab>
           <Tab eventKey="to-do" title="À venir">
             A venir

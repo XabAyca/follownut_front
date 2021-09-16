@@ -1,5 +1,8 @@
 .home {
-
+  img {
+    pointer-events: none;
+    cursor: default;
+}
   .section {
     min-width: 100vw;
     min-height: 65vh;
@@ -14,6 +17,11 @@
 
     .section1-right {
       width: 50%;
+
+      img.appointement {
+        width: 100%;
+      }
+
     }
   
     .section3-left {
