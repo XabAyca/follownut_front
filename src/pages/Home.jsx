@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import SignupNutritionist from 'pages/Auth/SignupNutritionist';
 
 // ASSETS IMPORTS
+import appointement from 'assets/images/appointement.png';
 import calendar from 'assets/images/online_calendar.png';
 import doctors from 'assets/images/doctors.png';
 import dashboard from 'assets/images/dashboard.png';
@@ -26,6 +27,7 @@ const Home = () => {
           <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white">Je m'inscris gratuitement</Link>
         </div>
         <div className="section1-right">
+          <img className="appointement" src={appointement} alt="Calendar illustration"/>
         </div>
       </section>
 
