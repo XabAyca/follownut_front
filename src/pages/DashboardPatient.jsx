@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { appointmentsFetch } from 'services/apiManager';
 import SidebarPatient from "components/SidebarPatient";
+import PatientSituation from "components/PatientSituation";
 
 const DashboardPatient = () => {
   const dispatch = useDispatch()
@@ -49,28 +50,10 @@ const DashboardPatient = () => {
           <SidebarPatient />
         </div>
         <div className="dashboard-nutritionist-right">
-          <Tabs
-            id="controlled-tab-example"
-            activeKey={key}
-            onSelect={(k) => setKey(k)}
-            className="mb-3"
-          >
-            <Tab eventKey="appointments" title="Comptes-rendu">
-            
-            </Tab>
-            <Tab eventKey="weight" title="Weight">
-              Weight
-            </Tab>
-            <Tab eventKey="body-fat" title="Body Fat">
-              Body fat
-            </Tab>
-            <Tab eventKey="muscle-mass" title="Muscle mass">
-              A venir
-            </Tab>
-            <Tab eventKey="viceral-mass" title="Viceral mass">
-              A venir
-            </Tab>
-          </Tabs>
+          <h1 className="m-5 text-primary-color">Bienvenue sur votre dashboard, Jean-Paul</h1>
+          <div className="bg-blue m-5">
+              <PatientSituation />
+          </div>
         </div>
       </div>
     </>
@@ -78,3 +61,38 @@ const DashboardPatient = () => {
 };
 
 export default DashboardPatient;
+
+
+// return (
+//   <>
+//     <div className="dashboard-nutritionist page-padding">
+//       <div className="dashboard-nutritionist-left">
+//         <SidebarPatient />
+//       </div>
+//       <div className="dashboard-nutritionist-right">
+//         <Tabs
+//           id="controlled-tab-example"
+//           activeKey={key}
+//           onSelect={(k) => setKey(k)}
+//           className="mb-3"
+//         >
+//           <Tab eventKey="appointments" title="Comptes-rendu">
+          
+//           </Tab>
+//           <Tab eventKey="weight" title="Weight">
+//             Weight
+//           </Tab>
+//           <Tab eventKey="body-fat" title="Body Fat">
+//             Body fat
+//           </Tab>
+//           <Tab eventKey="muscle-mass" title="Muscle mass">
+//             A venir
+//           </Tab>
+//           <Tab eventKey="viceral-mass" title="Viceral mass">
+//             A venir
+//           </Tab>
+//         </Tabs>
+//       </div>
+//     </div>
+//   </>
+// );
