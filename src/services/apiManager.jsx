@@ -4,13 +4,12 @@ import { deleteAppointmentFailure } from "store/actions/appointmentActions";
 import { fetchAppointmentsSuccess } from "store/actions/appointmentActions";
 import { fetchAppointmentsFailure } from "store/actions/appointmentActions";
 import { deleteAppointmentSuccess } from "store/actions/appointmentActions";
-import { createAppointmentSuccess } from "store/actions/appointmentActions";
-import { createAppointmentFailure } from "store/actions/appointmentActions";
-import { createAppointmentRequest } from "store/actions/appointmentActions";
-import { fetchAppointmentsRequest } from "store/actions/appointmentActions";
+import {  } from "store/actions/appointmentActions";
+import { createAppointmentFailure, createAppointmentSuccess, createAppointmentRequest, fetchAppointmentsRequest } from "store/actions/appointmentActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
+import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
 import { fetchPatientLoginFailure, fetchPatientLoginLogout, fetchPatientLoginRequest, fetchPatientLoginSuccess } from "store/actions/patientActions";
 import { fetchPatientRegisterFailure, fetchPatientRegisterRequest, fetchPatientRegisterSuccess, fetchPatientRegisterUnregister } from "store/actions/patientActions";
 import { fetchPatientsFailure, fetchPatientsRequest, fetchPatientsSuccess } from "store/actions/patientActions";
@@ -288,7 +287,6 @@ export const patientsFetch = () => {
 
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A PATIENT
 export const patientPasswordForgottenFetch = (patientResetEmail) => {
-
   return () => {
     fetch(baseUrl + "/api/patient/password/forgot", {
       method: "post",
@@ -302,7 +300,6 @@ export const patientPasswordForgottenFetch = (patientResetEmail) => {
 
 // BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A PATIENT
 export const patientResetPasswordFetch = (newPatientData) => {
-
   return () => {
     fetch(baseUrl + "/api/patient/password/reset", {
       method: "post",
@@ -313,6 +310,48 @@ export const patientResetPasswordFetch = (newPatientData) => {
     })
   };
 };
+
+
+
+
+
+
+
+
+
+
+
+
+// BELOW IS THE FUNCTION TO UPDATE A PATIENT
+export const updatePatientFetch = (patientData) => {
+  return (dispatch) => {
+    const id = Cookies.get('patient_id_cookie');
+    const token = Cookies.get('patient_token_cookie');
+    dispatch(fetchPatientUpdateRequest ());
+
+    fetch(baseUrl + `/api/v1/patients/${id}`, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(patientData),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchPatientUpdateFailure (response.errors));
+        } else {
+          dispatch(fetchPatientUpdateSuccess(response));
+        }
+      });
+  };
+};
+
+
+
+
+
 
 // ------------------------------------------------------------------------------------------
 // -------------------- BELOW ARE ALL THE APPOINTMENTS RELATED FUNCTIONS --------------------
@@ -362,7 +401,7 @@ export const deleteAppointmentFetch = (id) => {
   };
 };
 
-// BELOW IS THE FUNCTION TO DELETE ONE APPOINTMENT
+// BELOW IS THE FUNCTION TO CREATE ONE APPOINTMENT
 export const createAppointment = (data) => {
   return (dispatch) => {
     const token = Cookies.get("nutritionist_token_cookie");

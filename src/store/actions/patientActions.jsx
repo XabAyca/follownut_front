@@ -50,6 +50,29 @@ export const fetchPatientLoginLogout = () => {
 };
 
 
+export const FETCH_PATIENT_UPDATE_REQUEST = "FETCH_PATIENT_UPDATE_REQUEST";
+export const FETCH_PATIENT_UPDATE_SUCCESS = "FETCH_PATIENT_UPDATE_SUCCESS";
+export const FETCH_PATIENT_UPDATE_FAILURE = "FETCH_PATIENT_UPDATE_FAILURE";
+
+export const fetchPatientUpdateRequest = () => {
+  return {
+    type: FETCH_PATIENT_UPDATE_REQUEST,
+  };
+};
+export const fetchPatientUpdateSuccess = (patient) => {
+  return {
+    type: FETCH_PATIENT_UPDATE_SUCCESS,
+    patient,
+  };
+};
+export const fetchPatientUpdateFailure = (error) => {
+  return {
+    type: FETCH_PATIENT_UPDATE_FAILURE,
+    error,
+  };
+};
+
+
 export const FETCH_PATIENT_REGISTER_REQUEST = "FETCH_PATIENT_REGISTER_REQUEST";
 export const FETCH_PATIENT_REGISTER_SUCCESS = "FETCH_PATIENT_REGISTER_SUCCESS";
 export const FETCH_PATIENT_REGISTER_FAILURE = "FETCH_PATIENT_REGISTER_FAILURE";
