@@ -32,11 +32,11 @@ const PatientProfile = () => {
 
   return (
     <>
-      <div className="dashboard-nutritionist">
-        <div className="dashboard-nutritionist-left">
+      <div className="dashboard-page">
+        <div className="dashboard-page-left">
           <SidebarPatient />
         </div>
-        <div className="dashboard-nutritionist-right">
+        <div className="dashboard-page-right">
           <div className="container rounded bg-white">
             <div className="row">
               <div className="col-md-3 border-right">
