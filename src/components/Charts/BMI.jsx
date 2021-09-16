@@ -1,33 +1,20 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 
-function bmiChart () {
+function bmiChart ({date,bmi}) {
   const data = {
-    labels: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'April',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec'
-    ],
+    labels: date.slice(0, 10).reverse(),
     datasets: [
       {
         label: "Indice de Masse Corporelle",
-        data: [31, 29, 27, 27, 26, 26, 26, 25, 23, 24, 23],
-        borderColor: ['rgba(19, 141, 212, 1)'],
-        backgroundColor: ['rgba(11, 3, 252, 1)'],
-        pointBackgroundColor: 'rgba(11, 3, 252, 1)',
-        pointBorderColor: 'rgba(255, 206, 86, '
-      }
-    ]
-  }
+        data: bmi.slice(0,10).reverse(),
+        borderColor: ["rgba(19, 141, 212, 1)"],
+        backgroundColor: ["rgba(11, 3, 252, 1)"],
+        pointBackgroundColor: "rgba(11, 3, 252, 1)",
+        pointBorderColor: "rgba(255, 206, 86, ",
+      },
+    ],
+  };
 
   const options = {
     title: {

@@ -13,6 +13,7 @@ const DashboardPatient = () => {
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
   const [currentAppointment, setCurrentAppointment] = useState(null)
+  const [lastAppointment,setLastAppointment] = useState()
 
   useEffect(() => {
     dispatch(appointmentsFetch())
@@ -37,6 +38,7 @@ const DashboardPatient = () => {
 
   useEffect(() => {
     appointments && filter()
+    setLastAppointment(appointments[0])
   }, [appointments])
 
 
@@ -48,12 +50,12 @@ const DashboardPatient = () => {
           <SidebarPatient />
         </div>
         <div className="dashboard-page-right">
-          <h1 className="mx-5 my-2 text-primary-color">Bienvenue sur votre dashboard, Jean-Paul</h1>
+          <h1 className="mx-5 my-2 text-primary-color">Bienvenue sur votre dashboard {lastAppointment && lastAppointment.first_name}</h1>
           <div className="mx-5 my-4">
-              <PatientSituation />
+            {lastAppointment && <PatientSituation appointment={lastAppointment} />}
           </div>
           <div>
-              <PatientCharts />
+            {filteredAppointments && <PatientCharts appointments={filteredAppointments} />}
           </div>
         </div>
       </div>
