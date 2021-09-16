@@ -5,6 +5,7 @@ import { patientsFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarPatient from 'components/SidebarPatient';
+import { Link } from 'react-router-dom';
 
 const PatientProfile = () => {
   const [patient, setPatient] = useState();
@@ -82,6 +83,14 @@ const PatientProfile = () => {
                         } 
                       </p>
                     </div>
+                    <Link
+                      exact
+                      to="/patient-edit-profile"
+                      className="sidebar-nutritionist-link text-dark"
+                      >
+                      <i class="fas fa-plus-circle"></i>
+                      Edit Profile
+                    </Link>
                   </div>
                 </div>
               </div>
