@@ -23,10 +23,10 @@ const PatientsList = () => {
     }
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     dispatch(nutritionistsFetch());
     getNutritionistPatients();
-  },[]);
+  }, [nutritionists]);
 
   return (
     <div className="patients-list">

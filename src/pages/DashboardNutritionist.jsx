@@ -1,5 +1,6 @@
 import AppointmentModal from 'components/AppointmentModal';
 import AppointmentsList from 'components/AppointmentsList';
+import CalendlyBtn from 'components/CalendlyBtn';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
@@ -35,12 +36,16 @@ const DashboardNutritionist = () => {
     modal.style.visibility = 'visible'
   }
 
+
   useEffect(() => {
     appointments && filter()
   }, [appointments])
 
   return (
     <div className="dashboard-nutritionist">
+      {appointments && (
+        <CalendlyBtn slug={appointments[0].nutritionist.slug_calendly} />
+      )}
       <div className="dashboard-nutritionist-left">
         <SidebarNutritionist />
         <AppointmentModal appointment={currentAppointment} />
@@ -51,14 +56,13 @@ const DashboardNutritionist = () => {
           activeKey={key}
           onSelect={(k) => setKey(k)}
         >
-          <Tab
-            eventKey="appointments"
-            title="Comptes-rendu">
-            {filteredAppointments &&
+          <Tab eventKey="appointments" title="Comptes-rendu">
+            {filteredAppointments && (
               <AppointmentsList
                 filteredAppointments={filteredAppointments}
-                setOpenModal={openModal} />
-            }
+                setOpenModal={openModal}
+              />
+            )}
           </Tab>
           <Tab eventKey="to-do" title="À venir">
             A venir

@@ -5,7 +5,7 @@
   input, select, textarea{
     border: 1px solid #454545;
     width: 30%;
-    margin: 15px 0;
+    margin: 5px 0;
     height: 40px;
     padding: 10px;
   }
@@ -18,8 +18,16 @@
     display: flex;
     justify-content: space-between;
 
-    input{
-      width: 15%;
+    .data-content{
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      width:15%;
+      margin-top: 10px;
+
+      input{
+        width: 100%;
+      }
     }
-}
+  }
 }
