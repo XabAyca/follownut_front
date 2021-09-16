@@ -7,7 +7,7 @@ const About = () => {
       <br/>
       <br/>
       <h1 className="">A propos de nous...</h1>
-      <h3 className="">Hello,</h3> 
+      <h3 className="">Hello,</h3>
       <p>  Nous sommes la promo printemps/été de The Hacking Project.
         THP (pour les intimes) est un bootcamp de 2 fois 3 mois basé sur le peer-learning. Les 3 premiers mois sont dédiés à l'apprentissage de HTML 5 / CSS 3 ainsi que Ruby et Ruby On Rails.
         Les 3 mois suivant sont alloués à l'apprentissage de Javascript et React.
