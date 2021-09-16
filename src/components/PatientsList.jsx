@@ -25,8 +25,11 @@ const PatientsList = () => {
 
   useEffect(() => {
     dispatch(nutritionistsFetch());
+  }, []);
+
+  useEffect(() => {
     getNutritionistPatients();
-  }, [nutritionists]);
+  },[nutritionists])
 
   return (
     <div className="patients-list">

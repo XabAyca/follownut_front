@@ -51,11 +51,9 @@ const AppointmentCreateForm = () => {
 
     setTimeout(() => {
       dispatch(appointmentsFetch())
-    }, 300)
-    
-    setTimeout(() => {
-      history.push("/nutritionist-dashboard");
-    }, 1000);
+    }, 500)
+    history.push("/nutritionist-dashboard");
+    window.location.reload()
   };
 
   return (

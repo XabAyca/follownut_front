@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 const NutritionistProfile = () => {
   const [nutritionist, setNutritionist] = useState();
   const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
-
   const nutritionists = useSelector(state => state.nutritionists)
   const dispatch = useDispatch() 
 
