@@ -5,6 +5,7 @@ import { nutritionistsFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
+import { Link } from 'react-router-dom';
 
 const NutritionistProfile = () => {
   const [nutritionist, setNutritionist] = useState();
@@ -63,7 +64,7 @@ const NutritionistProfile = () => {
           <div className="col-md-5 border-right">
             <div className="p-3">
               <div className="mb-5">
-                  <h4 className="text-right">Patient Profile</h4>
+                  <h4 className="text-right">Nutritionist Profile</h4>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -86,7 +87,7 @@ const NutritionistProfile = () => {
                 </div>
               </div>
               <div className="row mt-3">
-                <div className="col-md-12">
+                <div className="col-md-6">
                   <p>
                     <strong>E-mail : </strong>
                     {
@@ -95,7 +96,26 @@ const NutritionistProfile = () => {
                     } 
                   </p>
                 </div>
+                <div className="col-md-6">
+                  <p>
+                    <strong>Number : </strong>
+                    {
+                      nutritionist ? 
+                      nutritionist.email : <Loading color={"blue"} />
+                    } 
+                  </p>
+
+                </div>
+                <Link
+                    exact
+                    to="/nutritionist-edit-profile"
+                    className="sidebar-nutritionist-link text-dark"
+                  >
+                    <i class="fas fa-plus-circle"></i>
+                    Edit Profile
+                  </Link>
               </div>
+
             </div>
           </div>
         </div>

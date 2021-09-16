@@ -29,6 +29,7 @@ import DashboardNutritionistPatients from 'pages/DashboardNutritionistPatients';
 import DashboardNutritionistAppointments from 'pages/DashboardNutritionistAppointments';
 import PatientEditProfile from 'pages/PatientEditProfile';
 import HamburgerMenu from 'components/HamburgerMenu';
+import NutritionistEditProfile from 'pages/NutritionistEditProfile';
 
 
 
@@ -160,6 +161,13 @@ const App = () => {
           <Route path="/nutritionist-profile">
             {isNutritionistAuth() ? (
               <NutritionistProfile />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
+          <Route path="/nutritionist-edit-profile">
+            {isNutritionistAuth() ? (
+              <NutritionistEditProfile />
             ) : (
               <Redirect to="/" />
             )}
