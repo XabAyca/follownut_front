@@ -9,6 +9,9 @@ const PatientEditForm = ({patientData}) => {
   const [fname, setFname] = useState(first_name);
   const [lname, setLname] = useState(last_name);
   const [mail, setMail] = useState(email);
+  const [pword, setPword] = useState();
+  const [pwordConfirmation, setPwordConfirmation] = useState();
+
   const dispatch = useDispatch();
 
 
@@ -17,7 +20,9 @@ const PatientEditForm = ({patientData}) => {
       patient: {
         first_name: fname,
         last_name: lname,
-        email: mail
+        email: mail,
+        password: pword,
+        password_confirmation: pwordConfirmation
       },
     };
 
@@ -54,16 +59,15 @@ const PatientEditForm = ({patientData}) => {
             </div>
             <div className="col-md-12">
               <label className="labels">Mot de passe</label>
-              <input type="text" className="form-input-display" value=""/>
+              <input type="text" className="form-input-display" placeholder="" value={pword} onChange={(e) => setPword(e.target.value)} />
             </div>
             <div className="col-md-12">
               <label className="labels">Confirmation de mot de passe</label>
-              <input type="text" className="form-input-display" value=""/>
-            </div>          
+              <input type="text" className="form-input-display" placeholder="" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
+            </div>            
           </div>
           <div className="mt-5 text-center">
           <input type="submit" value="Sauvegarder" />
-            {/* <button className="btn btn-primary profile-button" type="submit" onSubmit={updateDataPatient}>Sauvegarder</button> */}
           </div>
         </div>
     </form>

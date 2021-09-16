@@ -82,10 +82,9 @@ export const fetchPatientDeleteRequest = () => {
     type: FETCH_PATIENT_DELETE_REQUEST,
   };
 };
-export const fetchPatientDeleteSuccess = (patient) => {
+export const fetchPatientDeleteSuccess = () => {
   return {
     type: FETCH_PATIENT_DELETE_SUCCESS,
-    patient,
   };
 };
 export const fetchPatientDeleteFailure = (error) => {

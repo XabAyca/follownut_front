@@ -1,4 +1,7 @@
 import { FETCH_PATIENT_FAILURE, FETCH_PATIENT_REQUEST, FETCH_PATIENT_SUCCESS } from "store/actions/patientActions";
+import { FETCH_PATIENT_DELETE_SUCCESS } from "store/actions/patientActions";
+import { FETCH_PATIENT_DELETE_FAILURE } from "store/actions/patientActions";
+import { FETCH_PATIENT_DELETE_REQUEST } from "store/actions/patientActions";
 import { FETCH_PATIENT_LOGIN_FAILURE, FETCH_PATIENT_LOGIN_LOGOUT, FETCH_PATIENT_LOGIN_REQUEST, FETCH_PATIENT_LOGIN_SUCCESS } from "store/actions/patientActions";
 import { FETCH_PATIENT_REGISTER_FAILURE, FETCH_PATIENT_REGISTER_REQUEST, FETCH_PATIENT_REGISTER_SUCCESS, FETCH_PATIENT_REGISTER_UNREGISTER } from "store/actions/patientActions";
 import { FETCH_PATIENT_UPDATE_FAILURE, FETCH_PATIENT_UPDATE_REQUEST, FETCH_PATIENT_UPDATE_SUCCESS } from "store/actions/patientActions";
@@ -42,6 +45,15 @@ export const patientReducer = (state = initialState, { type, error, patient, log
       return { ...state, loading: false, patient: patient, error:"" };
 
     case FETCH_PATIENT_UPDATE_FAILURE:
+      return { ...state, loading: false, error: error };
+
+    case FETCH_PATIENT_DELETE_REQUEST:
+      return { ...state, loading: true };
+  
+    case FETCH_PATIENT_DELETE_SUCCESS:
+      return { ...state, loading: false, error:"" };
+  
+    case FETCH_PATIENT_DELETE_FAILURE:
       return { ...state, loading: false, error: error };
 
     case FETCH_PATIENT_REGISTER_REQUEST:
