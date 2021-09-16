@@ -38,9 +38,9 @@ const PatientLoginForm = () => {
           <input type="submit" className="btn success-button mt-5 w-100" value="Se connecter" />
         </form>
         <Link to="/signup-patient">
-          <button className="d-flex justify-content-center mt-2 btn secondary-button w-100">
+          <div className="d-flex justify-content-center mt-2 w-100">
             S'inscrire
-          </button>
+          </div>
         </Link>
         <Link to="/patient/forgotten-password">
           <div className="d-flex justify-content-center mt-2">Mot de passe oublié ?</div>
