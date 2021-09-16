@@ -27,6 +27,14 @@ const SidebarNutritionist = () => {
         <i class="fas fa-plus-circle"></i>
         Créer un compte rendu
       </Link>
+      <Link
+        exact
+        to="/nutritionist-dashboard/appointments"
+        className="sidebar-nutritionist-link"
+      >
+        <i class="fas fa-plus-circle"></i>
+        Edit Profile
+      </Link>
     </div>
   );
 };

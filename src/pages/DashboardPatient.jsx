@@ -44,31 +44,35 @@ const DashboardPatient = () => {
 
   return (
     <>
-
-
-
-
-
-    <div className="dashboard-nutritionist">
-      <div className="dashboard-nutritionist-left">
-        <SidebarPatient />
+      <div className="dashboard-nutritionist">
+        <div className="dashboard-nutritionist-left">
+          <SidebarPatient />
+        </div>
+        <div className="dashboard-nutritionist-right">
+          <Tabs
+            id="controlled-tab-example"
+            activeKey={key}
+            onSelect={(k) => setKey(k)}
+            className="mb-3"
+          >
+            <Tab eventKey="appointments" title="Comptes-rendu">
+            
+            </Tab>
+            <Tab eventKey="weight" title="Weight">
+              Weight
+            </Tab>
+            <Tab eventKey="body-fat" title="Body Fat">
+              Body fat
+            </Tab>
+            <Tab eventKey="muscle-mass" title="Muscle mass">
+              A venir
+            </Tab>
+            <Tab eventKey="viceral-mass" title="Viceral mass">
+              A venir
+            </Tab>
+          </Tabs>
+        </div>
       </div>
-      <div className="dashboard-nutritionist-right">
-        <Tabs
-          id="controlled-tab-example"
-          activeKey={key}
-          onSelect={(k) => setKey(k)}
-          className="mb-3"
-        >
-          <Tab eventKey="appointments" title="Comptes-rendu">
-           
-          </Tab>
-          <Tab eventKey="to-do" title="À venir">
-            A venir
-          </Tab>
-        </Tabs>
-      </div>
-    </div>
     </>
   );
 };
