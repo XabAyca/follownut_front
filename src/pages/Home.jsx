@@ -19,7 +19,7 @@ import article from 'assets/images/article.png';
 
 const Home = () => {
   return (
-    <div className="home"> 
+    <div className="home page-padding"> 
       <section className="section bg-blue d-flex flex-row align-items-center">
         <div className="section1-left">
           <h1 className="text-white">Le meilleur logiciel pour nutritionistes et patients</h1>
