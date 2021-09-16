@@ -12,6 +12,8 @@ const PatientLoginForm = () => {
 
   const handlePatientLogin = async (e) => {
     e.preventDefault();
+    document.querySelector('.error-modal').style.opacity=1
+    document.querySelector('.error-modal').style.visibility="visible"
     if (email && password) {
       const patientData = {
         patient: {

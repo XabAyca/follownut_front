@@ -18,6 +18,7 @@ const PatientForgottenForm = () => {
       alert("Veuillez renseigner un email")
     }
   };
+
   
   return (
     <div className="patient-forgotten-form d-flex justify-content-center">

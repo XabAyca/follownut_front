@@ -1,0 +1,36 @@
+.error-modal{
+  display: flex;
+  padding: 5px 10px;
+  justify-content: center;
+  color:red;
+  font-weight: bold;
+  align-items: left;
+  flex-direction: column ;
+  visibility: hidden;
+  opacity: 0;
+  width: 300px;
+  height: 100px;
+  background-color: rgba(255, 91, 91, 0.932);
+  position: absolute;
+  border-radius: 0 0 0 10px ;
+  top:0;
+  right: 0;
+  z-index: 1000;
+  transition: all .3s;
+  p{
+    margin:0;
+  }
+  &.active-modal{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .fa-times{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    color: #ffff;
+    cursor: pointer;
+  }
+
+}

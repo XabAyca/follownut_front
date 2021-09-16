@@ -1,3 +1,4 @@
+import ErrorModal from 'components/ErrorModal';
 import PatientSignupForm from 'components/Forms/PatientSignupForm';
 
 const SignupPatient = () => {

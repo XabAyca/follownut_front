@@ -15,11 +15,12 @@ import data from 'assets/images/data.png';
 import app from 'assets/images/app.png';
 import notebook from 'assets/images/notebook.png';
 import article from 'assets/images/article.png';
+import ErrorModal from 'components/ErrorModal';
 
 
 const Home = () => {
   return (
-    <div className="home page-padding"> 
+    <div className="home page-padding">
       <section className="section bg-blue d-flex flex-row align-items-center">
         <div className="section1-left">
           <h1 className="text-white">Le meilleur logiciel pour nutritionistes et patients</h1>

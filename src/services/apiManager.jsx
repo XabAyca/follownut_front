@@ -73,7 +73,7 @@ export const nutritionistLoginFetch = (nutritionistData) => {
       })
       .then((response) => {
         if (response.errors || response.error) {
-          dispatch(fetchNutritionistLoginFailure(response.errors));
+          dispatch(fetchNutritionistLoginFailure(response.error));
         } else {
           Cookies.set("nutritionist_token_cookie", token);
           Cookies.set('nutritionist_id_cookie',response.data.id);
@@ -223,7 +223,7 @@ export const patientLoginFetch = (patientData) => {
       })
       .then((response) => {
         if (response.errors || response.error) {
-          dispatch(fetchPatientLoginFailure(response.errors));
+          dispatch(fetchPatientLoginFailure(response.error));
         } else {
           Cookies.set("patient_token_cookie", token);
           Cookies.set('patient_id_cookie',response.data.id);
