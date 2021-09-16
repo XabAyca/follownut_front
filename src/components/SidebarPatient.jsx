@@ -8,7 +8,14 @@ const SidebarPatient = () => {
         exact
         to="/patient-dashboard"
         className="sidebar-patient-dashboard-link">
-        <i class="fas fa-calendar-check"></i>
+        <i class="fas fa-chart-line"></i>
+        Relevés
+      </Link>
+      <Link
+        exact
+        to="/patient-dashboard"
+        className="sidebar-patient-dashboard-link">
+        <i class="far fa-clipboard"></i>
         Comptes-rendu
       </Link>
     </div>

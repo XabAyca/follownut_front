@@ -1,17 +1,15 @@
-import GraphWeight from "components/GraphWeight";
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { appointmentsFetch } from 'services/apiManager';
 import SidebarPatient from "components/SidebarPatient";
 import PatientSituation from "components/PatientSituation";
+import PatientCharts from "components/PatientCharts";
 
 const DashboardPatient = () => {
   const dispatch = useDispatch()
   const patient_id = parseInt(Cookies.get("patient_id_cookie"))
-  const [key, setKey] = useState("appointments");
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
   const [currentAppointment, setCurrentAppointment] = useState(null)
@@ -54,6 +52,9 @@ const DashboardPatient = () => {
           <div className="mx-5 my-4">
               <PatientSituation />
           </div>
+          <div className="mx-5 my-4">
+              <PatientCharts />
+          </div>
         </div>
       </div>
     </>
@@ -61,38 +62,3 @@ const DashboardPatient = () => {
 };
 
 export default DashboardPatient;
-
-
-// return (
-//   <>
-//     <div className="dashboard-nutritionist page-padding">
-//       <div className="dashboard-nutritionist-left">
-//         <SidebarPatient />
-//       </div>
-//       <div className="dashboard-nutritionist-right">
-//         <Tabs
-//           id="controlled-tab-example"
-//           activeKey={key}
-//           onSelect={(k) => setKey(k)}
-//           className="mb-3"
-//         >
-//           <Tab eventKey="appointments" title="Comptes-rendu">
-          
-//           </Tab>
-//           <Tab eventKey="weight" title="Weight">
-//             Weight
-//           </Tab>
-//           <Tab eventKey="body-fat" title="Body Fat">
-//             Body fat
-//           </Tab>
-//           <Tab eventKey="muscle-mass" title="Muscle mass">
-//             A venir
-//           </Tab>
-//           <Tab eventKey="viceral-mass" title="Viceral mass">
-//             A venir
-//           </Tab>
-//         </Tabs>
-//       </div>
-//     </div>
-//   </>
-// );
