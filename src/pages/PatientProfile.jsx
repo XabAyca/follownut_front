@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarPatient from 'components/SidebarPatient';
 import { Link } from 'react-router-dom';
+import { deletePatientFetch } from 'services/apiManager';
+import { patientLogout } from 'services/apiManager';
 
 const PatientProfile = () => {
   const [patient, setPatient] = useState();
@@ -29,7 +31,20 @@ const PatientProfile = () => {
     getPatient();
   },[patient]);
 
-  console.log(patient ? patient : "test")
+  const handleLogOut = () => {
+    Cookies.remove('patient_token_cookie');
+    Cookies.remove("patient_id_cookie");
+    dispatch(patientLogout()); 
+    window.location.reload();
+  }
+
+  const deleteProfilePatient = (e) => {
+    if (window.confirm("Vous êtes sur le point de supprimer votre compte. Êtes vous sur ?")) {
+      dispatch(deletePatientFetch());
+      handleLogOut();
+    }
+  }
+
 
   return (
     <>
@@ -87,10 +102,13 @@ const PatientProfile = () => {
                       exact
                       to="/patient-edit-profile"
                       className="sidebar-nutritionist-link text-dark"
-                      >
+                    >
                       <i class="fas fa-plus-circle"></i>
                       Edit Profile
                     </Link>
+                    <form onSubmit={deleteProfilePatient} >
+                      <input type="submit" value="Supprimer mon compte" />
+                    </form>
                   </div>
                 </div>
               </div>

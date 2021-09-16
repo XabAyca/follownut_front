@@ -12,8 +12,7 @@ const PatientEditForm = ({patientData}) => {
   const dispatch = useDispatch();
 
 
-  const updateDataPatient = (e) => {
-
+  const updateDataPatient = () => {
     const data = {
       patient: {
         first_name: fname,
