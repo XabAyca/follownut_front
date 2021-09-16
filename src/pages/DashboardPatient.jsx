@@ -43,16 +43,16 @@ const DashboardPatient = () => {
 
   return (
     <>
-      <div className="dashboard-nutritionist page-padding">
-        <div className="dashboard-nutritionist-left">
+      <div className="dashboard-page page-padding">
+        <div className="dashboard-page-left">
           <SidebarPatient />
         </div>
-        <div className="dashboard-nutritionist-right">
+        <div className="dashboard-page-right">
           <h1 className="mx-5 my-2 text-primary-color">Bienvenue sur votre dashboard, Jean-Paul</h1>
           <div className="mx-5 my-4">
               <PatientSituation />
           </div>
-          <div className="mx-5 my-4">
+          <div>
               <PatientCharts />
           </div>
         </div>
