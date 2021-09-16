@@ -1,7 +1,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 
-function GraphicWeight () {
+function bmiChart () {
   const data = {
     labels: [
       'Jan',
@@ -12,17 +12,18 @@ function GraphicWeight () {
       'Jun',
       'Jul',
       'Aug',
+      'Sep',
       'Oct',
       'Nov',
       'Dec'
     ],
     datasets: [
       {
-        label: "Graphic",
-        data: [3, 2, 2, 1, 5, 8, 5, 2, 6, 8, 7],
-        borderColor: ['rgba(255, 206, 86, 1)'],
-        backgroundColor: ['rgba(255, 206, 86, 1)'],
-        pointBackgroundColor: 'rgba(255, 206, 86, 1)',
+        label: "Indice de Masse Corporelle",
+        data: [31, 29, 27, 27, 26, 26, 26, 25, 23, 24, 23],
+        borderColor: ['rgba(19, 141, 212, 1)'],
+        backgroundColor: ['rgba(11, 3, 252, 1)'],
+        pointBackgroundColor: 'rgba(11, 3, 252, 1)',
         pointBorderColor: 'rgba(255, 206, 86, '
       }
     ]
@@ -49,4 +50,4 @@ function GraphicWeight () {
   return <Line data={data} options={options} />
 }
 
-export default GraphicWeight
+export default bmiChart;
