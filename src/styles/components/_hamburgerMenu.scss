@@ -60,10 +60,21 @@ z-index: 11;
     visibility: visible;
     opacity: 0.9;
   }
+  p{
+    font-size: 2rem;
+    color:#8186FE;
+  }
+
+  .deconnexion{
+    font-size: 1.3rem;
+    color:#ffff;
+    cursor: pointer;
+  }
   .menu-link{
     margin-bottom:35px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     transition: all .5s;
+    text-decoration: none;
     &:hover{
       color: white;
     }

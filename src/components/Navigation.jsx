@@ -24,7 +24,7 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
   }
 
   return (
-    <div className="navigation d-flex align-items-center justify-content-between">
+    <div className="navigation align-items-center justify-content-between">
       <div className="d-flex justify-content-between align-items-center">
         <img
           className="logo"

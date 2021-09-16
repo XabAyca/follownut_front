@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { patientLogout } from 'services/apiManager';
 import { nutritionistLogout } from 'services/apiManager';
 
+
 const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
   const dispatch = useDispatch();
 
@@ -42,7 +43,7 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
         >
           Accueil
         </NavLink>
-        {patientAuth ? (
+        {patientAuth && (
           <>
             <NavLink
               exact
@@ -56,42 +57,85 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
 
             <NavLink
               exact
-              to="/create-property"
+              to="/patient-dashboard"
               className="menu-link"
               onClick={handleMenu}
             >
-              <i className="fas fa-plus-circle"></i>Ajouter une annonce
+              Tableau de bord
             </NavLink>
-            <button
-              onClick={() => {
-                handleMenu();
-                handleLogOut();
-              }}
-              className="btn btn-danger mx-2"
-            >
-              {" "}
-              Log Out{" "}
-            </button>
           </>
-        ) : (
+        )}
+        {nutritionistAuth && (
           <>
             <NavLink
               exact
-              to="/register"
+              to="/nutritionist-profile"
               className="menu-link"
+              activeClassName="nav-active"
               onClick={handleMenu}
             >
-              Sign Up
+              Profil
             </NavLink>
+
             <NavLink
               exact
-              to="/login"
+              to="/nutritionist-dashboard"
               className="menu-link"
               onClick={handleMenu}
             >
-              Log In
+              Tableau de bord
             </NavLink>
           </>
+        )}
+        {!patientAuth && !nutritionistAuth && (
+          <>
+            <p>S'inscrire</p>
+            <NavLink
+              exact
+              to="/signup-patient"
+              className="menu-link"
+              activeClassName="nav-active"
+              onClick={handleMenu}
+            >
+              En tant que patient
+            </NavLink>
+
+            <NavLink
+              exact
+              to="/signup-nutritionist"
+              className="menu-link"
+              onClick={handleMenu}
+            >
+              En tant que nutritionniste
+            </NavLink>
+            <p>Se connecter</p>
+            <NavLink
+              exact
+              to="/login-patient"
+              className="menu-link"
+              activeClassName="nav-active"
+              onClick={handleMenu}
+            >
+              En tant que patient
+            </NavLink>
+
+            <NavLink
+              exact
+              to="/login-nutritionist"
+              className="menu-link"
+              onClick={handleMenu}
+            >
+              En tant que nutritionniste
+            </NavLink>
+          </>
+        )}
+        {(patientAuth || nutritionistAuth) && (
+          <p onClick={() => {
+            handleLogOut()
+            handleMenu()
+          }} className="deconnexion">
+            Se déconnecter ➞
+          </p>
         )}
       </div>
     </>

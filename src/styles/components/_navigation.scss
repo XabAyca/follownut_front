@@ -8,6 +8,10 @@
   height: 50px;
   padding: 5px;
 
+  @include phone {
+    display:none;
+  }
+
   .nav-link{
     padding: 10px;
     position: relative;
@@ -64,7 +68,7 @@
     text-decoration: none;
   }
   .dropdown-item-text{
-    color:#8186FE
+    color:#8186FE;
   }
   
 
