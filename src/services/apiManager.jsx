@@ -3,6 +3,8 @@ import { deleteAppointmentFailure, deleteAppointmentRequest, deleteAppointmentSu
 import { createAppointmentFailure, createAppointmentSuccess, createAppointmentRequest, fetchAppointmentsRequest } from "store/actions/appointmentActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
+import { fetchNutritionistDeleteFailure, fetchNutritionistDeleteRequest, fetchNutritionistDeleteSuccess } from "store/actions/nutritionistActions";
+import { fetchNutritionistUpdateFailure, fetchNutritionistUpdateRequest, fetchNutritionistUpdateSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
 import { fetchPatientDeleteFailure, fetchPatientDeleteSuccess, fetchPatientDeleteRequest } from "store/actions/patientActions";
@@ -161,6 +163,73 @@ export const nutritionistResetPasswordFetch = (newNutritionistData) => {
 
 
 
+
+
+
+
+// BELOW IS THE FUNCTION TO UPDATE A NUTRITIONIST
+export const updateNutritionistFetch = (nutritionistData) => {
+  return (dispatch) => {
+    const id = Cookies.get('nutritionist_id_cookie');
+    const token = Cookies.get('nutritionist_token_cookie');
+    dispatch(fetchNutritionistUpdateRequest ());
+
+    fetch(baseUrl + `/api/v1/nutritionists/${id}`, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(nutritionistData),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchNutritionistUpdateFailure (response.errors)); 
+        } else {
+          dispatch(fetchNutritionistUpdateSuccess(response));
+        }
+      });
+  };
+};
+
+
+// BELOW IS THE FUNCTION TO DELETE A NUTRITIONIST
+export const deleteNutritionistFetch = () => {
+  return (dispatch) => {
+    const id = Cookies.get('nutritionist_id_cookie');
+    const token = Cookies.get('nutritionist_token_cookie');
+    dispatch(fetchNutritionistDeleteRequest ());
+
+    fetch(baseUrl + `/api/v1/nutritionists/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchNutritionistDeleteFailure (response.errors));
+        } else {
+          dispatch(fetchNutritionistDeleteSuccess());
+        }
+      });
+  };
+};
+
+
+
+
+
+
+
+
+
+
+
+
 // ------------------------------------------------------------------------------------------
 // -------------------- BELOW ARE ALL THE PATIENT RELATED FUNCTIONS --------------------
 // ------------------------------------------------------------------------------------------
@@ -308,16 +377,6 @@ export const patientResetPasswordFetch = (newPatientData) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
 // BELOW IS THE FUNCTION TO UPDATE A PATIENT
 export const updatePatientFetch = (patientData) => {
   return (dispatch) => {
@@ -364,14 +423,11 @@ export const deletePatientFetch = () => {
         if (response.errors) {
           dispatch(fetchPatientDeleteFailure (response.errors));
         } else {
-          dispatch(fetchPatientDeleteSuccess(response));
+          dispatch(fetchPatientDeleteSuccess());
         }
       });
   };
 };
-
-
-
 
 
 
