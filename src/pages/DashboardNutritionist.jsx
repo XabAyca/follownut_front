@@ -42,15 +42,15 @@ const DashboardNutritionist = () => {
   }, [appointments])
 
   return (
-    <div className="dashboard-nutritionist page-padding">
+    <div className="dashboard-page page-padding">
       {appointments && (
         <CalendlyBtn slug={appointments[0].nutritionist.slug_calendly} />
       )}
-      <div className="dashboard-nutritionist-left">
+      <div className="dashboard-page-left">
         <SidebarNutritionist />
         <AppointmentModal appointment={currentAppointment} />
       </div>
-      <div className="dashboard-nutritionist-right">
+      <div className="dashboard-page-right m-5">
         <Tabs
           id="controlled-tab-example"
           activeKey={key}
