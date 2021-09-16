@@ -41,8 +41,8 @@ const Home = () => {
             <p>Avec notre solution basée sur le Web, vos données sont en sécurité et accessibles de n'importe où.</p>
           </div>
           <Link to="/" className="link">
-            <span className="margin-right">En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <span>En savoir plus</span>
+            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
           </Link>
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
@@ -54,8 +54,8 @@ const Home = () => {
             <p>Des indicateurs sante developpés en collabiration avec des nutritionistes pour vous permettre un meilleur suivi de vos patients</p>
           </div>
           <Link to="/" className="link">
-            <span className="margin-right">En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <span>En savoir plus</span>
+            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
           </Link>
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
@@ -67,8 +67,8 @@ const Home = () => {
             <p>Tous vos clients au même endroit et gérables en quelques clics sur votre tableau de bord.</p>
           </div>
           <Link to="/" className="link">
-            <span className="margin-right">En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <span>En savoir plus</span>
+            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
           </Link>
         </div>
       </section>
@@ -79,10 +79,10 @@ const Home = () => {
         </div>
         <div className="section3-right">
           <h1 className="text-white">Prise de rendez-vous en ligne</h1>
-          <h6 className="pt-4 text-justify text-secondary-color">Gagner du temps grâce à notre plateforme de réservation en ligne. Cette fonctionalité permettra à vos patients, nouveaux et actuels, de prendre rendez-vous en un clic.</h6>
+          <h6 className="pt-4 text-justified text-secondary-color">Gagnez du temps grâce à notre plateforme de réservation en ligne. Cette fonctionalité permettra à vos patients, nouveaux et actuels, de prendre rendez-vous en un clic.</h6>
           <Link to="/" className="link">
-            <span className="margin-right">En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <span>En savoir plus</span>
+            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
           </Link>
         </div>
       </section>
@@ -97,8 +97,8 @@ const Home = () => {
             <p>Permettez à vos patients de noter leurs progrès dans un espace dédié, et ainsi faciliter leur suivi.</p>
           </div>
           <Link to="/" className="link">
-            <span className="margin-right">En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <span>En savoir plus</span>
+            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
           </Link>
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
@@ -110,8 +110,8 @@ const Home = () => {
             <p>Une application disponible sur mobile et tablette pour rester en contact avec vos clients.</p>
           </div>
           <Link to="/" className="link">
-            <span className="margin-right">En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <span>En savoir plus</span>
+            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
           </Link>
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
@@ -123,8 +123,8 @@ const Home = () => {
             <p>Partagez vos recettes, astuces nutrition, sport et santé afin de pouvoir toucher plus de clients.</p>
           </div>
           <Link to="/" className="link">
-            <span className="margin-right">En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} />
+            <span>En savoir plus</span>
+            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
           </Link>
         </div>
       </section>
