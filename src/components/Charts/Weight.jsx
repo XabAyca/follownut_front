@@ -1,33 +1,20 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 
-function weightChart () {
+function weightChart ({weights, date}) {
   const data = {
-    labels: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'April',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec'
-    ],
+    labels: date.slice(0, 10).reverse(),
     datasets: [
       {
         label: "Poids (en kilogrammes)",
-        data: [96, 91, 87, 87, 84, 83, 84, 82, 79, 80, 78],
-        borderColor: ['rgba(255, 206, 86, 1)'],
-        backgroundColor: ['rgba(255, 206, 86, 1)'],
-        pointBackgroundColor: 'rgba(255, 206, 86, 1)',
-        pointBorderColor: 'rgba(255, 206, 86, '
-      }
-    ]
-  }
+        data: weights.slice(0, 10).reverse(),
+        borderColor: ["rgba(255, 206, 86, 1)"],
+        backgroundColor: ["rgba(255, 206, 86, 1)"],
+        pointBackgroundColor: "rgba(255, 206, 86, 1)",
+        pointBorderColor: "rgba(255, 206, 86, ",
+      },
+    ],
+  };
 
   const options = {
     title: {
