@@ -212,6 +212,22 @@ html,body{
   width: 35em;
 }
 
+.patient-situation-details {
+  background-color: $secondary-color;
+  border-radius: 15px;
+}
+
+// -------------------- TABLES -------------------- //
+
+.patient-table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: $primary-color;
+  vertical-align: top;
+  border-color: #dee2e6;
+}
+
+
 
 // -------------------- FORMS -------------------- //
 

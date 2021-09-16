@@ -50,8 +50,8 @@ const DashboardPatient = () => {
           <SidebarPatient />
         </div>
         <div className="dashboard-nutritionist-right">
-          <h1 className="m-5 text-primary-color">Bienvenue sur votre dashboard, Jean-Paul</h1>
-          <div className="bg-blue m-5">
+          <h1 className="mx-5 my-2 text-primary-color">Bienvenue sur votre dashboard, Jean-Paul</h1>
+          <div className="mx-5 my-4">
               <PatientSituation />
           </div>
         </div>
