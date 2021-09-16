@@ -8,8 +8,8 @@ const DashboardNutritionistAppointments = () => {
       <div className="dashboard-page-left">
         <SidebarNutritionist />
       </div>
-      <div className="dashboard-page-right">
-        <h1>Create appointment</h1>
+      <div className="dashboard-page-right m-5">
+        <h1 className="text-primary-color">Create appointment</h1>
         <AppointmentCreateForm/>
       </div>
     </div>

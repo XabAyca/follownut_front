@@ -60,7 +60,7 @@ const AppointmentCreateForm = () => {
 
   return (
     <>
-      <form className="appointment-form" onSubmit={createDataAppointment}>
+      <form className="appointment-form text-primary-color" onSubmit={createDataAppointment}>
         <div className="col-lg-3 col-sm-12">
           <select name="patient" id="patient_id" className="form-select-display w-100 my-2" required>
             <option>Sélectionnez un patient</option>
@@ -146,7 +146,7 @@ const AppointmentCreateForm = () => {
             />
           </div>
         </div>
-        <hr />
+        <hr className="mt-5" />
         <label>Compte-rendu</label>
         <textarea placeholder="Compte-rendu" id="content" className="form-input-display form-textarea-display" required />
         <input type="submit" value="Créer" className="btn success-button my-3 col-lg-3 col-sm-12" />

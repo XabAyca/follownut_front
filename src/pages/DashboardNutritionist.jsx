@@ -50,7 +50,7 @@ const DashboardNutritionist = () => {
         <SidebarNutritionist />
         <AppointmentModal appointment={currentAppointment} />
       </div>
-      <div className="dashboard-page-right">
+      <div className="dashboard-page-right m-5">
         <Tabs
           id="controlled-tab-example"
           activeKey={key}
