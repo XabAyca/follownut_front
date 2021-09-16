@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Weight from "components/Charts/Weight";
 import BMI from "components/Charts/BMI";
+import FatnMuscle from "components/Charts/FatnMuscle";
 
 const PatientCharts = () => {
 
@@ -17,9 +18,14 @@ const PatientCharts = () => {
               <Weight />
             </div>
           </Tab>
-          <Tab eventKey="muscle-mass" title="IMC">
+          <Tab eventKey="bmi" title="IMC">
             <div className="m-5">
               <BMI />
+            </div>
+          </Tab>
+          <Tab eventKey="fat-n-muscle" title="Muscle / Graisse">
+            <div className="m-5">
+              <FatnMuscle />
             </div>
           </Tab>
         </Tabs>
