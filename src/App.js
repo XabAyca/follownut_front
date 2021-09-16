@@ -28,6 +28,7 @@ import ForgottenPasswordPatient from 'pages/Auth/ForgottenPasswordPatient';
 import DashboardNutritionistPatients from 'pages/DashboardNutritionistPatients';
 import DashboardNutritionistAppointments from 'pages/DashboardNutritionistAppointments';
 import PatientEditProfile from 'pages/PatientEditProfile';
+import HamburgerMenu from 'components/HamburgerMenu';
 
 
 
@@ -139,10 +140,17 @@ const App = () => {
           patientAuth={isPatientAuth()}
           nutritionistAuth={isNutritionistAuth()}
         />
+        <HamburgerMenu
+          patientAuth={isPatientAuth()}
+          nutritionistAuth={isNutritionistAuth()}
+        />
         <Switch>
-
           <Route exact path="/signup-nutritionist">
-            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <SignupNutritionist /> }
+            {isNutritionistAuth() ? (
+              <Redirect to="/nutritionist-dashboard" />
+            ) : (
+              <SignupNutritionist />
+            )}
           </Route>
 
           <Route path="/patient-edit-profile">
@@ -155,56 +163,96 @@ const App = () => {
             ) : (
               <Redirect to="/" />
             )}
-            </Route>
+          </Route>
 
           <Route exact path="/login-nutritionist">
-            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <LoginNutritionist /> }
-
+            {isNutritionistAuth() ? (
+              <Redirect to="/nutritionist-dashboard" />
+            ) : (
+              <LoginNutritionist />
+            )}
           </Route>
           <Route exact path="/nutritionist/forgotten-password">
-            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <ForgottenPasswordNutritionist /> }
+            {isNutritionistAuth() ? (
+              <Redirect to="/nutritionist-dashboard" />
+            ) : (
+              <ForgottenPasswordNutritionist />
+            )}
           </Route>
           <Route exact path="/password-reset-nutritionist/:tokenSlug">
-            { isNutritionistAuth() ? <Redirect to="/nutritionist-dashboard" /> : <ResetPasswordNutritionist /> }
+            {isNutritionistAuth() ? (
+              <Redirect to="/nutritionist-dashboard" />
+            ) : (
+              <ResetPasswordNutritionist />
+            )}
           </Route>
           <Route exact path="/nutritionist-profile">
-            { isNutritionistAuth() ? <NutritionistProfile /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <NutritionistProfile />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
           <Route exact path="/nutritionist-dashboard">
-            { isNutritionistAuth() ? <DashboardNutritionist /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <DashboardNutritionist />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
           <Route exact path="/nutritionist-dashboard/patients">
-            { isNutritionistAuth() ? <DashboardNutritionistPatients /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <DashboardNutritionistPatients />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
           <Route exact path="/nutritionist-dashboard/appointments">
-            { isNutritionistAuth() ? <DashboardNutritionistAppointments /> : <Redirect to="/" /> }
+            {isNutritionistAuth() ? (
+              <DashboardNutritionistAppointments />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
-
 
           <Route exact path="/signup-patient">
-            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : <SignupPatient /> }
+            {isPatientAuth() ? (
+              <Redirect to="/patient-dashboard" />
+            ) : (
+              <SignupPatient />
+            )}
           </Route>
           <Route exact path="/login-patient">
-            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : <LoginPatient /> }
+            {isPatientAuth() ? (
+              <Redirect to="/patient-dashboard" />
+            ) : (
+              <LoginPatient />
+            )}
           </Route>
           <Route exact path="/patient/forgotten-password">
-            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : <ForgottenPasswordPatient /> }
+            {isPatientAuth() ? (
+              <Redirect to="/patient-dashboard" />
+            ) : (
+              <ForgottenPasswordPatient />
+            )}
           </Route>
           <Route exact path="/password-reset-patient/:tokenSlug">
-            { isPatientAuth() ? <Redirect to="/patient-dashboard" /> : < ResetPasswordPatient /> }
+            {isPatientAuth() ? (
+              <Redirect to="/patient-dashboard" />
+            ) : (
+              <ResetPasswordPatient />
+            )}
           </Route>
           <Route exact path="/patient-profile">
-            { isPatientAuth() ? <PatientProfile /> : <Redirect to="/" /> }
+            {isPatientAuth() ? <PatientProfile /> : <Redirect to="/" />}
           </Route>
           <Route exact path="/patient-dashboard">
-            { isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" /> }
+            {isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" />}
           </Route>
-
 
           <Route exact path="/" exact component={Home} />
           <Route exact path="/about" exact component={About} />
           <Route component={NotFound} />
-
         </Switch>
       </BrowserRouter>
     </>

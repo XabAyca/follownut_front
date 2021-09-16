@@ -1,16 +1,17 @@
 // CONFIG IMPORTS
 import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { nutritionistLogout, patientLogout } from "services/apiManager";
 import Cookies from 'js-cookie';
 
 // ASSETS IMPORTS
-import logo from 'assets/images/logo.png'
+import logo from 'assets/images/logo.svg'
 
 const Navigation = ({patientAuth, nutritionistAuth}) => {
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const handleLogOut = () => {
     Cookies.remove('patient_token_cookie');
@@ -23,60 +24,105 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
   }
 
   return (
-    <div className="navigation d-flex align-items-center justify-content-between px-5">
+    <div className="navigation d-flex align-items-center justify-content-between">
       <div className="d-flex justify-content-between align-items-center">
-        <NavLink exact to="/">
-          <img className="logo" src={logo} alt="FollowNut' logo"/>
-        </NavLink>
-        <div>
-          <NavLink exact to="/" activeClassName="nav-active" className="links">Accueil</NavLink>
+        <img
+          className="logo"
+          onClick={() => history.push("/")}
+          src={logo}
+          alt="FollowNut' logo"
+        />
+        <div className="d-flex justify-content-between align-items-center">
+          <NavLink
+            exact
+            to="/"
+            activeClassName="nav-active"
+            className="nav-link"
+          >
+            Accueil
+          </NavLink>
           {/* <NavLink exact to="/about" activeClassName="nav-active">À propos</NavLink> */}
-
 
           {patientAuth && (
             <>
-              <NavLink exact to="/patient-profile" activeClassName="nav-active">Profil</NavLink>
-              <NavLink exact to="/patient-dashboard" activeClassName="nav-active">Tableau de bord</NavLink>
+              <NavLink
+                exact
+                to="/patient-profile"
+                className="nav-link"
+                activeClassName="nav-active"
+              >
+                Profil
+              </NavLink>
+              <NavLink
+                exact
+                to="/patient-dashboard"
+                activeClassName="nav-active"
+                className="nav-link"
+              >
+                Tableau de bord
+              </NavLink>
             </>
           )}
 
-
           {nutritionistAuth && (
             <>
-              <NavLink exact to="/nutritionist-profile" activeClassName="nav-active">Profil</NavLink>
-              <NavLink exact to="/nutritionist-dashboard" activeClassName="nav-active">Tableau de bord</NavLink>
+              <NavLink
+                exact
+                to="/nutritionist-profile"
+                activeClassName="nav-active"
+                className="nav-link"
+              >
+                Profil
+              </NavLink>
+              <NavLink
+                exact
+                to="/nutritionist-dashboard"
+                activeClassName="nav-active"
+                className="nav-link"
+              >
+                Tableau de bord
+              </NavLink>
             </>
           )}
         </div>
       </div>
-
-      <div className="connection d-flex justify-content-between">
+      <div>
         {!patientAuth && !nutritionistAuth && (
           <>
-            <DropdownButton title="S'inscrire">
+            <DropdownButton title="Mon espace">
+              <Dropdown.ItemText>S'inscrire</Dropdown.ItemText>
               <Dropdown.Item>
-                <NavLink exact to="/signup-patient" activeClassName="nav-active">Patient</NavLink>
+                <Link exact to="/signup-patient">
+                  En tant que patient
+                </Link>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/signup-nutritionist" activeClassName="nav-active">Nutritionist</NavLink>          
+                <Link exact to="/signup-nutritionist">
+                  En tant que nutritionniste
+                </Link>
               </Dropdown.Item>
-            </DropdownButton>
-            <DropdownButton title="Se connecter">
+              <Dropdown.Divider />
+              <Dropdown.ItemText>Se connecter</Dropdown.ItemText>
               <Dropdown.Item>
-                <NavLink exact to="/login-patient" activeClassName="nav-active">Patient</NavLink>
+                <Link exact to="/login-patient">
+                  En tant que patient
+                </Link>
               </Dropdown.Item>
               <Dropdown.Item>
-                <NavLink exact to="/login-nutritionist" activeClassName="nav-active">Nutritionist</NavLink>
+                <Link exact to="/login-nutritionist">
+                  En tant que nutritionniste
+                </Link>
               </Dropdown.Item>
             </DropdownButton>
           </>
         )}
 
         {(patientAuth || nutritionistAuth) && (
-          <button onClick={() => handleLogOut()} className="btn btn-danger mx-2">Se déconnecter</button>
-         )}
+          <p onClick={() => handleLogOut()} className="deconnexion">
+            Se déconnecter ➞
+          </p>
+        )}
       </div>
-
     </div>
   );
 };
