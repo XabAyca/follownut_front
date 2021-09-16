@@ -160,6 +160,33 @@ html,body{
   }
 }
 
+// -------------------- HEADERS -------------------- //
+
+h1 {
+  line-height: 1.6em;
+}
+
+h2 {
+  line-height: 1.6em;
+}
+
+h3 {
+  line-height: 1.5em;
+}
+
+h4 {
+  line-height: 1.5em;
+}
+
+h5 {
+  line-height: 1.4em;
+  text-align: justify;
+}
+
+h6 {
+  line-height: 1.4em;
+  text-align: justify;
+}
 
 // -------------------- TEXT COLORS -------------------- //
 
@@ -187,17 +214,8 @@ html,body{
   color: $warning;
 }
 
-.text-justify {
-  text-align: justify;
-  line-height: 1.4em;
-}
 
-// -------------------- MARGIN -------------------- //
-.margin-right {
-  margin-right: 1rem;
-}
-
-// -------------------- BACKGROUND -------------------- //
+// -------------------- BACKGROUNDS -------------------- //
 .bg-blue {
   background-color: #91b2e2;
 }
@@ -212,7 +230,7 @@ html,body{
   width: 35em;
 }
 
-.patient-situation-details {
+.patient-details {
   background-color: $secondary-color;
   border-radius: 15px;
 }
