@@ -4,6 +4,8 @@
   flex-wrap: row nowrap;
   width: 100%;
   justify-content: space-around;
+  min-height: 100vh;
+  padding-top: 70px;
 
   .dashboard-page-right{
     width: 100%;
