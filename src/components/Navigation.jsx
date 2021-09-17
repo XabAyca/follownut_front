@@ -91,28 +91,25 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
           <>
             <DropdownButton title="Mon espace">
               <Dropdown.ItemText>S'inscrire</Dropdown.ItemText>
-              <Dropdown.Item>
-                <Link exact to="/signup-patient">
-                  Patient
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link exact to="/signup-nutritionist">
-                  Nutritionniste
-                </Link>
-              </Dropdown.Item>
+
+              <Link exact to="/signup-patient">
+                <Dropdown.Item>Patient</Dropdown.Item>
+              </Link>
+
+              <Link exact to="/signup-nutritionist">
+                <Dropdown.Item> Nutritionniste</Dropdown.Item>
+              </Link>
+
               <Dropdown.Divider />
               <Dropdown.ItemText>Se connecter</Dropdown.ItemText>
-              <Dropdown.Item>
-                <Link exact to="/login-patient">
-                  Patient
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link exact to="/login-nutritionist">
-                  Nutritionniste
-                </Link>
-              </Dropdown.Item>
+
+              <Link exact to="/login-patient">
+                <Dropdown.Item>Patient</Dropdown.Item>
+              </Link>
+
+              <Link exact to="/login-nutritionist">
+                <Dropdown.Item>Nutritionniste</Dropdown.Item>
+              </Link>
             </DropdownButton>
           </>
         )}
