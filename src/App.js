@@ -137,7 +137,7 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/React">
         <Pwa.Provider value={installBtn}>
           <Navigation
             patientAuth={isPatientAuth()}
