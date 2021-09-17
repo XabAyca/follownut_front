@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CalendlyBtn from 'components/CalendlyBtn';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import SignupNutritionist from 'pages/Auth/SignupNutritionist';
@@ -15,12 +15,13 @@ import data from 'assets/images/data.png';
 import app from 'assets/images/app.png';
 import notebook from 'assets/images/notebook.png';
 import article from 'assets/images/article.png';
-import ErrorModal from 'components/ErrorModal';
-
+import PwaModal from 'components/PwaModal';
 
 const Home = () => {
+
   return (
     <div className="home page-padding">
+      {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
       <section className="section bg-blue d-flex flex-row align-items-center">
         <div className="section1-left">
           <h1 className="text-white">Le meilleur logiciel pour nutritionistes et patients</h1>

@@ -6,6 +6,7 @@ import { appointmentsFetch } from 'services/apiManager';
 import SidebarPatient from "components/SidebarPatient";
 import PatientSituation from "components/PatientSituation";
 import PatientCharts from "components/PatientCharts";
+import PwaModal from 'components/PwaModal';
 
 const DashboardPatient = () => {
   const dispatch = useDispatch()
@@ -46,16 +47,26 @@ const DashboardPatient = () => {
   return (
     <>
       <div className="dashboard-page page-padding">
+        {!window.matchMedia("(display-mode: standalone)").matches && (
+          <PwaModal />
+        )}
         <div className="dashboard-page-left">
           <SidebarPatient />
         </div>
         <div className="dashboard-page-right">
-          <h1 className="mx-5 my-2 text-primary-color">Bienvenue sur votre dashboard {lastAppointment && lastAppointment.first_name}</h1>
+          <h1 className="mx-5 my-2 text-primary-color">
+            Bienvenue sur votre dashboard{" "}
+            {lastAppointment && lastAppointment.first_name}
+          </h1>
           <div className="mx-5 my-4">
-            {lastAppointment && <PatientSituation appointment={lastAppointment} />}
+            {lastAppointment && (
+              <PatientSituation appointment={lastAppointment} />
+            )}
           </div>
           <div>
-            {filteredAppointments && <PatientCharts appointments={filteredAppointments} />}
+            {filteredAppointments && (
+              <PatientCharts appointments={filteredAppointments} />
+            )}
           </div>
         </div>
       </div>
