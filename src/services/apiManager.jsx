@@ -11,7 +11,7 @@ import { fetchPatientDeleteFailure, fetchPatientDeleteSuccess, fetchPatientDelet
 import { fetchPatientLoginFailure, fetchPatientLoginLogout, fetchPatientLoginRequest, fetchPatientLoginSuccess } from "store/actions/patientActions";
 import { fetchPatientRegisterFailure, fetchPatientRegisterRequest, fetchPatientRegisterSuccess, fetchPatientRegisterUnregister } from "store/actions/patientActions";
 import { fetchPatientsFailure, fetchPatientsRequest, fetchPatientsSuccess } from "store/actions/patientActions";
-import fetch from "cross-fetch";
+
 
 
 const baseUrl = "https://follownut-back.herokuapp.com";
