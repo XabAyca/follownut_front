@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from "js-cookie";
 import { appointmentsFetch } from 'services/apiManager';
-import AppointmentsList from 'components/AppointmentsList';
+import AppointmentsListPatient from 'components/AppointmentsListPatient';
 import SidebarPatient from 'components/SidebarPatient';
 import Loading from 'components/Loading';
 import AppointmentModal from 'components/AppointmentModal';
@@ -40,21 +40,22 @@ const DashboardPatientAptsList = () => {
 
 
   return (
-    <div className="dashboard-patient-apts-list page-padding">
+    <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarPatient /> 
         <AppointmentModal appointment={currentAppointment} />
       </div>
-      <div>
-        {patientAppointments ?  
-          <AppointmentsList
-            filteredAppointments={patientAppointments}
-            setOpenModal={openModal}
-          /> :
-          <Loading />
-        } 
+      <div className="dashboard-page-right">
+        <div className="m-5">
+          {patientAppointments ?  
+            <AppointmentsListPatient
+              filteredAppointments={patientAppointments}
+              setOpenModal={openModal}
+            /> :
+            <Loading />
+          } 
+        </div>
       </div>
-
     </div>
   );
 };

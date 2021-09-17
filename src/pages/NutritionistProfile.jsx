@@ -126,7 +126,7 @@ const NutritionistProfile = () => {
                     to="/nutritionist-edit-profile"
                     className="sidebar-nutritionist-link text-dark"
                   >
-                    <i class="fas fa-plus-circle"></i>
+                    <i className="pointer-clickable fas fa-plus-circle"></i>
                     Edit Profile
                   </Link>
                   <form onSubmit={deleteProfileNutritionist} >

@@ -36,8 +36,7 @@ const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
           <tr>
             <th scope="col">Réf.</th>
             <th scope="col">Date</th>
-            <th scope="col">Patient</th>
-            <th scope="col"></th>
+            <th scope="col">Nutritioniste</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -48,12 +47,11 @@ const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
                 <tr>
                   <th scope="row" key={appointment.id}>{appointment.id}</th>
                   <td>{createDate(appointment.date)}</td>
-                  <td>{ appointment.patient ? appointment.patient.last_name ?
-                        ( <span>M./Mme {appointment.patient.last_name}</span>)
-                      : (<span> Patient supprimé</span>) : (<span> Inconnu </span>)}
+                  <td>{ appointment.nutritionist ? appointment.nutritionist.last_name ?
+                        ( <span>M./Mme {appointment.nutritionist.last_name}</span>)
+                      : (<span> Utilisateur supprimé</span>) : (<span> Inconnu </span>)}
                   </td>
-                  <td><i class="far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
-                  <td><i class="fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i></td>
+                  <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
                 </tr>
               )
             })
