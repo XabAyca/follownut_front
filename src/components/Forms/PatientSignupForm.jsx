@@ -16,16 +16,18 @@ const PatientSignupForm = () => {
     if (email && password && passwordConfirmation) {
       const patientData = {
         patient: {
-            email: email,
-            password: password,
-            password_confirmation: passwordConfirmation
+          email: email,
+          password: password,
+          password_confirmation: passwordConfirmation
         }
       }
       await dispatch(patientRegisterFetch(patientData))
     } else {
       alert("Merci de renseigner un email, un mot de passe et de répéter votre mot de passe")
     }
-};
+    document.querySelector(".error-modal").style.opacity = 1;
+    document.querySelector(".error-modal").style.visibility = "visible";
+  };
 
   return (
     <div className="patient-signup-form d-flex justify-content-center">
