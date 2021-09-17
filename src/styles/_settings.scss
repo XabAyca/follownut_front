@@ -259,6 +259,11 @@ h6 {
   }
 }
 
+td {
+  word-wrap: break-word;
+  max-width: 1px;
+}
+
 // -------------------- FORMS -------------------- //
 
 .form-input-display {
@@ -312,3 +317,5 @@ h6 {
 .pointer-clickable {
   cursor: pointer;
 }
+
+
