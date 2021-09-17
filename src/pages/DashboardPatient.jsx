@@ -48,7 +48,7 @@ const DashboardPatient = () => {
 
   return (
     <>
-      <div className="dashboard-page page-padding">
+      <div className="dashboard-page">
         {!window.matchMedia("(display-mode: standalone)").matches && (
           <PwaModal />
         )}
