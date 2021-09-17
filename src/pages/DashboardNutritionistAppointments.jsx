@@ -9,7 +9,7 @@ const DashboardNutritionistAppointments = () => {
       <SidebarNutritionist />
     </div>
     <div className="dashboard-page-right">
-      <div className="mx-5 my-5">
+      <div className="">
         <AppointmentCreateForm/>
       </div>
     </div>

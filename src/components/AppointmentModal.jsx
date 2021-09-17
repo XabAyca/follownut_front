@@ -22,33 +22,41 @@ const AppointmentModal = ({ appointment }) => {
 
   return (
     <div className="appointment-modal">
-      <i clasName="pointer-clickable fas fa-times" onClick={closeModal}></i>
-      <div className="content">
+      <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
+      <div className="content p-5 my-5">
         {appointment && (
           <>
-            <div className="date">
-              <p>{createDate(appointment.date)}</p>
-              <p>
-                {" "}
-                Patient:{" "}
-                {appointment.patient.last_name
-                  ? appointment.patient.last_name +
-                    " " +
-                    appointment.patient.first_name
-                  : appointment.patient.email}
-              </p>
+            <div className="d-flex text-primary-color my-4 row">
+              <div className="col-lg-3 col-md-12 col-sm-12 details-container p-4">
+                <p className="m-0"> <strong>Patient : </strong>{appointment.patient.last_name ? appointment.patient.last_name +
+                      " " + appointment.patient.first_name
+                    : appointment.patient.email}
+                </p>
+                <p className="m-0"> <strong>Nutritioniste : </strong>{appointment.patient.last_name ? appointment.patient.last_name +
+                      " " + appointment.patient.first_name
+                    : appointment.patient.email}
+                </p>
+              </div>
+              <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">
+                <h1>{createDate(appointment.date)}</h1>
+              </div>
             </div>
-
-            <div className="data">
-              <p>Poids : {appointment.weight} kg</p>
-              <p>Taille : {appointment.height.toFixed(2)} m</p>
-              <p>IMC : {appointment.BMI.toFixed(1)}</p>
-              <p>Masse grasse : {appointment.body_fat} %</p>
-              <p>Masse musculaire : {appointment.muscle_mass} %</p>
-              <p>Graisse viscerale : {appointment.visceral_fat} %</p>
+            <div className="d-flex text-primary-color my-4 row">
+              <h2 className="b-underline">Mesures</h2>
+              <div className="my-2 d-flex flex-wrap">
+                <p className="mx-1"><strong>Poids : </strong>{appointment.weight} kg</p>
+                <p className="mx-1"><strong>Taille : </strong>{appointment.height.toFixed(2)} m</p>
+                <p className="mx-1"><strong>IMC : </strong>{appointment.BMI.toFixed(1)}</p>
+                <p className="mx-1"><strong>Masse grasse : </strong>{appointment.body_fat} %</p>
+                <p className="mx-1"><strong>Masse musculaire : </strong>{appointment.muscle_mass} %</p>
+                <p className="mx-1"><strong>Graisse viscerale : </strong>{appointment.visceral_fat} %</p>
+              </div>
             </div>
-            <div className="text-content">
-              <p>{appointment.content}</p>
+            <div className="report my-4">
+              <h2 className="text-primary-color b-underline">Notes</h2>
+              <div className="text-primary-color d-flex justify-content-between my-2">
+                <p>{appointment.content}</p>
+              </div>
             </div>
           </>
         )}

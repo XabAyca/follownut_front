@@ -215,6 +215,11 @@ h6 {
   color: $warning;
 }
 
+// -------------------- TEXT COLORS -------------------- //
+.b-underline {
+  text-decoration: underline $primary-color;
+}
+
 
 // -------------------- BACKGROUNDS -------------------- //
 .bg-blue {

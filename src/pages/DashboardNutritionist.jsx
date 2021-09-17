@@ -53,7 +53,7 @@ const DashboardNutritionist = () => {
         <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-page-right">
-        <div className="mx-5 my-5">
+        <div className="">
           {filteredAppointments && (
                 <AppointmentsListNutritionist
                   filteredAppointments={filteredAppointments}
