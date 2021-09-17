@@ -8,6 +8,9 @@
   transition: all .4s;
   &:hover{
     width: 270px;
+    @include phone{
+      width: 50px;
+    }
   }
 
   .sidebar-patient-dashboard-link{
