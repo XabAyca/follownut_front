@@ -57,7 +57,8 @@ const AppointmentCreateForm = () => {
   };
 
   return (
-    <>
+    <div className="create-appointment-form mx-5">
+      <h1 className="text-primary-color">Rédiger un compte-rendu</h1>
       <form className="appointment-form text-primary-color" onSubmit={createDataAppointment}>
         <div className="col-lg-3 col-sm-12">
           <select name="patient" id="patient_id" className="form-select-display w-100 my-2" required>
@@ -80,14 +81,14 @@ const AppointmentCreateForm = () => {
         </div>
 
 
-        <div className="d-flex row justify-content-between">
+        <div className="d-flex row justify-content-between py-2">
           <div className="col-lg-2 col-sm-12">
             <label >Graisse viscérale</label>
             <input
               className="form-input-display"
               type="number"
               id="visceral_fat"
-              placeholder="Graisse viscérale"
+              placeholder="%"
               min="0"
               max="100"
               required
@@ -99,7 +100,7 @@ const AppointmentCreateForm = () => {
               className="form-input-display"
               type="number"
               id="muscle_mass"
-              placeholder="Masse musculaire"
+              placeholder="%"
               min="0"
               max="100"
               required
@@ -111,7 +112,7 @@ const AppointmentCreateForm = () => {
               className="form-input-display"
               type="number"
               id="body_fat"
-              placeholder="Masse grasse"
+              placeholder="%"
               min="0"
               max="100"
               required
@@ -123,7 +124,7 @@ const AppointmentCreateForm = () => {
               className="form-input-display"
               type="number"
               id="height"
-              placeholder="Taille"
+              placeholder="mètres"
               min="0"
               max="2.5"
               step="0.01"
@@ -136,7 +137,7 @@ const AppointmentCreateForm = () => {
               className="form-input-display"
               type="number"
               id="weight"
-              placeholder="Poids"
+              placeholder="kilogrammes"
               min="0"
               max="250"
               step="0.1"
@@ -144,12 +145,12 @@ const AppointmentCreateForm = () => {
             />
           </div>
         </div>
-        <hr className="mt-5" />
+        <hr className="my-4" />
         <label>Compte-rendu</label>
-        <textarea placeholder="Compte-rendu" id="content" className="form-input-display form-textarea-display" required />
+        <textarea placeholder="Formulez des recommandations à votre patient ..." id="content" className="form-input-display form-textarea-display" required />
         <input type="submit" value="Créer" className="btn success-button my-3 col-lg-3 col-sm-12" />
       </form>
-    </>
+    </div>
   );
 };
 

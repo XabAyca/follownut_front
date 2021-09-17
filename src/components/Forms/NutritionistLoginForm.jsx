@@ -12,20 +12,20 @@ const NutritionistLoginForm = () => {
 
   const handleNutritionistLogin = async (e) => {
     e.preventDefault();
-    document.querySelector(".error-modal").style.opacity = 1;
-    document.querySelector(".error-modal").style.visibility = "visible";
     if (email && password) {
       const nutritionistData = {
         nutritionist: {
-            email: email,
-            password: password
+          email: email,
+          password: password
         }
       }
       await dispatch(nutritionistLoginFetch(nutritionistData))
     } else {
       alert("Merci de renseigner un email et un mot de passe")
     }
-};
+    document.querySelector(".error-modal").style.opacity = 1;
+    document.querySelector(".error-modal").style.visibility = "visible";
+  };
 
   return (
     <div className="nutritionist-signup-form d-flex justify-content-center">
