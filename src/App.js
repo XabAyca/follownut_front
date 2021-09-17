@@ -31,6 +31,7 @@ import PatientEditProfile from 'pages/PatientEditProfile';
 import HamburgerMenu from 'components/HamburgerMenu';
 import NutritionistEditProfile from 'pages/NutritionistEditProfile';
 import { Pwa } from 'components/context/InstallPwa';
+import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
 
 
 
@@ -259,9 +260,12 @@ const App = () => {
             <Route exact path="/patient-dashboard">
               {isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" />}
             </Route>
+            <Route exact path="/patient-appointment-reports">
+              {isPatientAuth() ? <DashboardPatientAptsList /> : <Redirect to="/" />}
+            </Route>
 
-            <Route exact path="/" exact component={Home} />
-            <Route exact path="/about" exact component={About} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
             <Route component={NotFound} />
           </Switch>
         </Pwa.Provider>
