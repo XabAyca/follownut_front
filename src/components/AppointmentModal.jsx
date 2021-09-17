@@ -30,7 +30,7 @@ const AppointmentModal = ({ appointment }) => {
               <div className="col-lg-3 col-md-12 col-sm-12 details-container p-4">
                 <p className="m-0"> <strong>Patient : </strong>{appointment.patient.last_name ? appointment.patient.last_name +
                       " " + appointment.patient.first_name
-                    : appointment.patient.email}
+                    : (<span>Patient supprimée </span>)}
                 </p>
                 <p className="m-0"> <strong>Nutritioniste : </strong>{appointment.patient.last_name ? appointment.patient.last_name +
                       " " + appointment.patient.first_name

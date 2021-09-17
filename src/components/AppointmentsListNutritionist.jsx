@@ -50,7 +50,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
                   <td>{createDate(appointment.date)}</td>
                   <td>{ appointment.patient ? appointment.patient.last_name ?
                         ( <span>M./Mme {appointment.patient.last_name}</span>)
-                      : (<span> Patient supprimé</span>) : (<span> Inconnu </span>)}
+                      : (<span> Inconnu</span>) : (<span> Patient supprimé </span>)}
                   </td>
                   <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
                   <td><i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i></td>
