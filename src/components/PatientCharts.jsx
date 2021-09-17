@@ -12,6 +12,9 @@ const PatientCharts = () => {
 
   return (
     <div className="patient-charts col-lg-6 col-sm-12">
+      <div className="patient-situation-header mx-3 p-2">
+        <h2 className="my-1 text-primary-color">Progression</h2>
+      </div>
       <Tabs id="controlled-tab-example" activeKey={key} onSelect={(k) => setKey(k)} className="mb-3">
           <Tab eventKey="weight" title="Poids">
             <div className="m-5">

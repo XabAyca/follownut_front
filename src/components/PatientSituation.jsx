@@ -3,7 +3,7 @@ import React from 'react';
 const PatientSituation = () => {
   return (
     <div className="patient-situation text-primary-color">
-      <div className="patient-situation-header mx-3 p-3">
+      <div className="patient-situation-header mx-3 p-2">
         <h2 className="my-1">Derniers relevés</h2>
         <small className="my-1">Découvrez ci-dessous les relevés pris par votre praticien lors de votre dernier rendez-vous</small>
       </div>

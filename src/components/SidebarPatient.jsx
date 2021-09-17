@@ -15,8 +15,8 @@ const SidebarPatient = () => {
         exact
         to="/patient-dashboard"
         className="sidebar-patient-dashboard-link">
-        <i class="far fa-clipboard"></i>
-        Comptes-rendu
+        <i class="far fa-calendar-alt"></i>
+        Rendez-vous
       </Link>
     </div>
   )
