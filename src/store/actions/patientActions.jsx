@@ -20,6 +20,28 @@ export const fetchPatientsFailure = (error) => {
   };
 };
 
+export const FETCH_ONE_PATIENT_REQUEST = "FETCH_ONE_PATIENT_REQUEST";
+export const FETCH_ONE_PATIENT_SUCCESS = "FETCH_ONE_PATIENT_SUCCESS";
+export const FETCH_ONE_PATIENT_FAILURE = "FETCH_ONE_PATIENT_FAILURE";
+
+export const fetchOnePatientsRequest = () => {
+  return {
+    type: FETCH_ONE_PATIENT_REQUEST,
+  };
+};
+export const fetchOnePatientsSuccess = (currentPatient) => {
+  return {
+    type: FETCH_ONE_PATIENT_SUCCESS,
+    currentPatient,
+  };
+};
+export const fetchOnePatientsFailure = (error) => {
+  return {
+    type: FETCH_ONE_PATIENT_FAILURE,
+    error,
+  };
+};
+
 
 export const FETCH_PATIENT_LOGIN_REQUEST = "FETCH_PATIENT_LOGIN_REQUEST";
 export const FETCH_PATIENT_LOGIN_SUCCESS = "FETCH_PATIENT_LOGIN_SUCCESS";
@@ -59,10 +81,10 @@ export const fetchPatientUpdateRequest = () => {
     type: FETCH_PATIENT_UPDATE_REQUEST,
   };
 };
-export const fetchPatientUpdateSuccess = (patient) => {
+export const fetchPatientUpdateSuccess = (patientUpd) => {
   return {
     type: FETCH_PATIENT_UPDATE_SUCCESS,
-    patient,
+    patientUpd,
   };
 };
 export const fetchPatientUpdateFailure = (error) => {
