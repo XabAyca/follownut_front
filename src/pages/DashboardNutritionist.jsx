@@ -53,23 +53,12 @@ const DashboardNutritionist = () => {
         <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-page-right m-5">
-        <Tabs
-          id="controlled-tab-example"
-          activeKey={key}
-          onSelect={(k) => setKey(k)}
-        >
-          <Tab eventKey="appointments" title="Comptes-rendu">
             {filteredAppointments && (
               <AppointmentsList
                 filteredAppointments={filteredAppointments}
                 setOpenModal={openModal}
               />
             )}
-          </Tab>
-          <Tab eventKey="to-do" title="À venir">
-            A venir
-          </Tab>
-        </Tabs>
       </div>
     </div>
   );
