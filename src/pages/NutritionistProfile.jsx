@@ -51,11 +51,11 @@ const NutritionistProfile = () => {
       <SidebarNutritionist/>
     </div>
     <div className="dashboard-page-right">
-      <div className="container rounded bg-white">
-        <div className="row">
-          <div className="col-md-3 border-right">
+      <div className="container">
+        <div className="row nutritionist-details my-5 py-5 col-lg-12 col-sm-12">
+          <div className="col-md-6 border-right">
             <div className="d-flex flex-column align-items-center text-center ">
-              <img className="rounded-circle mt-5" width="150px" height="150" 
+              <img className="rounded-circle mt-5" width="120px" 
               src=
               {
                 nutritionist ?  
@@ -79,7 +79,7 @@ const NutritionistProfile = () => {
           <div className="col-md-5 border-right">
             <div className="p-3">
               <div className="mb-5">
-                  <h4 className="text-right">Nutritionist Profile</h4>
+                  <h4 className="text-right">Nutritionniste Profile</h4>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
