@@ -7,6 +7,9 @@ import { fetchNutritionistDeleteFailure, fetchNutritionistDeleteRequest, fetchNu
 import { fetchNutritionistUpdateFailure, fetchNutritionistUpdateRequest, fetchNutritionistUpdateSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
+import { fetchOnePatientsRequest } from "store/actions/patientActions";
+import { fetchOnePatientsFailure } from "store/actions/patientActions";
+import { fetchOnePatientsSuccess } from "store/actions/patientActions";
 import { fetchPatientDeleteFailure, fetchPatientDeleteSuccess, fetchPatientDeleteRequest } from "store/actions/patientActions";
 import { fetchPatientLoginFailure, fetchPatientLoginLogout, fetchPatientLoginRequest, fetchPatientLoginSuccess } from "store/actions/patientActions";
 import { fetchPatientRegisterFailure, fetchPatientRegisterRequest, fetchPatientRegisterSuccess, fetchPatientRegisterUnregister } from "store/actions/patientActions";
@@ -346,6 +349,30 @@ export const patientsFetch = () => {
           dispatch(fetchPatientsFailure(response.errors));
         } else {
           dispatch(fetchPatientsSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO FETCH ONE PATIENT
+export const patientFetch = () => {
+  return (dispatch) => {
+    const id = Cookies.get("patient_id_cookie");
+    const token = Cookies.get("patient_token_cookie");
+    dispatch(fetchOnePatientsRequest());
+    fetch(baseUrl + `/api/v1/patients/${id}`, {
+      method: "get",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchOnePatientsFailure(response.errors));
+        } else {
+          dispatch(fetchOnePatientsSuccess(response));
         }
       });
   };

@@ -17,7 +17,7 @@ const PatientProfile = () => {
   const dispatch = useDispatch() 
 
   const getPatient = () => {
-    dispatch(patientsFetch());
+    ;
     if (patients.patient) {
       let patient = patients.patient
         .filter((patient) => {
@@ -28,8 +28,12 @@ const PatientProfile = () => {
   }
 
   useEffect(() => { 
+    dispatch(patientsFetch());
+  }, []);
+  
+  useEffect(() => {
     getPatient();
-  },[patient]);
+  },[patients])
 
   const handleLogOut = () => {
     Cookies.remove('patient_token_cookie');
@@ -53,16 +57,16 @@ const PatientProfile = () => {
           <SidebarPatient />
         </div>
         <div className="dashboard-page-right">
-          <div className="container rounded patient-details my-5 py-5 col-lg-6 col-sm-12">
+          <div className="container rounded patient-details my-5 py-5 col-lg-9 col-sm-12">
             <div className="row">
-              <div className="col-md-5 border-right d-flex align-items-center">
-                <div className="d-flex flex-column align-items-center text-center mx-5 mt-5">
+              <div className="col-md-6 border-right d-flex align-items-center">
+                <div className="d-flex flex-column align-items-center text-center mt-5">
                   <img className="rounded-circle" width="270px" 
                   src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
                   alt="profile"/>
                 </div>
               </div>
-              <div className="col-md-5 mt-5 border-right">
+              <div className="col-md-5 mt-5 border-right mx-2">
                 <div className="p-3">
                   <div className="mb-5">
                       <h1 className="text-right">Patient Profile</h1>
@@ -100,7 +104,7 @@ const PatientProfile = () => {
                       className="sidebar-nutritionist-link text-dark"
                     >
                     
-                      <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Edit Profile</div>
+                      <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Modifier mon profil</div>
                       
                     </Link>
                     <form onSubmit={deleteProfilePatient} >
