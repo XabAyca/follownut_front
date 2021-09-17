@@ -52,13 +52,15 @@ const DashboardNutritionist = () => {
         <SidebarNutritionist />
         <AppointmentModal appointment={currentAppointment} />
       </div>
-      <div className="dashboard-page-right m-5">
-            {filteredAppointments && (
-              <AppointmentsList
-                filteredAppointments={filteredAppointments}
-                setOpenModal={openModal}
-              />
-            )}
+      <div className="dashboard-page-right">
+        <div className="mx-5 my-5">
+          {filteredAppointments && (
+                <AppointmentsList
+                  filteredAppointments={filteredAppointments}
+                  setOpenModal={openModal}
+                />
+          )}
+        </div>
       </div>
     </div>
   );
