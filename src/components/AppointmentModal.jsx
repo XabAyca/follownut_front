@@ -1,5 +1,4 @@
 import React from 'react';
-import { appointmentsFetch } from 'services/apiManager';
 
 const AppointmentModal = ({ appointment }) => {
   

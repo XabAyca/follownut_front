@@ -1,4 +1,3 @@
-import { set } from 'js-cookie';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';

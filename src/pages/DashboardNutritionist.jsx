@@ -5,7 +5,6 @@ import PwaModal from 'components/PwaModal';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { appointmentsFetch } from 'services/apiManager';
@@ -13,7 +12,6 @@ import { appointmentsFetch } from 'services/apiManager';
 const DashboardNutritionist = () => {
   const dispatch = useDispatch()
   const nutritionist_id = parseInt(Cookies.get("nutritionist_id_cookie"))
-  const [key, setKey] = useState("appointments");
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
   const [currentAppointment, setCurrentAppointment] = useState(null)

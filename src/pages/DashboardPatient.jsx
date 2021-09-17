@@ -16,7 +16,6 @@ const DashboardPatient = () => {
   const patient_id = parseInt(Cookies.get("patient_id_cookie"))
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
-  const [currentAppointment, setCurrentAppointment] = useState(null)
   const [lastAppointment,setLastAppointment] = useState()
   const currentPatient = useSelector(state => state.patient.currentPatient)
 
@@ -33,13 +32,6 @@ const DashboardPatient = () => {
     );
   };
 
-  const openModal = (appointment) => {
-    setCurrentAppointment(appointment)
-    let modal = document.querySelector(".appointment-modal");
-    modal.style.opacity=1
-    modal.style.visibility = 'visible'
-  }
-
   useEffect(() => {
     filteredAppointments && setLastAppointment(filteredAppointments[0])
   },[filteredAppointments])
@@ -47,8 +39,6 @@ const DashboardPatient = () => {
   useEffect(() => {
     appointments && filter()
   }, [appointments])
-
-
 
   return (
     <div className="dashboard-page page-padding">

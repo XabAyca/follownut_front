@@ -1,10 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import CalendlyBtn from 'components/CalendlyBtn';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-
-import SignupNutritionist from 'pages/Auth/SignupNutritionist';
 
 // ASSETS IMPORTS
 import appointement from 'assets/images/appointement.png';
