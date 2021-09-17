@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const Footer = () => {
   return (
     <footer class="text-center pt-1 text-lg-start bg-light text-muted">

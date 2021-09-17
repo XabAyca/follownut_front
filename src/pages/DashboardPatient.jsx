@@ -7,17 +7,21 @@ import SidebarPatient from "components/SidebarPatient";
 import PatientSituation from "components/PatientSituation";
 import PatientCharts from "components/PatientCharts";
 import PwaModal from 'components/PwaModal';
+import { patientFetch } from 'services/apiManager';
+import CalendlyBtn from 'components/CalendlyBtn';
+import ProfileToCompleteModal from 'components/ProfileToCompleteModal';
 
 const DashboardPatient = () => {
   const dispatch = useDispatch()
   const patient_id = parseInt(Cookies.get("patient_id_cookie"))
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
-  const [currentAppointment, setCurrentAppointment] = useState(null)
   const [lastAppointment,setLastAppointment] = useState()
+  const currentPatient = useSelector(state => state.patient.currentPatient)
 
   useEffect(() => {
     dispatch(appointmentsFetch())
+    dispatch(patientFetch())
   }, [])
 
   const filter = () => {
@@ -28,13 +32,6 @@ const DashboardPatient = () => {
     );
   };
 
-  const openModal = (appointment) => {
-    setCurrentAppointment(appointment)
-    let modal = document.querySelector(".appointment-modal");
-    modal.style.opacity=1
-    modal.style.visibility = 'visible'
-  }
-
   useEffect(() => {
     filteredAppointments && setLastAppointment(filteredAppointments[0])
   },[filteredAppointments])
@@ -43,13 +40,14 @@ const DashboardPatient = () => {
     appointments && filter()
   }, [appointments])
 
-
-
   return (
     <div className="dashboard-page page-padding">
-      {!window.matchMedia("(display-mode: standalone)").matches && (
-        <PwaModal />
+      {currentPatient.nutritionist ? (
+        <CalendlyBtn slug={currentPatient.nutritionist.slug_calendly} />
+      ) : (
+        <ProfileToCompleteModal />
       )}
+      {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
       <div className="dashboard-page-left">
         <SidebarPatient />
       </div>

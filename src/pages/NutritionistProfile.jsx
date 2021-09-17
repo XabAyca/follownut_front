@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { nutritionistsFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
-import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import { Link } from 'react-router-dom';
 import { nutritionistLogout } from 'services/apiManager';
@@ -16,7 +15,6 @@ const NutritionistProfile = () => {
   const dispatch = useDispatch() 
 
   const getNutritionist = () => {
-    dispatch(nutritionistsFetch());
     if (nutritionists.nutritionist) {
       let nutritionist = nutritionists.nutritionist.filter((nutritionist) => {
         return nutritionist.id === nutritionist_id
@@ -27,7 +25,11 @@ const NutritionistProfile = () => {
 
   useEffect(() => { 
     getNutritionist();
-  },[]);
+  }, [nutritionists]);
+  
+  useEffect(() => {
+    dispatch(nutritionistsFetch());
+  },[])
 
 
   const handleLogOut = () => {
@@ -38,6 +40,7 @@ const NutritionistProfile = () => {
   }
 
   const deleteProfileNutritionist = (e) => {
+    e.preventDefault()
     if (window.confirm("Vous êtes sur le point de supprimer votre compte. Êtes vous sur ?")) {
       dispatch(deleteNutritionistFetch());
       handleLogOut();
@@ -45,109 +48,81 @@ const NutritionistProfile = () => {
   }
 
   return (
-
     <div className="dashboard-page">
-    <div className="dashboard-page-left">
-      <SidebarNutritionist/>
-    </div>
-    <div className="dashboard-page-right">
-      <div className="container">
-        <div className="row nutritionist-details my-5 py-5 col-lg-12 col-sm-12">
-          <div className="col-md-6 border-right">
-            <div className="d-flex flex-column align-items-center text-center ">
-              <img className="rounded-circle mt-5" width="120px" 
-              src=
-              {
-                nutritionist ?  
-                nutritionist.avatar : "https://images.pexels.com/photos/5733422/pexels-photo-5733422.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              }
-              alt="profile"/>
-              <span className="font-weight-bold">
-                {
-                  nutritionist ? 
-                  nutritionist.last_name : <Loading color={"blue"} />
-                }
-              </span>
-              <span className="text-black-50">                    
-                {
-                  nutritionist ? 
-                  nutritionist.email : <Loading color={"blue"} />
-                }
-              </span>
+      <div className="dashboard-page-left">
+        <SidebarNutritionist />
+      </div>
+      <div className="dashboard-page-right">
+        <div className="container rounded patient-details my-5 py-5 col-lg-9 col-sm-12">
+          <div className="row">
+            <div className="col-md-6 border-right d-flex align-items-center">
+              <div className="d-flex flex-column align-items-center text-center mt-5">
+                <img
+                  className="rounded-circle"
+                  width="270px"
+                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                  alt="profile"
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-md-5 border-right">
-            <div className="p-3">
-              <div className="mb-5">
-                  <h4 className="text-right">Nutritionniste Profile</h4>
-              </div>
-              <div className="row mt-2">
-                <div className="col-md-6">
-                  <p>
-                    <strong>Prenom : </strong>
-                    {
-                      nutritionist ? 
-                      nutritionist.first_name : <Loading color={"blue"} />
-                    }
-                  </p>
+            <div className="col-md-5 mt-5 border-right mx-2">
+              <div className="p-3">
+                <div className="mb-5">
+                  <h1 className="text-right">Profil nutritionniste</h1>
                 </div>
-                <div className="col-md-6">
-                  <p>
-                    <strong>Nom : </strong>
-                    {
-                      nutritionist ? 
-                      nutritionist.last_name : <Loading color={"blue"} />
-                    }
-                  </p>
+                <div className="row mt-2">
+                  <div className="col-md-6">
+                    <p>
+                      {nutritionist && 
+                        nutritionist.first_name
+                      }
+                    </p>
+                  </div>
+                  <div className="col-md-6">
+                    <p>
+                      {nutritionist && nutritionist.last_name}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-md-6">
-                  <p>
-                    <strong>E-mail : </strong>
-                    {
-                      nutritionist ? 
-                      nutritionist.email : <Loading color={"blue"} />
-                    } 
-                  </p>
-                </div>
-                <div className="col-md-6">
-                  <p>
-                    <strong>Number : </strong>
-                    {
-                      nutritionist ? 
-                      nutritionist.email : <Loading color={"blue"} />
-                    } 
-                  </p>
-
-                </div>
-                <Link
+                <div className="row mt-2 ">
+                  <div className="col-md-6">
+                    <p>
+                      {nutritionist && nutritionist.email}
+                    </p>
+                  </div>
+                  <div className="col-md-6">
+                    <p>
+                      {nutritionist && nutritionist.phone_number}
+                    </p>
+                  </div>
+                  <div className="col-md-12">
+                    <p>
+                      {nutritionist && nutritionist.slug_calendly }
+                    </p>
+                  </div>
+                  <Link
                     exact
                     to="/nutritionist-edit-profile"
                     className="sidebar-nutritionist-link text-dark"
                   >
-                    <i className="pointer-clickable fas fa-plus-circle"></i>
-                    Edit Profile
+                    <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">
+                      Modifier mon profil
+                    </div>
                   </Link>
-                  <form onSubmit={deleteProfileNutritionist} >
-                      <input type="submit" value="Supprimer mon compte" />
+                  <form onSubmit={deleteProfileNutritionist}>
+                    <input
+                      className="btn danger-button text-white p-2 mt-4 w-100"
+                      type="submit"
+                      value="Supprimer mon compte"
+                    />
                   </form>
+                </div>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-
-
-
-
-
-
-
   );
 };
 

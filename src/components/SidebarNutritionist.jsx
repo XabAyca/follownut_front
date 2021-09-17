@@ -5,14 +5,12 @@ const SidebarNutritionist = () => {
   return (
     <div className="sidebar-nutritionist">
       <Link
-        exact
         to="/nutritionist-dashboard"
         className="sidebar-nutritionist-link">
         <i class="fas fa-calendar-check"></i>
         Rendez-vous
       </Link>
       <Link
-        exact
         to="/nutritionist-dashboard/patients"
         className="sidebar-nutritionist-link"
       >
@@ -20,7 +18,6 @@ const SidebarNutritionist = () => {
         Patientèle
       </Link>
       <Link
-        exact
         to="/nutritionist-dashboard/appointments"
         className="sidebar-nutritionist-link"
       >

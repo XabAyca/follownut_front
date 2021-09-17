@@ -59,10 +59,10 @@ export const fetchNutritionistUpdateRequest = () => {
     type: FETCH_NUTRITIONIST_UPDATE_REQUEST,
   };
 };
-export const fetchNutritionistUpdateSuccess = (nutritionist) => {
+export const fetchNutritionistUpdateSuccess = (nutritionistUpd) => {
   return {
     type: FETCH_NUTRITIONIST_UPDATE_SUCCESS,
-    nutritionist,
+    nutritionistUpd,
   };
 };
 export const fetchNutritionistUpdateFailure = (error) => {

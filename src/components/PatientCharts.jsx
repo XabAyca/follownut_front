@@ -23,7 +23,7 @@ const PatientCharts = ({appointments}) => {
     let tempMuscle=[]
     let tempVisceral=[]
     appointments.map((appointment) => {
-      tempWeights.push(appointment.weight);
+      tempWeights.push(appointment.weight)
       tempDates.push(createDate(appointment.date))
       tempBmi.push(appointment.BMI)
       tempBodyFat.push(appointment.body_fat)

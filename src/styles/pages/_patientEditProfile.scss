@@ -1,7 +1,7 @@
 .background-of-edit-profile{
   background-color: $secondary-color;
-  height: 100%;
-  padding: 70px;
+  min-height: 100vh;
+  padding-top: 70px;
   width: 100vw;
   display: flex;
   justify-content: center;

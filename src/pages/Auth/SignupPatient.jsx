@@ -1,4 +1,3 @@
-import ErrorModal from 'components/ErrorModal';
 import ErrorsModal from 'components/ErrorsModal';
 import PatientSignupForm from 'components/Forms/PatientSignupForm';
 import { useSelector } from 'react-redux';
