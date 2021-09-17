@@ -91,6 +91,7 @@ html,body{
 
 .page-padding {
   padding-top: 70px;
+  min-height: 100vh;
 }
 
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ UI KIT $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -299,4 +300,10 @@ h6 {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+// -------------------- ICONS -------------------- //
+.pointer-clickable {
+  cursor: pointer;
 }

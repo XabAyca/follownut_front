@@ -11,7 +11,7 @@ const ErrorsModal = ({ errors }) => {
   return (
     <div className="error-modal">
 
-      <i class="fas fa-times" onClick={closeModal}></i>
+      <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
       { errors &&
         errors.map((error) => {
           return <p className="error-text">{error && error.detail}</p>;

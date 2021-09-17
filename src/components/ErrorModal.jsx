@@ -10,7 +10,7 @@ const ErrorModal = ({ error }) => {
 
   return (
     <div className="error-modal">
-      <i class="fas fa-times" onClick={closeModal}></i>
+      <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
       <p className='error-text'>{error && error}</p>
     </div>
   );

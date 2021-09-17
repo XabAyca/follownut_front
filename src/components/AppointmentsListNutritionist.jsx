@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';
 
-const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
+const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) => {
   const dispatch = useDispatch()
   const [appointments, setAppointments] = useState(filteredAppointments)
   
@@ -52,8 +52,8 @@ const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
                         ( <span>M./Mme {appointment.patient.last_name}</span>)
                       : (<span> Patient supprimé</span>) : (<span> Inconnu </span>)}
                   </td>
-                  <td><i class="far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
-                  <td><i class="fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i></td>
+                  <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
+                  <td><i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i></td>
                 </tr>
               )
             })
@@ -65,4 +65,4 @@ const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
   );
 };
 
-export default AppointmentsList;
+export default AppointmentsListNutritionist;
