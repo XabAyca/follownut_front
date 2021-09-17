@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from "js-cookie";
 import { appointmentsFetch } from 'services/apiManager';
-import AppointmentsList from 'components/AppointmentsList';
+import AppointmentsListPatient from 'components/AppointmentsListPatient';
 import SidebarPatient from 'components/SidebarPatient';
 import Loading from 'components/Loading';
 import AppointmentModal from 'components/AppointmentModal';
-import AppointmentsListPatient from 'components/AppointmentsListPatient';
 
 const DashboardPatientAptsList = () => {
   const [patientAppointments, setPatientAppointments] = useState();
@@ -43,14 +42,15 @@ const DashboardPatientAptsList = () => {
         <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-page-right">
-        {patientAppointments ? (
-          <AppointmentsListPatient
-            filteredAppointments={patientAppointments}
-            setOpenModal={openModal}
-          />
-        ) : (
-          <Loading />
-        )}
+        <div className="m-5">
+          {patientAppointments ?  
+            <AppointmentsListPatient
+              filteredAppointments={patientAppointments}
+              setOpenModal={openModal}
+            /> :
+            <Loading />
+          } 
+        </div>
       </div>
     </div>
   );

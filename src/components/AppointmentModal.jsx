@@ -22,7 +22,7 @@ const AppointmentModal = ({ appointment }) => {
 
   return (
     <div className="appointment-modal">
-      <i class="fas fa-times" onClick={closeModal}></i>
+      <i clasName="pointer-clickable fas fa-times" onClick={closeModal}></i>
       <div className="content">
         {appointment && (
           <>

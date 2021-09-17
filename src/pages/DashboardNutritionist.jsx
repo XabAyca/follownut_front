@@ -1,5 +1,5 @@
 import AppointmentModal from 'components/AppointmentModal';
-import AppointmentsList from 'components/AppointmentsList';
+import AppointmentsListNutritionist from 'components/AppointmentsListNutritionist';
 import CalendlyBtn from 'components/CalendlyBtn';
 import PwaModal from 'components/PwaModal';
 import SidebarNutritionist from 'components/SidebarNutritionist';
@@ -55,7 +55,7 @@ const DashboardNutritionist = () => {
       <div className="dashboard-page-right">
         <div className="mx-5 my-5">
           {filteredAppointments && (
-                <AppointmentsList
+                <AppointmentsListNutritionist
                   filteredAppointments={filteredAppointments}
                   setOpenModal={openModal}
                 />

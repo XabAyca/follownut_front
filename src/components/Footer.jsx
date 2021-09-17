@@ -8,7 +8,7 @@ const Footer = () => {
           <div class="row mt-3">
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
               <h6 class="text-uppercase fw-bold ">
-                <i class="fas fa-gem me-3"></i>FollowNut'
+                <i className="fas fa-gem me-3"></i>FollowNut'
               </h6>
               <p>
                 De la prise de rendez-vous, au suivi des patients, FollowNut
@@ -37,10 +37,10 @@ const Footer = () => {
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 ">
               <h6 class="text-uppercase fw-bold ">Contact</h6>
               <p>
-                <i class="fas fa-home me-3"></i> France
+                <i className="fas fa-home me-3"></i> France
               </p>
               <p>
-                <i class="fas fa-envelope me-3"></i>
+                <i className="fas fa-envelope me-3"></i>
                 follownut@yopmail.com
               </p>
             </div>

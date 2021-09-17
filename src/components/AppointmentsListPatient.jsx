@@ -19,8 +19,14 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
     });
   };
 
+  const deleteAppointment = (appointment,e) => {
+    e.preventDefault()
+    setAppointments([...appointments.filter((el)=> el!==appointment)]);
+    dispatch(deleteAppointmentFetch(appointment.id))
+  }
+
   return (
-    <div className="patients-list  text-primary-color">
+    <div className="patients-list text-primary-color">
       <div className="patient-list-header mx-3 p-2">
         <h2>Voici la liste de vos rendez-vous</h2>
       </div>
@@ -30,8 +36,7 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
           <tr>
             <th scope="col">Réf.</th>
             <th scope="col">Date</th>
-            <th scope="col">Patient</th>
-            <th scope="col"></th>
+            <th scope="col">Nutritioniste</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -42,11 +47,11 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
                 <tr>
                   <th scope="row" key={appointment.id}>{appointment.id}</th>
                   <td>{createDate(appointment.date)}</td>
-                  <td>{ appointment.patient ? appointment.patient.last_name ?
-                        ( <span>M./Mme {appointment.patient.last_name}</span>)
-                      : (<span> Patient supprimé</span>) : (<span> Inconnu </span>)}
+                  <td>{ appointment.nutritionist ? appointment.nutritionist.last_name ?
+                        ( <span>M./Mme {appointment.nutritionist.last_name}</span>)
+                      : (<span> Utilisateur supprimé</span>) : (<span> Inconnu </span>)}
                   </td>
-                  <td><i class="far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
+                  <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
                 </tr>
               )
             })
