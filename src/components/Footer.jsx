@@ -6,7 +6,14 @@ const Footer = () => {
       <section class="">
         <div class="container text-center text-md-start">
           <div class="row mt-3">
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
+            
+            <div class="col-md-2 col-lg-4 col-xl-3 mx-auto">
+              <h6 class="text-uppercase fw-bold">
+                <i className="fas me-5 mx-1"></i>
+                <a href="/about" class="text-reset text-decoration-none">
+                  About
+                </a>
+              </h6>
               <h6 class="text-uppercase fw-bold ">
                 <i className="fas fa-gem me-3"></i>FollowNut'
               </h6>
