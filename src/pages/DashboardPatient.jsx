@@ -26,8 +26,6 @@ const DashboardPatient = () => {
         .filter((el) => el.patient_id === patient_id)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
     );
-    filteredAppointments > 0 &&
-    setLastAppointment(filteredAppointments[0]);
   };
 
   const openModal = (appointment) => {
@@ -37,11 +35,12 @@ const DashboardPatient = () => {
     modal.style.visibility = 'visible'
   }
 
-
+  useEffect(() => {
+    filteredAppointments && setLastAppointment(filteredAppointments[0])
+  },[filteredAppointments])
 
   useEffect(() => {
     appointments && filter()
-    
   }, [appointments])
 
 
