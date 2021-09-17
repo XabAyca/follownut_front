@@ -1,6 +1,7 @@
 import AppointmentModal from 'components/AppointmentModal';
 import AppointmentsList from 'components/AppointmentsList';
 import CalendlyBtn from 'components/CalendlyBtn';
+import PwaModal from 'components/PwaModal';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
@@ -46,6 +47,7 @@ const DashboardNutritionist = () => {
       {appointments && (
         <CalendlyBtn slug={appointments[0].nutritionist.slug_calendly} />
       )}
+      {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
       <div className="dashboard-page-left">
         <SidebarNutritionist />
         <AppointmentModal appointment={currentAppointment} />
