@@ -12,8 +12,10 @@ const DashboardNutritionistPatients = () => {
         <SidebarNutritionist />
       </div>
       <div className="dashboard-page-right">
-        <h1>Patients</h1>
+        <h1 className="mx-5 my-1 text-primary-color">Bienvenue sur votre dashboard, Jean-Paul</h1>
+        <div className="mx-5 my-2">
           <PatientsList />
+        </div>
       </div>
     </div>
   );

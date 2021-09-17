@@ -29,22 +29,25 @@ const PatientsList = () => {
   }, [nutritionists]);
 
   return (
-    <div className="patients-list">
-      {
-        nutritionistPatients ? 
-        nutritionistPatients.map((patient) => {
-          return (
-            <div className="list-row">
-              <p key={patient.id}>
-                {patient.last_name ? patient.last_name : ""} {patient.first_name ? patient.first_name : ""} - {patient.email ? patient.email : ""} 
-              </p>
-            </div>
-          )
-        }) :
-        <Loading color={"blue"} />
-      }
-
-
+    <div className="patients-list text-primary-color">
+      <div className="patient-list-header mx-3 p-2">
+        <h2>Voici la liste de vos patients</h2>
+      </div>
+      <div className="mx-3 p-3 col-lg-8 col-sm-12">
+        {
+          nutritionistPatients ? 
+          nutritionistPatients.map((patient) => {
+            return (
+              <div className="list-row">
+                <p key={patient.id}>
+                  {patient.last_name ? patient.last_name : ""} {patient.first_name ? patient.first_name : ""} - {patient.email ? patient.email : ""} 
+                </p>
+              </div>
+            )
+          }) :
+          <Loading color={"blue"} />
+        }
+      </div>
     </div>
   );
 };
