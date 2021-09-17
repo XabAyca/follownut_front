@@ -13,7 +13,7 @@ const SidebarPatient = () => {
       </Link>
       <Link
         exact
-        to="/patient-dashboard"
+        to="/patient-appointment-reports"
         className="sidebar-patient-dashboard-link">
         <i class="far fa-calendar-alt"></i>
         Rendez-vous
