@@ -82,10 +82,9 @@ export const fetchNutritionistDeleteRequest = () => {
     type: FETCH_NUTRITIONIST_DELETE_REQUEST,
   };
 };
-export const fetchNutritionistDeleteSuccess = (nutritionist) => {
+export const fetchNutritionistDeleteSuccess = () => {
   return {
     type: FETCH_NUTRITIONIST_DELETE_SUCCESS,
-    nutritionist,
   };
 };
 export const fetchNutritionistDeleteFailure = (error) => {
