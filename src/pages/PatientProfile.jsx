@@ -55,23 +55,21 @@ const PatientProfile = () => {
         <div className="dashboard-page-right">
           <div className="container rounded patient-details my-5 py-5 col-lg-6 col-sm-12">
             <div className="row">
-              <div className="col-md-3 border-right">
-                <div className="d-flex flex-column align-items-center text-center">
-                  <img className="rounded-circle mt-5" width="150px" 
+              <div className="col-md-5 border-right d-flex align-items-center">
+                <div className="d-flex flex-column align-items-center text-center mx-5 mt-5">
+                  <img className="rounded-circle" width="270px" 
                   src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                  alt="profile"/><span className="font-weight-bold">Edogaru</span>
-                  <span className="text-black-50">edogaru@mail.com.my</span>
+                  alt="profile"/>
                 </div>
               </div>
               <div className="col-md-5 mt-5 border-right">
                 <div className="p-3">
                   <div className="mb-5">
-                      <h4 className="text-right">Patient Profile</h4>
+                      <h1 className="text-right">Patient Profile</h1>
                   </div>
                   <div className="row mt-2">
                     <div className="col-md-6">
                       <p>
-                        <strong>Prenom : </strong>
                         {
                           patient ? 
                           patient.first_name : <Loading color={"blue"} />
@@ -80,7 +78,6 @@ const PatientProfile = () => {
                     </div>
                     <div className="col-md-6">
                       <p>
-                        <strong>Nom : </strong>
                         {
                           patient ? 
                           patient.last_name : <Loading color={"blue"} />
@@ -88,10 +85,9 @@ const PatientProfile = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="row mt-3">
+                  <div className="row mt-3 d-flex">
                     <div className="col-md-12">
                       <p>
-                        <strong>E-mail : </strong>
                         {
                           patient ? 
                           patient.email : <Loading color={"blue"} />
@@ -103,11 +99,12 @@ const PatientProfile = () => {
                       to="/patient-edit-profile"
                       className="sidebar-nutritionist-link text-dark"
                     >
-                      <i className="pointer-clickable fas fa-plus-circle"></i>
-                      Edit Profile
+                    
+                      <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Edit Profile</div>
+                      
                     </Link>
                     <form onSubmit={deleteProfilePatient} >
-                      <input type="submit" value="Supprimer mon compte" />
+                      <input className="btn danger-button text-white p-2 mt-4 w-100" type="submit" value="Supprimer mon compte" />
                     </form>
                   </div>
                 </div>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';
 
-const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
+const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) => {
   const dispatch = useDispatch()
   const [appointments, setAppointments] = useState(filteredAppointments)
   
@@ -65,4 +65,4 @@ const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
   );
 };
 
-export default AppointmentsList;
+export default AppointmentsListNutritionist;

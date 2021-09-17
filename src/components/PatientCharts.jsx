@@ -53,21 +53,28 @@ const PatientCharts = ({appointments}) => {
   },[])
 
   return (
-    <div className="patient-charts col-lg-6 col-sm-12">
-      <Tabs id="controlled-tab-example" activeKey={key} onSelect={(k) => setKey(k)} >
+    <div className="patient-charts mx-3 p-3 col-lg-6 col-sm-12">
+      <Tabs
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={(k) => setKey(k)}
+      >
         <Tab eventKey="weight" title="Poids">
-          <div>
-            {weights && <Weight weights={weights} date={dates} />}
-          </div>
+          <div>{weights && <Weight weights={weights} date={dates} />}</div>
         </Tab>
         <Tab eventKey="bmi" title="IMC">
-          <div>
-            {bmi && <BMI bmi={bmi} date={dates} />}
-          </div>
+          <div>{bmi && <BMI bmi={bmi} date={dates} />}</div>
         </Tab>
         <Tab eventKey="fat-n-muscle" title="Muscle / Graisse">
           <div>
-            {bodyFat && muscle && visceral && <FatnMuscle bodyFat={bodyFat} muscle={muscle} visceral={visceral} date={dates}/>}
+            {bodyFat && muscle && visceral && (
+              <FatnMuscle
+                bodyFat={bodyFat}
+                muscle={muscle}
+                visceral={visceral}
+                date={dates}
+              />
+            )}
           </div>
         </Tab>
       </Tabs>
