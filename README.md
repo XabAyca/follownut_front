@@ -64,4 +64,4 @@ FollowNut' is a follow up app for nutritionists and their patients
   
   Then, access the app in your browser at http://localhost:3000/ 
 
- - In production, go to the [thp-renting](https://thp-renting.herokuapp.com/) and enjoy the experience
+ - In production, go to the [FollowNut'](https://follownut.herokuapp.com/) and enjoy the experience
