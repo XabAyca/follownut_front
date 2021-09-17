@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div className="home page-padding">
       {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
-      <section className="section bg-blue d-flex flex-row align-items-center">
+      <section className="section bg-blue  align-items-center">
         <div className="section1-left">
           <h1 className="text-white">Le meilleur logiciel pour nutritionistes et patients</h1>
           <h4 className="text-secondary-color pt-2 pb-4 text-justify">De la prise de rendez-vous, au suivi des patients, FollowNut offre une solution simple et efficace.</h4>
@@ -33,7 +33,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section d-flex flex-row">
+      <section className="section">
         <div className="sub-section d-flex flex-column justify-content-between">
           <div>
             <div className="img-box mb-3">
@@ -75,7 +75,7 @@ const Home = () => {
         </div>
       </section>
       
-      <section className="section bg-blue d-flex flex-row align-items-center">
+      <section className="section bg-blue align-items-center">
         <div className="section3-left">
           <img className="calendar" src={calendar} alt="Calendar illustration"/>
         </div>
@@ -89,7 +89,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section d-flex flex-row align-items-center">
+      <section className="section align-items-center">
         <div className="sub-section d-flex flex-column justify-content-between">
           <div>
             <div className="img-box mb-3">
