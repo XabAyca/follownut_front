@@ -6,7 +6,6 @@ import AppointmentsListPatient from 'components/AppointmentsListPatient';
 import SidebarPatient from 'components/SidebarPatient';
 import Loading from 'components/Loading';
 import AppointmentModal from 'components/AppointmentModal';
-import AppointmentsListPatient from 'components/AppointmentsListPatient';
 
 const DashboardPatientAptsList = () => {
   const [patientAppointments, setPatientAppointments] = useState();
