@@ -19,10 +19,16 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
     });
   };
 
-  const deleteAppointment = (appointment,e) => {
+  const deleteAppointment = (appointment, e) => {
     e.preventDefault()
-    setAppointments([...appointments.filter((el)=> el!==appointment)]);
-    dispatch(deleteAppointmentFetch(appointment.id))
+    if (
+      window.confirm(
+        "Vous êtes sur le point de supprimer le compte-rendu. Êtes vous sur ?"
+      )
+    ) {
+      setAppointments([...appointments.filter((el) => el !== appointment)]);
+      dispatch(deleteAppointmentFetch(appointment.id))
+    }
   }
 
   return (

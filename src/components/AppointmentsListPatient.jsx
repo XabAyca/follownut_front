@@ -19,12 +19,6 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
     });
   };
 
-  const deleteAppointment = (appointment,e) => {
-    e.preventDefault()
-    setAppointments([...appointments.filter((el)=> el!==appointment)]);
-    dispatch(deleteAppointmentFetch(appointment.id))
-  }
-
   return (
     <div className="patients-list text-primary-color">
       <div className="patient-list-header mx-3 p-2">
