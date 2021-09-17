@@ -1,4 +1,5 @@
 import React from 'react';
+import { appointmentsFetch } from 'services/apiManager';
 
 const AppointmentModal = ({ appointment }) => {
   
@@ -28,13 +29,13 @@ const AppointmentModal = ({ appointment }) => {
           <>
             <div className="d-flex text-primary-color my-4 row">
               <div className="col-lg-3 col-md-12 col-sm-12 details-container p-4">
-                <p className="m-0"> <strong>Patient : </strong>{appointment.patient.last_name ? appointment.patient.last_name +
+                <p className="m-0"> <strong>Patient : </strong>{appointment.patient ? appointment.patient.last_name +
                       " " + appointment.patient.first_name
-                    : (<span>Patient supprimée </span>)}
+                    : (<span>Patient supprimé </span>)}
                 </p>
-                <p className="m-0"> <strong>Nutritioniste : </strong>{appointment.patient.last_name ? appointment.patient.last_name +
-                      " " + appointment.patient.first_name
-                    : appointment.patient.email}
+                <p className="m-0"> <strong>Nutritioniste : </strong>{appointment.nutritionist ? appointment.nutritionist.last_name +
+                      " " + appointment.nutritionist.first_name
+                    : (<span>Nutritioniste supprimé </span>)}
                 </p>
               </div>
               <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">
