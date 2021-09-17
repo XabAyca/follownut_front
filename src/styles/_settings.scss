@@ -215,6 +215,11 @@ h6 {
   color: $warning;
 }
 
+// -------------------- TEXT COLORS -------------------- //
+.b-underline {
+  text-decoration: underline $primary-color;
+}
+
 
 // -------------------- BACKGROUNDS -------------------- //
 .bg-blue {
@@ -252,6 +257,11 @@ h6 {
       }
     }
   }
+}
+
+td {
+  word-wrap: break-word;
+  max-width: 1px;
 }
 
 // -------------------- FORMS -------------------- //
@@ -307,3 +317,5 @@ h6 {
 .pointer-clickable {
   cursor: pointer;
 }
+
+
