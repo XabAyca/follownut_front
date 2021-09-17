@@ -3,14 +3,14 @@ import React from 'react';
 const PatientSituation = ({appointment}) => {
   return (
     <div className="patient-situation text-primary-color">
-      <div className="patient-situation-header mx-3 p-3">
+      <div className="patient-situation-header mx-3 p-2">
         <h2 className="my-1">Derniers relevés</h2>
         <small className="my-1">
           Découvrez ci-dessous les relevés pris par votre praticien lors de
           votre dernier rendez-vous
         </small>
       </div>
-      <div className="patient-details mx-3 p-3 col-lg-6 col-sm-12">
+      <div className="details-container mx-3 p-3 col-lg-6 col-sm-12">
         <div className="data-columns row mx-3">
           <div className="left-details col-lg-6 col-sm-12">
             <table class="table patient-table">

@@ -12,19 +12,20 @@ const PatientLoginForm = () => {
 
   const handlePatientLogin = async (e) => {
     e.preventDefault();
-    document.querySelector('.error-modal').style.opacity=1
-    document.querySelector('.error-modal').style.visibility="visible"
+
     if (email && password) {
       const patientData = {
         patient: {
-            email: email,
-            password: password
+          email: email,
+          password: password
         }
       }
       await dispatch(patientLoginFetch(patientData))
     } else {
       alert("Merci de renseigner un email et un mot de passe")
     }
+    document.querySelector(".error-modal").style.opacity = 1;
+    document.querySelector(".error-modal").style.visibility = "visible";
   };
 
   return (

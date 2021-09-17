@@ -32,22 +32,38 @@ const PatientsList = () => {
   },[nutritionists])
 
   return (
-    <div className="patients-list">
-      {
-        nutritionistPatients ? 
-        nutritionistPatients.map((patient) => {
-          return (
-            <div className="list-row">
-              <p key={patient.id}>
-                {patient.last_name ? patient.last_name : ""} {patient.first_name ? patient.first_name : ""} - {patient.email ? patient.email : ""} 
-              </p>
-            </div>
-          )
-        }) :
-        <Loading color={"blue"} />
-      }
-
-
+    <div className="patients-list text-primary-color">
+      <div className="patient-list-header mx-3 p-2">
+        <h2>Voici la liste de vos patients</h2>
+      </div>
+      <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
+      <table class="table patient-table">
+        <thead>
+          <tr>
+            <th scope="col">Réf.</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            nutritionistPatients ? 
+            nutritionistPatients.map((patient) => {
+              return (
+                <tr>
+                  <th scope="row" key={patient.id}>{patient.id}</th>
+                  <td>{patient.last_name ? patient.last_name : (<span>?</span>)}</td>
+                  <td>{patient.first_name ? patient.first_name : (<span>?</span>)}</td>
+                  <td>{patient.email ? patient.email : (<span>?</span>)}</td>
+                </tr>
+              )
+            }) :
+            <Loading color={"blue"} />
+          }
+        </tbody>
+      </table>
+      </div>
     </div>
   );
 };

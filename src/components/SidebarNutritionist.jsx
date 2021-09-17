@@ -9,7 +9,7 @@ const SidebarNutritionist = () => {
         to="/nutritionist-dashboard"
         className="sidebar-nutritionist-link">
         <i class="fas fa-calendar-check"></i>
-        Comptes-rendu
+        Rendez-vous
       </Link>
       <Link
         exact
@@ -17,7 +17,7 @@ const SidebarNutritionist = () => {
         className="sidebar-nutritionist-link"
       >
         <i class="fas fa-users"></i>
-        Patients
+        Patientèle
       </Link>
       <Link
         exact
@@ -25,7 +25,7 @@ const SidebarNutritionist = () => {
         className="sidebar-nutritionist-link"
       >
         <i class="fas fa-plus-circle"></i>
-        Créer un compte rendu
+        Créer un compte-rendu
       </Link>
     </div>
   );
