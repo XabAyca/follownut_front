@@ -32,9 +32,10 @@ const AppointmentsList = ({ filteredAppointments, setOpenModal }) => {
           return (
             <div className="list-row">
               <p key={appointment.id}>
-                Le {createDate(appointment.date)} avec M./Mme{" "}
-                {appointment.patient ? appointment.patient.last_name
-                  : (<span>Patient supprimé</span>)}
+                Le {createDate(appointment.date)}
+                { appointment.patient ? appointment.patient.last_name ?
+                    ( <span> avec M./Mme {appointment.patient.last_name}</span>)
+                  : (<span> Patient supprimé</span>) : (<span> avec un nouveau patient</span>)}
               </p>
               <div className="options">
                 <i
