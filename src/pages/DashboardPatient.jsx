@@ -1,20 +1,20 @@
-import GraphWeight from "components/GraphWeight";
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { appointmentsFetch } from 'services/apiManager';
 import SidebarPatient from "components/SidebarPatient";
-import GraphicWeight from "components/GraphWeight";
+import PatientSituation from "components/PatientSituation";
+import PatientCharts from "components/PatientCharts";
+import PwaModal from 'components/PwaModal';
 
 const DashboardPatient = () => {
   const dispatch = useDispatch()
   const patient_id = parseInt(Cookies.get("patient_id_cookie"))
-  const [key, setKey] = useState("appointments");
   const appointments = useSelector(state => state.appointments.appointments)
   const [filteredAppointments, setFilteredAppointments] = useState()
   const [currentAppointment, setCurrentAppointment] = useState(null)
+  const [lastAppointment,setLastAppointment] = useState()
 
   useEffect(() => {
     dispatch(appointmentsFetch())
@@ -35,7 +35,9 @@ const DashboardPatient = () => {
     modal.style.visibility = 'visible'
   }
 
-
+  useEffect(() => {
+    filteredAppointments && setLastAppointment(filteredAppointments[0])
+  },[filteredAppointments])
 
   useEffect(() => {
     appointments && filter()
@@ -44,37 +46,30 @@ const DashboardPatient = () => {
 
 
   return (
-    <>
-      <div className="dashboard-nutritionist page-padding">
-        <div className="dashboard-nutritionist-left">
-          <SidebarPatient />
+    <div className="dashboard-page page-padding">
+      {!window.matchMedia("(display-mode: standalone)").matches && (
+        <PwaModal />
+      )}
+      <div className="dashboard-page-left">
+        <SidebarPatient />
+      </div>
+      <div className="dashboard-page-right">
+        <h1 className="mx-5 my-2 text-primary-color">
+          Bienvenue sur votre dashboard{" "}
+          {lastAppointment && lastAppointment.first_name}
+        </h1>
+        <div className="mx-5 my-4">
+          {lastAppointment && (
+            <PatientSituation appointment={lastAppointment} />
+          )}
         </div>
-        <div className="dashboard-nutritionist-right">
-          <Tabs
-            id="controlled-tab-example"
-            activeKey={key}
-            onSelect={(k) => setKey(k)}
-            className="mb-3"
-          >
-            <Tab eventKey="appointments" title="Comptes-rendu">
-            
-            </Tab>
-            <Tab eventKey="weight" title="Weight">
-              <GraphWeight/>
-            </Tab>
-            <Tab eventKey="body-fat" title="Body Fat">
-              <GraphWeight/>
-            </Tab>
-            <Tab eventKey="muscle-mass" title="Muscle mass">
-              A venir
-            </Tab>
-            <Tab eventKey="viceral-mass" title="Viceral mass">
-              A venir
-            </Tab>
-          </Tabs>
+        <div>
+          {filteredAppointments && (
+            <PatientCharts appointments={filteredAppointments} />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

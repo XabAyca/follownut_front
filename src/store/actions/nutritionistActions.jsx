@@ -50,6 +50,50 @@ export const fetchNutritionistLoginLogout = () => {
 };
 
 
+export const FETCH_NUTRITIONIST_UPDATE_REQUEST = "FETCH_NUTRITIONIST_UPDATE_REQUEST";
+export const FETCH_NUTRITIONIST_UPDATE_SUCCESS = "FETCH_NUTRITIONIST_UPDATE_SUCCESS";
+export const FETCH_NUTRITIONIST_UPDATE_FAILURE = "FETCH_NUTRITIONIST_UPDATE_FAILURE";
+
+export const fetchNutritionistUpdateRequest = () => {
+  return {
+    type: FETCH_NUTRITIONIST_UPDATE_REQUEST,
+  };
+};
+export const fetchNutritionistUpdateSuccess = (nutritionist) => {
+  return {
+    type: FETCH_NUTRITIONIST_UPDATE_SUCCESS,
+    nutritionist,
+  };
+};
+export const fetchNutritionistUpdateFailure = (error) => {
+  return {
+    type: FETCH_NUTRITIONIST_UPDATE_FAILURE,
+    error,
+  };
+};
+
+
+export const FETCH_NUTRITIONIST_DELETE_REQUEST = "FETCH_NUTRITIONIST_DELETE_REQUEST";
+export const FETCH_NUTRITIONIST_DELETE_SUCCESS = "FETCH_NUTRITIONIST_DELETE_SUCCESS";
+export const FETCH_NUTRITIONIST_DELETE_FAILURE = "FETCH_NUTRITIONIST_DELETE_FAILURE";
+
+export const fetchNutritionistDeleteRequest = () => {
+  return {
+    type: FETCH_NUTRITIONIST_DELETE_REQUEST,
+  };
+};
+export const fetchNutritionistDeleteSuccess = () => {
+  return {
+    type: FETCH_NUTRITIONIST_DELETE_SUCCESS,
+  };
+};
+export const fetchNutritionistDeleteFailure = (error) => {
+  return {
+    type: FETCH_NUTRITIONIST_DELETE_FAILURE,
+    error,
+  };
+};
+
 export const FETCH_NUTRITIONIST_REGISTER_REQUEST = "FETCH_NUTRITIONIST_REGISTER_REQUEST";
 export const FETCH_NUTRITIONIST_REGISTER_SUCCESS = "FETCH_NUTRITIONIST_REGISTER_SUCCESS";
 export const FETCH_NUTRITIONIST_REGISTER_FAILURE = "FETCH_NUTRITIONIST_REGISTER_FAILURE";

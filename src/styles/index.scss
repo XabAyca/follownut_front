@@ -7,9 +7,9 @@
 @import './pages/home';
 @import './pages/notFound';
 @import './pages/nutritionistProfile';
-@import './pages/dashboardPatient';
-@import './pages/dashboardNutritionist';
+@import './pages/dashboardPages';
 @import './pages/patientEditProfile';
+@import './pages/dashboardPatientAptsList';
 
 // Import components styles
 @import './components/navigation';
@@ -22,5 +22,6 @@
 @import './components/appointmentModal';
 @import "./components/patientsList";
 @import './components/footer';
-@import './components/appointmentCreateForm';
 @import './components/hamburgerMenu';
+@import './components/errorModal';
+@import './components/pwaModal';

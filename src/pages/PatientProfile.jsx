@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarPatient from 'components/SidebarPatient';
 import { Link } from 'react-router-dom';
+import { deletePatientFetch } from 'services/apiManager';
+import { patientLogout } from 'services/apiManager';
 
 const PatientProfile = () => {
   const [patient, setPatient] = useState();
@@ -15,7 +17,7 @@ const PatientProfile = () => {
   const dispatch = useDispatch() 
 
   const getPatient = () => {
-    dispatch(patientsFetch());
+    ;
     if (patients.patient) {
       let patient = patients.patient
         .filter((patient) => {
@@ -26,37 +28,52 @@ const PatientProfile = () => {
   }
 
   useEffect(() => { 
+    dispatch(patientsFetch());
+  }, []);
+  
+  useEffect(() => {
     getPatient();
-  },[patient]);
+  },[patients])
 
-  console.log(patient ? patient : "test")
+  const handleLogOut = () => {
+    Cookies.remove('patient_token_cookie');
+    Cookies.remove("patient_id_cookie");
+    dispatch(patientLogout()); 
+    window.location.reload();
+  }
+
+  const deleteProfilePatient = (e) => {
+    if (window.confirm("Vous êtes sur le point de supprimer votre compte. Êtes vous sur ?")) {
+      dispatch(deletePatientFetch());
+      handleLogOut();
+    }
+  }
+
 
   return (
     <>
-      <div className="dashboard-nutritionist">
-        <div className="dashboard-nutritionist-left">
+      <div className="dashboard-page">
+        <div className="dashboard-page-left">
           <SidebarPatient />
         </div>
-        <div className="dashboard-nutritionist-right">
-          <div className="container rounded bg-white">
+        <div className="dashboard-page-right">
+          <div className="container rounded patient-details my-5 py-5 col-lg-9 col-sm-12">
             <div className="row">
-              <div className="col-md-3 border-right">
-                <div className="d-flex flex-column align-items-center text-center ">
-                  <img className="rounded-circle mt-5" width="150px" 
+              <div className="col-md-6 border-right d-flex align-items-center">
+                <div className="d-flex flex-column align-items-center text-center mt-5">
+                  <img className="rounded-circle" width="270px" 
                   src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                  alt="profile"/><span className="font-weight-bold">Edogaru</span>
-                  <span className="text-black-50">edogaru@mail.com.my</span>
+                  alt="profile"/>
                 </div>
               </div>
-              <div className="col-md-5 mt-5 border-right">
+              <div className="col-md-5 mt-5 border-right mx-2">
                 <div className="p-3">
                   <div className="mb-5">
-                      <h4 className="text-right">Patient Profile</h4>
+                      <h1 className="text-right">Patient Profile</h1>
                   </div>
                   <div className="row mt-2">
                     <div className="col-md-6">
                       <p>
-                        <strong>Prenom : </strong>
                         {
                           patient ? 
                           patient.first_name : <Loading color={"blue"} />
@@ -65,7 +82,6 @@ const PatientProfile = () => {
                     </div>
                     <div className="col-md-6">
                       <p>
-                        <strong>Nom : </strong>
                         {
                           patient ? 
                           patient.last_name : <Loading color={"blue"} />
@@ -73,10 +89,9 @@ const PatientProfile = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="row mt-3">
+                  <div className="row mt-3 d-flex">
                     <div className="col-md-12">
                       <p>
-                        <strong>E-mail : </strong>
                         {
                           patient ? 
                           patient.email : <Loading color={"blue"} />
@@ -87,10 +102,14 @@ const PatientProfile = () => {
                       exact
                       to="/patient-edit-profile"
                       className="sidebar-nutritionist-link text-dark"
-                      >
-                      <i class="fas fa-plus-circle"></i>
-                      Edit Profile
+                    >
+                    
+                      <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Modifier mon profil</div>
+                      
                     </Link>
+                    <form onSubmit={deleteProfilePatient} >
+                      <input className="btn danger-button text-white p-2 mt-4 w-100" type="submit" value="Supprimer mon compte" />
+                    </form>
                   </div>
                 </div>
               </div>

@@ -51,98 +51,106 @@ const AppointmentCreateForm = () => {
 
     setTimeout(() => {
       dispatch(appointmentsFetch())
-    }, 300)
-    
-    setTimeout(() => {
-      history.push("/nutritionist-dashboard");
-    }, 1000);
+    }, 500)
+    history.push("/nutritionist-dashboard");
+    window.location.reload()
   };
 
-
   return (
-    <form className="appointment-form" onSubmit={createDataAppointment}>
-      <select name="patient" id="patient_id" required>
-        <option>Liste patients</option>
-        {sortedPatients &&
-          sortedPatients.map((patient) => {
-            return (
-              <option key={patient.id} value={patient.id}>
-                {patient.last_name ? patient.last_name : patient.email}
-              </option>
-            );
-          })}
-      </select>
-      <input
-        type="datetime-local"
-        id="date"
-        placeholder="Date et heure"
-        required
-      />
+    <div className="create-appointment-form mx-5">
+      <h1 className="text-primary-color">Rédiger un compte-rendu</h1>
+      <form className="appointment-form text-primary-color" onSubmit={createDataAppointment}>
+        <div className="col-lg-3 col-sm-12">
+          <select name="patient" id="patient_id" className="form-select-display w-100 my-2" required>
+            <option>Sélectionnez un patient</option>
+            {sortedPatients &&
+              sortedPatients.map((patient) => {
+                return (
+                  <option key={patient.id} value={patient.id}>
+                    {patient.last_name ? patient.last_name : patient.email}
+                  </option>
+                );
+              })}
+          </select>
+          <input
+            className="form-input-display my-2"
+            type="date"
+            id="date"
+            required
+          />
+        </div>
 
-      <div className="data">
-        <div className="data-content">
-          <label>Graisse viscéral</label>
-          <input
-            type="number"
-            id="visceral_fat"
-            placeholder="Graisse viscéral"
-            min="0"
-            max="100"
-            required
-          />
+
+        <div className="d-flex row justify-content-between py-2">
+          <div className="col-lg-2 col-sm-12">
+            <label >Graisse viscérale</label>
+            <input
+              className="form-input-display"
+              type="number"
+              id="visceral_fat"
+              placeholder="%"
+              min="0"
+              max="100"
+              required
+            />
+          </div>
+          <div className="col-lg-2 col-sm-12">
+            <label>Masse musculaire</label>
+            <input
+              className="form-input-display"
+              type="number"
+              id="muscle_mass"
+              placeholder="%"
+              min="0"
+              max="100"
+              required
+            />
+          </div>
+          <div className="col-lg-2 col-sm-12">
+            <label>Masse grasse</label>
+            <input
+              className="form-input-display"
+              type="number"
+              id="body_fat"
+              placeholder="%"
+              min="0"
+              max="100"
+              required
+            />
+          </div>
+          <div className="col-lg-2 col-sm-12">
+            <label>Taille</label>
+            <input
+              className="form-input-display"
+              type="number"
+              id="height"
+              placeholder="mètres"
+              min="0"
+              max="2.5"
+              step="0.01"
+              required
+            />
+          </div>
+          <div className="col-lg-2 col-sm-12">
+            <label>Poids</label>
+            <input
+              className="form-input-display"
+              type="number"
+              id="weight"
+              placeholder="kilogrammes"
+              min="0"
+              max="250"
+              step="0.1"
+              required
+            />
+          </div>
         </div>
-        <div className="data-content">
-          <label>Masse musculaire</label>
-          <input
-            type="number"
-            id="muscle_mass"
-            placeholder="Masse musculaire"
-            min="0"
-            max="100"
-            required
-          />
-        </div>
-        <div className="data-content">
-          <label>Masse grasse</label>
-          <input
-            type="number"
-            id="body_fat"
-            placeholder="Masse grasse"
-            min="0"
-            max="100"
-            required
-          />
-        </div>
-        <div className="data-content">
-          <label>Taille</label>
-          <input
-            type="number"
-            id="height"
-            placeholder="Taille"
-            min="0"
-            max="2.5"
-            step="0.01"
-            required
-          />
-        </div>
-        <div className="data-content">
-          <label>Poids</label>
-          <input
-            type="number"
-            id="weight"
-            placeholder="Poids"
-            min="0"
-            max="250"
-            step="0.1"
-            required
-          />
-        </div>
-      </div>
-      <hr />
-      <label>Compte-rendu</label>
-      <textarea placeholder="Compte-rendu" id="content" required />
-      <input type="submit" value="Créer" />
-    </form>
+        <hr className="my-4" />
+        <label>Compte-rendu</label>
+        <textarea placeholder="Formulez des recommandations à votre patient ..." id="content" className="form-input-display form-textarea-display" required />
+        <input type="submit" value="Créer" className="btn success-button my-3 col-lg-3 col-sm-12" />
+      </form>
+    </div>
   );
 };
 

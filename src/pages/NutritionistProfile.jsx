@@ -6,11 +6,12 @@ import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import { Link } from 'react-router-dom';
+import { nutritionistLogout } from 'services/apiManager';
+import { deleteNutritionistFetch } from 'services/apiManager';
 
 const NutritionistProfile = () => {
   const [nutritionist, setNutritionist] = useState();
   const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
-
   const nutritionists = useSelector(state => state.nutritionists)
   const dispatch = useDispatch() 
 
@@ -29,18 +30,32 @@ const NutritionistProfile = () => {
   },[]);
 
 
+  const handleLogOut = () => {
+    Cookies.remove('nutritionist_token_cookie');
+    Cookies.remove("nutritionist_id_cookie");
+    dispatch(nutritionistLogout()); 
+    window.location.reload();
+  }
+
+  const deleteProfileNutritionist = (e) => {
+    if (window.confirm("Vous êtes sur le point de supprimer votre compte. Êtes vous sur ?")) {
+      dispatch(deleteNutritionistFetch());
+      handleLogOut();
+    }
+  }
+
   return (
 
-    <div className="dashboard-nutritionist">
-    <div className="dashboard-nutritionist-left">
+    <div className="dashboard-page">
+    <div className="dashboard-page-left">
       <SidebarNutritionist/>
     </div>
-    <div className="dashboard-nutritionist-right">
-      <div className="container rounded bg-white">
-        <div className="row">
-          <div className="col-md-3 border-right">
+    <div className="dashboard-page-right">
+      <div className="container">
+        <div className="row nutritionist-details my-5 py-5 col-lg-12 col-sm-12">
+          <div className="col-md-6 border-right">
             <div className="d-flex flex-column align-items-center text-center ">
-              <img className="rounded-circle mt-5" width="150px" height="150" 
+              <img className="rounded-circle mt-5" width="120px" 
               src=
               {
                 nutritionist ?  
@@ -64,7 +79,7 @@ const NutritionistProfile = () => {
           <div className="col-md-5 border-right">
             <div className="p-3">
               <div className="mb-5">
-                  <h4 className="text-right">Nutritionist Profile</h4>
+                  <h4 className="text-right">Nutritionniste Profile</h4>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
@@ -111,9 +126,12 @@ const NutritionistProfile = () => {
                     to="/nutritionist-edit-profile"
                     className="sidebar-nutritionist-link text-dark"
                   >
-                    <i class="fas fa-plus-circle"></i>
+                    <i className="pointer-clickable fas fa-plus-circle"></i>
                     Edit Profile
                   </Link>
+                  <form onSubmit={deleteProfileNutritionist} >
+                      <input type="submit" value="Supprimer mon compte" />
+                  </form>
               </div>
 
             </div>

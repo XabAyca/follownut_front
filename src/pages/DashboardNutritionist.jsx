@@ -1,6 +1,7 @@
 import AppointmentModal from 'components/AppointmentModal';
-import AppointmentsList from 'components/AppointmentsList';
+import AppointmentsListNutritionist from 'components/AppointmentsListNutritionist';
 import CalendlyBtn from 'components/CalendlyBtn';
+import PwaModal from 'components/PwaModal';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
@@ -42,32 +43,24 @@ const DashboardNutritionist = () => {
   }, [appointments])
 
   return (
-    <div className="dashboard-nutritionist page-padding">
+    <div className="dashboard-page page-padding">
       {appointments && (
         <CalendlyBtn slug={appointments[0].nutritionist.slug_calendly} />
       )}
-      <div className="dashboard-nutritionist-left">
+      {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
+      <div className="dashboard-page-left">
         <SidebarNutritionist />
         <AppointmentModal appointment={currentAppointment} />
       </div>
-      <div className="dashboard-nutritionist-right">
-        <Tabs
-          id="controlled-tab-example"
-          activeKey={key}
-          onSelect={(k) => setKey(k)}
-        >
-          <Tab eventKey="appointments" title="Comptes-rendu">
-            {filteredAppointments && (
-              <AppointmentsList
-                filteredAppointments={filteredAppointments}
-                setOpenModal={openModal}
-              />
-            )}
-          </Tab>
-          <Tab eventKey="to-do" title="À venir">
-            A venir
-          </Tab>
-        </Tabs>
+      <div className="dashboard-page-right">
+        <div className="mx-5 my-5">
+          {filteredAppointments && (
+                <AppointmentsListNutritionist
+                  filteredAppointments={filteredAppointments}
+                  setOpenModal={openModal}
+                />
+          )}
+        </div>
       </div>
     </div>
   );

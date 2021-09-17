@@ -16,16 +16,18 @@ const NutritionistSignupForm = () => {
     if (email && password && passwordConfirmation) {
       const nutritionistData = {
         nutritionist: {
-            email: email,
-            password: password,
-            password_confirmation: passwordConfirmation
+          email: email,
+          password: password,
+          password_confirmation: passwordConfirmation
         }
       }
       await dispatch(nutritionistRegisterFetch(nutritionistData))
     } else {
       alert("Merci de renseigner un email, un mot de passe et de répéter votre mot de passe")
     }
-};
+    document.querySelector(".error-modal").style.opacity = 1;
+    document.querySelector(".error-modal").style.visibility = "visible";
+  };
 
   return (
     <div className="nutritionist-signup-form d-flex justify-content-center">

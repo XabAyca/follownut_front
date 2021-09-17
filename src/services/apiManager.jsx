@@ -1,18 +1,17 @@
 import Cookies from "js-cookie";
-import { deleteAppointmentRequest } from "store/actions/appointmentActions";
-import { deleteAppointmentFailure } from "store/actions/appointmentActions";
-import { fetchAppointmentsSuccess } from "store/actions/appointmentActions";
-import { fetchAppointmentsFailure } from "store/actions/appointmentActions";
-import { deleteAppointmentSuccess } from "store/actions/appointmentActions";
-import {  } from "store/actions/appointmentActions";
+import { deleteAppointmentFailure, deleteAppointmentRequest, deleteAppointmentSuccess, fetchAppointmentsSuccess, fetchAppointmentsFailure } from "store/actions/appointmentActions";
 import { createAppointmentFailure, createAppointmentSuccess, createAppointmentRequest, fetchAppointmentsRequest } from "store/actions/appointmentActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
+import { fetchNutritionistDeleteFailure, fetchNutritionistDeleteRequest, fetchNutritionistDeleteSuccess } from "store/actions/nutritionistActions";
+import { fetchNutritionistUpdateFailure, fetchNutritionistUpdateRequest, fetchNutritionistUpdateSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
+import { fetchPatientDeleteFailure, fetchPatientDeleteSuccess, fetchPatientDeleteRequest } from "store/actions/patientActions";
 import { fetchPatientLoginFailure, fetchPatientLoginLogout, fetchPatientLoginRequest, fetchPatientLoginSuccess } from "store/actions/patientActions";
 import { fetchPatientRegisterFailure, fetchPatientRegisterRequest, fetchPatientRegisterSuccess, fetchPatientRegisterUnregister } from "store/actions/patientActions";
 import { fetchPatientsFailure, fetchPatientsRequest, fetchPatientsSuccess } from "store/actions/patientActions";
+
 
 
 const baseUrl = "https://follownut-back.herokuapp.com";
@@ -41,7 +40,8 @@ export const nutritionistRegisterFetch = (nutritionistData) => {
       })
       .then((response ) => {
         if (response.errors || response.error) {
-          dispatch(fetchNutritionistRegisterFailure(response.errors));
+          console.log(response);
+          dispatch(fetchNutritionistRegisterFailure(response));
         } else {
           Cookies.set("nutritionist_token_cookie", token);
           Cookies.set("nutritionist_id_cookie", response.data.id);
@@ -73,7 +73,7 @@ export const nutritionistLoginFetch = (nutritionistData) => {
       })
       .then((response) => {
         if (response.errors || response.error) {
-          dispatch(fetchNutritionistLoginFailure(response.errors));
+          dispatch(fetchNutritionistLoginFailure(response.error));
         } else {
           Cookies.set("nutritionist_token_cookie", token);
           Cookies.set('nutritionist_id_cookie',response.data.id);
@@ -165,6 +165,73 @@ export const nutritionistResetPasswordFetch = (newNutritionistData) => {
 
 
 
+
+
+
+
+// BELOW IS THE FUNCTION TO UPDATE A NUTRITIONIST
+export const updateNutritionistFetch = (nutritionistData) => {
+  return (dispatch) => {
+    const id = Cookies.get('nutritionist_id_cookie');
+    const token = Cookies.get('nutritionist_token_cookie');
+    dispatch(fetchNutritionistUpdateRequest ());
+
+    fetch(baseUrl + `/api/v1/nutritionists/${id}`, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(nutritionistData),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchNutritionistUpdateFailure (response.errors)); 
+        } else {
+          dispatch(fetchNutritionistUpdateSuccess(response));
+        }
+      });
+  };
+};
+
+
+// BELOW IS THE FUNCTION TO DELETE A NUTRITIONIST
+export const deleteNutritionistFetch = () => {
+  return (dispatch) => {
+    const id = Cookies.get('nutritionist_id_cookie');
+    const token = Cookies.get('nutritionist_token_cookie');
+    dispatch(fetchNutritionistDeleteRequest ());
+
+    fetch(baseUrl + `/api/v1/nutritionists/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchNutritionistDeleteFailure (response.errors));
+        } else {
+          dispatch(fetchNutritionistDeleteSuccess());
+        }
+      });
+  };
+};
+
+
+
+
+
+
+
+
+
+
+
+
 // ------------------------------------------------------------------------------------------
 // -------------------- BELOW ARE ALL THE PATIENT RELATED FUNCTIONS --------------------
 // ------------------------------------------------------------------------------------------
@@ -190,8 +257,7 @@ export const patientRegisterFetch = (patientData) => {
       })
       .then((response ) => {
         if (response.errors || response.error) {
-          console.log(response.errors);
-          dispatch(fetchPatientRegisterFailure(response.errors));
+          dispatch(fetchPatientRegisterFailure(response));
         } else {
           Cookies.set("patient_token_cookie", token);
           Cookies.set("patient_id_cookie", response.data.id);
@@ -223,7 +289,7 @@ export const patientLoginFetch = (patientData) => {
       })
       .then((response) => {
         if (response.errors || response.error) {
-          dispatch(fetchPatientLoginFailure(response.errors));
+          dispatch(fetchPatientLoginFailure(response.error));
         } else {
           Cookies.set("patient_token_cookie", token);
           Cookies.set('patient_id_cookie',response.data.id);
@@ -312,16 +378,6 @@ export const patientResetPasswordFetch = (newPatientData) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
 // BELOW IS THE FUNCTION TO UPDATE A PATIENT
 export const updatePatientFetch = (patientData) => {
   return (dispatch) => {
@@ -349,7 +405,30 @@ export const updatePatientFetch = (patientData) => {
 };
 
 
+// BELOW IS THE FUNCTION TO DELETE A PATIENT
+export const deletePatientFetch = () => {
+  return (dispatch) => {
+    const id = Cookies.get('patient_id_cookie');
+    const token = Cookies.get('patient_token_cookie');
+    dispatch(fetchPatientDeleteRequest ());
 
+    fetch(baseUrl + `/api/v1/patients/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchPatientDeleteFailure (response.errors));
+        } else {
+          dispatch(fetchPatientDeleteSuccess());
+        }
+      });
+  };
+};
 
 
 
