@@ -25,7 +25,7 @@ const SidebarNutritionist = () => {
         className="sidebar-nutritionist-link"
       >
         <i class="fas fa-plus-circle"></i>
-        Créer un rendez-vous
+        Créer un compte-rendu
       </Link>
     </div>
   );
