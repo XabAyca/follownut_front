@@ -17,7 +17,7 @@ const PatientProfile = () => {
   const dispatch = useDispatch() 
 
   const getPatient = () => {
-    dispatch(patientsFetch());
+    ;
     if (patients.patient) {
       let patient = patients.patient
         .filter((patient) => {
@@ -28,8 +28,12 @@ const PatientProfile = () => {
   }
 
   useEffect(() => { 
+    dispatch(patientsFetch());
+  }, []);
+  
+  useEffect(() => {
     getPatient();
-  },[patient]);
+  },[patients])
 
   const handleLogOut = () => {
     Cookies.remove('patient_token_cookie');
@@ -100,7 +104,7 @@ const PatientProfile = () => {
                       className="sidebar-nutritionist-link text-dark"
                     >
                     
-                      <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Edit Profile</div>
+                      <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Modifier mon profil</div>
                       
                     </Link>
                     <form onSubmit={deleteProfilePatient} >

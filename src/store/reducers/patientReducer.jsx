@@ -13,9 +13,10 @@ const initialState = {
   patient: "",
   register: "",
   login: "",
+  patientUpd:'',
 };
 
-export const patientReducer = (state = initialState, { type, error, patient, login, register }) => {
+export const patientReducer = (state = initialState, { type, error, patient, login, register,patientUpd }) => {
   switch (type) {
     case FETCH_PATIENT_REQUEST:
       return { ...state, loading: true };
@@ -42,7 +43,7 @@ export const patientReducer = (state = initialState, { type, error, patient, log
       return { ...state, loading: true };
 
     case FETCH_PATIENT_UPDATE_SUCCESS:
-      return { ...state, loading: false, patient: patient, error:"" };
+      return { ...state, loading: false, patientUpd: patientUpd, error:"" };
 
     case FETCH_PATIENT_UPDATE_FAILURE:
       return { ...state, loading: false, error: error };

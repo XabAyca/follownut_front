@@ -59,10 +59,10 @@ export const fetchPatientUpdateRequest = () => {
     type: FETCH_PATIENT_UPDATE_REQUEST,
   };
 };
-export const fetchPatientUpdateSuccess = (patient) => {
+export const fetchPatientUpdateSuccess = (patientUpd) => {
   return {
     type: FETCH_PATIENT_UPDATE_SUCCESS,
-    patient,
+    patientUpd,
   };
 };
 export const fetchPatientUpdateFailure = (error) => {
