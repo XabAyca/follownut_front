@@ -53,7 +53,7 @@ const DashboardNutritionist = () => {
         <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-page-right">
-        <div className="mx-5 my-5">
+        <div className="d-flex justify-content-center py-5">
           {filteredAppointments && (
                 <AppointmentsListNutritionist
                   filteredAppointments={filteredAppointments}
