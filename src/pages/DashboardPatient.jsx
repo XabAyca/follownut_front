@@ -26,6 +26,7 @@ const DashboardPatient = () => {
         .filter((el) => el.patient_id === patient_id)
         .sort((a, b) => new Date(b.date) - new Date(a.date))
     );
+    filteredAppointments > 0 &&
     setLastAppointment(filteredAppointments[0]);
   };
 
