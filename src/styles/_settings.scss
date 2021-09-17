@@ -212,7 +212,7 @@ html,body{
   width: 35em;
 }
 
-.patient-situation-details {
+.details-container {
   background-color: $secondary-color;
   border-radius: 15px;
 }
@@ -225,6 +225,14 @@ html,body{
   color: $primary-color;
   vertical-align: top;
   border-color: #dee2e6;
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $third-color;
+      }
+    }
+  }
 }
 
 
