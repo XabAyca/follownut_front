@@ -16,8 +16,7 @@ const CookiesConsent = () => {
       buttonStyle={{ color: '#212529', fontSize: "15px", borderRadius:'5px', backgroundColor: "#F5D01F" }}
       expires={150}
     >
-      <i class="fas fa-cookie-bite"></i> Ce site utilise des cookies pour
-      améliorer l'expérience utilisateur.{" "}
+      <i className="fas fa-cookie-bite"></i> Ce site utilise des cookies pour améliorer l'expérience utilisateur.{" "}
     </CookieConsent>
   );
 };

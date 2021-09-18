@@ -37,7 +37,7 @@ const PatientsList = ({ setOpenModal }) => {
             to="/nutritionist-dashboard/create-patient"
             className="add-patient"
           >
-            Ajouter <i class="fas fa-user-plus"></i>
+            Ajouter <i className="fas fa-user-plus"></i>
           </Link>
         </div>
         <input
@@ -47,7 +47,7 @@ const PatientsList = ({ setOpenModal }) => {
         />
       </div>
       <div className="details-container p-3">
-        <table class="table patient-table">
+        <table className="table patient-table">
           <thead>
             <tr>
               {/* <th scope="col">Réf.</th> */}
