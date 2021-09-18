@@ -1,12 +1,9 @@
 import { FETCH_NUTRITIONIST_FAILURE, FETCH_NUTRITIONIST_REQUEST, FETCH_NUTRITIONIST_SUCCESS } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_DELETE_FAILURE, FETCH_NUTRITIONIST_DELETE_REQUEST, FETCH_NUTRITIONIST_UPDATE_SUCCESS } from "store/actions/nutritionistActions";
-import { FETCH_ONE_NUTRITIONIST_SUCCESS } from "store/actions/nutritionistActions";
-import { FETCH_ONE_NUTRITIONIST_FAILURE } from "store/actions/nutritionistActions";
-import { FETCH_ONE_NUTRITIONIST_REQUEST } from "store/actions/nutritionistActions";
+import { FETCH_ONE_NUTRITIONIST_FAILURE, FETCH_ONE_NUTRITIONIST_REQUEST, FETCH_ONE_NUTRITIONIST_SUCCESS } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_UPDATE_FAILURE, FETCH_NUTRITIONIST_UPDATE_REQUEST, FETCH_NUTRITIONIST_DELETE_SUCCESS } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_LOGIN_FAILURE, FETCH_NUTRITIONIST_LOGIN_LOGOUT, FETCH_NUTRITIONIST_LOGIN_REQUEST, FETCH_NUTRITIONIST_LOGIN_SUCCESS } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_REGISTER_FAILURE, FETCH_NUTRITIONIST_REGISTER_REQUEST, FETCH_NUTRITIONIST_REGISTER_SUCCESS, FETCH_NUTRITIONIST_REGISTER_UNREGISTER } from "store/actions/nutritionistActions";
-
 
 
 const initialState = {
@@ -28,12 +25,7 @@ export const nutritionistReducer = (
       return { ...state, loading: true };
 
     case FETCH_NUTRITIONIST_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        nutritionist: nutritionist,
-        error: "",
-      };
+      return { ...state, loading: false, nutritionist: nutritionist, error: "" };
 
     case FETCH_NUTRITIONIST_FAILURE:
       return { ...state, loading: false, error: error };
@@ -42,12 +34,7 @@ export const nutritionistReducer = (
       return { ...state, loading: true };
 
     case FETCH_ONE_NUTRITIONIST_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        currentNutritionist: currentNutritionist,
-        error: "",
-      };
+      return { ...state, loading: false, currentNutritionist: currentNutritionist, error: "" };
 
     case FETCH_ONE_NUTRITIONIST_FAILURE:
       return { ...state, loading: false, error: error };
@@ -68,12 +55,7 @@ export const nutritionistReducer = (
       return { ...state, loading: true };
 
     case FETCH_NUTRITIONIST_UPDATE_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        nutritionistUpd: nutritionistUpd,
-        error: "",
-      };
+      return { ...state, loading: false, nutritionistUpd: nutritionistUpd, error: "", };
 
     case FETCH_NUTRITIONIST_UPDATE_FAILURE:
       return { ...state, loading: false, error: error };
