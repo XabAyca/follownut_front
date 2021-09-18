@@ -1,0 +1,32 @@
+.about{
+  height: 100vh;
+  width: 100vw;
+}
+
+.divcenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.div-git{
+ display: flex;
+ justify-content: space-between;
+ flex-flow: row wrap;
+}
+
+ .div-git-child{
+   width: 150px;
+   display: flex;
+   justify-content: center;
+ }
+
+
+a{
+  color: #002bba;
+  text-decoration: none;
+}
+a:hover{
+  color: black;
+}
