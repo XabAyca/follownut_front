@@ -34,6 +34,7 @@ import NutritionistEditProfile from 'pages/NutritionistEditProfile';
 import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
 import Footer from 'components/Footer';
 import ScrollTop from 'components/ScrollTop';
+import Cgu from 'pages/Cgu';
 
 
 
@@ -271,6 +272,7 @@ const App = () => {
               )}
             </Route>
             <Route exact path="/about" component={About} />
+            <Route exact path="/cgu" component={Cgu} />
             <Route exact path="/" component={Home} />
             <Route component={NotFound} />
           </Switch>
