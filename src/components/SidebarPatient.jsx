@@ -16,6 +16,12 @@ const SidebarPatient = () => {
         <i class="far fa-calendar-alt"></i>
         Rendez-vous
       </Link>
+      <Link
+        to="/patient-logbook"
+        className="sidebar-patient-dashboard-link">
+        <i class="far fa-clipboard"></i>
+        Bloc-note
+      </Link>
     </div>
   )
 }
