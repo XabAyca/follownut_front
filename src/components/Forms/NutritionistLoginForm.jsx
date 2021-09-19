@@ -40,12 +40,12 @@ const NutritionistLoginForm = () => {
           value={password} onChange={ (e) => setPassword(e.target.value) }/>
           <input type="submit" className="btn success-button mt-5 w-100" value="Se connecter" />
         </form>
-        <Link to="/signup-nutritiont">
+        <Link to="/signup-nutritionist">
           <div className="d-flex justify-content-center mt-2 w-100">
             S'inscrire
           </div>
         </Link>
-        <Link to="/patient/forgotten-password">
+        <Link to="/nutritionist/forgotten-password">
           <div className="d-flex justify-content-center mt-2">Mot de passe oublié ?</div>
         </Link>
       </div>
