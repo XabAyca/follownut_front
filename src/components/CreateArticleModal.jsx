@@ -1,50 +1,50 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { createLogbook, logbooksFetch } from 'services/apiManager';
+import { createArticle, articlesFetch } from 'services/apiManager';
 
-const CreateLogbookModal = () => {
+const CreateArticleModal = () => {
   const dispatch = useDispatch();
 
   const closeModal = () => {
-    let modal = document.querySelector(".create-logbook-modal");
+    let modal = document.querySelector(".create-article-modal");
     modal.style.opacity = 0;
     modal.style.visibility = "hidden";
   }
 
-  const createNote = (e) => {
+  const createPublication = (e) => {
     e.preventDefault()
-    let title = document.querySelector('#logbook-title').value
-    let content = document.querySelector('#logbook-content').value
+    let title = document.querySelector('#article-title').value
+    let content = document.querySelector('#article-content').value
       
     const data = {
-      logbook: {
+      article: {
         title: title,
         content: content,
       },
     };
   
-    dispatch(createLogbook(data));
+    dispatch(createArticle(data));
     setTimeout(() => {
-      dispatch(logbooksFetch())
+      dispatch(articlesFetch())
     }, 500)
     window.location.reload()
   }
 
   return (
-    <div className="create-logbook-modal">
+    <div className="create-article-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
 
       <div className="content p-3 ">
           <div className="p-3">
-            
-            <form className="col-md-5 border-right" onSubmit={createNote}>
+
+            <form className="col-md-5 border-right" onSubmit={createPublication}>
               <div className="col-md-6">
                 <label className="labels">Titre</label>
-                <input type="text" className="form-input-display" id="logbook-title" placeholder="Titre de la note" required/>
+                <input type="text" className="form-input-display" id="article-title" placeholder="Titre de l'article" required/>
               </div>
               <div className="col-md-6">
                 <label className="labels">Contenu</label>
-                <input type="text" className="form-input-display" id="logbook-content" placeholder="Votre contenu ici" required/>
+                <input type="text" className="form-input-display" id="article-content" placeholder="Votre contenu ici" required/>
               </div>
 
               <div className="mt-5 text-center">
@@ -58,4 +58,4 @@ const CreateLogbookModal = () => {
   );
 };
 
-export default CreateLogbookModal;
+export default CreateArticleModal;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteArticleFetch } from 'services/apiManager';
 
-const ArticlesList = ({ filteredArticles, setOpenModal }) => {
+const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal }) => {
   const [articles, setArticles] = useState(filteredArticles);
   const dispatch = useDispatch(); 
 
@@ -34,6 +34,7 @@ const ArticlesList = ({ filteredArticles, setOpenModal }) => {
     <div className="patients-list text-primary-color">
       <div className="patient-list-header mx-3 p-2">
         <h2>Voici la liste de vos articles</h2>
+        <button onClick={() => setOpenCreateModal()}>Ajouter un article</button>
       </div>
       <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
       <table className="table patient-table">
