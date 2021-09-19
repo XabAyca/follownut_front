@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteLogbookFetch } from 'services/apiManager';
+
 
 const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
-  const [logbooks, setLogbooks] = useState(filteredLogbooks)
+  const [logbooks, setLogbooks] = useState(filteredLogbooks);
+  const dispatch = useDispatch(); 
 
   const createDate = (el) => {
     let date = new Date(el);
@@ -14,6 +18,18 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
       hour12: false,
     });
   };
+
+  const deleteLogbook = (logbook, e) => {
+    e.preventDefault()
+    if (
+      window.confirm(
+        "Vous êtes sur le point de supprimer cette note. Êtes vous sur ?"
+      )
+    ) {
+      setLogbooks([...logbooks.filter((el) => el !== logbook)]);
+      dispatch(deleteLogbookFetch(logbook.id))
+    }
+  }
   
   return (
     <div className="patients-list text-primary-color">
@@ -28,6 +44,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
             <th scope="col">Date</th>
             <th scope="col">Titre</th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -37,9 +54,13 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
                 <tr>
                   <th scope="row" key={logbook.id}>{logbook.id}</th>
                   <td>{createDate(logbook.updated_at)}</td>
-                  <td>{logbook.title}
+                  <td>{logbook.title}</td>
+                  <td>
+                    <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
                   </td>
-                  <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i></td>
+                  <td>
+                    <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteLogbook(logbook, e)}></i>
+                  </td>
                 </tr>
               )
             })
