@@ -15,11 +15,13 @@ const CreateLogbookModal = () => {
     e.preventDefault()
     let title = document.querySelector('#logbook-title').value
     let content = document.querySelector('#logbook-content').value
+    let is_shared = document.querySelector('#logbook-is_shared').checked
       
     const data = {
       logbook: {
         title: title,
         content: content,
+        is_shared: is_shared,
       },
     };
   
@@ -45,6 +47,10 @@ const CreateLogbookModal = () => {
               <div className="col-md-6">
                 <label className="labels">Contenu</label>
                 <input type="text" className="form-input-display" id="logbook-content" placeholder="Votre contenu ici" required/>
+              </div>
+              <div className="col-md-6 pt-5">
+                <label className="labels">Partager cette note avec mon nutritioniste ?</label>
+                <input type="checkbox" id="logbook-is_shared" />
               </div>
 
               <div className="mt-5 text-center">
