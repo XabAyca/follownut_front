@@ -20,6 +20,28 @@ export const fetchNutritionistsFailure = (error) => {
   };
 };
 
+export const FETCH_ONE_NUTRITIONIST_REQUEST = "FETCH_ONE_NUTRITIONIST_REQUEST";
+export const FETCH_ONE_NUTRITIONIST_SUCCESS = "FETCH_ONE_NUTRITIONIST_SUCCESS";
+export const FETCH_ONE_NUTRITIONIST_FAILURE = "FETCH_ONE_NUTRITIONIST_FAILURE";
+
+export const fetchNutritionistRequest = () => {
+  return {
+    type: FETCH_ONE_NUTRITIONIST_REQUEST,
+  };
+};
+export const fetchNutritionistSuccess = (currentNutritionist) => {
+  return {
+    type: FETCH_ONE_NUTRITIONIST_SUCCESS,
+    currentNutritionist,
+  };
+};
+export const fetchNutritionistFailure = (error) => {
+  return {
+    type: FETCH_ONE_NUTRITIONIST_FAILURE,
+    error,
+  };
+};
+
 
 export const FETCH_NUTRITIONIST_LOGIN_REQUEST = "FETCH_NUTRITIONIST_LOGIN_REQUEST";
 export const FETCH_NUTRITIONIST_LOGIN_SUCCESS = "FETCH_NUTRITIONIST_LOGIN_SUCCESS";

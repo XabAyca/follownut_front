@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -11,6 +12,8 @@ const AppointmentCreateForm = () => {
   const history = useHistory()
   const patients = useSelector(state => state.patient.patient)
   const [sortedPatients, setSortedPatients] = useState()
+  const nutritionist_id = Cookies.get(parseInt(Cookies.get("nutritionist_id_cookie"))
+  );
 
   useEffect(() => {
     dispatch(patientsFetch())
@@ -24,7 +27,7 @@ const AppointmentCreateForm = () => {
     setSortedPatients(patients.sort((a, b) => a.email.localeCompare(b.email)));
   }
 
-  const createDataAppointment = (e) => {
+  const createDataAppointment = async(e) => {
     e.preventDefault()
     let patient_id = document.querySelector('#patient_id').value
     let date = document.querySelector('#date').value
@@ -47,11 +50,10 @@ const AppointmentCreateForm = () => {
         patient_id: patient_id,
       },
     };
-    dispatch(createAppointment(data))
-
-    setTimeout(() => {
-      dispatch(appointmentsFetch())
-    }, 500)
+    await dispatch(createAppointment(data))
+    
+    dispatch(appointmentsFetch())
+  
     history.push("/nutritionist-dashboard");
     window.location.reload()
   };
@@ -59,9 +61,17 @@ const AppointmentCreateForm = () => {
   return (
     <div className="create-appointment-form mx-5">
       <h1 className="text-primary-color">Rédiger un compte-rendu</h1>
-      <form className="appointment-form text-primary-color" onSubmit={createDataAppointment}>
+      <form
+        className="appointment-form text-primary-color"
+        onSubmit={createDataAppointment}
+      >
         <div className="col-lg-3 col-sm-12">
-          <select name="patient" id="patient_id" className="form-select-display w-100 my-2" required>
+          <select
+            name="patient"
+            id="patient_id"
+            className="form-select-display w-100 my-2"
+            required
+          >
             <option>Sélectionnez un patient</option>
             {sortedPatients &&
               sortedPatients.map((patient) => {
@@ -74,16 +84,15 @@ const AppointmentCreateForm = () => {
           </select>
           <input
             className="form-input-display my-2"
-            type="date"
+            type="datetime-local"
             id="date"
             required
           />
         </div>
 
-
         <div className="d-flex row justify-content-between py-2">
           <div className="col-lg-2 col-sm-12">
-            <label >Graisse viscérale</label>
+            <label>Graisse viscérale</label>
             <input
               className="form-input-display"
               type="number"
@@ -147,8 +156,17 @@ const AppointmentCreateForm = () => {
         </div>
         <hr className="my-4" />
         <label>Compte-rendu</label>
-        <textarea placeholder="Formulez des recommandations à votre patient ..." id="content" className="form-input-display form-textarea-display" required />
-        <input type="submit" value="Créer" className="btn success-button my-3 col-lg-3 col-sm-12" />
+        <textarea
+          placeholder="Formulez des recommandations à votre patient ..."
+          id="content"
+          className="form-input-display form-textarea-display"
+          required
+        />
+        <input
+          type="submit"
+          value="Créer"
+          className="btn success-button my-3 col-lg-3 col-sm-12"
+        />
       </form>
     </div>
   );

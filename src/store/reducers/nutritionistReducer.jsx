@@ -1,5 +1,8 @@
 import { FETCH_NUTRITIONIST_FAILURE, FETCH_NUTRITIONIST_REQUEST, FETCH_NUTRITIONIST_SUCCESS } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_DELETE_FAILURE, FETCH_NUTRITIONIST_DELETE_REQUEST, FETCH_NUTRITIONIST_UPDATE_SUCCESS } from "store/actions/nutritionistActions";
+import { FETCH_ONE_NUTRITIONIST_SUCCESS } from "store/actions/nutritionistActions";
+import { FETCH_ONE_NUTRITIONIST_FAILURE } from "store/actions/nutritionistActions";
+import { FETCH_ONE_NUTRITIONIST_REQUEST } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_UPDATE_FAILURE, FETCH_NUTRITIONIST_UPDATE_REQUEST, FETCH_NUTRITIONIST_DELETE_SUCCESS } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_LOGIN_FAILURE, FETCH_NUTRITIONIST_LOGIN_LOGOUT, FETCH_NUTRITIONIST_LOGIN_REQUEST, FETCH_NUTRITIONIST_LOGIN_SUCCESS } from "store/actions/nutritionistActions";
 import { FETCH_NUTRITIONIST_REGISTER_FAILURE, FETCH_NUTRITIONIST_REGISTER_REQUEST, FETCH_NUTRITIONIST_REGISTER_SUCCESS, FETCH_NUTRITIONIST_REGISTER_UNREGISTER } from "store/actions/nutritionistActions";
@@ -12,12 +15,13 @@ const initialState = {
   nutritionist: "",
   register: "",
   login: "",
-  nutritionistUpd:"",
+  nutritionistUpd: "",
+  currentNutritionist:"",
 };
 
 export const nutritionistReducer = (
   state = initialState,
-  { type, error, nutritionist, login, register, nutritionistUpd }
+  { type, error, nutritionist, login, register, nutritionistUpd, currentNutritionist }
 ) => {
   switch (type) {
     case FETCH_NUTRITIONIST_REQUEST:
@@ -32,6 +36,20 @@ export const nutritionistReducer = (
       };
 
     case FETCH_NUTRITIONIST_FAILURE:
+      return { ...state, loading: false, error: error };
+
+    case FETCH_ONE_NUTRITIONIST_REQUEST:
+      return { ...state, loading: true };
+
+    case FETCH_ONE_NUTRITIONIST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        currentNutritionist: currentNutritionist,
+        error: "",
+      };
+
+    case FETCH_ONE_NUTRITIONIST_FAILURE:
       return { ...state, loading: false, error: error };
 
     case FETCH_NUTRITIONIST_LOGIN_REQUEST:
