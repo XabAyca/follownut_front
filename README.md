@@ -15,7 +15,9 @@
 
 
 ## Description :
-FollowNut' is a follow up app for nutritionists and their patients
+FollowNut' is a follow up application for nutritionists and their patients. 
+There are already a few applications of this kind, certainly very complete, yet usually too complex and too expensive; making the user experience rather unpleasant. On the other hand, alternatives solutions consist in a combinations of free softwares, however time consuming due the increase of management required.
+FollowNut' stands in the middle, i.e. a user friendly and affordable application. It offers the essential tools a dietetician needs, from appointment scheduling, health data input, to patients follow up; and allows the nutritionist spending more time helping his/her clients.
 
 
 ### Developpers:
