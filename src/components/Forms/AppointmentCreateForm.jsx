@@ -27,7 +27,7 @@ const AppointmentCreateForm = () => {
     setSortedPatients(patients.sort((a, b) => a.email.localeCompare(b.email)));
   }
 
-  const createDataAppointment = async(e) => {
+  const createDataAppointment = (e) => {
     e.preventDefault()
     let patient_id = document.querySelector('#patient_id').value
     let date = document.querySelector('#date').value
@@ -50,10 +50,11 @@ const AppointmentCreateForm = () => {
         patient_id: patient_id,
       },
     };
-    await dispatch(createAppointment(data))
-    
-    dispatch(appointmentsFetch())
-  
+    dispatch(createAppointment(data))
+
+    setTimeout(() => {
+      dispatch(appointmentsFetch())
+    }, 500)
     history.push("/nutritionist-dashboard");
     window.location.reload()
   };
