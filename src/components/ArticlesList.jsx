@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteArticleFetch } from 'services/apiManager';
 
-const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal }) => {
+const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setOpenUpdateModal }) => {
   const [articles, setArticles] = useState(filteredArticles);
   const dispatch = useDispatch(); 
 
@@ -45,6 +45,7 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal }) =>
             <th scope="col">Titre</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +58,9 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal }) =>
                   <td>{ article.title }</td>
                   <td>
                     <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(article)}></i>
+                  </td>
+                  <td>
+                    <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(article)}></i>
                   </td>
                   <td>
                     <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteArticle(article, e)}></i>

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { updatePatientFetch } from 'services/apiManager';
 
 
-const PatientEditForm = ({patientData,nutritionists}) => {
+const PatientEditForm = ({patientData, nutritionists}) => {
   const {first_name, last_name, email} = patientData
 
   const [fname, setFname] = useState(first_name);

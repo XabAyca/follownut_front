@@ -47,6 +47,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal }) =>
             <th scope="col">Public</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -60,6 +61,9 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal }) =>
                   <td>{logbook.is_shared ? "oui" : "non"}</td>
                   <td>
                     <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
+                  </td>
+                  <td>
+                    <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenModal(logbook)}></i>
                   </td>
                   <td>
                     <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteLogbook(logbook, e)}></i>

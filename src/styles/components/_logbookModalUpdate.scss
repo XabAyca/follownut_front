@@ -1,0 +1,33 @@
+.update-logbook-modal {
+  position: fixed;
+  height: 100vh;
+  overflow-y: hidden;
+  top:0;
+  background-color: rgba(0, 0, 0, 0.526);
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s;
+  
+  i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ffff;
+    font-size: 1.5rem;
+  }
+
+
+  .title, .content {
+    width: 75%;
+    border-radius: 10px;
+    background-color: #ffff;
+    box-shadow: 0 0 20px #454545;;
+    color:#454545;
+    position: relative;
+  }
+}
