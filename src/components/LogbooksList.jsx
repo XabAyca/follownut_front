@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { deleteLogbookFetch } from 'services/apiManager';
 
 
-const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
+const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal }) => {
   const [logbooks, setLogbooks] = useState(filteredLogbooks);
   const dispatch = useDispatch(); 
 
@@ -35,6 +35,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
     <div className="patients-list text-primary-color">
       <div className="patient-list-header mx-3 p-2">
         <h2>Voici la liste de vos notes</h2>
+        <button onClick={() => setOpenCreateModal()}>Ajouter une note</button>
       </div>
       <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
       <table className="table patient-table">

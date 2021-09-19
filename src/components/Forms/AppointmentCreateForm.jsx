@@ -25,7 +25,7 @@ const AppointmentCreateForm = () => {
   const sortPatients = () => {
     setSortedPatients(patients
       .filter((patient) => patient.nutritionist)
-      .filter((patient) => patient.nutritionist.id == nutritionist_id)
+      .filter((patient) => patient.nutritionist.id === nutritionist_id)
       .sort((a, b) => a.email.localeCompare(b.email)));
   }
 
