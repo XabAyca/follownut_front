@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import ArticlesList from 'components/ArticlesList';
+import ArticleModal from 'components/ArticleModal';
 
 const ArticleNutritionist = () => {
   const [articlesNutritionist, setArticlesNutritionist] = useState();
@@ -46,7 +47,7 @@ const ArticleNutritionist = () => {
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarNutritionist />
-        {/* <AppointmentModal appointment={currentAppointment} /> */}
+        <ArticleModal article={currentArticle} />
       </div>
       <div className="dashboard-page-right">
         <div className="m-5">

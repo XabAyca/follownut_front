@@ -14,8 +14,6 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
       hour12: false,
     });
   };
-
-  console.log(logbooks)
   
   return (
     <div className="patients-list text-primary-color">
@@ -39,7 +37,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
                 <tr>
                   <th scope="row" key={logbook.id}>{logbook.id}</th>
                   <td>{createDate(logbook.updated_at)}</td>
-                  <td>{ logbook.title }
+                  <td>{logbook.title}
                   </td>
                   <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i></td>
                 </tr>
