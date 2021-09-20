@@ -6,22 +6,20 @@ import Cookies from "js-cookie";
 import Loading from './Loading';
 
 
-const PatientsList = () => {
+const PatientsList = ({ setOpenModal }) => {
   const [nutritionistPatients, setNutritionistPatients] = useState();
-
-  const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
-
-  const nutritionists = useSelector(state => state.nutritionists)
-  const dispatch = useDispatch() 
+  const nutritionist_id = parseInt(Cookies.get("nutritionist_id_cookie"));
+  const nutritionists = useSelector((state) => state.nutritionists);
+  const dispatch = useDispatch();
 
   const getNutritionistPatients = () => {
     if (nutritionists.nutritionist) {
       let nutritionist = nutritionists.nutritionist.filter((nutritionist) => {
-        return nutritionist.id === nutritionist_id
-      })
-      setNutritionistPatients(nutritionist[0].patients)
+        return nutritionist.id === nutritionist_id;
+      });
+      setNutritionistPatients(nutritionist[0].patients);
     }
-  }
+  };
 
   useEffect(() => {
     dispatch(nutritionistsFetch());
@@ -29,7 +27,7 @@ const PatientsList = () => {
 
   useEffect(() => {
     getNutritionistPatients();
-  },[nutritionists])
+  }, [nutritionists]);
 
   return (
     <div className="patients-list text-primary-color col-lg-8 col-sm-6">
@@ -37,32 +35,43 @@ const PatientsList = () => {
         <h2>Voici la liste de vos patients</h2>
       </div>
       <div className="details-container p-3">
-      <table class="table patient-table">
-        <thead>
-          <tr>
-            {/* <th scope="col">Réf.</th> */}
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            nutritionistPatients ? 
-            nutritionistPatients.map((patient) => {
-              return (
-                <tr>
-                  {/* <th scope="row" key={patient.id}>{patient.id}</th> */}
-                  <td>{patient.last_name ? patient.last_name : (<span>?</span>)}</td>
-                  <td>{patient.first_name ? patient.first_name : (<span>?</span>)}</td>
-                  <td>{patient.email ? patient.email : (<span>?</span>)}</td>
-                </tr>
-              )
-            }) :
-            <Loading color={"blue"} />
-          }
-        </tbody>
-      </table>
+        <table class="table patient-table">
+          <thead>
+            <tr>
+              {/* <th scope="col">Réf.</th> */}
+              <th scope="col">Prénom</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Email</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {nutritionistPatients ? (
+              nutritionistPatients.map((patient) => {
+                return (
+                  <tr key={patient.id}>
+                    {/* <th scope="row" key={patient.id}>{patient.id}</th> */}
+                    <td>
+                      {patient.last_name ? patient.last_name : <span>?</span>}
+                    </td>
+                    <td>
+                      {patient.first_name ? patient.first_name : <span>?</span>}
+                    </td>
+                    <td>{patient.email ? patient.email : <span>?</span>}</td>
+                    <td>
+                      <i
+                        className="pointer-clickable far fa-eye"
+                        onClick={() => setOpenModal(patient)}
+                      ></i>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <Loading color={"blue"} />
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );
