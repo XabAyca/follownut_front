@@ -42,9 +42,9 @@ const AppointmentModal = ({ appointment }) => {
     return age
   }
 
-  // const dateOfBirthasADate = new Date(appointment.patient.date_of_birth)
-  // const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
-  // console.log(age)
+  const displayGender = (gender) => {
+    return gender === "unknown" ? "Non renseigné" : (gender === "male" ? "Homme" : "Femme")
+  }
 
   return (
     <div className="appointment-modal">
@@ -71,17 +71,17 @@ const AppointmentModal = ({ appointment }) => {
                         " " +
                         appointment.patient.first_name
                       ) : (
-                        <span>Patient supprimé </span>
+                        <span>Utilisateur supprimé </span>
                       )}
                     </p>
                     <p className="m-0">
                       <strong>Âge : </strong>
-                      {appointment.patient ? getAge() : <span>?</span>}
+                      {appointment.patient && getAge()}
                       <span> ans</span>
                     </p>
                     <p className="m-0">
-                      <strong>Genre : </strong>
-                      {appointment.patient ? appointment.patient.gender : <span>?</span>}
+                      <strong>Sexe : </strong>
+                      {displayGender(appointment.patient.gender)}
                     </p>
                   </div>
                   <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">

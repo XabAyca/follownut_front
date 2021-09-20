@@ -92,7 +92,7 @@ const PatientEditForm = ({patientData, nutritionists}) => {
               </div>
               <div className="col-md-6">
                 <label className="labels">Date de naissance</label>
-                <input type="text" className="input-display" placeholder={dateOfBirth} value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
+                <input type="date" className="input-display" placeholder={dateOfBirth} value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
               </div>
           </div>
           <div className="row mt-3">
