@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
   const [logbooks, setLogbooks] = useState(filteredLogbooks);
   const [filter, setFilter] = useState("");
-  const dispatch = useDispatch(); 
 
   useEffect(() => {
     filteredLogbooks && getFilterLogbooks();
@@ -24,7 +23,8 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
 
   const getFilterLogbooks = () => {
     setLogbooks(filteredLogbooks.filter((logbook) => {
-      return (logbook.patient.first_name.toLowerCase().includes(filter) ||
+      return (
+        logbook.patient.first_name.toLowerCase().includes(filter) ||
         logbook.patient.last_name.toLowerCase().includes(filter) ||
         logbook.patient.email.toLowerCase().includes(filter))
     }));
