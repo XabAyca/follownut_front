@@ -33,13 +33,16 @@ const AppointmentModal = ({ appointment }) => {
       closeModal()
   };
 
-  console.log(appointment)
+  const computeAge = (patient) => {
+    if (patient.date_of_birth) {
+      let dob = new Date(patient.date_of_birth);
+      let age = ((Date.now() - dob) / 31536000000).toFixed();
+      return age
+    }
+  }
 
-  const getAge = () => {
-    const dateOfBirthasADate = new Date(appointment.patient.date_of_birth);
-    const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed();
-    console.log(age);
-    return age
+  const displayAge = (age) => {
+    return age == null ? "Non renseigné" : `${age} ans`
   }
 
   const displayGender = (gender) => {
@@ -74,10 +77,9 @@ const AppointmentModal = ({ appointment }) => {
                         <span>Utilisateur supprimé </span>
                       )}
                     </p>
-                    <p className="m-0">
+                    <p className="d-flex">
                       <strong>Âge : </strong>
-                      {appointment.patient && getAge()}
-                      <span> ans</span>
+                      {appointment.patient && displayAge(computeAge(appointment.patient))}
                     </p>
                     <p className="m-0">
                       <strong>Sexe : </strong>
