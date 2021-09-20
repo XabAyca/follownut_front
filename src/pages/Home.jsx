@@ -20,10 +20,10 @@ const Home = () => {
   return (
     <div className="home page-padding">
       {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
-      <section className="section bg-blue  align-items-center">
+      <section className="section bg-blue px-5 align-items-center">
         <div className="section1-left">
           <h1 className="text-white">
-            Le suivi parfait entre patients et nutritioniste
+            Le suivi parfait entre patient et nutritioniste
           </h1>
           <h5 className="text-white pt-2 pb-4 text-justify">
             De la prise de rendez-vous, au suivi des patients, FollowNut offre
@@ -31,14 +31,24 @@ const Home = () => {
           </h5>
           {Cookies.get("patient_token_cookie") === undefined && 
             Cookies.get("nutritionist_token_cookie") === undefined &&
-            <>
-              <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white">
-                Je suis un nurtitioniste
+            <div className="d-flex row">
+              {/* <Link to="/signup-nutritionist" className=" my-1 primary-button btn-lg btn-primary text-white">
+                Je suis un nutritioniste
               </Link>
-              <Link to="/signup-nutritionist" className="third-button btn-lg btn-primary text-white">
+              <Link to="/signup-nutritionist" className=" my-1 primary-button btn-lg btn-primary text-white">
                 Je suis un patient
-              </Link>
-            </>}
+              </Link> */}
+              <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-5">
+                <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white ">
+                  Je suis un nutritioniste
+                </Link>
+              </div>
+              <div className=" my-2 d-flex col-12 col-md-12 col-lg-5">
+                <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white">
+                  Je suis un patient
+                </Link>
+              </div>
+            </div>}
         </div>
         <div className="section1-right">
           <img
@@ -61,10 +71,10 @@ const Home = () => {
               et accessibles de n'importe où.
             </p>
           </div>
-          <Link to="/" className="link">
+          {/* <Link to="/" className="link">
             <span>En savoir plus</span>
             <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-          </Link>
+          </Link> */}
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
           <div>
@@ -73,48 +83,44 @@ const Home = () => {
             </div>
             <h4>Gestion simplifiée</h4>
             <p>
-              Des indicateurs sante developpés en collabiration avec des
+              Des indicateurs sante developpés en collaboration avec des
               nutritionistes pour vous permettre un meilleur suivi de vos
               patients
             </p>
           </div>
-          <Link to="/" className="link">
+          {/* <Link to="/" className="link">
             <span>En savoir plus</span>
             <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-          </Link>
+          </Link> */}
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
           <div>
             <div className="img-box mb-3">
-              <img src={dashboard} alt="Dashboard illustration" />
+              <img className="calendar" src={calendar} alt="Calendar illustration"/>
             </div>
-            <h4>Tableau de bord</h4>
+            <h4>Prise de rendez-vous en ligne</h4>
             <p>
-              Tous vos clients au même endroit et gérables en quelques clics sur
-              votre tableau de bord.
+            Gagnez du temps grâce à notre plateforme de réservation en ligne.
+            Cette fonctionalité permettra à vos patients, nouveaux et actuels,
+            de prendre rendez-vous en un clic.
             </p>
           </div>
-          <Link to="/" className="link">
+          {/* <Link to="/" className="link">
             <span>En savoir plus</span>
             <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-          </Link>
+          </Link> */}
         </div>
       </section>
 
       <section className="section bg-blue align-items-center">
         <div className="section3-left">
-          <img
-            className="calendar"
-            src={calendar}
-            alt="Calendar illustration"
-          />
+          <img className="img-container" src={dashboard} alt="Dashboard illustration" />
         </div>
         <div className="section3-right">
-          <h1 className="text-white">Prise de rendez-vous en ligne</h1>
-          <h6 className="pt-4 text-justified text-secondary-color">
-            Gagnez du temps grâce à notre plateforme de réservation en ligne.
-            Cette fonctionalité permettra à vos patients, nouveaux et actuels,
-            de prendre rendez-vous en un clic.
+          <h2 className="text-white">Tableau de bord</h2>
+          <h6 className="pt-4 text-justified text-white">
+            Tous vos clients au même endroit et gérables en quelques clics sur
+            votre tableau de bord.
           </h6>
           <Link to="/" className="link">
             <span>En savoir plus</span>
@@ -135,10 +141,10 @@ const Home = () => {
               dédié, et ainsi faciliter leur suivi.
             </p>
           </div>
-          <Link to="/" className="link">
+          {/* <Link to="/" className="link">
             <span>En savoir plus</span>
             <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-          </Link>
+          </Link> */}
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
           <div>
@@ -151,10 +157,10 @@ const Home = () => {
               contact avec vos clients.
             </p>
           </div>
-          <Link to="/" className="link">
+          {/* <Link to="/" className="link">
             <span>En savoir plus</span>
             <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-          </Link>
+          </Link> */}
         </div>
         <div className="sub-section d-flex flex-column justify-content-between">
           <div>
@@ -167,10 +173,10 @@ const Home = () => {
               pouvoir toucher plus de clients.
             </p>
           </div>
-          <Link to="/" className="link">
+          {/* <Link to="/" className="link">
             <span>En savoir plus</span>
             <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-          </Link>
+          </Link> */}
         </div>
       </section>
     </div>
