@@ -4,11 +4,13 @@ import { logbooksFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
-import LogbooksList from 'components/LogbooksList';
+import LogbooksListNutritionist from 'components/LogbooksListNutritionist';
 
 const Logbooks = () => {
 
   const [logbooksPatient, setlogbooksPatient] = useState(); 
+  const [currentLogbook, setCurrentLogbook] = useState(null);
+
   const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
  
   const logbooks = useSelector(state => state.logbooks) 
@@ -40,6 +42,13 @@ const Logbooks = () => {
     console.log(logbooksPatient)
   },[logbooks])
 
+  const openModal = (logbook) => {
+    setCurrentLogbook(logbook)
+    let modal = document.querySelector(".logbook-modal");
+    modal.style.opacity = 1;
+    modal.style.visibility = 'visible';
+  }
+
 
   return (
     <div className="dashboard-page page-padding">
@@ -49,8 +58,9 @@ const Logbooks = () => {
       <div className="dashboard-page-right">
         <div className="d-flex justify-content-center py-5">
           {logbooksPatient ?  
-            <LogbooksList 
+            <LogbooksListNutritionist 
               filteredLogbooks={logbooksPatient} 
+              setOpenModal={openModal}
             /> :
             <Loading />
           } 
