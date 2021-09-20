@@ -43,6 +43,7 @@ import LogbookPatient from 'pages/LogbookPatient';
 import ArticleNutritionist from 'pages/ArticleNutritionist';
 import Articles from 'pages/Articles';
 import Article from 'pages/Article';
+import Logbooks from 'pages/Logbooks';
 
 
 
@@ -244,6 +245,13 @@ const App = () => {
                 <Redirect to="/" />
               )}
             </Route>
+            <Route exact path="/logbooks">
+              {isNutritionistAuth() ? (
+                <Logbooks />
+              ) : (
+                <Redirect to="/" />
+              )}
+            </Route>
 
 
             <Route exact path="/signup-patient">
@@ -286,8 +294,8 @@ const App = () => {
               ) : (
                 <Redirect to="/" />
               )}
-              </Route>
-              <Route exact path="/patient-logbook">
+            </Route>
+            <Route exact path="/patient-logbook">
               {isPatientAuth() ? (
                 <LogbookPatient />
               ) : (
