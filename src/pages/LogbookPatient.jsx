@@ -6,7 +6,8 @@ import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import LogbooksList from 'components/LogbooksList';
 import LogbookModal from 'components/LogbookModal';
-import CreateLogbookModal from 'components/CreateLogbookModal';
+import LogbookModalCreate from 'components/LogbookModalCreate';
+import LogbookModalUpdate from 'components/LogbookModalUpdate';
 
 const LogbookPatient = () => {
   const [logbooksPatient, setLogbooksPatient] = useState();
@@ -49,13 +50,25 @@ const LogbookPatient = () => {
     modal.style.visibility = 'visible';
   }
 
+  const openUpdateModal = (logbook) => {
+    setCurrentLogbook(logbook);
+    if (currentLogbook) {
+      let modal = document.querySelector(".update-logbook-modal");
+      modal.style.opacity = 1;
+      modal.style.visibility = 'visible';
+    }
+  }
 
   return (
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarPatient />
         <LogbookModal logbook={currentLogbook} />
-        <CreateLogbookModal />
+        <LogbookModalCreate />
+
+        { currentLogbook ?
+          <LogbookModalUpdate logbook={currentLogbook}/> : ""
+        }
       </div>
       <div className="dashboard-page-right">
         <div className="m-5">
@@ -64,6 +77,7 @@ const LogbookPatient = () => {
               filteredLogbooks={logbooksPatient}
               setOpenModal={openModal}
               setOpenCreateModal={openCreateModal}
+              setOpenUpdateModal={openUpdateModal}
             /> :
             <Loading />
           } 
