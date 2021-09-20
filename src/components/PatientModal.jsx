@@ -54,8 +54,14 @@ const PatientModal = ({ patient }) => {
       closeModal();
   };
 
-  const dateOfBirthasADate = new Date(patient.date_of_birth)
-  const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
+  // const dateOfBirthasADate = new Date(patient.date_of_birth)
+  let dateOfBirthasADate = null;
+  let age = null;
+
+  // patient.date_of_birth ? dateOfBirthasADate = new Date(patient.date_of_birth) : dateOfBirthasADate
+  dateOfBirthasADate = (patient && patient.date_of_birth ? new Date(patient.date_of_birth) : "dob")
+
+  // const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
 
   return (
     <div className="patient-modal">
@@ -74,8 +80,14 @@ const PatientModal = ({ patient }) => {
                     <span>Patient supprimé </span>
                   )}
                 </p>
-                <p className="m-0"><strong>Genre : </strong>{patient.gender}</p>
-                <p className="m-0"><strong>Âge : </strong>{age} ans</p>
+                <p className="m-0">
+                  <strong>Sexe : </strong>
+                  {patient.gender === "unknown" ? "Non renseigné" : patient.gender}
+                </p>
+                <p className="m-0">
+                  <strong>Âge : </strong>
+                  {age} ans
+                </p>
               </div>
               <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">
                 <h1>

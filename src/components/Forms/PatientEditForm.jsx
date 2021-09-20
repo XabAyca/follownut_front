@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom';
 
 
 const PatientEditForm = ({patientData, nutritionists}) => {
-  const {first_name, last_name, email} = patientData
+  const {first_name, last_name, gender, date_of_birth, email} = patientData
 
   const [fname, setFname] = useState(first_name);
   const [nutritionistId, setNutritionistId] = useState();
   const [lname, setLname] = useState(last_name);
+  const [sex, setSex] = useState(gender);
+  const [dateOfBirth, setDateOfBirth] = useState(date_of_birth);
   const [mail, setMail] = useState(email);
   const [pword, setPword] = useState();
   const [pwordConfirmation, setPwordConfirmation] = useState();
@@ -25,6 +27,8 @@ const PatientEditForm = ({patientData, nutritionists}) => {
           first_name: fname,
           nutritionist_id: nutritionistId,
           last_name: lname,
+          gender: parseInt(sex),
+          date_of_birth: dateOfBirth,
           email: mail,
           password: pword,
           password_confirmation: pwordConfirmation
@@ -74,6 +78,21 @@ const PatientEditForm = ({patientData, nutritionists}) => {
               <div className="col-md-6">
                 <label className="labels">Prénom</label>
                 <input type="text" className="input-display" placeholder={fname} value={fname} onChange={(e) => setFname(e.target.value)} />
+              </div>
+          </div>
+          <div className="row mt-2">
+              <div className="col-md-6">
+                <label className="labels">Sexe</label>
+                <select className="input-display" name={sex} value={sex} onChange={(e) => setSex(e.target.value)}>
+                  <option value='0'>Non renseigné</option>
+                  <option value='1'>Homme</option>
+                  <option value='2'>Femme</option>
+                </select>
+
+              </div>
+              <div className="col-md-6">
+                <label className="labels">Date de naissance</label>
+                <input type="text" className="input-display" placeholder={dateOfBirth} value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
               </div>
           </div>
           <div className="row mt-3">
