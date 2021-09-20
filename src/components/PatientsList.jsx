@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import Cookies from "js-cookie";
 import Loading from './Loading';
 import { nutritionistFetch } from 'services/apiManager';
+import { Link } from 'react-router-dom';
 
 
 const PatientsList = ({ setOpenModal }) => {
@@ -31,8 +31,20 @@ const PatientsList = ({ setOpenModal }) => {
   return (
     <div className="patients-list text-primary-color col-lg-8 col-sm-6">
       <div className="patient-list-header p-2">
-        <h2>Voici la liste de vos patients</h2>
-        <input type="text" placeholder='Recherche...' onChange={(e)=>setFilter(e.target.value)}/>
+        <div className="patient-list-header-first">
+          <h2>Voici la liste de vos patients</h2>
+          <Link
+            to="/nutritionist-dashboard/create-patient"
+            className="add-patient"
+          >
+            Ajouter <i class="fas fa-user-plus"></i>
+          </Link>
+        </div>
+        <input
+          type="text"
+          placeholder="Recherche..."
+          onChange={(e) => setFilter(e.target.value)}
+        />
       </div>
       <div className="details-container p-3">
         <table class="table patient-table">
