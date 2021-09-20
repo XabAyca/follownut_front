@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteLogbookFetch } from 'services/apiManager';
-
 
 const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
   const [logbooks, setLogbooks] = useState(filteredLogbooks);
@@ -33,7 +31,6 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
               <th scope="col">Réf.</th>
               <th scope="col">Date</th>
               <th scope="col">Titre</th>
-              <th scope="col">Public</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -45,7 +42,6 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
                     <th scope="row" key={logbook.id}>{logbook.id}</th>
                     <td>{createDate(logbook.updated_at)}</td>
                     <td>{logbook.title}</td>
-                    <td>{logbook.is_shared ? "oui" : "non"}</td>
                     <td>
                       <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
                     </td>

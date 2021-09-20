@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import LogbooksListNutritionist from 'components/LogbooksListNutritionist';
+import LogbookModal from 'components/LogbookModal';
 
 const Logbooks = () => {
 
@@ -41,7 +42,7 @@ const Logbooks = () => {
     getLogbooks();
     console.log(logbooksPatient)
   },[logbooks])
-
+  
   const openModal = (logbook) => {
     setCurrentLogbook(logbook)
     let modal = document.querySelector(".logbook-modal");
@@ -49,11 +50,11 @@ const Logbooks = () => {
     modal.style.visibility = 'visible';
   }
 
-
   return (
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarNutritionist /> 
+        <LogbookModal logbook={currentLogbook} />
       </div>
       <div className="dashboard-page-right">
         <div className="d-flex justify-content-center py-5">
