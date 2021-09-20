@@ -31,7 +31,6 @@ const PatientCreateForm = () => {
     };
     dispatch(patientCreateFetch(data))
   };
-  console.log(isRegistered);
   
   useEffect(() => {
     isRegistered.newPatient &&

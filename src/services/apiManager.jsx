@@ -313,7 +313,6 @@ export const patientCreateFetch = (patientData) => {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         if (response.errors || response.error) {
           dispatch(fetchPatientCreateFailure(response));
         } else {
