@@ -42,6 +42,7 @@ import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreat
 import LogbookPatient from 'pages/LogbookPatient';
 import ArticleNutritionist from 'pages/ArticleNutritionist';
 import Articles from 'pages/Articles';
+import Article from 'pages/Article';
 
 
 
@@ -296,6 +297,7 @@ const App = () => {
             <Route exact path="/exemple/tableau-de-bord" component={ExampleDashboard} />
             <Route exact path="/about" component={About} />
             <Route exact path="/cgu" component={Cgu} />
+            <Route exact path="/article/:slug" component={Article} /> 
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/" component={Home} />
             <Route component={NotFound} />

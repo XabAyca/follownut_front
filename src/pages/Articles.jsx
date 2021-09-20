@@ -29,7 +29,6 @@ const Articles = () => {
         articlesNutritionist.map((article) => {
           return (
             <ArticleCard articleData={article} />
-            // <p>{article.title}</p>
           )
         })
       }
