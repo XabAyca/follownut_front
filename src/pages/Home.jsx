@@ -83,9 +83,8 @@ const Home = () => {
             </div>
             <h4>Gestion simplifiée</h4>
             <p>
-              Des indicateurs sante developpés en collaboration avec des
-              nutritionistes pour vous permettre un meilleur suivi de vos
-              patients
+              Des indicateurs developpés en collaboration avec des
+              nutritionistes pour un suivi de santé optimal.
             </p>
           </div>
           {/* <Link to="/" className="link">
@@ -98,11 +97,9 @@ const Home = () => {
             <div className="img-box mb-3">
               <img className="calendar" src={calendar} alt="Calendar illustration"/>
             </div>
-            <h4>Prise de rendez-vous en ligne</h4>
+            <h4>Prise de rendez-vous</h4>
             <p>
-            Gagnez du temps grâce à notre plateforme de réservation en ligne.
-            Cette fonctionalité permettra à vos patients, nouveaux et actuels,
-            de prendre rendez-vous en un clic.
+            Une gestion des rendez-vous directement intégrée à FollowNut pour plus de facilité.
             </p>
           </div>
           {/* <Link to="/" className="link">
@@ -118,13 +115,13 @@ const Home = () => {
         </div>
         <div className="section3-right">
           <h2 className="text-white">Tableau de bord</h2>
-          <h6 className="pt-4 text-justified text-white">
-            Tous vos clients au même endroit et gérables en quelques clics sur
-            votre tableau de bord.
+          <h6 className="my-3 text-justified text-white">
+            Des graphiques pour suivre les constantes de vos patients,
+            un bloc-notes pour rédiger puis partager les compte-rendu de rendez-vous avec vos patients,
+            un journal où rédiger des articles pour valoriser votre expertise aurpès de vos patients et bien plus encore ...
           </h6>
-          <Link to="/" className="link">
-            <span>En savoir plus</span>
-            <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
+          <Link to="/exemple/tableau-de-bord" className=" my-3 primary-button btn-sm btn-primary text-white">
+            Découvrir
           </Link>
         </div>
       </section>
@@ -137,8 +134,7 @@ const Home = () => {
             </div>
             <h4>Journal personnel</h4>
             <p>
-              Permettez à vos patients de noter leurs progrès dans un espace
-              dédié, et ainsi faciliter leur suivi.
+              Un bloc note à portée de main permettre aux patients de noter leurs menus et activités sportives.
             </p>
           </div>
           {/* <Link to="/" className="link">
@@ -154,7 +150,7 @@ const Home = () => {
             <h4>Application web</h4>
             <p>
               Une application disponible sur mobile et tablette pour rester en
-              contact avec vos clients.
+              contact aussi facilement que possible.
             </p>
           </div>
           {/* <Link to="/" className="link">
@@ -167,10 +163,9 @@ const Home = () => {
             <div className="img-box mb-3">
               <img src={article} alt="Article illustration" />
             </div>
-            <h4>Développer une audience</h4>
+            <h4>Construire une communauté</h4>
             <p>
-              Partagez vos recettes, astuces nutrition, sport et santé afin de
-              pouvoir toucher plus de clients.
+              Chaque nutritioniste peut partager ses astuces, recettes et conseils avec la communauté FollowNut
             </p>
           </div>
           {/* <Link to="/" className="link">
