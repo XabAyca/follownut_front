@@ -32,7 +32,7 @@ const PatientSignupForm = () => {
   return (
     <div className="patient-signup-form d-flex justify-content-center">
       <div className="form-container">
-      <h5 className="d-flex justify-content-center text-secondary-color pb-3">Remplissez le formulaire ci-dessous pour vous inscrire comme patient</h5>
+      <h5 className="d-flex justify-content-center text-third-color pb-3">Formulaire d'inscription pour les patients</h5>
         <form onSubmit={ (e) => handlePatientSignup(e) }>
           <label htmlFor="email" className="text-white pt-2">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
