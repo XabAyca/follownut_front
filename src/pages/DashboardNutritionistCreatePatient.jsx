@@ -1,8 +1,8 @@
-import AppointmentCreateForm from 'components/Forms/AppointmentCreateForm';
+import PatientCreateForm from 'components/Forms/PatientCreateForm';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import React from 'react';
 
-const DashboardNutritionistAppointments = () => {
+const DashboardNutritionistCreatePatient = () => {
   return (
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
@@ -10,11 +10,11 @@ const DashboardNutritionistAppointments = () => {
       </div>
       <div className="dashboard-page-right">
         <div className="">
-          <AppointmentCreateForm />
+          <PatientCreateForm/>
         </div>
       </div>
     </div>
   );
 };
 
-export default DashboardNutritionistAppointments;
+export default DashboardNutritionistCreatePatient;

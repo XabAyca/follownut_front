@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 const SidebarNutritionist = () => {
   return (
     <div className="sidebar-nutritionist">
-      <Link
-        to="/nutritionist-dashboard"
-        className="sidebar-nutritionist-link">
+      <Link to="/nutritionist-dashboard" className="sidebar-nutritionist-link">
         <i class="fas fa-calendar-check"></i>
         Rendez-vous
       </Link>
@@ -23,6 +21,13 @@ const SidebarNutritionist = () => {
       >
         <i class="fas fa-plus-circle"></i>
         Créer un compte-rendu
+      </Link>
+      <Link
+        to="/nutritionist-dashboard/create-patient"
+        className="sidebar-nutritionist-link"
+      >
+        <i class="fas fa-user-plus"></i>
+        Ajouter un patient
       </Link>
     </div>
   );

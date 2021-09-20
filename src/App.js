@@ -36,6 +36,8 @@ import NutritionistEditProfile from 'pages/NutritionistEditProfile';
 import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
 import Cgu from 'pages/Cgu';
 import ExampleDashboard from 'pages/ExampleDashboard';
+import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
+
 
 
 
@@ -219,6 +221,14 @@ const App = () => {
             <Route exact path="/nutritionist-dashboard/appointments">
               {isNutritionistAuth() ? (
                 <DashboardNutritionistAppointments />
+              ) : (
+                <Redirect to="/" />
+              )}
+            </Route>
+
+            <Route exact path="/nutritionist-dashboard/create-patient">
+              {isNutritionistAuth() ? (
+                <DashboardNutritionistCreatePatient />
               ) : (
                 <Redirect to="/" />
               )}
