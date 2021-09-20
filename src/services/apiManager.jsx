@@ -5,6 +5,9 @@ import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutri
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
 import { fetchNutritionistDeleteFailure, fetchNutritionistDeleteRequest, fetchNutritionistDeleteSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistUpdateFailure, fetchNutritionistUpdateRequest, fetchNutritionistUpdateSuccess } from "store/actions/nutritionistActions";
+import { fetchNutritionistSuccess } from "store/actions/nutritionistActions";
+import { fetchNutritionistRequest } from "store/actions/nutritionistActions";
+import { fetchNutritionistFailure } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
 import { fetchOnePatientsRequest } from "store/actions/patientActions";
@@ -133,6 +136,30 @@ export const nutritionistsFetch = () => {
           dispatch(fetchNutritionistsFailure(response.errors));
         } else {
           dispatch(fetchNutritionistsSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO FETCH ONE NUTRITIONIST
+export const nutritionistFetch = () => {
+  return (dispatch) => {
+    const id = Cookies.get("nutritionist_id_cookie");
+    const token = Cookies.get("nutritionist_token_cookie");
+    dispatch(fetchNutritionistRequest());
+    fetch(baseUrl + `/api/v1/nutritionists/${id}`, {
+      method: "get",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchNutritionistFailure(response.errors));
+        } else {
+          dispatch(fetchNutritionistSuccess(response));
         }
       });
   };

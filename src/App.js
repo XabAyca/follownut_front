@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
 import Cookies from 'js-cookie';
+import { Pwa } from "components/context/InstallPwa";
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
@@ -30,8 +31,10 @@ import DashboardNutritionistAppointments from 'pages/DashboardNutritionistAppoin
 import PatientEditProfile from 'pages/PatientEditProfile';
 import HamburgerMenu from 'components/HamburgerMenu';
 import NutritionistEditProfile from 'pages/NutritionistEditProfile';
-import { Pwa } from 'components/context/InstallPwa';
 import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
+import Footer from 'components/Footer';
+import ScrollTop from 'components/ScrollTop';
+import Cgu from 'pages/Cgu';
 
 
 
@@ -139,6 +142,7 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <ScrollTop/>
         <Pwa.Provider value={installBtn}>
           <Navigation
             patientAuth={isPatientAuth()}
@@ -261,13 +265,18 @@ const App = () => {
               {isPatientAuth() ? <DashboardPatient /> : <Redirect to="/" />}
             </Route>
             <Route exact path="/patient-appointment-reports">
-              {isPatientAuth() ? <DashboardPatientAptsList /> : <Redirect to="/" />}
+              {isPatientAuth() ? (
+                <DashboardPatientAptsList />
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
-
-            <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/cgu" component={Cgu} />
+            <Route exact path="/" component={Home} />
             <Route component={NotFound} />
           </Switch>
+          <Footer />
         </Pwa.Provider>
       </BrowserRouter>
     </>

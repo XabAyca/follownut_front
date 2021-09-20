@@ -1,9 +1,10 @@
 .appointment-modal{
-  position: absolute;
+  position: fixed;
+  height: 100vh;
+  overflow-y: hidden;
   top:0;
   background-color: rgba(0, 0, 0, 0.526);
   width: 100%;
-  height: 100%;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -18,31 +19,14 @@
     right: 10px;
     color: #ffff;
     font-size: 1.5rem;
-    cursor: pointer;
   }
 
   .content{
     width: 75%;
-    height: 75%;
+    border-radius: 10px;
     background-color: #ffff;
-    box-shadow: 0 0 20px #454545;
-    padding: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
+    box-shadow: 0 0 20px #454545;;
     color:#454545;
-
-    .date{
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .data{
-      font-size: 0.9rem;
-      font-weight: normal;
-      display: flex;
-      justify-content: space-between;
-      
-    }
   }
 
 

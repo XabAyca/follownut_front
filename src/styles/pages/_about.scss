@@ -1,0 +1,49 @@
+.about{
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url(../../assets/images/logo_thp.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255,255,255,0.95);
+  background-blend-mode:lighten;
+}
+
+.divcenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.div-git{
+  width: 100%;
+ display: flex;
+ justify-content: space-evenly;
+ flex-flow: row wrap;
+}
+
+ .div-git-child{
+   width: 200px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   margin: 15px;
+   i{
+     font-size: 1.8rem;
+     margin-bottom: 5px;
+     color:#8186FE;
+     transition: all .3s;
+   }
+   a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #454545;
+    transition: all .3S;
+    &:hover{
+      color:#8186FE;
+      letter-spacing: 2px;
+    }
+   }
+ }

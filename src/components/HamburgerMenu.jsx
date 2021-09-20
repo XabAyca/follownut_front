@@ -97,7 +97,7 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
               activeClassName="nav-active"
               onClick={handleMenu}
             >
-              En tant que patient
+              Patient
             </NavLink>
 
             <NavLink
@@ -106,7 +106,7 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
               className="menu-link"
               onClick={handleMenu}
             >
-              En tant que nutritionniste
+              Nutritionniste
             </NavLink>
             <p>Se connecter</p>
             <NavLink
@@ -116,7 +116,7 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
               activeClassName="nav-active"
               onClick={handleMenu}
             >
-              En tant que patient
+              Patient
             </NavLink>
 
             <NavLink
@@ -125,7 +125,7 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
               className="menu-link"
               onClick={handleMenu}
             >
-              En tant que nutritionniste
+              Nutritionniste
             </NavLink>
           </>
         )}

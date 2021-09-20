@@ -1,4 +1,3 @@
-import { set } from 'js-cookie';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';
@@ -19,18 +18,24 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
     });
   };
 
-  const deleteAppointment = (appointment,e) => {
+  const deleteAppointment = (appointment, e) => {
     e.preventDefault()
-    setAppointments([...appointments.filter((el)=> el!==appointment)]);
-    dispatch(deleteAppointmentFetch(appointment.id))
+    if (
+      window.confirm(
+        "Vous êtes sur le point de supprimer le compte-rendu. Êtes vous sur ?"
+      )
+    ) {
+      setAppointments([...appointments.filter((el) => el !== appointment)]);
+      dispatch(deleteAppointmentFetch(appointment.id))
+    }
   }
 
   return (
-    <div className="patients-list text-primary-color">
-      <div className="patient-list-header mx-3 p-2">
+    <div className="patients-list text-primary-color col-lg-8 col-sm-12">
+      <div className="patient-list-header p-2">
         <h2>Voici la liste de vos rendez-vous</h2>
       </div>
-      <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
+      <div className="details-container p-3">
       <table class="table patient-table">
         <thead>
           <tr>
@@ -50,7 +55,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
                   <td>{createDate(appointment.date)}</td>
                   <td>{ appointment.patient ? appointment.patient.last_name ?
                         ( <span>M./Mme {appointment.patient.last_name}</span>)
-                      : (<span> Patient supprimé</span>) : (<span> Inconnu </span>)}
+                      : (<span> Inconnu</span>) : (<span> Patient supprimé </span>)}
                   </td>
                   <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
                   <td><i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i></td>

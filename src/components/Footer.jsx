@@ -23,21 +23,16 @@ const Footer = () => {
               </p>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-              <h6 class="text-uppercase fw-bold ">Stack technique</h6>
+              <h6 class="text-uppercase fw-bold ">Liens utiles</h6>
               <p>
-                <a href="#!" class="text-reset">
-                  Ruby On Rails
-                </a>
+                <Link to="/about" class="text-reset">
+                  À propos de nous
+                </Link>
               </p>
               <p>
-                <a href="#!" class="text-reset">
-                  React
-                </a>
-              </p>
-              <p>
-                <a href="#!" class="text-reset">
-                  JavaScript
-                </a>
+                <Link to="/cgu" class="text-reset">
+                  CGU
+                </Link>
               </p>
             </div>
 

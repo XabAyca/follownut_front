@@ -1,10 +1,6 @@
-import { set } from 'js-cookie';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteAppointmentFetch } from 'services/apiManager';
 
 const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
-  const dispatch = useDispatch()
   const [appointments, setAppointments] = useState(filteredAppointments)
   
   const createDate = (el) => {
@@ -18,12 +14,6 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
       hour12: false,
     });
   };
-
-  const deleteAppointment = (appointment,e) => {
-    e.preventDefault()
-    setAppointments([...appointments.filter((el)=> el!==appointment)]);
-    dispatch(deleteAppointmentFetch(appointment.id))
-  }
 
   return (
     <div className="patients-list text-primary-color">
