@@ -31,6 +31,7 @@ const PatientLoginForm = () => {
   return (
     <div className="patient-signup-form d-flex justify-content-center">
       <div className="form-container">
+      <h5 className="d-flex justify-content-center text-third-color pb-3">Connectez-vous et retrouvez votre nutritioniste</h5>
         <form onSubmit={ (e) => handlePatientLogin(e) }>
           <label htmlFor="email" className="text-white pt-2">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"

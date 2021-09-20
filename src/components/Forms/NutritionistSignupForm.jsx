@@ -32,7 +32,7 @@ const NutritionistSignupForm = () => {
   return (
     <div className="nutritionist-signup-form d-flex justify-content-center">
       <div className="form-container">
-      <h5 className="d-flex justify-content-center text-secondary-color pb-3">Remplissez le formulaire ci-dessous pour vous inscrire comme nutritioniste</h5>
+      <h5 className="d-flex justify-content-center text-third-color pb-3">Formulaire d'inscription pour les nutritionistes</h5>
         <form onSubmit={ (e) => handleNutritionistSignup(e) }>
           <label htmlFor="email" className="text-white pt-2">Email*</label>
           <input type="email" className="form-input-display" placeholder="Votre email"
