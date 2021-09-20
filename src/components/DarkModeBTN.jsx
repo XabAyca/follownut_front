@@ -1,9 +1,9 @@
 window.onload = function() {
   const checkbox = document.getElementById("whateveriwant");
 
-  checkbox.addEventListener('change', ()=>{
-    document.body.classList.toggle('dark-mode');
-  })
+  // checkbox.addEventListener('change', ()=>{
+  //   document.body.classList.toggle('dark-mode');
+  // })
   
 };
 
