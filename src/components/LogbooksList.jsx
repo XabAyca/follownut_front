@@ -82,7 +82,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
               }
             </tbody>
           </table>
-          : <h3>Vous n'avez pas encore de notes</h3>
+          : <p>Vous n'avez pas encore de note</p>
           }
         </div>
       </div>
