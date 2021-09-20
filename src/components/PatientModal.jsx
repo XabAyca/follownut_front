@@ -8,7 +8,7 @@ import PatientCharts from './PatientCharts';
 const PatientModal = ({ patient }) => {
   const dispatch = useDispatch()
   const appointments = useSelector((state) => state.appointments.appointments)
-  const [patientAppointments, setPatientAppointments] = useState()
+  const [patientAppointments, setPatientAppointments] = useState(undefined)
 
   useEffect(() => {
       dispatch(appointmentsFetch())
@@ -19,9 +19,12 @@ const PatientModal = ({ patient }) => {
   }, [appointments,patient])
   
   const filteredAppointment = () => {
-    setPatientAppointments(appointments
+    let temp = appointments
       .filter((appointment) => appointment.patient_id === patient.id)
-      .sort((a,b)=> b.date.localeCompare(a.date)));
+      .sort((a, b) => b.date.localeCompare(a.date));
+    temp.length > 0 ?
+      setPatientAppointments(temp) :
+      setPatientAppointments(undefined)
   }
 
     const closeModal = () => {
@@ -29,7 +32,7 @@ const PatientModal = ({ patient }) => {
       modal.style.opacity = 0;
       modal.style.visibility = "hidden";
       setTimeout(() => {
-        setPatientAppointments(null);
+        setPatientAppointments(undefined);
       },1000) 
     };
 
@@ -44,7 +47,6 @@ const PatientModal = ({ patient }) => {
         hour12: false,
       });
     };
-  
   
   return (
     <div className="patient-modal">
@@ -65,51 +67,53 @@ const PatientModal = ({ patient }) => {
                 </p>
               </div>
               <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">
-                <h1>Dernier RDV :{" "}
-                  {patientAppointments ?
-                    (createDate(patientAppointments[0].date)) :
+                <h1>
+                  Dernier RDV :{" "}
+                  {patientAppointments ? (
+                    createDate(patientAppointments[0].date)
+                  ) : (
                     <p>-</p>
-                  }
+                  )}
                 </h1>
               </div>
             </div>
             <div className="d-flex text-primary-color my-4 row">
               <h2 className="b-underline">Dernières Mesures</h2>
-              {
-                patientAppointments ?
-                  <div className="my-2 d-flex flex-wrap">
-                    <p className="mx-1">
-                      <strong>Poids : </strong>
-                      {patientAppointments[0].weight} kg
-                    </p>
-                    <p className="mx-1">
-                      <strong>Taille : </strong>
-                      {patientAppointments[0].height.toFixed(2)} m
-                    </p>
-                    <p className="mx-1">
-                      <strong>IMC : </strong>
-                      {patientAppointments[0].BMI.toFixed(1)}
-                    </p>
-                    <p className="mx-1">
-                      <strong>Masse grasse : </strong>
-                      {patientAppointments[0].body_fat} %
-                    </p>
-                    <p className="mx-1">
-                      <strong>Masse musculaire : </strong>
-                      {patientAppointments[0].muscle_mass} %
-                    </p>
-                    <p className="mx-1">
-                      <strong>Graisse viscerale : </strong>
-                      {patientAppointments[0].visceral_fat} %
-                    </p>
-                  </div>
-                  :
-                  <p>Pas de mesures</p>}
+              {patientAppointments ? (
+                <div className="my-2 d-flex flex-wrap">
+                  <p className="mx-1">
+                    <strong>Poids : </strong>
+                    {patientAppointments[0].weight} kg
+                  </p>
+                  <p className="mx-1">
+                    <strong>Taille : </strong>
+                    {patientAppointments[0].height.toFixed(2)} m
+                  </p>
+                  <p className="mx-1">
+                    <strong>IMC : </strong>
+                    {patientAppointments[0].BMI.toFixed(1)}
+                  </p>
+                  <p className="mx-1">
+                    <strong>Masse grasse : </strong>
+                    {patientAppointments[0].body_fat} %
+                  </p>
+                  <p className="mx-1">
+                    <strong>Masse musculaire : </strong>
+                    {patientAppointments[0].muscle_mass} %
+                  </p>
+                  <p className="mx-1">
+                    <strong>Graisse viscerale : </strong>
+                    {patientAppointments[0].visceral_fat} %
+                  </p>
+                </div>
+              ) : (
+                <p>Pas de mesures</p>
+              )}
             </div>
             <div className="report my-4">
-              {patientAppointments &&
+              {patientAppointments && (
                 <PatientCharts appointments={patientAppointments} />
-              }
+              )}
             </div>
           </>
         )}

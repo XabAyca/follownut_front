@@ -35,6 +35,7 @@ import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
 import Footer from 'components/Footer';
 import ScrollTop from 'components/ScrollTop';
 import Cgu from 'pages/Cgu';
+import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
 
 
 
@@ -225,6 +226,14 @@ const App = () => {
             <Route exact path="/nutritionist-dashboard/appointments">
               {isNutritionistAuth() ? (
                 <DashboardNutritionistAppointments />
+              ) : (
+                <Redirect to="/" />
+              )}
+            </Route>
+
+            <Route exact path="/nutritionist-dashboard/create-patient">
+              {isNutritionistAuth() ? (
+                <DashboardNutritionistCreatePatient />
               ) : (
                 <Redirect to="/" />
               )}
