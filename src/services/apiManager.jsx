@@ -12,6 +12,9 @@ import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionist
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
 import { fetchOnePatientsRequest } from "store/actions/patientActions";
 import { fetchOnePatientsFailure } from "store/actions/patientActions";
+import { fetchPatientCreateFailure } from "store/actions/patientActions";
+import { fetchPatientCreateSuccess } from "store/actions/patientActions";
+import { fetchPatientCreateRequest } from "store/actions/patientActions";
 import { fetchOnePatientsSuccess } from "store/actions/patientActions";
 import { fetchPatientDeleteFailure, fetchPatientDeleteSuccess, fetchPatientDeleteRequest } from "store/actions/patientActions";
 import { fetchPatientLoginFailure, fetchPatientLoginLogout, fetchPatientLoginRequest, fetchPatientLoginSuccess } from "store/actions/patientActions";
@@ -292,6 +295,29 @@ export const patientRegisterFetch = (patientData) => {
           Cookies.set("patient_token_cookie", token);
           Cookies.set("patient_id_cookie", response.data.id);
           dispatch(fetchPatientRegisterSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO CREATE A NEW PATIENT WITH NUTRITIONIST
+export const patientCreateFetch = (patientData) => {
+  return (dispatch) => {
+    dispatch(fetchPatientCreateRequest());
+    fetch(baseUrl + "/api/patient/signup", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(patientData),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        if (response.errors || response.error) {
+          dispatch(fetchPatientCreateFailure(response));
+        } else {
+          dispatch(fetchPatientCreateSuccess(response));
         }
       });
   };

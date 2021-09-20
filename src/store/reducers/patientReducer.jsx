@@ -2,6 +2,9 @@ import { FETCH_PATIENT_FAILURE, FETCH_PATIENT_REQUEST, FETCH_PATIENT_SUCCESS } f
 import { FETCH_PATIENT_DELETE_SUCCESS } from "store/actions/patientActions";
 import { FETCH_PATIENT_DELETE_FAILURE } from "store/actions/patientActions";
 import { FETCH_ONE_PATIENT_SUCCESS } from "store/actions/patientActions";
+import { FETCH_CREATE_PATIENT_REQUEST } from "store/actions/patientActions";
+import { FETCH_CREATE_PATIENT_FAILURE } from "store/actions/patientActions";
+import { FETCH_CREATE_PATIENT_SUCCESS } from "store/actions/patientActions";
 import { FETCH_ONE_PATIENT_FAILURE } from "store/actions/patientActions";
 import { FETCH_ONE_PATIENT_REQUEST } from "store/actions/patientActions";
 import { FETCH_PATIENT_DELETE_REQUEST } from "store/actions/patientActions";
@@ -17,10 +20,11 @@ const initialState = {
   register: "",
   login: "",
   patientUpd: '',
-  currentPatient:''
+  currentPatient: '',
+  newPatient:""
 };
 
-export const patientReducer = (state = initialState, { type, error, patient, login, register,patientUpd, currentPatient }) => {
+export const patientReducer = (state = initialState, { type, error, patient, login, register,patientUpd, currentPatient, newPatient }) => {
   switch (type) {
     case FETCH_PATIENT_REQUEST:
       return { ...state, loading: true };
@@ -35,7 +39,12 @@ export const patientReducer = (state = initialState, { type, error, patient, log
       return { ...state, loading: true };
 
     case FETCH_ONE_PATIENT_SUCCESS:
-      return { ...state, loading: false, currentPatient: currentPatient, error: "" };
+      return {
+        ...state,
+        loading: false,
+        currentPatient: currentPatient,
+        error: "",
+      };
 
     case FETCH_ONE_PATIENT_FAILURE:
       return { ...state, loading: false, error: error };
@@ -81,6 +90,15 @@ export const patientReducer = (state = initialState, { type, error, patient, log
 
     case FETCH_PATIENT_REGISTER_UNREGISTER:
       return { ...state, loading: false, error: "", register: "" };
+
+    case FETCH_CREATE_PATIENT_REQUEST:
+      return { ...state, loading: true };
+
+    case FETCH_CREATE_PATIENT_SUCCESS:
+      return { ...state, loading: false, newPatient: newPatient, error: "" };
+
+    case FETCH_CREATE_PATIENT_FAILURE:
+      return { ...state, loading: false, error: error };
 
     default:
       return state;
