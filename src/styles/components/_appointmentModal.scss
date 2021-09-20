@@ -1,6 +1,7 @@
 .appointment-modal{
-  position: absolute;
-  min-height: 100%;
+  position: fixed;
+  height: 100vh;
+  overflow-y: hidden;
   top:0;
   background-color: rgba(0, 0, 0, 0.526);
   width: 100%;
