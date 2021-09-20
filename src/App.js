@@ -9,6 +9,9 @@ import { Pwa } from "components/context/InstallPwa";
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
+import HamburgerMenu from 'components/HamburgerMenu';
+import Footer from 'components/Footer';
+import ScrollTop from 'components/ScrollTop';
 
 // PAGES IMPORTS
 import Home from 'pages/Home';
@@ -29,13 +32,12 @@ import ForgottenPasswordPatient from 'pages/Auth/ForgottenPasswordPatient';
 import DashboardNutritionistPatients from 'pages/DashboardNutritionistPatients';
 import DashboardNutritionistAppointments from 'pages/DashboardNutritionistAppointments';
 import PatientEditProfile from 'pages/PatientEditProfile';
-import HamburgerMenu from 'components/HamburgerMenu';
 import NutritionistEditProfile from 'pages/NutritionistEditProfile';
 import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
-import Footer from 'components/Footer';
-import ScrollTop from 'components/ScrollTop';
 import Cgu from 'pages/Cgu';
+import ExampleDashboard from 'pages/ExampleDashboard';
 import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
+
 
 
 
@@ -132,13 +134,6 @@ const App = () => {
         loginNutritionist === '' &&
         Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
   };
-
-  // const isPatientAuth = () => {
-  //   return (
-  //     Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
-  // };
-
-  // console.log(isPatientAuth())
 
   return (
     <>
@@ -280,6 +275,7 @@ const App = () => {
                 <Redirect to="/" />
               )}
             </Route>
+            <Route exact path="/exemple/tableau-de-bord" component={ExampleDashboard} />
             <Route exact path="/about" component={About} />
             <Route exact path="/cgu" component={Cgu} />
             <Route exact path="/" component={Home} />
