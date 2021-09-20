@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
   const [logbooks, setLogbooks] = useState(filteredLogbooks);
+  const [filter, setFilter] = useState("");
   const dispatch = useDispatch(); 
+
+  useEffect(() => {
+    filteredLogbooks && getFilterLogbooks();
+  }, [filter, filteredLogbooks]);
 
   const createDate = (el) => {
     let date = new Date(el);
@@ -17,6 +22,13 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
     });
   };
 
+  const getFilterLogbooks = () => {
+    setLogbooks(filteredLogbooks.filter((logbook) => {
+      return (logbook.patient.first_name.toLowerCase().includes(filter) ||
+        logbook.patient.last_name.toLowerCase().includes(filter) ||
+        logbook.patient.email.toLowerCase().includes(filter))
+    }));
+  }
   
   return (
     <div className="text-primary-color col-lg-8 col-sm-6">
@@ -24,7 +36,16 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
         <div className="d-flex justify-content-between">
           <h2>Voici la liste des notes de vos patients</h2>
         </div>
-        <div className="details-container p-3">
+        <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+          <i className="fas fa-search"></i>
+          <input
+            type="text"
+            className=""
+            placeholder="    Recherche..."
+            onChange={(e) => setFilter(e.target.value.toLowerCase())}
+          />
+        </div>
+        <div className="details-container p-3 mt-3">
         <table className="table patient-table">
           <thead>
             <tr>
