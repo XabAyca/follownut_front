@@ -10,14 +10,8 @@ const Articles = () => {
   const articles = useSelector(state => state.articles)
   const dispatch = useDispatch() 
 
-  const getArticleNutritionist = () => {
-    if (articles.articles) {
-        setArticlesNutritionist(articles.articles)
-    }
-  }
-
   const getFilterArticles = () => {
-    setArticlesNutritionist(articlesNutritionist.filter((article) => {
+    setArticlesNutritionist(articles.articles.filter((article) => {
       return (
         article.nutritionist.first_name.toLowerCase().includes(filter) ||
         article.nutritionist.last_name.toLowerCase().includes(filter) ||
@@ -31,12 +25,8 @@ const Articles = () => {
   }, []);
 
   useEffect(() => {
-    getArticleNutritionist();
-  },[articles])
-
-  useEffect(() => {
-    articlesNutritionist && getFilterArticles();
-  }, [filter, articlesNutritionist]);
+    articles && getFilterArticles();
+  }, [filter, articles]);
 
   return (
     <div className="articles page-padding">
