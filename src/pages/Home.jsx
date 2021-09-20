@@ -23,20 +23,22 @@ const Home = () => {
       <section className="section bg-blue  align-items-center">
         <div className="section1-left">
           <h1 className="text-white">
-            Le meilleur logiciel pour nutritionistes et patients
+            Le suivi parfait entre patients et nutritioniste
           </h1>
-          <h4 className="text-secondary-color pt-2 pb-4 text-justify">
+          <h5 className="text-white pt-2 pb-4 text-justify">
             De la prise de rendez-vous, au suivi des patients, FollowNut offre
-            une solution simple et efficace.
-          </h4>
+            une solution gratuite, simple et efficace. Inscrivez-vous !
+          </h5>
           {Cookies.get("patient_token_cookie") === undefined && 
-            Cookies.get("patient_token_cookie") === undefined &&
-            <Link
-            to="/signup-nutritionist"
-            className="primary-button btn-lg btn-primary text-white"
-          >
-            Je m'inscris gratuitement
-          </Link>}
+            Cookies.get("nutritionist_token_cookie") === undefined &&
+            <>
+              <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white">
+                Je suis un nurtitioniste
+              </Link>
+              <Link to="/signup-nutritionist" className="third-button btn-lg btn-primary text-white">
+                Je suis un patient
+              </Link>
+            </>}
         </div>
         <div className="section1-right">
           <img
