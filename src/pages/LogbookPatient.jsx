@@ -1,15 +1,62 @@
-import React from 'react';
+ import React, { useEffect, useState } from 'react';
 import SidebarPatient from 'components/SidebarPatient';
+import { logbooksFetch } from 'services/apiManager';
+import { useSelector, useDispatch } from 'react-redux';
+import Cookies from "js-cookie";
+import Loading from 'components/Loading';
+import LogbooksList from 'components/LogbooksList';
 
 const LogbookPatient = () => {
+  const [logbooksPatient, setLogbooksPatient] = useState();
+  const [currentLogbook, setCurrentLogbook] = useState(null);
+
+  const patient_id = parseInt(Cookies.get('patient_id_cookie'));
+
+  const logbooks = useSelector(state => state.logbooks)
+  const dispatch = useDispatch() 
+
+  const getLogbooksPatient = () => {
+    if (logbooks.logbooks) {
+      let logs = logbooks.logbooks
+        .filter((logbook) => {
+          return logbook.patient_id === patient_id
+        })
+        setLogbooksPatient(logs)
+    }
+  }
+
+  useEffect(() => { 
+    dispatch(logbooksFetch());
+  }, []);
+  
+  useEffect(() => {
+    getLogbooksPatient();
+  },[logbooks])
+
+
+  const openModal = (logbook) => {
+    setCurrentLogbook(logbook)
+    let modal = document.querySelector(".logbook-modal");
+    modal.style.opacity = 1
+    modal.style.visibility = 'visible'
+  }
+
+
   return (
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarPatient />
+        {/* <AppointmentModal appointment={currentAppointment} /> */}
       </div>
       <div className="dashboard-page-right">
         <div className="m-5">
-          Page logbook pour les patients
+          {logbooksPatient ?  
+            <LogbooksList
+              filteredLogbooks={logbooksPatient}
+              setOpenModal={openModal}
+            /> :
+            <Loading />
+          } 
         </div>
       </div>
     </div>
