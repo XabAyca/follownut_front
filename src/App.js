@@ -17,6 +17,8 @@ import ScrollTop from 'components/ScrollTop';
 import CookiesConsent from 'components/CookiesConsent';
 import DarkMode from 'components/context/darkMode';
 //import ModeBtn from 'components/darkModeBTN';
+import DarkModeBtn from 'components/DarkModeBTN';
+
 
 
 // PAGES IMPORTS
@@ -49,8 +51,6 @@ import Articles from 'pages/Articles';
 import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
 import Nutritionists from 'pages/Nutritionists';
-import { ModalBody } from 'react-bootstrap';
-import DarkModeBtn from 'components/DarkModeBTN';
 
 
 
