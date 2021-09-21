@@ -35,10 +35,10 @@ const AppointmentModal = ({ appointment }) => {
         <PDFExport ref={pdfExportComponent} paperSize="A4">
           <div className="p-3">
             <div
-              className="download-btn primary-button btn"
+              className="download-btn btn"
               onClick={handleExportWithComponent}
             >
-              Télécharger
+              Télécharger<i class="fas fa-file-download"></i>
             </div>
             {appointment && (
               <>
