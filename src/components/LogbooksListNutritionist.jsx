@@ -75,7 +75,7 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
                 }
               </tbody>
             </table>
-            : <p>Vous n'avez pas de notes pour le moment</p>
+            : <p>Vous n'avez pas de note pour le moment</p>
           }
 
           
