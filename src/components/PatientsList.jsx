@@ -43,7 +43,7 @@ const PatientsList = ({ setOpenModal }) => {
         <input
           type="text"
           placeholder="Recherche..."
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => setFilter(e.target.value.toLowerCase())}
         />
       </div>
       <div className="details-container p-3">
