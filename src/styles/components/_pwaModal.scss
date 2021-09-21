@@ -13,6 +13,9 @@
   opacity: 1;
   visibility: visible;
   transition: all .5s;
+  @media (max-width: 570px){
+    bottom: 70px;
+  }
 
   .fa-times{
     width: 25px;
