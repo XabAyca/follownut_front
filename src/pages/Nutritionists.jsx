@@ -47,11 +47,16 @@ const Nutritionists = () => {
       </div>
       <div className=" d-flex flex-wrap">
         { nutritionistsPartenaires &&
-          nutritionistsPartenaires.map((nutritionist) => {
-            return (
-              <NutritionistCard nutritionistData={nutritionist} />
-            )
-          })
+          ( nutritionistsPartenaires.length > 0 ?
+            nutritionistsPartenaires.map((nutritionist) => {
+              return (
+                <NutritionistCard nutritionistData={nutritionist} />
+              )
+            })
+            : ( nutritionistsPartenaires.length === 0 && filter === "" ?
+            <p>Il n'y a aucun nutritioniste d'enregistré pour le moment</p>
+            : <p>Aucun résultat ne correspond à votre recherche</p>)
+          )
         }
       </div>
     </div>

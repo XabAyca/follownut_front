@@ -95,8 +95,6 @@ const PatientsList = ({ setOpenModal }) => {
             : <p>Aucun résultat ne correspond à votre recherche</p>)
           )
         }
-
-
       </div>
     </div>
   );
