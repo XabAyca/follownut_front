@@ -72,48 +72,54 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
         </div>
       </div>
       <div className="details-container p-3">
-        { appointments.length > 0 ?
-          <table className="table patient-table">
-            <thead>
-              <tr>
-                <th scope="col">Réf.</th>
-                <th scope="col">Date</th>
-                <th scope="col">Patient</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {appointments.map((appointment) => {
-                return (
-                  <tr key={appointment.id}>
-                    <th scope="row" key={appointment.id}>
-                      {appointment.id}
-                    </th>
-                    <td>{createDate(appointment.date)}</td>
-                    <td>
-                      {appointment.patient ? (
-                        appointment.patient.last_name ? (
-                          <span>M./Mme {appointment.patient.last_name}</span>
+        { appointments && 
+          ( appointments.length > 0 ?
+            <table className="table patient-table">
+              <thead>
+                <tr>
+                  <th scope="col">Réf.</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Patient</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {appointments.map((appointment) => {
+                  return (
+                    <tr key={appointment.id}>
+                      <th scope="row" key={appointment.id}>
+                        {appointment.id}
+                      </th>
+                      <td>{createDate(appointment.date)}</td>
+                      <td>
+                        {appointment.patient ? (
+                          appointment.patient.last_name ? (
+                            <span>M./Mme {appointment.patient.last_name}</span>
+                          ) : (
+                            <span> Inconnu</span>
+                          )
                         ) : (
-                          <span> Inconnu</span>
-                        )
-                      ) : (
-                        <span> Patient supprimé </span>
-                      )}
-                    </td>
-                    <td>
-                      <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i>
-                    </td>
-                    <td>
-                      <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          : <p>Vous n'avez aucun rendez-vous passé</p>
+                          <span> Profil supprimé </span>
+                        )}
+                      </td>
+                      <td>
+                        <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i>
+                      </td>
+                      <td>
+                        <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            : (appointments.length === 0 && filter === "" ?
+              <p>Vous n'avez aucun rendez-vous passé</p>
+              : <p>Aucun résultat ne correspond à votre recherche</p>
+            )
+            
+          )
         }
 
 
