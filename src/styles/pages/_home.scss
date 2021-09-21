@@ -96,11 +96,11 @@
       }
     }
     .link {
-      color: $white-color;
+      color: var(--basic-color-white);
       text-decoration: none;
 
       &:hover {
-        color: $transparency-primary-color;
+        color: var(--transparency-prim-color);
       }
     }
   }
