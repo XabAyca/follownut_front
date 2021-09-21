@@ -53,7 +53,7 @@ const PatientCreateForm = () => {
           <div className="col-lg-4 col-sm-12">
             <label>Prénom</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="text"
               id="first-name"
               placeholder="Prénom"
@@ -63,7 +63,7 @@ const PatientCreateForm = () => {
           <div className="col-lg-4 col-sm-12">
             <label>Nom</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="text"
               id="last-name"
               placeholder="Nom"
@@ -75,7 +75,7 @@ const PatientCreateForm = () => {
           <div className="col-lg-6 col-sm-12">
             <label>Email</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="email"
               id="email"
               placeholder="Email"
@@ -87,7 +87,7 @@ const PatientCreateForm = () => {
             <div className="col-lg-4 col-sm-12">
               <label>Mot de passe</label>
               <input
-                className="form-input-display"
+                className="input-display"
                 type="password"
                 id="password"
                 placeholder="Mot de passe"
@@ -97,7 +97,7 @@ const PatientCreateForm = () => {
             <div className="col-lg-4 col-sm-12">
               <label>Confirmation de mot de passe</label>
               <input
-                className="form-input-display"
+                className="input-display"
                 type="password"
                 id="password-confirmation"
                 placeholder="Confirmation"

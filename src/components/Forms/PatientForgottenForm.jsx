@@ -26,7 +26,7 @@ const PatientForgottenForm = () => {
       <p className="text-white">Cher patient, renseignez votre email pour recevoir un lien et réinitialiser votre mot de passe.</p>
         <form onSubmit={ (e) => handlePatientForgottenForm(e) }>
           <label htmlFor="email" className="text-white pt-2">Email*</label>
-          <input type="email" className="form-input-display" placeholder="Votre email"
+          <input type="email" className="input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
           <input type="submit" className="btn success-button mt-5 w-100" value="Envoyer" />
         </form>

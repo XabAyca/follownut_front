@@ -34,10 +34,10 @@ const PatientLoginForm = () => {
       <h5 className="d-flex justify-content-center text-third-color pb-3">Connectez-vous et retrouvez votre nutritioniste</h5>
         <form onSubmit={ (e) => handlePatientLogin(e) }>
           <label htmlFor="email" className="text-white pt-2">Email*</label>
-          <input type="email" className="form-input-display" placeholder="Votre email"
+          <input type="email" className="input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
           <label htmlFor="password" className="text-white pt-2">Mot de passe*</label>
-          <input type="password" className="form-input-display" placeholder="Votre mot de passe"
+          <input type="password" className="input-display" placeholder="Votre mot de passe"
           value={password} onChange={ (e) => setPassword(e.target.value) }/>
           <input type="submit" className="btn success-button mt-5 w-100" value="Se connecter" />
         </form>

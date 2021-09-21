@@ -73,7 +73,7 @@ const AppointmentCreateForm = () => {
           <select
             name="patient"
             id="patient_id"
-            className="form-select-display w-100 my-2"
+            className="input-display my-2"
             required
           >
             <option>Sélectionnez un patient</option>
@@ -87,7 +87,7 @@ const AppointmentCreateForm = () => {
               })}
           </select>
           <input
-            className="form-input-display my-2"
+            className="input-display my-2"
             type="datetime-local"
             id="date"
             required
@@ -98,7 +98,7 @@ const AppointmentCreateForm = () => {
           <div className="col-lg-2 col-sm-12">
             <label>Graisse viscérale</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="number"
               id="visceral_fat"
               placeholder="%"
@@ -110,7 +110,7 @@ const AppointmentCreateForm = () => {
           <div className="col-lg-2 col-sm-12">
             <label>Masse musculaire</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="number"
               id="muscle_mass"
               placeholder="%"
@@ -122,7 +122,7 @@ const AppointmentCreateForm = () => {
           <div className="col-lg-2 col-sm-12">
             <label>Masse grasse</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="number"
               id="body_fat"
               placeholder="%"
@@ -134,7 +134,7 @@ const AppointmentCreateForm = () => {
           <div className="col-lg-2 col-sm-12">
             <label>Taille</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="number"
               id="height"
               placeholder="mètres"
@@ -147,7 +147,7 @@ const AppointmentCreateForm = () => {
           <div className="col-lg-2 col-sm-12">
             <label>Poids</label>
             <input
-              className="form-input-display"
+              className="input-display"
               type="number"
               id="weight"
               placeholder="kilogrammes"
@@ -163,7 +163,7 @@ const AppointmentCreateForm = () => {
         <textarea
           placeholder="Formulez des recommandations à votre patient ..."
           id="content"
-          className="form-input-display form-textarea-display"
+          className="input-display textarea-display"
           required
         />
         <input

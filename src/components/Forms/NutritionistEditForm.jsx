@@ -63,7 +63,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Nom</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder={lname}
               value={lname}
               onChange={(e) => setLname(e.target.value)}
@@ -73,7 +73,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Prénom</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder={fname}
               value={fname}
               onChange={(e) => setFname(e.target.value)}
@@ -85,7 +85,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Email</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder={mail}
               value={mail}
               onChange={(e) => setMail(e.target.value)}
@@ -95,7 +95,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Numero de tel</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder={pnumber}
               value={pnumber}
               onChange={(e) => setPnumber(e.target.value)}
@@ -105,7 +105,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Compte Calendly</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder={calendlyAccount}
               value={calendlyAccount}
               onChange={(e) => setCalendlyAccount(e.target.value)}
@@ -115,7 +115,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">clef d'authentification</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder={apiKey}
               value={apiKey}
               onChange={(e) => setApiKey(e.target.value)}
@@ -125,7 +125,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Mot de passe</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder=""
               value={pword}
               onChange={(e) => setPword(e.target.value)}
@@ -135,7 +135,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Confirmation de mot de passe</label>
             <input
               type="text"
-              className="form-input-display"
+              className="input-display"
               placeholder=""
               value={pwordConfirmation}
               onChange={(e) => setPwordConfirmation(e.target.value)}
