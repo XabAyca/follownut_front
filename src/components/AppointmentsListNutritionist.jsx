@@ -53,7 +53,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
         <input
           type="text"
           placeholder="Recherche..."
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => setFilter(e.target.value.toLowerCase())}
         />
       </div>
 
