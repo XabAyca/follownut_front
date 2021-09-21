@@ -37,7 +37,7 @@ const PatientSituation = ({appointment}) => {
             </table>
           </div>
           <div className="right-details col-lg-6 col-sm-12">
-            <table class="table patient-table">
+            <table className="table patient-table">
               <thead>
                 <tr>
                   <th scope="col">Mesure</th>

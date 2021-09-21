@@ -36,7 +36,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
         <h2>Voici la liste de vos rendez-vous</h2>
       </div>
       <div className="details-container p-3">
-      <table class="table patient-table">
+      <table className="table patient-table">
         <thead>
           <tr>
             <th scope="col">Réf.</th>
