@@ -37,6 +37,7 @@ import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
 import Cgu from 'pages/Cgu';
 import ExampleDashboard from 'pages/ExampleDashboard';
 import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
+import CookiesConsent from 'components/CookiesConsent';
 
 
 
@@ -282,6 +283,7 @@ const App = () => {
             <Route component={NotFound} />
           </Switch>
           <Footer />
+          <CookiesConsent/>
         </Pwa.Provider>
       </BrowserRouter>
     </>
