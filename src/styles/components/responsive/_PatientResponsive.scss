@@ -1,0 +1,33 @@
+//Main Dashboard
+@media screen and (max-width: 682px) {
+  .dashboard-page-right{
+    padding: 0px !important;
+  }
+  .dashboard-page-right h1{
+    margin: 0px !important;
+    text-align: center !important;
+  }
+  .patient-charts{
+    padding: 0px !important;
+  }
+}
+// Rendez-vous list
+@media screen and (max-width: 682px) {
+  .dashboard-page-right div{
+    margin: 0px !important;
+    padding: 5px;
+  }
+  .patient-list-header h2{
+    text-align: center;
+  }
+}
+//Profile
+@media screen and (max-width: 682px) {
+  .patient-details{
+    text-align: center;
+    padding: 0px !important;
+  }
+  .patient-details .rounded-circle{
+    width: 80%;
+  }
+}
