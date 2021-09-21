@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { patientRegisterFetch } from 'services/apiManager';
+import { patientCreateFetch } from 'services/apiManager';
 
 const PatientCreateForm = () => {
   const dispatch = useDispatch()
@@ -29,18 +29,18 @@ const PatientCreateForm = () => {
         nutritionist_id: parseInt(Cookies.get("nutritionist_id_cookie")),
       },
     };
-    dispatch(patientRegisterFetch(data))
+    dispatch(patientCreateFetch(data))
   };
-
+  
   useEffect(() => {
-    isRegistered.register.data &&
+    isRegistered.newPatient &&
       history.push("/nutritionist-dashboard");
     if (isRegistered.error) {
       document.querySelector(".error-modal").style.opacity = 1;
       document.querySelector(".error-modal").style.visibility = "visible";
     }
   }, [isRegistered])
-  console.log(isRegistered.error);
+
   return (
     <div className="create-appointment-form mx-5">
       {isRegistered.error && <ErrorsModal errors={isRegistered.error.errors} />}
