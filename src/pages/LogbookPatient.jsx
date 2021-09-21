@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
 import Loading from 'components/Loading';
 import LogbooksList from 'components/LogbooksList';
+import LogbookModal from 'components/LogbookModal';
 
 const LogbookPatient = () => {
   const [logbooksPatient, setLogbooksPatient] = useState();
@@ -37,8 +38,8 @@ const LogbookPatient = () => {
   const openModal = (logbook) => {
     setCurrentLogbook(logbook)
     let modal = document.querySelector(".logbook-modal");
-    modal.style.opacity = 1
-    modal.style.visibility = 'visible'
+    modal.style.opacity = 1;
+    modal.style.visibility = 'visible';
   }
 
 
@@ -46,7 +47,7 @@ const LogbookPatient = () => {
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarPatient />
-        {/* <AppointmentModal appointment={currentAppointment} /> */}
+        <LogbookModal logbook={currentLogbook} />
       </div>
       <div className="dashboard-page-right">
         <div className="m-5">
