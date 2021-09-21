@@ -12,10 +12,10 @@ const PwaModal = () => {
 
   return (
     <div className="pwa-modal">
-      <i class="fas fa-times" onClick={closeModal}></i>
+      <i className="fas fa-times" onClick={closeModal}></i>
       <p>Pour plus de rapidité installez notre application</p>
       <div>
-        <i class="fas fa-download" onClick={installPwa}></i>
+        <i className="fas fa-download" onClick={installPwa}></i>
       </div>
     </div>
   );
