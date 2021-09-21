@@ -54,7 +54,7 @@ const About = () => {
       <div className="div-git">
         <hr />
         <div className="div-git-child">
-          <i class="fab fa-github"></i>
+          <i className="fab fa-github"></i>
           <a
             href="https://github.com/kleberkunha"
             target="_blank"
@@ -64,7 +64,7 @@ const About = () => {
           </a>
         </div>
         <div className="div-git-child">
-          <i class="fab fa-github"></i>
+          <i className="fab fa-github"></i>
           <a
             href="https://github.com/aauugguussttiinn"
             target="_blank"
@@ -74,13 +74,13 @@ const About = () => {
           </a>
         </div>
         <div className="div-git-child">
-          <i class="fab fa-github"></i>
+          <i className="fab fa-github"></i>
           <a href="https://github.com/XabAyca" target="_blank" rel="noreferrer">
             Xabi Aycaguer
           </a>
         </div>
         <div className="div-git-child">
-          <i class="fab fa-github"></i>
+          <i className="fab fa-github"></i>
           <a
             href="https://github.com/AnthonyLebro"
             target="_blank"
@@ -90,7 +90,7 @@ const About = () => {
           </a>
         </div>
         <div className="div-git-child">
-          <i class="fab fa-github"></i>
+          <i className="fab fa-github"></i>
           <a
             href="https://github.com/MathieuParadis"
             target="_blank"

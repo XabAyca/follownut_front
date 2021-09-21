@@ -38,7 +38,7 @@ const AppointmentModal = ({ appointment }) => {
               className="download-btn btn"
               onClick={handleExportWithComponent}
             >
-              Télécharger<i class="fas fa-file-download"></i>
+              Télécharger<i className="fas fa-file-download"></i>
             </div>
             {appointment && (
               <>

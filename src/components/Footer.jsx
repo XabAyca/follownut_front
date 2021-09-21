@@ -50,9 +50,9 @@ const Footer = () => {
         </div>
       </section>
 
-      <div class="text-center copyright">
+      <div className="text-center copyright">
         © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://follownut.herokuapp.com/">
+        <a className="text-reset fw-bold" href="https://follownut.herokuapp.com/">
           {" "}
           Follownut.com
         </a>

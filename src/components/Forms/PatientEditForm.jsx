@@ -54,7 +54,7 @@ const PatientEditForm = ({patientData,nutritionists}) => {
           <div className="d-flex justify-content-between align-items-center mb-3">
               <h4 className="text-right">Réglage du profil</h4>
           </div>
-          <select onChange={(e) => setNutritionistId(e.target.value)}class="form-select" aria-label="Default select example">
+          <select onChange={(e) => setNutritionistId(e.target.value)}className="form-select" aria-label="Default select example">
             <option selected>Selectionnez votre nutritionniste</option>
             {
               nutritionists.map((nutritionist) => {
