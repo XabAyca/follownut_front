@@ -9,7 +9,7 @@ const SignupPatient = () => {
   return (
     <div className="signup-patient">
       <ErrorsModal errors={errors} />
-      <div className="jumbotron-signup d-flex align-items-center">
+      <div className="jumbotron jb-signup d-flex align-items-center">
         <div className="d-flex justify-content-center col-12 row">
           <h1 className="d-flex justify-content-center text-white my-2">
             Bienvenue sur Follownut'
