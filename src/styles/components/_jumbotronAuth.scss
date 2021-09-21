@@ -1,5 +1,21 @@
-.jumbotron-auth {
+.jumbotron-signup {
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6)100%), url(../../assets/images/patient-signup-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.jumbotron-login {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6)100%), url(../../assets/images/running-login-page.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.jumbotron-forgotten {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6)100%), url(../../assets/images/forgotten-page.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

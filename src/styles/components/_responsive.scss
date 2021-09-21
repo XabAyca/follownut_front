@@ -140,10 +140,17 @@
 //Inscription
 
 @media screen and (max-width: 682px) {
-  .jumbotron-auth div{
+  .jumbotron-signup div{
     margin-right: -10px;
   }
-  .jumbotron-auth div h1{
+  .jumbotron-signup div h1{
+    margin-right: -25px;
+  }
+
+  .jumbotron-login div{
+    margin-right: -10px;
+  }
+  .jumbotron-login div h1{
     margin-right: -25px;
   }
 }
