@@ -111,6 +111,7 @@ html,body{
 
 // -------------------- BUTTONS -------------------- //
 
+
 .primary-button {
   background-color: $primary-color;
   text-decoration: none;
@@ -118,6 +119,17 @@ html,body{
 
   &:hover {
     background-color: $primary-color-dark;
+  }
+}
+
+.outline-primary-button {
+  background-color: transparent;
+  border-color: $primary-color;
+  text-decoration: none;
+  text-decoration: none;
+
+  &:hover {
+    border-width: 1.5px;
   }
 }
 

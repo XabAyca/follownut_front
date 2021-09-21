@@ -33,12 +33,16 @@ const PatientsList = ({ setOpenModal }) => {
       <div className="patient-list-header p-2">
         <div className="patient-list-header-first">
           <h2>Voici la liste de vos patients</h2>
-          <Link
-            to="/nutritionist-dashboard/create-patient"
-            className="add-patient"
-          >
-            Ajouter <i className="fas fa-user-plus"></i>
-          </Link>
+          <div className=" d-flex align-items-center">
+            <Link
+              to="/nutritionist-dashboard/create-patient"
+              className="add-patient btn outline-primary-button"
+            >
+              <span className="mx-1">Ajouter</span>
+              <i className="mx-1 fas fa-user-plus ml-3"></i>
+            </Link>
+            
+          </div>
         </div>
         <input
           type="text"
