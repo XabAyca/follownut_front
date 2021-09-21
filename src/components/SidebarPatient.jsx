@@ -13,7 +13,7 @@ const SidebarPatient = () => {
       <Link
         to="/patient-appointment-reports"
         className="sidebar-patient-dashboard-link">
-        <i class="far fa-calendar-alt"></i>
+        <i class="fas fa-calendar-check"></i>
         Rendez-vous
       </Link>
       <Link

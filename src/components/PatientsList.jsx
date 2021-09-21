@@ -29,14 +29,14 @@ const PatientsList = ({ setOpenModal }) => {
   }, [nutritionist,filter]);
 
   return (
-    <div className="patients-list text-primary-color col-lg-8 col-sm-6">
+    <div className="text-primary-color col-lg-8 col-sm-6">
       <div className="patient-list-header p-2">
-        <div className="patient-list-header-first">
+        <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos patients</h2>
           <div className=" d-flex align-items-center">
             <Link
               to="/nutritionist-dashboard/create-patient"
-              className="add-patient btn outline-primary-button"
+              className="btn outline-primary-button"
             >
               <span className="mx-1">Ajouter</span>
               <i className="mx-1 fas fa-user-plus ml-3"></i>

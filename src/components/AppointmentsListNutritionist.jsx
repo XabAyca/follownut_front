@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';
+import { Link } from 'react-router-dom';
 
 const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) => {
   const dispatch = useDispatch()
@@ -45,10 +46,20 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
   }
 
   return (
-    <div className="patients-list text-primary-color col-lg-8 col-sm-12">
+    <div className="text-primary-color col-lg-8 col-sm-12">
       <div className="patient-list-header p-2">
-        <div className="patient-list-header-first">
+        <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos rendez-vous</h2>
+          <div className="d-flex align-items-center">
+            <Link
+              to="/nutritionist-dashboard/appointments"
+              className="btn outline-primary-button"
+            >
+              <span className="mx-1">Ajouter</span>
+              <i className="mx-1 fas fa-calendar-check ml-3"></i>
+            </Link>
+            
+          </div>
         </div>
         <input
           type="text"
