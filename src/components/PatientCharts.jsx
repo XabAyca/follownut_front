@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Weight from "components/Charts/Weight";
 import BMI from "components/Charts/BMI";
 import FatnMuscle from "components/Charts/FatnMuscle";
+import Height from './Charts/Height';
 
 const PatientCharts = ({appointments}) => {
   const [key, setKey] = useState("weight");
@@ -14,6 +15,7 @@ const PatientCharts = ({appointments}) => {
   const [bodyFat,setBodyFat]=useState([])
   const [muscle,setMuscle]=useState([])
   const [visceral,setVisceral]=useState([])
+  const [heights,setHeights]=useState([])
 
   const createData = () => {
     let tempWeights=[]
@@ -22,6 +24,7 @@ const PatientCharts = ({appointments}) => {
     let tempBodyFat=[]
     let tempMuscle=[]
     let tempVisceral=[]
+    let tempHeights=[]
     appointments.map((appointment) => {
       tempWeights.push(appointment.weight)
       tempDates.push(createDate(appointment.date))
@@ -29,6 +32,7 @@ const PatientCharts = ({appointments}) => {
       tempBodyFat.push(appointment.body_fat)
       tempMuscle.push(appointment.muscle_mass)
       tempVisceral.push(appointment.visceral_fat)
+      tempHeights.push(appointment.height)
     })
     setWeights(tempWeights)
     setDates(tempDates)
@@ -36,6 +40,7 @@ const PatientCharts = ({appointments}) => {
     setBodyFat(tempBodyFat)
     setMuscle(tempMuscle)
     setVisceral(tempVisceral)
+    setHeights(tempHeights)
   }
 
   const createDate = (el) => {
@@ -49,8 +54,9 @@ const PatientCharts = ({appointments}) => {
   }
 
   useEffect(() => {
-    createData()
-  },[])
+    appointments && createData()
+  }, [appointments])
+  
 
   return (
     <div className="patient-charts mx-3 p-3 col-lg-6 col-sm-12">
@@ -60,22 +66,24 @@ const PatientCharts = ({appointments}) => {
         onSelect={(k) => setKey(k)}
       >
         <Tab eventKey="weight" title="Poids">
-          <div>{weights && <Weight weights={weights} date={dates} />}</div>
+          <div>
+            {weights && muscle && (
+              <Weight weights={weights} muscle={muscle} date={dates} />
+            )}
+          </div>
         </Tab>
         <Tab eventKey="bmi" title="IMC">
           <div>{bmi && <BMI bmi={bmi} date={dates} />}</div>
         </Tab>
-        <Tab eventKey="fat-n-muscle" title="Muscle / Graisse">
+        <Tab eventKey="fat-n-muscle" title="Graisses">
           <div>
             {bodyFat && muscle && visceral && (
-              <FatnMuscle
-                bodyFat={bodyFat}
-                muscle={muscle}
-                visceral={visceral}
-                date={dates}
-              />
+              <FatnMuscle bodyFat={bodyFat} visceral={visceral} date={dates} />
             )}
           </div>
+        </Tab>
+        <Tab eventKey="height" title="Taille">
+          <div>{heights && <Height heights={heights} date={dates} />}</div>
         </Tab>
       </Tabs>
     </div>
