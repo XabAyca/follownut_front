@@ -16,6 +16,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
       hour: "numeric",
       minute: "2-digit",
       hour12: false,
+      timeZone:"UTC",
     });
   };
 
@@ -70,7 +71,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
           <tbody>
             {appointments.map((appointment) => {
               return (
-                <tr>
+                <tr key={appointment.id}>
                   <th scope="row" key={appointment.id}>
                     {appointment.id}
                   </th>

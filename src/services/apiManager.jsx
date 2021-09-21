@@ -555,6 +555,7 @@ export const createAppointment = (data) => {
     })
       .then((response) => response.json())
       .then((response) => {
+        console.log(response);
         if (response.errors) {
           dispatch(createAppointmentFailure(response.errors));
         } else {
