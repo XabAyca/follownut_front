@@ -1,0 +1,67 @@
+@media screen and (min-width: 584px) and (max-width: 800px){
+  .home .section1-left{
+
+  }
+}
+
+@media screen and (max-width: 582px) {
+  .home .section{
+    width: 100%;
+    padding: 10px !important;
+  }
+  .home .section1-left{
+    margin-top: 5px;
+    width: 100% !important;
+    text-align: center;
+    padding: 0px;
+  }
+  .home .section1-left h5{
+    margin-top: 5px;
+    width: 100% !important;
+    text-align: center;
+    padding: 0px;
+  }
+  .div-btn-home-responsive div{
+    width: 50%;
+  }
+  .section1-right{
+    width: 100% !important;
+  }
+  .sub-section{
+    width: 100% !important;
+  }
+  .sub-section h4{
+    text-align: center;
+  }
+  .sub-section p{
+    text-align: center;
+  }
+  .home .section3-left{
+    width: 100% !important;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .home .section3-right{
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .home .section3-right h1{
+    text-align: center;
+    padding: 0px !important;
+    margin: 0;
+    width: 90% !important;
+    margin-left: 15px;
+  }
+  .home .section3-right h6{
+        text-align: center;
+    padding: 0px !important;
+    margin: 0;
+    width: 100% !important;
+  }
+  .home .section3-right a{
+    text-align: center;
+  }
+}
