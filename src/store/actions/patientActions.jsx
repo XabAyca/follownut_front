@@ -144,3 +144,26 @@ export const fetchPatientRegisterUnregister = () => {
     type: FETCH_PATIENT_REGISTER_UNREGISTER
   };
 };
+
+export const FETCH_CREATE_PATIENT_REQUEST = "FETCH_CREATE_PATIENT_REQUEST";
+export const FETCH_CREATE_PATIENT_SUCCESS = "FETCH_CREATE_PATIENT_SUCCESS";
+export const FETCH_CREATE_PATIENT_FAILURE = "FETCH_CREATE_PATIENT_FAILURE";
+export const FETCH_CREATE_PATIENT_UNREGISTER = "FETCH_CREATE_PATIENT_UNREGISTER";
+
+export const fetchPatientCreateRequest = () => {
+  return {
+    type: FETCH_CREATE_PATIENT_REQUEST,
+  };
+};
+export const fetchPatientCreateSuccess = (newPatient) => {
+  return {
+    type: FETCH_CREATE_PATIENT_SUCCESS,
+    newPatient,
+  };
+};
+export const fetchPatientCreateFailure = (error) => {
+  return {
+    type: FETCH_CREATE_PATIENT_FAILURE,
+    error,
+  };
+};

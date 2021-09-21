@@ -31,7 +31,7 @@ const Home = () => {
           </h5>
           {Cookies.get("patient_token_cookie") === undefined && 
             Cookies.get("nutritionist_token_cookie") === undefined &&
-            <div className="d-flex row">
+            <div className="d-flex row div-btn-home-responsive">
               {/* <Link to="/signup-nutritionist" className=" my-1 primary-button btn-lg btn-primary text-white">
                 Je suis un nutritioniste
               </Link>

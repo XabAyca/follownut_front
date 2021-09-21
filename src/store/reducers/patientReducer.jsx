@@ -1,10 +1,7 @@
 import { FETCH_PATIENT_FAILURE, FETCH_PATIENT_REQUEST, FETCH_PATIENT_SUCCESS } from "store/actions/patientActions";
-import { FETCH_PATIENT_DELETE_SUCCESS } from "store/actions/patientActions";
-import { FETCH_PATIENT_DELETE_FAILURE } from "store/actions/patientActions";
-import { FETCH_ONE_PATIENT_SUCCESS } from "store/actions/patientActions";
-import { FETCH_ONE_PATIENT_FAILURE } from "store/actions/patientActions";
-import { FETCH_ONE_PATIENT_REQUEST } from "store/actions/patientActions";
-import { FETCH_PATIENT_DELETE_REQUEST } from "store/actions/patientActions";
+import { FETCH_PATIENT_DELETE_FAILURE, FETCH_PATIENT_DELETE_REQUEST, FETCH_PATIENT_DELETE_SUCCESS } from "store/actions/patientActions";
+import { FETCH_CREATE_PATIENT_FAILURE, FETCH_CREATE_PATIENT_REQUEST, FETCH_CREATE_PATIENT_SUCCESS } from "store/actions/patientActions";
+import { FETCH_ONE_PATIENT_FAILURE, FETCH_ONE_PATIENT_REQUEST, FETCH_ONE_PATIENT_SUCCESS } from "store/actions/patientActions";
 import { FETCH_PATIENT_LOGIN_FAILURE, FETCH_PATIENT_LOGIN_LOGOUT, FETCH_PATIENT_LOGIN_REQUEST, FETCH_PATIENT_LOGIN_SUCCESS } from "store/actions/patientActions";
 import { FETCH_PATIENT_REGISTER_FAILURE, FETCH_PATIENT_REGISTER_REQUEST, FETCH_PATIENT_REGISTER_SUCCESS, FETCH_PATIENT_REGISTER_UNREGISTER } from "store/actions/patientActions";
 import { FETCH_PATIENT_UPDATE_FAILURE, FETCH_PATIENT_UPDATE_REQUEST, FETCH_PATIENT_UPDATE_SUCCESS } from "store/actions/patientActions";
@@ -17,10 +14,11 @@ const initialState = {
   register: "",
   login: "",
   patientUpd: '',
-  currentPatient:''
+  currentPatient: '',
+  newPatient:""
 };
 
-export const patientReducer = (state = initialState, { type, error, patient, login, register,patientUpd, currentPatient }) => {
+export const patientReducer = (state = initialState, { type, error, patient, login, register, patientUpd, currentPatient, newPatient }) => {
   switch (type) {
     case FETCH_PATIENT_REQUEST:
       return { ...state, loading: true };
@@ -81,6 +79,15 @@ export const patientReducer = (state = initialState, { type, error, patient, log
 
     case FETCH_PATIENT_REGISTER_UNREGISTER:
       return { ...state, loading: false, error: "", register: "" };
+
+    case FETCH_CREATE_PATIENT_REQUEST:
+      return { ...state, loading: true };
+
+    case FETCH_CREATE_PATIENT_SUCCESS:
+      return { ...state, loading: false, newPatient: newPatient, error: "" };
+
+    case FETCH_CREATE_PATIENT_FAILURE:
+      return { ...state, loading: false, error: error };
 
     default:
       return state;

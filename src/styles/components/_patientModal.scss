@@ -1,8 +1,9 @@
-.appointment-modal{
+.patient-modal{
   position: fixed;
   height: 100vh;
   overflow-y: hidden;
   top:0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.526);
   width: 100%;
   z-index: 10;
@@ -20,11 +21,6 @@
     color: #ffff;
     font-size: 1.5rem;
   }
-  .download-btn{
-    position: absolute;
-    top:10px;
-    right: 50px;
-  }
 
   .content{
     width: 75%;
@@ -32,6 +28,17 @@
     background-color: #ffff;
     box-shadow: 0 0 20px #454545;;
     color:#454545;
-    position: relative;
   }
+
+  .tab-content{
+    border-left:1px solid #dee2e6;
+    border-right:1px solid #dee2e6;
+    border-bottom:1px solid #dee2e6;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+  }
+  .nav-tabs{
+    width: calc(100% - 30px);
+  }
+  
 }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
-  const [appointments, setAppointments] = useState(filteredAppointments)
-  
+const LogbooksList = ({ filteredLogbooks, setOpenModal }) => {
+  const [logbooks, setLogbooks] = useState(filteredLogbooks)
+
   const createDate = (el) => {
     let date = new Date(el);
     return date.toLocaleDateString("fr", {
@@ -15,10 +15,12 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
     });
   };
 
+  console.log(logbooks)
+  
   return (
     <div className="patients-list text-primary-color">
       <div className="patient-list-header mx-3 p-2">
-        <h2>Voici la liste de vos rendez-vous</h2>
+        <h2>Voici la liste de vos notes</h2>
       </div>
       <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
       <table className="table patient-table">
@@ -26,22 +28,20 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
           <tr>
             <th scope="col">Réf.</th>
             <th scope="col">Date</th>
-            <th scope="col">Nutritioniste</th>
+            <th scope="col">Titre</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
         {
-            appointments.map((appointment) => {
+            logbooks.map((logbook) => {
               return (
                 <tr>
-                  <th scope="row" key={appointment.id}>{appointment.id}</th>
-                  <td>{createDate(appointment.date)}</td>
-                  <td>{ appointment.nutritionist ? appointment.nutritionist.last_name ?
-                        ( <span>M./Mme {appointment.nutritionist.last_name}</span>)
-                      : (<span> Utilisateur supprimé</span>) : (<span> Inconnu </span>)}
+                  <th scope="row" key={logbook.id}>{logbook.id}</th>
+                  <td>{createDate(logbook.updated_at)}</td>
+                  <td>{ logbook.title }
                   </td>
-                  <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i></td>
+                  <td><i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i></td>
                 </tr>
               )
             })
@@ -53,4 +53,4 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
   );
 };
 
-export default AppointmentsListPatient;
+export default LogbooksList;

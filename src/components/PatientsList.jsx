@@ -1,68 +1,89 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { nutritionistsFetch } from 'services/apiManager';
-import Cookies from "js-cookie";
 import Loading from './Loading';
+import { nutritionistFetch } from 'services/apiManager';
+import { Link } from 'react-router-dom';
 
 
-const PatientsList = () => {
+const PatientsList = ({ setOpenModal }) => {
   const [nutritionistPatients, setNutritionistPatients] = useState();
-
-  const nutritionist_id = parseInt(Cookies.get('nutritionist_id_cookie'));
-
-  const nutritionists = useSelector(state => state.nutritionists)
-  const dispatch = useDispatch() 
+  const [filter, setFilter] = useState("");
+  const nutritionist = useSelector((state) => state.nutritionists.currentNutritionist);
+  const dispatch = useDispatch();
 
   const getNutritionistPatients = () => {
-    if (nutritionists.nutritionist) {
-      let nutritionist = nutritionists.nutritionist.filter((nutritionist) => {
-        return nutritionist.id === nutritionist_id
-      })
-      setNutritionistPatients(nutritionist[0].patients)
-    }
-  }
+    setNutritionistPatients(nutritionist.patients.filter((patient) => {
+      return(patient.first_name.toLowerCase().includes(filter) ||
+      patient.last_name.toLowerCase().includes(filter) ||
+      patient.email.toLowerCase().includes(filter))
+    }));
+  };
 
   useEffect(() => {
-    dispatch(nutritionistsFetch());
+    dispatch(nutritionistFetch());
   }, []);
 
   useEffect(() => {
-    getNutritionistPatients();
-  },[nutritionists])
+    nutritionist && getNutritionistPatients();
+  }, [nutritionist,filter]);
 
   return (
     <div className="patients-list text-primary-color col-lg-8 col-sm-6">
       <div className="patient-list-header p-2">
-        <h2>Voici la liste de vos patients</h2>
+        <div className="patient-list-header-first">
+          <h2>Voici la liste de vos patients</h2>
+          <Link
+            to="/nutritionist-dashboard/create-patient"
+            className="add-patient"
+          >
+            Ajouter <i className="fas fa-user-plus"></i>
+          </Link>
+        </div>
+        <input
+          type="text"
+          placeholder="Recherche..."
+          onChange={(e) => setFilter(e.target.value)}
+        />
       </div>
       <div className="details-container p-3">
-      <table class="table patient-table">
-        <thead>
-          <tr>
-            {/* <th scope="col">Réf.</th> */}
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            nutritionistPatients ? 
-            nutritionistPatients.map((patient) => {
-              return (
-                <tr>
-                  {/* <th scope="row" key={patient.id}>{patient.id}</th> */}
-                  <td>{patient.last_name ? patient.last_name : (<span>?</span>)}</td>
-                  <td>{patient.first_name ? patient.first_name : (<span>?</span>)}</td>
-                  <td>{patient.email ? patient.email : (<span>?</span>)}</td>
-                </tr>
-              )
-            }) :
-            <Loading color={"blue"} />
-          }
-        </tbody>
-      </table>
+        <table className="table patient-table">
+          <thead>
+            <tr>
+              {/* <th scope="col">Réf.</th> */}
+              <th scope="col">Prénom</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Email</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {nutritionistPatients ? (
+              nutritionistPatients.map((patient) => {
+                return (
+                  <tr key={patient.id}>
+                    {/* <th scope="row" key={patient.id}>{patient.id}</th> */}
+                    <td>
+                      {patient.last_name ? patient.last_name : <span>?</span>}
+                    </td>
+                    <td>
+                      {patient.first_name ? patient.first_name : <span>?</span>}
+                    </td>
+                    <td>{patient.email ? patient.email : <span>?</span>}</td>
+                    <td>
+                      <i
+                        className="pointer-clickable far fa-eye"
+                        onClick={() => setOpenModal(patient)}
+                      ></i>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <Loading color={"blue"} />
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

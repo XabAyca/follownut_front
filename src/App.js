@@ -12,6 +12,8 @@ import Navigation from 'components/Navigation';
 import HamburgerMenu from 'components/HamburgerMenu';
 import Footer from 'components/Footer';
 import ScrollTop from 'components/ScrollTop';
+import CookiesConsent from 'components/CookiesConsent';
+
 
 // PAGES IMPORTS
 import Home from 'pages/Home';
@@ -36,6 +38,9 @@ import NutritionistEditProfile from 'pages/NutritionistEditProfile';
 import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
 import Cgu from 'pages/Cgu';
 import ExampleDashboard from 'pages/ExampleDashboard';
+import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
+import LogbookPatient from 'pages/LogbookPatient';
+import ArticleNutritionist from 'pages/ArticleNutritionist';
 
 
 
@@ -223,6 +228,21 @@ const App = () => {
                 <Redirect to="/" />
               )}
             </Route>
+            <Route exact path="/nutritionist-dashboard/create-patient">
+              {isNutritionistAuth() ? (
+                <DashboardNutritionistCreatePatient />
+              ) : (
+                <Redirect to="/" />
+              )}
+            </Route>
+            <Route exact path="/nutritionist-article">
+              {isNutritionistAuth() ? (
+                <ArticleNutritionist />
+              ) : (
+                <Redirect to="/" />
+              )}
+            </Route>
+
 
             <Route exact path="/signup-patient">
               {isPatientAuth() ? (
@@ -264,6 +284,13 @@ const App = () => {
               ) : (
                 <Redirect to="/" />
               )}
+              </Route>
+              <Route exact path="/patient-logbook">
+              {isPatientAuth() ? (
+                <LogbookPatient />
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
             <Route exact path="/exemple/tableau-de-bord" component={ExampleDashboard} />
             <Route exact path="/about" component={About} />
@@ -272,6 +299,7 @@ const App = () => {
             <Route component={NotFound} />
           </Switch>
           <Footer />
+          <CookiesConsent/>
         </Pwa.Provider>
       </BrowserRouter>
     </>
