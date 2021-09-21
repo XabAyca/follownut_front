@@ -60,7 +60,6 @@ const Nutritionists = () => {
         }
       </div>
     </div>
-
   );
 };
 
