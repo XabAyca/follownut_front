@@ -148,7 +148,6 @@ export const fetchPatientRegisterUnregister = () => {
 export const FETCH_CREATE_PATIENT_REQUEST = "FETCH_CREATE_PATIENT_REQUEST";
 export const FETCH_CREATE_PATIENT_SUCCESS = "FETCH_CREATE_PATIENT_SUCCESS";
 export const FETCH_CREATE_PATIENT_FAILURE = "FETCH_CREATE_PATIENT_FAILURE";
-export const FETCH_CREATE_PATIENT_UNREGISTER = "FETCH_CREATE_PATIENT_UNREGISTER";
 
 export const fetchPatientCreateRequest = () => {
   return {
@@ -164,6 +163,50 @@ export const fetchPatientCreateSuccess = (newPatient) => {
 export const fetchPatientCreateFailure = (error) => {
   return {
     type: FETCH_CREATE_PATIENT_FAILURE,
+    error,
+  };
+};
+
+export const FORGOT_PASSWORD_PATIENT_REQUEST = "FORGOT_PASSWORD_PATIENT_REQUEST";
+export const FORGOT_PASSWORD_PATIENT_SUCCESS = "FORGOT_PASSWORD_PATIENT_SUCCESS";
+export const FORGOT_PASSWORD_PATIENT_FAILURE = "FORGOT_PASSWORD_PATIENT_FAILURE";
+
+export const forgotPasswordPatientRequest = () => {
+  return {
+    type: FORGOT_PASSWORD_PATIENT_REQUEST,
+  };
+};
+export const forgotPasswordPatientSuccess = (forgotPassword) => {
+  return {
+    type: FORGOT_PASSWORD_PATIENT_SUCCESS,
+    forgotPassword,
+  };
+};
+export const forgotPasswordPatientFailure = (error) => {
+  return {
+    type: FORGOT_PASSWORD_PATIENT_FAILURE,
+    error,
+  };
+};
+
+export const RESET_PASSWORD_PATIENT_REQUEST = "RESET_PASSWORD_PATIENT_REQUEST";
+export const RESET_PASSWORD_PATIENT_SUCCESS = "RESET_PASSWORD_PATIENT_SUCCESS";
+export const RESET_PASSWORD_PATIENT_FAILURE = "RESET_PASSWORD_PATIENT_FAILURE";
+
+export const resetPasswordPatientRequest = () => {
+  return {
+    type: RESET_PASSWORD_PATIENT_REQUEST,
+  };
+};
+export const resetPasswordPatientSuccess = (resetPassword) => {
+  return {
+    type: RESET_PASSWORD_PATIENT_SUCCESS,
+    resetPassword,
+  };
+};
+export const resetPasswordPatientFailure = (error) => {
+  return {
+    type: RESET_PASSWORD_PATIENT_FAILURE,
     error,
   };
 };

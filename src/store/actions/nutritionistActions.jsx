@@ -143,3 +143,47 @@ export const fetchNutritionistRegisterUnregister = () => {
     type: FETCH_NUTRITIONIST_REGISTER_UNREGISTER
   };
 };
+
+export const FORGOT_PASSWORD_NUTRITIONIST_REQUEST = "FORGOT_PASSWORD_NUTRITIONIST_REQUEST";
+export const FORGOT_PASSWORD_NUTRITIONIST_SUCCESS = "FORGOT_PASSWORD_NUTRITIONIST_SUCCESS";
+export const FORGOT_PASSWORD_NUTRITIONIST_FAILURE = "FORGOT_PASSWORD_NUTRITIONIST_FAILURE";
+
+export const forgotPasswordNutritionistRequest = () => {
+  return {
+    type: FORGOT_PASSWORD_NUTRITIONIST_REQUEST,
+  };
+};
+export const forgotPasswordNutritionistSuccess = (forgotPassword) => {
+  return {
+    type: FORGOT_PASSWORD_NUTRITIONIST_SUCCESS,
+    forgotPassword,
+  };
+};
+export const forgotPasswordNutritionistFailure = (error) => {
+  return {
+    type: FORGOT_PASSWORD_NUTRITIONIST_FAILURE,
+    error,
+  };
+};
+
+export const RESET_PASSWORD_NUTRITIONIST_REQUEST = "RESET_PASSWORD_NUTRITIONIST_REQUEST";
+export const RESET_PASSWORD_NUTRITIONIST_SUCCESS = "RESET_PASSWORD_NUTRITIONIST_SUCCESS";
+export const RESET_PASSWORD_NUTRITIONIST_FAILURE = "RESET_PASSWORD_NUTRITIONIST_FAILURE";
+
+export const resetPasswordNutritionistRequest = () => {
+  return {
+    type: RESET_PASSWORD_NUTRITIONIST_REQUEST,
+  };
+};
+export const resetPasswordNutritionistSuccess = (resetPassword) => {
+  return {
+    type: RESET_PASSWORD_NUTRITIONIST_SUCCESS,
+    resetPassword,
+  };
+};
+export const resetPasswordNutritionistFailure = (error) => {
+  return {
+    type: RESET_PASSWORD_NUTRITIONIST_FAILURE,
+    error,
+  };
+};

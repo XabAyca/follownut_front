@@ -1,0 +1,26 @@
+import React from 'react';
+
+const ErrorsModalPawd = ({errors}) => {
+
+    const closeModal = () => {
+      let modal = document.querySelector(".error-modal");
+      modal.style.visibility = "hidden";
+      modal.style.opacity = 0;
+    };
+  
+  return (
+    <div className='error-modal'>
+      <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
+      {errors &&
+        errors.map((error) => {
+          return (
+            <p key={error} className="error-text">
+              {error && error}
+            </p>
+          );
+        })}
+    </div>
+  );
+};
+
+export default ErrorsModalPawd;

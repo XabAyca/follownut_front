@@ -12,11 +12,15 @@
   height: auto;
   background-color: rgba(255, 91, 91, 0.932);
   position: absolute;
-  border-radius: 0 0 0 10px ;
-  top:0;
-  right: 0;
+  border-radius:10px ;
+  top:5px;
+  right: 5px;
   z-index: 1000;
   transition: all .5s;
+  &.success{
+    color:green;
+    background-color: rgba(0, 177, 0,0.9);
+  }
   p{
     margin:0;
   }
@@ -28,7 +32,7 @@
   .fa-times{
     position: absolute;
     top:5px;
-    right: 5px;
+    right: 10px;
     color: #ffff;
     cursor: pointer;
   }
