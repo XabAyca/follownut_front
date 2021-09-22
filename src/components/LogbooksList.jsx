@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { deleteLogbookFetch } from 'services/apiManager';
 
 
-const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal }) => {
+const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setOpenUpdateModal }) => {
   const [logbooks, setLogbooks] = useState(filteredLogbooks);
   const dispatch = useDispatch(); 
 
@@ -63,7 +63,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal }) =>
                     <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
                   </td>
                   <td>
-                    <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenModal(logbook)}></i>
+                    <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(logbook)}></i>
                   </td>
                   <td>
                     <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteLogbook(logbook, e)}></i>

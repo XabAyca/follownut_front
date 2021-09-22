@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { createLogbook, logbooksFetch } from 'services/apiManager';
 
-const CreateLogbookModal = () => {
+const LogbookModalCreate = () => {
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -40,15 +40,15 @@ const CreateLogbookModal = () => {
           <div className="p-3">
             
             <form className="col-md-5 border-right" onSubmit={createNote}>
-              <div className="col-md-6">
+              <div className="d-flex flex-column">
                 <label className="labels">Titre</label>
                 <input type="text" className="form-input-display" id="logbook-title" placeholder="Titre de la note" required/>
               </div>
-              <div className="col-md-6">
+              <div className="d-flex flex-column mt-4">
                 <label className="labels">Contenu</label>
                 <input type="text" className="form-input-display" id="logbook-content" placeholder="Votre contenu ici" required/>
               </div>
-              <div className="col-md-6 pt-5">
+              <div className="d-flex flex-column mt-4">
                 <label className="labels">Partager cette note avec mon nutritioniste ?</label>
                 <input type="checkbox" id="logbook-is_shared" />
               </div>
@@ -64,4 +64,4 @@ const CreateLogbookModal = () => {
   );
 };
 
-export default CreateLogbookModal;
+export default LogbookModalCreate;
