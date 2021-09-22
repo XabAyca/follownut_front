@@ -32,9 +32,6 @@ const LogbookModal = ({ logbook }) => {
                   <div className="col-lg-9 col-md-12 col-sm-12 d-flex">
                     <h1>{createDate(logbook.updated_at)}</h1>
                   </div>
-                  <div className="col-lg-9 col-md-12 col-sm-12 d-flex">
-                    <p>Public : {logbook.is_shared ? "oui" : "non"}</p>
-                  </div>
                 </div>
                 <div className="d-flex text-primary-color my-4 row">
                   <h2 className="b-underline">{logbook.title}</h2>
