@@ -38,12 +38,12 @@ const Home = () => {
               <Link to="/signup-nutritionist" className=" my-1 primary-button btn-lg btn-primary text-white">
                 Je suis un patient
               </Link> */}
-              <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-5 col-xl-4">
+              <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-5">
                 <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white ">
                   Je suis un nutritioniste
                 </Link>
               </div>
-              <div className=" my-2 d-flex col-12 col-md-12 col-lg-5 col-xl-4">
+              <div className=" my-2 d-flex col-12 col-md-12 col-lg-12 col-xl-5">
                 <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white">
                   Je suis un patient
                 </Link>
