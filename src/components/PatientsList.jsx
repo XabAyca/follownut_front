@@ -29,23 +29,28 @@ const PatientsList = ({ setOpenModal }) => {
   }, [nutritionist,filter]);
 
   return (
-    <div className="patients-list text-primary-color col-lg-8 col-sm-6">
-      <div className="patient-list-header">
-        <div className="patient-list-header-first">
+
+    <div className="text-primary-color col-lg-8 col-sm-6">
+      <div className="patient-list-header p-2">
+        <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos patients</h2>
-          <Link
-            to="/nutritionist-dashboard/create-patient"
-            className="add-patient"
-          >
-            Ajouter <i className="fas fa-user-plus"></i>
-          </Link>
+          <div className=" d-flex align-items-center">
+            <Link
+              to="/nutritionist-dashboard/create-patient"
+              className="btn outline-primary-button"
+            >
+              <span className="mx-1">Ajouter</span>
+              <i className="mx-1 fas fa-user-plus ml-3"></i>
+            </Link>
+            
+          </div>
         </div>
-        <div className="box-filter-input">
-          <i class="fas fa-search"></i>
+        <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+          <i className="fas fa-search"></i>
           <input
-            className='filter-input'
             type="text"
-            placeholder="Recherche..."
+            className=""
+            placeholder="    Recherche..."
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
         </div>

@@ -55,7 +55,7 @@ const PatientPasswordResetForm = () => {
           </label>
           <input
             type="email"
-            className="form-input-display"
+            className="input-display"
             placeholder="Votre email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ const PatientPasswordResetForm = () => {
           </label>
           <input
             type="password"
-            className="form-input-display"
+            className="input-display"
             placeholder="Votre nouveau mot de passe"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
