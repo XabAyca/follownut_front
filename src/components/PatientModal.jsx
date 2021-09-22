@@ -54,6 +54,9 @@ const PatientModal = ({ patient }) => {
       closeModal();
   };
 
+  const dateOfBirthasADate = new Date(patient.date_of_birth)
+  const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
+
   return (
     <div className="patient-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
@@ -62,7 +65,7 @@ const PatientModal = ({ patient }) => {
           <>
             <div className="d-flex text-primary-color my-4 row">
               <div className="col-lg-3 col-md-12 col-sm-12 details-container p-4">
-                <p className="m-0">
+                <p>
                   {" "}
                   <strong>Patient : </strong>
                   {patient ? (
@@ -71,6 +74,8 @@ const PatientModal = ({ patient }) => {
                     <span>Patient supprimé </span>
                   )}
                 </p>
+                <p className="m-0"><strong>Genre : </strong>{patient.gender}</p>
+                <p className="m-0"><strong>Âge : </strong>{age} ans</p>
               </div>
               <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">
                 <h1>
