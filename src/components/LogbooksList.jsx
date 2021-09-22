@@ -32,48 +32,55 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
   }
   
   return (
-    <div className="patients-list text-primary-color">
-      <div className="patient-list-header mx-3 p-2">
-        <h2>Voici la liste de vos notes</h2>
-        <button onClick={() => setOpenCreateModal()}>Ajouter une note</button>
-      </div>
-      <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
-      <table className="table patient-table">
-        <thead>
-          <tr>
-            <th scope="col">Réf.</th>
-            <th scope="col">Date</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Public</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-        {
-            logbooks.map((logbook) => {
-              return (
-                <tr>
-                  <th scope="row" key={logbook.id}>{logbook.id}</th>
-                  <td>{createDate(logbook.updated_at)}</td>
-                  <td>{logbook.title}</td>
-                  <td>{logbook.is_shared ? "oui" : "non"}</td>
-                  <td>
-                    <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
-                  </td>
-                  <td>
-                    <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(logbook)}></i>
-                  </td>
-                  <td>
-                    <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteLogbook(logbook, e)}></i>
-                  </td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
+    <div className="text-primary-color col-lg-8 col-sm-6">
+      <div className="p-2">
+        <div className="d-flex justify-content-between">
+          <h2>Voici la liste de vos notes</h2>
+          <div className="d-flex align-items-center">
+            <button className="btn outline-primary-button" onClick={() => setOpenCreateModal()}>
+              <span className="mx-1">Rédiger</span>
+              <i className="mx-1 far fa-edit"></i>
+            </button>
+          </div>
+        </div>
+        <div className="details-container p-3">
+        <table className="table patient-table">
+          <thead>
+            <tr>
+              <th scope="col">Réf.</th>
+              <th scope="col">Date</th>
+              <th scope="col">Titre</th>
+              <th scope="col">Public</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+          {
+              logbooks.map((logbook) => {
+                return (
+                  <tr>
+                    <th scope="row" key={logbook.id}>{logbook.id}</th>
+                    <td>{createDate(logbook.updated_at)}</td>
+                    <td>{logbook.title}</td>
+                    <td>{logbook.is_shared ? "oui" : "non"}</td>
+                    <td>
+                      <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
+                    </td>
+                    <td>
+                      <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(logbook)}></i>
+                    </td>
+                    <td>
+                      <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteLogbook(logbook, e)}></i>
+                    </td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </table>
+        </div>
       </div>
     </div>
   );

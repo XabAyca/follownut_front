@@ -33,26 +33,21 @@ const ArticleModalCreate = () => {
   return (
     <div className="create-article-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
-
       <div className="content p-3 ">
-          <div className="p-3">
-
-            <form className="col-md-5 border-right" onSubmit={createPublication}>
-              <div className="d-flex flex-column">
-                <label className="labels">Titre</label>
-                <input type="text" className="form-input-display" id="article-title" placeholder="Titre de l'article" required/>
+        <div className="create-appointment-form">
+          <h1 className="text-primary-color">Rédiger un article</h1>
+          <form className="appointment-form text-primary-color" onSubmit={createPublication}>
+            <div className="d-flex row justify-content-between py-2">
+              <div className="col-lg-6 col-sm-12 my-2">
+                <label>Titre</label>
+                <input className="input-display" type="text" id="article-title" placeholder="Le titre de votre article" required />
               </div>
-              <div className="d-flex flex-column mt-4">
-                <label className="labels">Contenu</label>
-                <input type="text" className="form-input-display" id="article-content" placeholder="Votre contenu ici" required/>
-              </div>
-
-              <div className="mt-5 text-center">
-                <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button w-100 mt-4" />
-              </div>
-            </form>
-            
-          </div>
+            </div>
+            <label>Corps de l'article</label>
+            <textarea placeholder="Exprimez votre expertise" id="article-content" className="input-display textarea-display" required />
+            <input type="submit" value="Publier" className="btn success-button my-3 col-lg-3 col-sm-12" />
+          </form>
+        </div>
       </div>
     </div>
   );

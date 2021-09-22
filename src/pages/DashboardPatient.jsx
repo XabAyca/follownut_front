@@ -56,12 +56,12 @@ const DashboardPatient = () => {
           Bienvenue sur votre dashboard{" "}
           {lastAppointment && lastAppointment.first_name}
         </h1>
-        <div className="mx-5 my-4">
+        <div className="col-12">
           {lastAppointment && (
             <PatientSituation appointment={lastAppointment} />
           )}
         </div>
-        <div>
+        <div className="col-12">
           {filteredAppointments && (
             <PatientCharts appointments={filteredAppointments} />
           )}
