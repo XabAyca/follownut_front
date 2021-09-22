@@ -71,8 +71,8 @@ const LogbookPatient = () => {
         }
       </div>
       <div className="dashboard-page-right">
-        <div className="m-5">
-          {logbooksPatient ?  
+        <div className="d-flex justify-content-center py-5">
+        {logbooksPatient ?  
             <LogbooksList
               filteredLogbooks={logbooksPatient}
               setOpenModal={openModal}

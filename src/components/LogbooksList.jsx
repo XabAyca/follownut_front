@@ -36,9 +36,14 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
       <div className="p-2">
         <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos notes</h2>
-          <button onClick={() => setOpenCreateModal()}>Ajouter une note</button>
+          <div className="d-flex align-items-center">
+            <button className="btn outline-primary-button" onClick={() => setOpenCreateModal()}>
+              <span className="mx-1">Rédiger</span>
+              <i className="mx-1 far fa-edit"></i>
+            </button>
+          </div>
         </div>
-        <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
+        <div className="details-container p-3">
         <table className="table patient-table">
           <thead>
             <tr>
