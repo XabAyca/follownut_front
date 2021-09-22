@@ -42,7 +42,7 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setO
             </button>
           </div>
         </div>
-        <div className="details-container mx-3 p-3">
+        <div className="details-container p-3">
           <table className="table patient-table">
             <thead>
               <tr>
