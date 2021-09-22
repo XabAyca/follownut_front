@@ -59,7 +59,7 @@ const PatientCharts = ({appointments}) => {
   
 
   return (
-    <div className="patient-charts p-3 col-lg-6 col-sm-12">
+    <div className="patient-charts col-lg-6 col-sm-12">
       <Tabs
         id="controlled-tab-example"
         activeKey={key}

@@ -52,7 +52,7 @@ const DashboardPatient = () => {
         <SidebarPatient />
       </div>
       <div className="dashboard-page-right">
-        <h1 className="mx-5 my-2 text-primary-color">
+        <h1 className="text-primary-color">
           Bienvenue sur votre dashboard{" "}
           {lastAppointment && lastAppointment.first_name}
         </h1>
