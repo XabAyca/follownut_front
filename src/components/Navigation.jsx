@@ -93,9 +93,12 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
           )}
           
         </div>
+      </div>
+      <div className="d-flex">
+      <div className="px-5 align-self-center">
         <DarkMode/>
       </div>
-      <div>
+      
         {!patientAuth && !nutritionistAuth && (
           <>
             <DropdownButton title="Mon espace">
@@ -119,7 +122,7 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
         )}
 
         {(patientAuth || nutritionistAuth) && (
-          <p onClick={() => handleLogOut()} className="deconnexion">
+          <p onClick={() => handleLogOut()} className="deconnexion align-self-center">
             Se déconnecter ➞
           </p>
         )}
