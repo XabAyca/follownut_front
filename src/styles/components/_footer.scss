@@ -1,12 +1,26 @@
-footer p a {
-  text-decoration: none;
-  color: $primary-color;
+footer section .container .row{
+  h6{
+    @include phone{
+    text-align:center;
+    }
+  }
+  .about-footer{
+    @include phone{
+      margin-left: -55px;
+    }
+  }
+  .follownut-footer{
+    @include phone{
+      margin-left: -35px;
+    }
+  }
 }
-
-footer{
-
-  .copyright{
-    padding: 5px;
-    background-color: rgba(0, 0, 0, 0.05);
+@media screen and (width: 768px) {
+  footer .row{
+    display: block;
+  }
+  footer .row div{
+    width: 50%;
+    text-align: center;
   }
 }

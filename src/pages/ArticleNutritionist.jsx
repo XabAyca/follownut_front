@@ -6,6 +6,7 @@ import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import ArticlesList from 'components/ArticlesList';
 import ArticleModal from 'components/ArticleModal';
+import CreateArticleModal from 'components/CreateArticleModal';
 
 const ArticleNutritionist = () => {
   const [articlesNutritionist, setArticlesNutritionist] = useState();
@@ -43,11 +44,18 @@ const ArticleNutritionist = () => {
     modal.style.visibility = 'visible'
   }
 
+  const openCreateModal = () => {
+    let modal = document.querySelector(".create-article-modal");
+    modal.style.opacity = 1;
+    modal.style.visibility = 'visible';
+  }
+
   return (
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarNutritionist />
         <ArticleModal article={currentArticle} />
+        <CreateArticleModal />
       </div>
       <div className="dashboard-page-right">
         <div className="m-5">
@@ -55,6 +63,7 @@ const ArticleNutritionist = () => {
             <ArticlesList
               filteredArticles={articlesNutritionist}
               setOpenModal={openModal}
+              setOpenCreateModal={openCreateModal}
             /> :
             <Loading />
           } 

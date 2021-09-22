@@ -63,7 +63,7 @@ const AppointmentCreateForm = () => {
   };
 
   return (
-    <div className="create-appointment-form mx-5">
+    <div className="create-appointment-form">
       <h1 className="text-primary-color">Rédiger un compte-rendu</h1>
       <form
         className="appointment-form text-primary-color"

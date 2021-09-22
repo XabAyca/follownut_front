@@ -665,7 +665,7 @@ export const createArticle = (data) => {
   return (dispatch) => {
     const token = Cookies.get("nutritionist_token_cookie");
     dispatch(createArticleRequest());
-    fetch(baseUrl + `/api/v1/appointments`, {
+    fetch(baseUrl + `/api/v1/articles`, {
       method: "post",
       headers: {
         "Content-type": "application/json",
@@ -689,7 +689,7 @@ export const updateArticle = (data, id) => {
   return (dispatch) => {
     const token = Cookies.get("nutritionist_token_cookie");
     dispatch(updateArticleRequest());
-    fetch(baseUrl + `/api/v1/appointments/${id}`, {
+    fetch(baseUrl + `/api/v1/articles/${id}`, {
       method: "put",
       headers: {
         "Content-type": "application/json",
