@@ -58,14 +58,14 @@ FollowNut' stands in the middle, i.e. a user friendly and affordable application
 
 
 ## FollowNut Backend:
-* [Git repository'](https://github.com/XabAyca/follownut_back)
+* [Git repository](https://github.com/XabAyca/follownut_back)
 
 Here after a few links to our production back end
-* [Patients'](https://follownut-back.herokuapp.com/api/v1/patients)
-* [Nutritionists'](https://follownut-back.herokuapp.com/api/v1/nutritionists)
-* [Appointments'](https://follownut-back.herokuapp.com/api/v1/appointments)
-* [Logbooks'](https://follownut-back.herokuapp.com/api/v1/logbooks)
-* [Articles'](https://follownut-back.herokuapp.com/api/v1/articles)
+* [Patients](https://follownut-back.herokuapp.com/api/v1/patients)
+* [Nutritionists](https://follownut-back.herokuapp.com/api/v1/nutritionists)
+* [Appointments](https://follownut-back.herokuapp.com/api/v1/appointments)
+* [Logbooks](https://follownut-back.herokuapp.com/api/v1/logbooks)
+* [Articles](https://follownut-back.herokuapp.com/api/v1/articles)
 
 
 ## How to use it:
