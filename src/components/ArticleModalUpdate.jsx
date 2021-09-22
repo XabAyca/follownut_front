@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { updateArticle, articlesFetch } from 'services/apiManager';
 
@@ -6,6 +7,7 @@ const ArticleModalUpdate = ({article}) => {
 
   const [titleArticle, setTitleArticle] = useState(article ? article.title : null); 
   const [contentArticle, setContentArticle] = useState(article ? article.content : null);
+  const articleF = useSelector(state=> state.articles.article)
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -25,11 +27,14 @@ const ArticleModalUpdate = ({article}) => {
     };
   
     dispatch(updateArticle(data, article.id));
-    setTimeout(() => {
-      dispatch(articlesFetch())
-    }, 500)
-    window.location.reload()
   }
+
+  useEffect(() => {
+    if (articleF) {
+      closeModal();
+      window.location.reload();
+    }
+  }, [articleF]);
 
   return (
 

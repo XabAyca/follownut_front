@@ -24,9 +24,10 @@ const LogbookPatient = () => {
         .filter((logbook) => {
           return logbook.patient_id === patient_id
         })
-        setLogbooksPatient(logs)
+        .sort((a, b) => b.updated_at.localeCompare(a.updated_at))
+      setLogbooksPatient(logs)
     }
-  }
+  };
 
   useEffect(() => { 
     dispatch(logbooksFetch());

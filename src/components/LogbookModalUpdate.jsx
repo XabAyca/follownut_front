@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateLogbook, logbooksFetch } from 'services/apiManager';
 
 const LogbookModalUpdate = ({logbook}) => {
-
+  const logbookF = useSelector((state) => state.logbooks.logbook);
   const [titleNote, setTitleNote] = useState(logbook ? logbook.title : null); 
   const [contentNote, setContentNote] = useState(logbook ? logbook.content : null);
   const [is_sharedNote, setIs_shareNote] = useState(logbook ? logbook.is_shared : null);
@@ -27,11 +27,14 @@ const LogbookModalUpdate = ({logbook}) => {
     };
   
     dispatch(updateLogbook(data, logbook.id));
-    setTimeout(() => {
-      dispatch(logbooksFetch())
-    }, 500)
-    window.location.reload()
   }
+
+  useEffect(() => {
+    if (logbookF) {
+      closeModal();
+      window.location.reload();
+    }
+  }, [logbookF]);
   
   return (
 

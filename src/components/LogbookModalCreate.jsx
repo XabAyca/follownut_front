@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { createLogbook, logbooksFetch } from 'services/apiManager';
 
 const LogbookModalCreate = () => {
   const dispatch = useDispatch();
-
+  const logbook = useSelector(state=>state.logbooks.logbook)
   const closeModal = () => {
     let modal = document.querySelector(".create-logbook-modal");
     modal.style.opacity = 0;
@@ -26,11 +27,14 @@ const LogbookModalCreate = () => {
     };
   
     dispatch(createLogbook(data));
-    setTimeout(() => {
-      dispatch(logbooksFetch())
-    }, 500)
-    window.location.reload()
   }
+
+  useEffect(() => {
+    if (logbook) {
+      closeModal()
+      window.location.reload()
+    }
+  },[logbook])
 
   return (
 
