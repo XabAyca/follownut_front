@@ -37,7 +37,7 @@ const AppointmentModal = ({ appointment }) => {
     <div className="appointment-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
 
-      <div className="content p-3 ">
+      <div className="content p-3">
         <PDFExport ref={pdfExportComponent} paperSize="A4">
           <div className="p-3">
             <div

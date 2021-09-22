@@ -58,7 +58,7 @@ const DashboardPatient = () => {
         </h1>
         <div className="col-12">
           {lastAppointment && (
-            <PatientSituation appointment={lastAppointment} />
+            <PatientSituation appointment={lastAppointment} patient={currentPatient} />
           )}
         </div>
         <div className="col-12">
