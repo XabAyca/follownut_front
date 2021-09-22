@@ -1,21 +1,23 @@
 import Cookies from "js-cookie";
 import { deleteAppointmentFailure, deleteAppointmentRequest, deleteAppointmentSuccess, fetchAppointmentsSuccess, fetchAppointmentsFailure } from "store/actions/appointmentActions";
 import { createAppointmentFailure, createAppointmentSuccess, createAppointmentRequest, fetchAppointmentsRequest } from "store/actions/appointmentActions";
+import { createArticleFailure, createArticleRequest, createArticleSuccess } from "store/actions/articleActions";
+import { updateArticleFailure, updateArticleRequest, updateArticleSuccess } from "store/actions/articleActions";
+import { deleteArticleFailure, deleteArticleRequest, deleteArticleSuccess } from "store/actions/articleActions";
+import { fetchArticlesFailure, fetchArticlesRequest, fetchArticlesSuccess } from "store/actions/articleActions";
+import { deleteLogbookFailure, deleteLogbookRequest, deleteLogbookSuccess } from "store/actions/logbookActions";
+import { updateLogbookFailure, updateLogbookRequest, updateLogbookSuccess } from "store/actions/logbookActions";
+import { createLogbookFailure, createLogbookRequest, createLogbookSuccess } from "store/actions/logbookActions";
+import { fetchLogbooksFailure, fetchLogbooksRequest, fetchLogbooksSuccess } from "store/actions/logbookActions";
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
 import { fetchNutritionistDeleteFailure, fetchNutritionistDeleteRequest, fetchNutritionistDeleteSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistUpdateFailure, fetchNutritionistUpdateRequest, fetchNutritionistUpdateSuccess } from "store/actions/nutritionistActions";
-import { fetchNutritionistSuccess } from "store/actions/nutritionistActions";
-import { fetchNutritionistRequest } from "store/actions/nutritionistActions";
-import { fetchNutritionistFailure } from "store/actions/nutritionistActions";
+import { fetchNutritionistFailure, fetchNutritionistRequest, fetchNutritionistSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
-import { fetchOnePatientsRequest } from "store/actions/patientActions";
-import { fetchOnePatientsFailure } from "store/actions/patientActions";
-import { fetchPatientCreateFailure } from "store/actions/patientActions";
-import { fetchPatientCreateSuccess } from "store/actions/patientActions";
-import { fetchPatientCreateRequest } from "store/actions/patientActions";
-import { fetchOnePatientsSuccess } from "store/actions/patientActions";
+import { fetchOnePatientsRequest, fetchOnePatientsFailure, fetchOnePatientsSuccess } from "store/actions/patientActions";
+import { fetchPatientCreateFailure, fetchPatientCreateRequest, fetchPatientCreateSuccess } from "store/actions/patientActions";
 import { fetchPatientDeleteFailure, fetchPatientDeleteSuccess, fetchPatientDeleteRequest } from "store/actions/patientActions";
 import { fetchPatientLoginFailure, fetchPatientLoginLogout, fetchPatientLoginRequest, fetchPatientLoginSuccess } from "store/actions/patientActions";
 import { fetchPatientRegisterFailure, fetchPatientRegisterRequest, fetchPatientRegisterSuccess, fetchPatientRegisterUnregister } from "store/actions/patientActions";
@@ -196,12 +198,6 @@ export const nutritionistResetPasswordFetch = (newNutritionistData) => {
   };
 };
 
-
-
-
-
-
-
 // BELOW IS THE FUNCTION TO UPDATE A NUTRITIONIST
 export const updateNutritionistFetch = (nutritionistData) => {
   return (dispatch) => {
@@ -227,7 +223,6 @@ export const updateNutritionistFetch = (nutritionistData) => {
       });
   };
 };
-
 
 // BELOW IS THE FUNCTION TO DELETE A NUTRITIONIST
 export const deleteNutritionistFetch = () => {
@@ -256,19 +251,9 @@ export const deleteNutritionistFetch = () => {
 
 
 
-
-
-
-
-
-
-
-
-
 // ------------------------------------------------------------------------------------------
 // -------------------- BELOW ARE ALL THE PATIENT RELATED FUNCTIONS --------------------
 // ------------------------------------------------------------------------------------------
-
 
 // BELOW IS THE FUNCTION TO CREATE A NEW PATIENT
 export const patientRegisterFetch = (patientData) => {
@@ -322,7 +307,6 @@ export const patientCreateFetch = (patientData) => {
   };
 };
 
-
 // BELOW IS THE FUNCTION TO LOG IN A PATIENT
 export const patientLoginFetch = (patientData) => {
 
@@ -375,7 +359,6 @@ export const loginPatientWithCookie = async() =>{
     return false;
   }
 };
-
 
 // BELOW IS THE FUNCTION TO LOG OUT A PATIENT
 export const patientLogout = () => {
@@ -456,7 +439,6 @@ export const patientResetPasswordFetch = (newPatientData) => {
   };
 };
 
-
 // BELOW IS THE FUNCTION TO UPDATE A PATIENT
 export const updatePatientFetch = (patientData) => {
   return (dispatch) => {
@@ -482,7 +464,6 @@ export const updatePatientFetch = (patientData) => {
       });
   };
 };
-
 
 // BELOW IS THE FUNCTION TO DELETE A PATIENT
 export const deletePatientFetch = () => {
@@ -574,6 +555,7 @@ export const createAppointment = (data) => {
     })
       .then((response) => response.json())
       .then((response) => {
+        console.log(response);
         if (response.errors) {
           dispatch(createAppointmentFailure(response.errors));
         } else {
@@ -583,3 +565,198 @@ export const createAppointment = (data) => {
   };
 };
 
+
+
+// ------------------------------------------------------------------------------------------
+// -------------------- BELOW ARE ALL THE ARTICLES RELATED FUNCTIONS --------------------
+// ------------------------------------------------------------------------------------------
+
+// BELOW IS THE FUNCTION TO FETCH ALL ARTICLES
+export const articlesFetch = () => {
+  return (dispatch) => {
+    dispatch(fetchArticlesRequest());
+    fetch(baseUrl + "/api/v1/articles", {
+      method: "get",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchArticlesFailure(response.errors));
+        } else {
+          dispatch(fetchArticlesSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO DELETE ONE ARTICLE
+export const deleteArticleFetch = (id) => {
+  return (dispatch) => {
+    const token = Cookies.get("nutritionist_token_cookie");
+    dispatch(deleteArticleRequest());
+    fetch(baseUrl + `/api/v1/articles/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(deleteArticleFailure(response.errors));
+        } else {
+          dispatch(deleteArticleSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO CREATE ONE ARTICLE
+export const createArticle = (data) => {
+  return (dispatch) => {
+    const token = Cookies.get("nutritionist_token_cookie");
+    dispatch(createArticleRequest());
+    fetch(baseUrl + `/api/v1/appointments`, {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body:JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(createArticleFailure(response.errors));
+        } else {
+          dispatch(createArticleSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO UPDATE AN ARTICLE
+export const updateArticle = (data, id) => {
+  return (dispatch) => {
+    const token = Cookies.get("nutritionist_token_cookie");
+    dispatch(updateArticleRequest());
+    fetch(baseUrl + `/api/v1/appointments/${id}`, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body:JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(updateArticleFailure(response.errors));
+        } else {
+          dispatch(updateArticleSuccess(response));
+        }
+      });
+  };
+};
+
+
+
+// ------------------------------------------------------------------------------------------
+// -------------------- BELOW ARE ALL THE LOGBOOKS RELATED FUNCTIONS --------------------
+// ------------------------------------------------------------------------------------------
+
+// BELOW IS THE FUNCTION TO FETCH ALL LOGBOOKS
+export const logbooksFetch = () => {
+  return (dispatch) => {
+    dispatch(fetchLogbooksRequest());
+    fetch(baseUrl + "/api/v1/logbooks", {
+      method: "get",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(fetchLogbooksFailure(response.errors));
+        } else {
+          dispatch(fetchLogbooksSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO DELETE ONE LOGBOOK
+export const deleteLogbookFetch = (id) => {
+  return (dispatch) => {
+    const token = Cookies.get("patient_token_cookie");
+    dispatch(deleteLogbookRequest());
+    fetch(baseUrl + `/api/v1/logbooks/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(deleteLogbookFailure(response.errors));
+        } else {
+          dispatch(deleteLogbookSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO CREATE ONE LOGBOOK
+export const createLogbook = (data) => {
+  return (dispatch) => {
+    const token = Cookies.get("patient_token_cookie");
+    dispatch(createLogbookRequest());
+    fetch(baseUrl + `/api/v1/logbooks`, {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body:JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(createLogbookFailure(response.errors));
+        } else {
+          dispatch(createLogbookSuccess(response));
+        }
+      });
+  };
+};
+
+// BELOW IS THE FUNCTION TO UPDATE A LOGBOOK
+export const updateLogbook = (data, id) => {
+  return (dispatch) => {
+    const token = Cookies.get("patient_token_cookie");
+    dispatch(updateLogbookRequest());
+    fetch(baseUrl + `/api/v1/logbooks/${id}`, {
+      method: "put",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body:JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.errors) {
+          dispatch(updateLogbookFailure(response.errors));
+        } else {
+          dispatch(updateLogbookSuccess(response));
+        }
+      });
+  };
+};

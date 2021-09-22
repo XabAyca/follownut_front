@@ -85,12 +85,12 @@ const NutritionistProfile = () => {
                   </div>
                 </div>
                 <div className="row mt-2 ">
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <p>
                       {nutritionist && nutritionist.email}
                     </p>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <p>
                       {nutritionist && nutritionist.phone_number}
                     </p>

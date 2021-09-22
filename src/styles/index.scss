@@ -13,6 +13,8 @@
 @import './pages/cgu';
 @import './pages/signup';
 @import './pages/connect';
+@import './pages/logbookPatient';
+@import './pages/articleNutritionist';
 
 // Import components styles
 @import './components/navigation';
@@ -32,3 +34,6 @@
 @import './components/patientModal';
 @import './components/darkmode';
 @import './components/nutritionistResponsive';
+@import './components/logbookModal';
+@import './components/articleModal';
+@import './components/createLogbookModal';

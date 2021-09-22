@@ -1,14 +1,12 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
-import { useRef } from "react";
+import React, { useRef } from 'react';
+import { PDFExport } from '@progress/kendo-react-pdf';
 
 const AppointmentModal = ({ appointment }) => {
   const pdfExportComponent = useRef()
   
   const closeModal = () => {
     let modal = document.querySelector(".appointment-modal");
-    modal.style.opacity =0;
+    modal.style.opacity = 0;
     modal.style.visibility = "hidden";
   }
 
@@ -25,7 +23,14 @@ const AppointmentModal = ({ appointment }) => {
   };
 
   const handleExportWithComponent = (event) => {
-     pdfExportComponent.current.save();
+    pdfExportComponent.current.save();
+  };
+
+  window.onclick = (event) => {
+    event.target ===
+      document.querySelector('.appointment-modal') &&
+      event.target !== document.querySelector('.content') &&
+      closeModal()
   };
 
   return (
@@ -36,10 +41,10 @@ const AppointmentModal = ({ appointment }) => {
         <PDFExport ref={pdfExportComponent} paperSize="A4">
           <div className="p-3">
             <div
-              className="download-btn primary-button btn"
+              className="download-btn btn"
               onClick={handleExportWithComponent}
             >
-              Télécharger
+              Télécharger<i class="fas fa-file-download"></i>
             </div>
             {appointment && (
               <>

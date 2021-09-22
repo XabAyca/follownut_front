@@ -30,7 +30,7 @@ const PatientsList = ({ setOpenModal }) => {
 
   return (
     <div className="patients-list text-primary-color col-lg-8 col-sm-6">
-      <div className="patient-list-header p-2">
+      <div className="patient-list-header">
         <div className="patient-list-header-first">
           <h2>Voici la liste de vos patients</h2>
           <Link
@@ -40,11 +40,15 @@ const PatientsList = ({ setOpenModal }) => {
             Ajouter <i className="fas fa-user-plus"></i>
           </Link>
         </div>
-        <input
-          type="text"
-          placeholder="Recherche..."
-          onChange={(e) => setFilter(e.target.value)}
-        />
+        <div className="box-filter-input">
+          <i class="fas fa-search"></i>
+          <input
+            className='filter-input'
+            type="text"
+            placeholder="Recherche..."
+            onChange={(e) => setFilter(e.target.value.toLowerCase())}
+          />
+        </div>
       </div>
       <div className="details-container p-3">
         <table className="table patient-table">

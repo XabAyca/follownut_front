@@ -1,18 +1,10 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 
-function fatNMuscleChart ({date,visceral,muscle,bodyFat}) {
+function fatNMuscleChart ({date,visceral,bodyFat}) {
   const data = {
     labels: date.slice(0, 10).reverse(),
     datasets: [
-      {
-        label: "Masse musculaire (%)",
-        data: muscle.slice(0, 10).reverse(),
-        borderColor: ["rgba(39, 207, 61)"],
-        backgroundColor: ["rgba(28, 145, 43, 1)"],
-        pointBackgroundColor: "rgba(28, 145, 43, 1)",
-        pointBorderColor: "rgba(114, 252, 132, ",
-      },
       {
         label: "Masse graisseuse (%)",
         data: bodyFat.slice(0, 10).reverse(),

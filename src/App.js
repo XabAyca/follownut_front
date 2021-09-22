@@ -12,6 +12,8 @@ import Navigation from 'components/Navigation';
 import HamburgerMenu from 'components/HamburgerMenu';
 import Footer from 'components/Footer';
 import ScrollTop from 'components/ScrollTop';
+import CookiesConsent from 'components/CookiesConsent';
+
 
 // PAGES IMPORTS
 import Home from 'pages/Home';
@@ -37,8 +39,8 @@ import DashboardPatientAptsList from 'pages/DashboardPatientAptsList';
 import Cgu from 'pages/Cgu';
 import ExampleDashboard from 'pages/ExampleDashboard';
 import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
-import CookiesConsent from 'components/CookiesConsent';
-
+import LogbookPatient from 'pages/LogbookPatient';
+import ArticleNutritionist from 'pages/ArticleNutritionist';
 
 
 
@@ -226,7 +228,6 @@ const App = () => {
                 <Redirect to="/" />
               )}
             </Route>
-
             <Route exact path="/nutritionist-dashboard/create-patient">
               {isNutritionistAuth() ? (
                 <DashboardNutritionistCreatePatient />
@@ -234,6 +235,14 @@ const App = () => {
                 <Redirect to="/" />
               )}
             </Route>
+            <Route exact path="/nutritionist-article">
+              {isNutritionistAuth() ? (
+                <ArticleNutritionist />
+              ) : (
+                <Redirect to="/" />
+              )}
+            </Route>
+
 
             <Route exact path="/signup-patient">
               {isPatientAuth() ? (
@@ -272,6 +281,13 @@ const App = () => {
             <Route exact path="/patient-appointment-reports">
               {isPatientAuth() ? (
                 <DashboardPatientAptsList />
+              ) : (
+                <Redirect to="/" />
+              )}
+              </Route>
+              <Route exact path="/patient-logbook">
+              {isPatientAuth() ? (
+                <LogbookPatient />
               ) : (
                 <Redirect to="/" />
               )}

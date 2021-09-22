@@ -12,8 +12,7 @@ const AppointmentCreateForm = () => {
   const history = useHistory()
   const patients = useSelector(state => state.patient.patient)
   const [sortedPatients, setSortedPatients] = useState()
-  const nutritionist_id = Cookies.get(parseInt(Cookies.get("nutritionist_id_cookie"))
-  );
+  const nutritionist_id = Cookies.get("nutritionist_id_cookie");
 
   useEffect(() => {
     dispatch(patientsFetch())
@@ -24,7 +23,10 @@ const AppointmentCreateForm = () => {
   }, [patients])
   
   const sortPatients = () => {
-    setSortedPatients(patients.sort((a, b) => a.email.localeCompare(b.email)));
+    setSortedPatients(patients
+      .filter((patient) => patient.nutritionist)
+      .filter((patient) => patient.nutritionist.id === nutritionist_id)
+      .sort((a, b) => a.email.localeCompare(b.email)));
   }
 
   const createDataAppointment = (e) => {
@@ -48,6 +50,7 @@ const AppointmentCreateForm = () => {
         visceral_fat: visceral_fat,
         content: content,
         patient_id: patient_id,
+        nutritionist_id: nutritionist_id,
       },
     };
     dispatch(createAppointment(data))
@@ -110,7 +113,7 @@ const AppointmentCreateForm = () => {
               className="form-input-display"
               type="number"
               id="muscle_mass"
-              placeholder="%"
+              placeholder="kilogrammes"
               min="0"
               max="100"
               required

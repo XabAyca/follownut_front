@@ -29,6 +29,13 @@ const SidebarNutritionist = () => {
         <i class="fas fa-user-plus"></i>
         Ajouter un patient
       </Link>
+      <Link
+        to="/nutritionist-article"
+        className="sidebar-nutritionist-link"
+      >
+        <i class="far fa-edit"></i>
+        Articles
+      </Link>
     </div>
   );
 };
