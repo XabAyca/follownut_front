@@ -37,32 +37,28 @@ const LogbookModalCreate = () => {
   },[logbook])
 
   return (
+
     <div className="create-logbook-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
-
       <div className="content p-3 ">
-          <div className="p-3">
-            
-            <form className="col-md-5 border-right" onSubmit={createNote}>
-              <div className="d-flex flex-column">
-                <label className="labels">Titre</label>
-                <input type="text" className="form-input-display" id="logbook-title" placeholder="Titre de la note" required/>
+        <div className="create-appointment-form">
+          <h1 className="text-primary-color">Rédiger une nouvelle note</h1>
+          <form className="appointment-form text-primary-color" onSubmit={createNote}>
+            <div className="d-flex row justify-content-between py-2">
+              <div className="col-lg-6 col-sm-12 my-2">
+                <label>Titre</label>
+                <input className="input-display" type="text" id="logbook-title"  placeholder="Le titre de votre note" required />
               </div>
-              <div className="d-flex flex-column mt-4">
-                <label className="labels">Contenu</label>
-                <input type="text" className="form-input-display" id="logbook-content" placeholder="Votre contenu ici" required/>
-              </div>
-              <div className="d-flex flex-column mt-4">
-                <label className="labels">Partager cette note avec mon nutritioniste ?</label>
-                <input type="checkbox" id="logbook-is_shared" />
-              </div>
-
-              <div className="mt-5 text-center">
-                <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button w-100 mt-4" />
-              </div>
-            </form>
-            
-          </div>
+            </div>
+            <label>Votre note</label>
+            <textarea placeholder="De quoi souhaitez vous prendre note ?" id="logbook-content" className="input-display textarea-display" required />
+            <div className="d-flex my-2">
+              <input type="checkbox" id="logbook-is_shared" className="align-self-center" />
+              <label className="labels align-self-center mx-2">  Partager cette note avec mon nutritioniste ?</label>
+            </div>
+            <input type="submit" value="Sauvegarder" className="btn success-button my-3 col-lg-3 col-sm-12" />
+          </form>
+        </div>
       </div>
     </div>
   );
