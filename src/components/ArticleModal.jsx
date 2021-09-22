@@ -20,6 +20,12 @@ const ArticleModal = ({ article }) => {
     });
   };
 
+  window.onclick = (event) => {
+    event.target === document.querySelector(".article-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
+
   return (
 
     <div className="article-modal">

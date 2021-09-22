@@ -35,6 +35,12 @@ const LogbookModalUpdate = ({logbook}) => {
       window.location.reload();
     }
   }, [logbookF]);
+
+  window.onclick = (event) => {
+    event.target === document.querySelector(".update-logbook-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
   
   return (
 

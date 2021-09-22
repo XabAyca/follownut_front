@@ -34,7 +34,13 @@ const LogbookModalCreate = () => {
       closeModal()
       window.location.reload()
     }
-  },[logbook])
+  }, [logbook])
+  
+  window.onclick = (event) => {
+    event.target === document.querySelector(".create-logbook-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
 
   return (
 

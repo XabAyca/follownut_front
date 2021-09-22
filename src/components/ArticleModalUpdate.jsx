@@ -36,6 +36,12 @@ const ArticleModalUpdate = ({article}) => {
     }
   }, [articleF]);
 
+  window.onclick = (event) => {
+    event.target === document.querySelector(".update-article-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
+
   return (
 
     <div className="update-article-modal">

@@ -34,7 +34,13 @@ const ArticleModalCreate = () => {
       closeModal()
       window.location.reload()
     }
-  },[article])
+  }, [article])
+  
+  window.onclick = (event) => {
+    event.target === document.querySelector(".create-article-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
 
   return (
     <div className="create-article-modal">

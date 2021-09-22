@@ -20,6 +20,12 @@ const LogbookModal = ({ logbook }) => {
     });
   };
 
+  window.onclick = (event) => {
+    event.target === document.querySelector(".logbook-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
+
   return (
     <div className="logbook-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
