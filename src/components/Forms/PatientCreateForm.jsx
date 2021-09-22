@@ -42,7 +42,7 @@ const PatientCreateForm = () => {
   }, [isRegistered])
 
   return (
-    <div className="create-appointment-form mx-5">
+    <div className="create-appointment-form">
       {isRegistered.error && <ErrorsModal errors={isRegistered.error.errors} />}
       <h1 className="text-primary-color">Nouveau patient</h1>
       <form

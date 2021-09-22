@@ -25,7 +25,7 @@ const AppointmentCreateForm = () => {
   const sortPatients = () => {
     setSortedPatients(patients
       .filter((patient) => patient.nutritionist)
-      .filter((patient) => patient.nutritionist.id == nutritionist_id)
+      .filter((patient) => patient.nutritionist.id === nutritionist_id)
       .sort((a, b) => a.email.localeCompare(b.email)));
   }
 
@@ -63,7 +63,7 @@ const AppointmentCreateForm = () => {
   };
 
   return (
-    <div className="create-appointment-form mx-5">
+    <div className="create-appointment-form">
       <h1 className="text-primary-color">Rédiger un compte-rendu</h1>
       <form
         className="appointment-form text-primary-color"
@@ -113,7 +113,7 @@ const AppointmentCreateForm = () => {
               className="input-display"
               type="number"
               id="muscle_mass"
-              placeholder="%"
+              placeholder="kilogrammes"
               min="0"
               max="100"
               required

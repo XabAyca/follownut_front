@@ -8,13 +8,13 @@ const Footer = () => {
           <div className="row mt-3">
             
             <div className="col-md-2 col-lg-4 col-xl-3 mx-auto">
-              <h6 className="text-uppercase fw-bold">
+              <h6 className="text-uppercase fw-bold about-footer">
                 <i className="fas me-5 mx-1"></i>
                 <a href="/about" className="text-reset text-decoration-none">
                   About
                 </a>
               </h6>
-              <h6 className="text-uppercase fw-bold ">
+              <h6 className="text-uppercase fw-bold follownut-footer">
                 <i className="fas fa-gem me-3"></i>FollowNut'
               </h6>
               <p>

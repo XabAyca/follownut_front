@@ -25,29 +25,35 @@ const PatientModal = ({ patient }) => {
     temp.length > 0 ?
       setPatientAppointments(temp) :
       setPatientAppointments(undefined)
-  }
+  };
 
-    const closeModal = () => {
-      let modal = document.querySelector(".patient-modal");
-      modal.style.opacity = 0;
-      modal.style.visibility = "hidden";
-      setTimeout(() => {
-        setPatientAppointments(undefined);
-      },1000) 
-    };
+  const closeModal = () => {
+    let modal = document.querySelector(".patient-modal");
+    modal.style.opacity = 0;
+    modal.style.visibility = "hidden";
+    setTimeout(() => {
+      setPatientAppointments(undefined);
+    }, 1000)
+  };
 
-    const createDate = (el) => {
-      let date = new Date(el);
-      return date.toLocaleDateString("fr", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: false,
-      });
-    };
-  
+  const createDate = (el) => {
+    let date = new Date(el);
+    return date.toLocaleDateString("fr", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: false,
+    });
+  };
+
+  window.onclick = (event) => {
+    event.target === document.querySelector(".patient-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
+
   return (
     <div className="patient-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>

@@ -4,8 +4,8 @@ import { deleteAppointmentFetch } from 'services/apiManager';
 import { Link } from 'react-router-dom';
 
 const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) => {
-  const dispatch = useDispatch()
-  const [appointments, setAppointments] = useState(filteredAppointments)
+  const dispatch = useDispatch();
+  const [appointments, setAppointments] = useState(filteredAppointments);
   const [filter, setFilter] = useState("");
   
   const createDate = (el) => {
@@ -17,7 +17,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
       hour: "numeric",
       minute: "2-digit",
       hour12: false,
-      timeZone:"UTC",
+      timeZone: "UTC",
     });
   };
 
@@ -35,20 +35,26 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
 
   useEffect(() => {
     filteredAppointments && getFilterAppointments();
-  }, [ filter, filteredAppointments ]);
+  }, [filter, filteredAppointments]);
 
   const getFilterAppointments = () => {
     setAppointments(filteredAppointments.filter((appointment) => {
-      return(appointment.patient.first_name.toLowerCase().includes(filter) ||
-      appointment.patient.last_name.toLowerCase().includes(filter) ||
-      appointment.patient.email.toLowerCase().includes(filter))
+      return (appointment.patient.first_name.toLowerCase().includes(filter) ||
+        appointment.patient.last_name.toLowerCase().includes(filter) ||
+        appointment.patient.email.toLowerCase().includes(filter))
     }));
   }
 
   return (
+<<<<<<< HEAD
     <div className="text-primary-color col-lg-8 col-sm-12">
       <div className="patient-list-header p-2">
         <div className="d-flex justify-content-between">
+=======
+    <div className="patients-list text-primary-color col-lg-8 col-sm-12">
+      <div className="patient-list-header">
+        <div className="patient-list-header-first">
+>>>>>>> d45b71d3d7d167f96b6f4d0e31b2e699eeb60a89
           <h2>Voici la liste de vos rendez-vous</h2>
           <div className="d-flex align-items-center">
             <Link
@@ -61,7 +67,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
             
           </div>
         </div>
-        <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+        {/* <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
           <i className="fas fa-search"></i>
           <input
             type="text"
@@ -69,8 +75,17 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
             placeholder="    Recherche..."
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
-        </div>
+        </div> */}
 
+        <div className="box-filter-input">
+          <i class="fas fa-search"></i>
+          <input
+            className="filter-input"
+            type="text"
+            placeholder="Recherche..."
+            onChange={(e) => setFilter(e.target.value.toLowerCase())}
+          />
+        </div>
       </div>
 
       <div className="details-container p-3">

@@ -14,13 +14,14 @@ import notebook from 'assets/images/notebook.png';
 import article from 'assets/images/article.png';
 import PwaModal from 'components/PwaModal';
 import Cookies from 'js-cookie';
+import DarkMode from 'components/DarkModeBTN';
 
 const Home = () => {
 
   return (
     <div className="home page-padding">
       {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
-      <section className="section bg-blue px-5 align-items-center">
+      <section className="section bg-blue align-items-center">
         <div className="section1-left">
           <h1 className="text-white">
             Le suivi parfait entre patient et nutritioniste
