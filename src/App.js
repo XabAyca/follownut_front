@@ -41,6 +41,7 @@ import ExampleDashboard from 'pages/ExampleDashboard';
 import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
 import LogbookPatient from 'pages/LogbookPatient';
 import ArticleNutritionist from 'pages/ArticleNutritionist';
+import Articles from 'pages/Articles';
 
 
 
@@ -295,6 +296,7 @@ const App = () => {
             <Route exact path="/exemple/tableau-de-bord" component={ExampleDashboard} />
             <Route exact path="/about" component={About} />
             <Route exact path="/cgu" component={Cgu} />
+            <Route exact path="/articles" component={Articles} />
             <Route exact path="/" component={Home} />
             <Route component={NotFound} />
           </Switch>

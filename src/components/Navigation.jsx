@@ -42,6 +42,14 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
           >
             Accueil
           </NavLink>
+          <NavLink
+            exact
+            to="/articles"
+            activeClassName="nav-active"
+            className="nav-link"
+          >
+            Articles
+          </NavLink>
           {patientAuth && (
             <>
               <NavLink

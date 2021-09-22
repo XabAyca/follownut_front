@@ -40,11 +40,11 @@ const ArticleModalUpdate = ({article}) => {
           {article && 
 
             <form className="col-md-5 border-right" onSubmit={updatePublication}>
-              <div className="col-md-6">
+              <div className="d-flex flex-column">
                 <label className="labels">Titre</label>
                 <input type="text" className="form-input-display" placeholder={titleArticle} value={titleArticle} onChange={(e) => setTitleArticle(e.target.value)} required/>
               </div>
-              <div className="col-md-6">
+              <div className="d-flex flex-column mt-4">
                 <label className="labels">Contenu</label>
                 <input type="text" className="form-input-display" placeholder={contentArticle} value={contentArticle} onChange={(e) => setContentArticle(e.target.value)} required/>
               </div>
