@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { updatePatientFetch } from 'services/apiManager';
+import { Link } from 'react-router-dom';
 
 
 const PatientEditForm = ({patientData, nutritionists}) => {
@@ -52,7 +53,7 @@ const PatientEditForm = ({patientData, nutritionists}) => {
     <form className="col-md-5 border-right" onSubmit={updateDataPatient}>
         <div className="p-3 py-5">
           <div className="d-flex justify-content-between align-items-center mb-3">
-              <h4 className="text-right">Réglage du profil</h4>
+              <h4 className="text-right">Votre profil</h4>
           </div>
           <select onChange={(e) => setNutritionistId(e.target.value)}className="form-select" aria-label="Default select example">
             <option selected>Selectionnez votre nutritionniste</option>
@@ -90,7 +91,10 @@ const PatientEditForm = ({patientData, nutritionists}) => {
             </div>            
           </div>
           <div className="mt-5 text-center">
-          <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button w-100 mt-4" />
+            <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button w-100 mt-4" />
+            <Link to="/patient-profile">
+              <div className="d-flex justify-content-center mt-2 text-primary-color">Retour</div>
+            </Link>
           </div>
         </div>
     </form>

@@ -48,11 +48,11 @@ const NutritionistProfile = () => {
   }
 
   return (
-    <div className="dashboard-page">
+    <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarNutritionist />
       </div>
-      <div className="dashboard-page-right">
+      <div className="dashboard-page-right my-5">
         <div className="container rounded patient-details col-lg-9 col-sm-12">
           <div className="row">
             <div className="col-md-6 border-right d-flex justify-content-center align-items-center">
@@ -65,40 +65,29 @@ const NutritionistProfile = () => {
                 />
               </div>
             </div>
-            <div className="col-md-5 mt-5 border-right mx-2">
-              <div className="">
-                <div className="">
-                  <h1 className="text-right">Profil nutritionniste</h1>
+            <div className="col-md-5 mt-5 border-right text-primary-color">
+              <div>
+                <div>
+                  <h1 className="text-right mx-0">
+                    {nutritionist && nutritionist.first_name}{" "}{nutritionist && nutritionist.last_name}</h1>
                 </div>
-                <div className="row mt-2">
-                  <div className="col-md-6">
-                    <p>
-                      {nutritionist && 
-                        nutritionist.first_name
-                      }
-                    </p>
-                  </div>
-                  <div className="col-md-6">
-                    <p>
-                      {nutritionist && nutritionist.last_name}
-                    </p>
-                  </div>
-                </div>
-                <div className="row mt-2 ">
-                  <div className="col-md-12">
-                    <p>
+                <div className="my-2">
+                  <div className="col-md-12 d-flex py-2">
+                    <i className="align-self-center far fa-envelope"></i>
+                    <div className="align-self-center mx-2">
                       {nutritionist && nutritionist.email}
-                    </p>
+                    </div>
                   </div>
-                  <div className="col-md-12">
-                    <p>
+                  <div className="col-md-12 d-flex py-2">
+                    <i className="align-self-center fas fa-phone"></i>
+                    <div className="align-self-center mx-2">
                       {nutritionist && nutritionist.phone_number}
-                    </p>
+                    </div>
                   </div>
-                  <div className="col-md-12">
-                    <p>
+                  <div className="col-md-12 py-2">
+                    <div>
                       {nutritionist && nutritionist.slug_calendly }
-                    </p>
+                    </div>
                   </div>
                   <Link
                     exact
