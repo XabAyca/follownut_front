@@ -1,7 +1,9 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 const ArticleCard = ({ articleData }) => {
-  const {title, nutritionist} = articleData;
+  const {title, nutritionist, id} = articleData;
+  const history = useHistory();
 
   return (
     <div className="article-card">
@@ -14,7 +16,9 @@ const ArticleCard = ({ articleData }) => {
           <h5 className="author">Par {nutritionist.first_name} {nutritionist.last_name}</h5>
         </div>
         <div className="card-btn">
-          <a href="#" className="btn third-button">En savoir plus</a>
+          <p className="btn third-button" onClick={() => history.push(`/article/${id}`)}>
+            En savoir plus
+          </p>
         </div>
       </div>
     </div>
