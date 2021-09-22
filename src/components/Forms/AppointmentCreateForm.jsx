@@ -113,7 +113,7 @@ const AppointmentCreateForm = () => {
               className="form-input-display"
               type="number"
               id="muscle_mass"
-              placeholder="%"
+              placeholder="kilogrammes"
               min="0"
               max="100"
               required

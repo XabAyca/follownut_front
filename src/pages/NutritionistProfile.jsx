@@ -60,7 +60,7 @@ const NutritionistProfile = () => {
                 <img
                   className="rounded-circle"
                   width="270px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                  src={nutritionist ? nutritionist.avatar : "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"}
                   alt="profile"
                 />
               </div>
@@ -85,12 +85,12 @@ const NutritionistProfile = () => {
                   </div>
                 </div>
                 <div className="row mt-2 ">
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <p>
                       {nutritionist && nutritionist.email}
                     </p>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <p>
                       {nutritionist && nutritionist.phone_number}
                     </p>

@@ -12,7 +12,6 @@ const NutritionistEditForm = ({nutritionistData}) => {
   const [pnumber, setPnumber] = useState(phone_number);
   const [profilePic, setProfilePic] = useState(avatar);
   const [calendlyAccount, setCalendlyAccount] = useState(slug_calendly);
-  const [apiKey, setApiKey] = useState(api_key);
   const [pword, setPword] = useState();
   const [pwordConfirmation, setPwordConfirmation] = useState();
   const history = useHistory()
@@ -30,7 +29,6 @@ const NutritionistEditForm = ({nutritionistData}) => {
           phone_number: pnumber,
           avatar: profilePic,
           slug_calendly: calendlyAccount,
-          api_key: apiKey,
           password: pword,
           password_confirmation: pwordConfirmation,
         },
@@ -112,13 +110,13 @@ const NutritionistEditForm = ({nutritionistData}) => {
             />
           </div>
           <div className="col-md-12">
-            <label className="labels">clef d'authentification</label>
+            <label className="labels">Url photo</label>
             <input
               type="text"
               className="form-input-display"
-              placeholder={apiKey}
-              value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
+              placeholder={profilePic}
+              value={profilePic}
+              onChange={(e) => setProfilePic(e.target.value)}
             />
           </div>
           <div className="col-md-12">
