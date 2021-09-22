@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';
 
 const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) => {
-  const dispatch = useDispatch()
-  const [appointments, setAppointments] = useState(filteredAppointments)
+  const dispatch = useDispatch();
+  const [appointments, setAppointments] = useState(filteredAppointments);
   const [filter, setFilter] = useState("");
   
   const createDate = (el) => {
