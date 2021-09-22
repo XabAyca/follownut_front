@@ -10,7 +10,7 @@ const PatientSituation = ({appointment}) => {
           votre dernier rendez-vous
         </small>
       </div>
-      <div className="details-container mx-3 p-3 col-lg-6 col-sm-12">
+      <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
         <div className="data-columns row mx-3">
           <div className="left-details col-lg-6 col-sm-12">
             <table className="table patient-table">
@@ -47,7 +47,7 @@ const PatientSituation = ({appointment}) => {
               <tbody>
                 <tr>
                   <th scope="row">Masse musculaire</th>
-                  <td>{appointment.muscle_mass} %</td>
+                  <td>{appointment.muscle_mass} kg</td>
                 </tr>
                 <tr>
                   <th scope="row">Masse graisseuse</th>

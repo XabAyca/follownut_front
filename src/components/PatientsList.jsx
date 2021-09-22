@@ -31,7 +31,7 @@ const PatientsList = ({ setOpenModal }) => {
   return (
 
     <div className="text-primary-color col-lg-8 col-sm-6">
-      <div className="patient-list-header p-2">
+      <div className="p-2">
         <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos patients</h2>
           <div className=" d-flex align-items-center">

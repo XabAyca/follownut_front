@@ -72,8 +72,8 @@ const ArticleNutritionist = () => {
         }
       </div>
       <div className="dashboard-page-right">
-        <div className="m-5">
-          {articlesNutritionist ?  
+        <div className="d-flex justify-content-center py-5">
+        {articlesNutritionist ?  
             <ArticlesList
               filteredArticles={articlesNutritionist}
               setOpenModal={openModal}
