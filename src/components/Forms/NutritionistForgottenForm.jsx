@@ -51,9 +51,9 @@ const NutritionistForgottenForm = () => {
   return (
     <div className="nutritionist-forgotten-form d-flex justify-content-center">
       <ErrorsModalPawd errors={forgot.error} />
-      <div className="form-container">
+      <div className="form-container py-3">
         <p className="text-third-color">
-          Cher nutritioniste, renseignez votre email pour recevoir un lien et
+          Renseignez votre email pour recevoir un lien et
           réinitialiser votre mot de passe.
         </p>
         <form onSubmit={(e) => handleNutritionistForgottenPassword(e)}>
