@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAppointmentFetch } from 'services/apiManager';
+import { Link } from 'react-router-dom';
 
 const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) => {
   const dispatch = useDispatch();
@@ -45,24 +46,35 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
   }
 
   return (
-    <div className="patients-list text-primary-color col-lg-8 col-sm-12">
-      <div className="patient-list-header">
-        <div className="patient-list-header-first">
+    
+    <div className="text-primary-color col-lg-8 col-sm-12">
+      <div className="patient-list-header p-2">
+        <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos rendez-vous</h2>
+          <div className="d-flex align-items-center">
+            <Link
+              to="/nutritionist-dashboard/appointments"
+              className="btn outline-primary-button"
+            >
+              <span className="mx-1">Ajouter</span>
+              <i className="mx-1 fas fa-calendar-check"></i>
+            </Link>
+            
+          </div>
         </div>
-        <div className="box-filter-input">
-          <i class="fas fa-search"></i>
+        <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+          <i className="fas fa-search"></i>
           <input
-            className="filter-input"
             type="text"
-            placeholder="Recherche..."
+            className=""
+            placeholder="    Recherche..."
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
         </div>
       </div>
 
       <div className="details-container p-3">
-        <table class="table patient-table">
+        <table className="table patient-table">
           <thead>
             <tr>
               <th scope="col">Réf.</th>

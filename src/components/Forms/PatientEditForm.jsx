@@ -54,7 +54,7 @@ const PatientEditForm = ({patientData, nutritionists}) => {
           <div className="d-flex justify-content-between align-items-center mb-3">
               <h4 className="text-right">Réglage du profil</h4>
           </div>
-          <select onChange={(e) => setNutritionistId(e.target.value)}class="form-select" aria-label="Default select example">
+          <select onChange={(e) => setNutritionistId(e.target.value)}className="form-select" aria-label="Default select example">
             <option selected>Selectionnez votre nutritionniste</option>
             {
               nutritionists.map((nutritionist) => {
@@ -68,25 +68,25 @@ const PatientEditForm = ({patientData, nutritionists}) => {
           <div className="row mt-2">
               <div className="col-md-6">
                 <label className="labels">Nom</label>
-                <input type="text" className="form-input-display" placeholder={lname} value={lname} onChange={(e) => setLname(e.target.value)} />
+                <input type="text" className="input-display" placeholder={lname} value={lname} onChange={(e) => setLname(e.target.value)} />
               </div>
               <div className="col-md-6">
                 <label className="labels">Prénom</label>
-                <input type="text" className="form-input-display" placeholder={fname} value={fname} onChange={(e) => setFname(e.target.value)} />
+                <input type="text" className="input-display" placeholder={fname} value={fname} onChange={(e) => setFname(e.target.value)} />
               </div>
           </div>
           <div className="row mt-3">
             <div className="col-md-12">
               <label className="labels">Email</label>
-              <input type="text" className="form-input-display" placeholder={mail} value={mail} onChange={(e) => setMail(e.target.value)} />
+              <input type="text" className="input-display" placeholder={mail} value={mail} onChange={(e) => setMail(e.target.value)} />
             </div>
             <div className="col-md-12">
               <label className="labels">Mot de passe (seulement pour modifier votre mot de passe)</label>
-              <input type="password" className="form-input-display" placeholder="" value={pword} onChange={(e) => setPword(e.target.value)} />
+              <input type="password" className="input-display" placeholder="" value={pword} onChange={(e) => setPword(e.target.value)} />
             </div>
             <div className="col-md-12">
               <label className="labels">Confirmation de mot de passe</label>
-              <input type="password" className="form-input-display" placeholder="" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
+              <input type="password" className="input-display" placeholder="" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
             </div>            
           </div>
           <div className="mt-5 text-center">

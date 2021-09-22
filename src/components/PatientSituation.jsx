@@ -13,7 +13,7 @@ const PatientSituation = ({appointment}) => {
       <div className="details-container mx-3 p-3 col-lg-6 col-sm-12">
         <div className="data-columns row mx-3">
           <div className="left-details col-lg-6 col-sm-12">
-            <table class="table patient-table">
+            <table className="table patient-table">
               <thead>
                 <tr>
                   <th scope="col">Mesure</th>

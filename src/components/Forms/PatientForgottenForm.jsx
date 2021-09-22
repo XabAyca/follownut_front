@@ -56,7 +56,7 @@ const PatientForgottenForm = () => {
           </label>
           <input
             type="email"
-            className="form-input-display"
+            className="input-display"
             placeholder="Votre email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

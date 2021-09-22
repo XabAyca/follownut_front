@@ -7,19 +7,19 @@ const SidebarPatient = () => {
       <Link
         to="/patient-dashboard"
         className="sidebar-patient-dashboard-link">
-        <i class="fas fa-chart-line"></i>
+        <i className="fas fa-chart-line"></i>
         Relevés
       </Link>
       <Link
         to="/patient-appointment-reports"
         className="sidebar-patient-dashboard-link">
-        <i class="far fa-calendar-alt"></i>
+        <i className="fas fa-calendar-check"></i>
         Rendez-vous
       </Link>
       <Link
         to="/patient-logbook"
         className="sidebar-patient-dashboard-link">
-        <i class="far fa-clipboard"></i>
+        <i className="far fa-clipboard"></i>
         Bloc-note
       </Link>
     </div>
