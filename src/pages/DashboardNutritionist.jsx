@@ -1,15 +1,17 @@
+// CONFIG IMPORTS
+import Cookies from 'js-cookie';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { nutritionistFetch, appointmentsFetch } from 'services/apiManager';
+
+// COMPONENT IMPORTS
 import AppointmentModal from 'components/AppointmentModal';
 import AppointmentsListNutritionist from 'components/AppointmentsListNutritionist';
 import CalendlyBtn from 'components/CalendlyBtn';
 import ProfileToCompleteModal from 'components/ProfileToCompleteModal';
 import PwaModal from 'components/PwaModal';
 import SidebarNutritionist from 'components/SidebarNutritionist';
-import Cookies from 'js-cookie';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { nutritionistFetch } from 'services/apiManager';
-import { appointmentsFetch } from 'services/apiManager';
+
 
 const DashboardNutritionist = () => {
   const dispatch = useDispatch()

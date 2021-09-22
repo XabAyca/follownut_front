@@ -1,6 +1,12 @@
 import React from 'react';
 
-const PatientSituation = ({appointment}) => {
+const PatientSituation = ({appointment, patient}) => {
+
+
+  const dateOfBirthasADate = new Date(patient.date_of_birth)
+  const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
+
+
   return (
     <div className="patient-situation text-primary-color">
       <div className="patient-situation-header mx-3 p-2">
@@ -12,6 +18,8 @@ const PatientSituation = ({appointment}) => {
       </div>
       <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
         <div className="data-columns row mx-3">
+          <div className="py-2"><strong>Genre : </strong>{patient.gender}</div>
+          <div className="py-2"><strong>Âge : </strong>{age} ans</div>
           <div className="left-details col-lg-6 col-sm-12">
             <table className="table patient-table">
               <thead>

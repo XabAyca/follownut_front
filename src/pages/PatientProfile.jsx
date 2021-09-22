@@ -51,73 +51,49 @@ const PatientProfile = () => {
 
 
   return (
-    <>
-      <div className="dashboard-page">
-        <div className="dashboard-page-left">
-          <SidebarPatient />
-        </div>
-        <div className="dashboard-page-right p-0">
-          <div className="container rounded patient-details col-lg-7 col-sm-12">
-            <div className="row">
-              <div className="col-md-6 border-right d-flex justify-content-center align-items-center">
-                <div className="d-flex flex-column align-items-center text-center mt-5">
-                  <img className="rounded-circle" width="200px" 
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                  alt="profile"/>
-                </div>
+    <div className="dashboard-page page-padding">
+      <div className="dashboard-page-left">
+        <SidebarPatient />
+      </div>
+      <div className="dashboard-page-right my-5">
+        <div className="container rounded patient-details col-lg-9 col-sm-12">
+          <div className="row">
+            <div className="col-md-6 border-right d-flex justify-content-center align-items-center">
+              <div className="d-flex flex-column align-items-center text-center mt-5">
+                <img className="rounded-circle" width="200px" 
+                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                alt="profile"/>
               </div>
-              <div className="col-md-5 border-right">
-                <div className="p-3">
-                  <div className="mb-5">
-                      <h1 className="text-right">Patient Profile</h1>
-                  </div>
-                  <div className="row mt-2">
-                    <div className="col-md-6">
-                      <p>
-                        {
-                          patient ? 
-                          patient.first_name : <Loading color={"blue"} />
-                        }
-                      </p>
-                    </div>
-                    <div className="col-md-6">
-                      <p>
-                        {
-                          patient ? 
-                          patient.last_name : <Loading color={"blue"} />
-                        }
-                      </p>
-                    </div>
-                  </div>
-                  <div className="row mt-3 d-flex">
-                    <div className="col-md-12">
-                      <p>
-                        {
-                          patient ? 
-                          patient.email : <Loading color={"blue"} />
-                        } 
-                      </p>
-                    </div>
-                    <Link
-                      exact
-                      to="/patient-edit-profile"
-                      className="sidebar-nutritionist-link text-dark"
-                    >
-                    
-                      <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Modifier mon profil</div>
-                      
-                    </Link>
-                    <form onSubmit={deleteProfilePatient} >
-                      <input className="btn danger-button text-white p-2 mt-4 w-100" type="submit"  value="Supprimer mon compte" />
-                    </form>
+            </div>
+            <div className="col-md-5 mt-5 border-right text-primary-color">
+              <div>
+                <div>
+                  <h1 className="text-right mx-0">{patient && patient.first_name}{" "}{patient && patient.last_name}</h1>
+                </div>
+                <div className="my-2">
+                  <div className="col-md-12 d-flex py-2">
+                    <i className="align-self-center far fa-envelope"></i>
+                    <div className="align-self-center mx-2"> { patient ? patient.email : <Loading color={"blue"} />} </div>
                   </div>
                 </div>
+                <Link
+                  exact
+                  to="/patient-edit-profile"
+                  className="sidebar-nutritionist-link text-dark"
+                >
+                
+                  <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Modifier mon profil</div>
+                  
+                </Link>
+                <form onSubmit={deleteProfilePatient} >
+                  <input className="btn danger-button text-white p-2 mt-4 w-100" type="submit"  value="Supprimer mon compte" />
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
