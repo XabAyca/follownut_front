@@ -39,7 +39,7 @@ const Home = () => {
                 </Link>
               </div>
               <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                <Link to="/signup-nutritionist" className="px-5 primary-button btn-lg btn-primary text-white">
+                <Link to="/signup-patient" className="px-5 primary-button btn-lg btn-primary text-white">
                   Je suis un patient
                 </Link>
               </div>
