@@ -48,7 +48,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
   return (
     
     <div className="text-primary-color col-lg-8 col-sm-12">
-      <div className="patient-list-header p-2">
+      <div className="p-2">
         <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos rendez-vous</h2>
           <div className="d-flex align-items-center">
@@ -59,7 +59,6 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
               <span className="mx-1">Ajouter</span>
               <i className="mx-1 fas fa-calendar-check"></i>
             </Link>
-            
           </div>
         </div>
         <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
