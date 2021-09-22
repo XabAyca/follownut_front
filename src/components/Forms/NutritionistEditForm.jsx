@@ -113,17 +113,10 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <label className="labels">Url photo</label>
             <input
               type="text"
-<<<<<<< HEAD
               className="input-display"
-              placeholder={apiKey}
-              value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
-=======
-              className="form-input-display"
               placeholder={profilePic}
               value={profilePic}
               onChange={(e) => setProfilePic(e.target.value)}
->>>>>>> d45b71d3d7d167f96b6f4d0e31b2e699eeb60a89
             />
           </div>
           <div className="col-md-12">

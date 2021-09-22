@@ -5,17 +5,10 @@
   }
   .section {
     min-width: 100vw;
-<<<<<<< HEAD
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-left: 8%;
-    padding-right: 8%;
-=======
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 2%;
     padding-right: 2%;
->>>>>>> d45b71d3d7d167f96b6f4d0e31b2e699eeb60a89
     display: flex;
     flex-direction: row;
     @include phone {

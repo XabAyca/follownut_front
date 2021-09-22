@@ -46,15 +46,10 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
   }
 
   return (
-<<<<<<< HEAD
+    
     <div className="text-primary-color col-lg-8 col-sm-12">
       <div className="patient-list-header p-2">
         <div className="d-flex justify-content-between">
-=======
-    <div className="patients-list text-primary-color col-lg-8 col-sm-12">
-      <div className="patient-list-header">
-        <div className="patient-list-header-first">
->>>>>>> d45b71d3d7d167f96b6f4d0e31b2e699eeb60a89
           <h2>Voici la liste de vos rendez-vous</h2>
           <div className="d-flex align-items-center">
             <Link
@@ -67,22 +62,12 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
             
           </div>
         </div>
-        {/* <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+        <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
           <i className="fas fa-search"></i>
           <input
             type="text"
             className=""
             placeholder="    Recherche..."
-            onChange={(e) => setFilter(e.target.value.toLowerCase())}
-          />
-        </div> */}
-
-        <div className="box-filter-input">
-          <i class="fas fa-search"></i>
-          <input
-            className="filter-input"
-            type="text"
-            placeholder="Recherche..."
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
         </div>
