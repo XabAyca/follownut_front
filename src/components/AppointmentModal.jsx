@@ -7,7 +7,7 @@ const AppointmentModal = ({ appointment }) => {
   
   const closeModal = () => {
     let modal = document.querySelector(".appointment-modal");
-    modal.style.opacity =0;
+    modal.style.opacity = 0;
     modal.style.visibility = "hidden";
   }
 
@@ -24,7 +24,14 @@ const AppointmentModal = ({ appointment }) => {
   };
 
   const handleExportWithComponent = (event) => {
-     pdfExportComponent.current.save();
+    pdfExportComponent.current.save();
+  };
+
+  window.onclick = (event) => {
+    event.target ===
+      document.querySelector('.appointment-modal') &&
+      event.target !== document.querySelector('.content') &&
+      closeModal()
   };
 
   return (
