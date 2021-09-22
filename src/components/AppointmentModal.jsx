@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
-import { Button } from 'react-bootstrap';
-import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
+import { PDFExport } from '@progress/kendo-react-pdf';
 
 const AppointmentModal = ({ appointment }) => {
   const pdfExportComponent = useRef()

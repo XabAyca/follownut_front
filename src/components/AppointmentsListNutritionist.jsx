@@ -16,7 +16,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
       hour: "numeric",
       minute: "2-digit",
       hour12: false,
-      timeZone:"UTC",
+      timeZone: "UTC",
     });
   };
 
@@ -34,27 +34,31 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
 
   useEffect(() => {
     filteredAppointments && getFilterAppointments();
-  }, [ filter, filteredAppointments ]);
+  }, [filter, filteredAppointments]);
 
   const getFilterAppointments = () => {
     setAppointments(filteredAppointments.filter((appointment) => {
-      return(appointment.patient.first_name.toLowerCase().includes(filter) ||
-      appointment.patient.last_name.toLowerCase().includes(filter) ||
-      appointment.patient.email.toLowerCase().includes(filter))
+      return (appointment.patient.first_name.toLowerCase().includes(filter) ||
+        appointment.patient.last_name.toLowerCase().includes(filter) ||
+        appointment.patient.email.toLowerCase().includes(filter))
     }));
   }
 
   return (
     <div className="patients-list text-primary-color col-lg-8 col-sm-12">
-      <div className="patient-list-header p-2">
+      <div className="patient-list-header">
         <div className="patient-list-header-first">
           <h2>Voici la liste de vos rendez-vous</h2>
         </div>
-        <input
-          type="text"
-          placeholder="Recherche..."
-          onChange={(e) => setFilter(e.target.value.toLowerCase())}
-        />
+        <div className="box-filter-input">
+          <i class="fas fa-search"></i>
+          <input
+            className="filter-input"
+            type="text"
+            placeholder="Recherche..."
+            onChange={(e) => setFilter(e.target.value.toLowerCase())}
+          />
+        </div>
       </div>
 
       <div className="details-container p-3">
