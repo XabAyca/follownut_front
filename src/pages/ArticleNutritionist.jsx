@@ -6,7 +6,8 @@ import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import ArticlesList from 'components/ArticlesList';
 import ArticleModal from 'components/ArticleModal';
-import CreateArticleModal from 'components/CreateArticleModal';
+import ArticleModalCreate from 'components/ArticleModalCreate';
+import ArticleModalUpdate from 'components/ArticleModalUpdate';
 
 const ArticleNutritionist = () => {
   const [articlesNutritionist, setArticlesNutritionist] = useState();
@@ -33,12 +34,11 @@ const ArticleNutritionist = () => {
   
   useEffect(() => {
     getArticleNutritionist();
-    console.log(articlesNutritionist ? articlesNutritionist : "test")
   },[articles])
 
 
   const openModal = (article) => {
-    setCurrentArticle(article)
+    setCurrentArticle(article);
     let modal = document.querySelector(".article-modal");
     modal.style.opacity = 1
     modal.style.visibility = 'visible'
@@ -50,12 +50,25 @@ const ArticleNutritionist = () => {
     modal.style.visibility = 'visible';
   }
 
+  const openUpdateModal = (article) => {
+    setCurrentArticle(article);
+    if (currentArticle) {
+      let modal = document.querySelector(".update-article-modal");
+      modal.style.opacity = 1;
+      modal.style.visibility = 'visible';
+    }
+  }
+
   return (
     <div className="dashboard-page page-padding">
       <div className="dashboard-page-left">
         <SidebarNutritionist />
         <ArticleModal article={currentArticle} />
-        <CreateArticleModal />
+        <ArticleModalCreate />
+        
+        { currentArticle ?
+          <ArticleModalUpdate article={currentArticle}/> : ""
+        }
       </div>
       <div className="dashboard-page-right">
         <div className="m-5">
@@ -64,6 +77,7 @@ const ArticleNutritionist = () => {
               filteredArticles={articlesNutritionist}
               setOpenModal={openModal}
               setOpenCreateModal={openCreateModal}
+              setOpenUpdateModal={openUpdateModal}
             /> :
             <Loading />
           } 

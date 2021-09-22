@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ArticleModal = ({ article }) => {
-  
+
   const closeModal = () => {
     let modal = document.querySelector(".article-modal");
     modal.style.opacity = 0;

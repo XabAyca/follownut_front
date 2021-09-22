@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { createArticle, articlesFetch } from 'services/apiManager';
 
-const CreateArticleModal = () => {
+const ArticleModalCreate = () => {
   const dispatch = useDispatch();
 
   const closeModal = () => {
@@ -58,4 +58,4 @@ const CreateArticleModal = () => {
   );
 };
 
-export default CreateArticleModal;
+export default ArticleModalCreate;
