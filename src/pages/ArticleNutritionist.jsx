@@ -24,9 +24,10 @@ const ArticleNutritionist = () => {
         .filter((article) => {
           return article.nutritionist_id === nutritionist_id
         })
-        setArticlesNutritionist(atls)
+        .sort((a, b) => b.updated_at.localeCompare(a.updated_at))
+      setArticlesNutritionist(atls)
     }
-  }
+  };
 
   useEffect(() => { 
     dispatch(articlesFetch());

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { createArticle, articlesFetch } from 'services/apiManager';
 
 const ArticleModalCreate = () => {
   const dispatch = useDispatch();
+  const article = useSelector(state => state.articles.article)
 
   const closeModal = () => {
     let modal = document.querySelector(".create-article-modal");
@@ -22,13 +24,17 @@ const ArticleModalCreate = () => {
         content: content,
       },
     };
-  
+
     dispatch(createArticle(data));
-    setTimeout(() => {
-      dispatch(articlesFetch())
-    }, 500)
-    window.location.reload()
   }
+
+  useEffect(() => {
+    dispatch(articlesFetch())
+    if (article) {
+      closeModal()
+      window.location.reload()
+    }
+  },[article])
 
   return (
     <div className="create-article-modal">
