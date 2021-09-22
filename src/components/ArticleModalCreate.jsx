@@ -38,11 +38,11 @@ const ArticleModalCreate = () => {
           <div className="p-3">
 
             <form className="col-md-5 border-right" onSubmit={createPublication}>
-              <div className="col-md-6">
+              <div className="d-flex flex-column">
                 <label className="labels">Titre</label>
                 <input type="text" className="form-input-display" id="article-title" placeholder="Titre de l'article" required/>
               </div>
-              <div className="col-md-6">
+              <div className="d-flex flex-column mt-4">
                 <label className="labels">Contenu</label>
                 <input type="text" className="form-input-display" id="article-content" placeholder="Votre contenu ici" required/>
               </div>
