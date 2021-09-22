@@ -11,6 +11,8 @@
 @import './pages/patientEditProfile';
 @import './pages/dashboardPatientAptsList';
 @import './pages/cgu';
+@import './pages/signup';
+@import './pages/connect';
 
 // Import components styles
 @import './components/navigation';
@@ -28,4 +30,5 @@
 @import './components/pwaModal';
 @import './components/profileToComplete';
 @import './components/patientModal';
-@import './components/responsive';
+@import './components/darkmode';
+@import './components/nutritionistResponsive';

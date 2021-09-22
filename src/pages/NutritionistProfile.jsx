@@ -53,21 +53,21 @@ const NutritionistProfile = () => {
         <SidebarNutritionist />
       </div>
       <div className="dashboard-page-right">
-        <div className="container rounded patient-details my-5 py-5 col-lg-9 col-sm-12">
+        <div className="container rounded patient-details col-lg-9 col-sm-12">
           <div className="row">
-            <div className="col-md-6 border-right d-flex align-items-center">
-              <div className="d-flex flex-column align-items-center text-center mt-5">
+            <div className="col-md-6 border-right d-flex justify-content-center align-items-center">
+              <div className="d-flex flex-column align-items-center text-center ">
                 <img
                   className="rounded-circle"
-                  width="270px"
+                  width="200px"
                   src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
                   alt="profile"
                 />
               </div>
             </div>
             <div className="col-md-5 mt-5 border-right mx-2">
-              <div className="p-3">
-                <div className="mb-5">
+              <div className="">
+                <div className="">
                   <h1 className="text-right">Profil nutritionniste</h1>
                 </div>
                 <div className="row mt-2">
