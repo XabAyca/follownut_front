@@ -46,6 +46,7 @@ import ArticleNutritionist from 'pages/ArticleNutritionist';
 import Articles from 'pages/Articles';
 import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
+import { ModalBody } from 'react-bootstrap';
 
 
 
@@ -108,7 +109,7 @@ const App = () => {
   const loginNutritionist = useSelector((state) => state.nutritionists.login);
   const registerNutritionist = useSelector((state) => state.nutritionists.register);
   const [loading, setLoading] = useState(false);
-
+  const [isDark, setIsDark] = useState(false);
   
   useEffect(() => {
     checkPatientAuth().then(res => {
@@ -142,22 +143,32 @@ const App = () => {
         Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
   };
 
-
-  const [isDark, setIsDark] = useState(false);
-
   useEffect(() => {
-    const temp = JSON.parse(localStorage.getItem('themePreference'));
+    const temp = JSON.parse(localStorage.getItem("themePreference"));
     if (temp !== undefined && temp !== null) {
       setIsDark(temp);
-    } else if ( window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-      setIsDark(true)
     }
-  }, [])
+    else if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setIsDark(true);
+    }
+  }, []);
   
+  useEffect(() => {
+    if (isDark) {
+      const body = document.querySelector("#root");
+      body.classList.add("dark-mode");
+    }
+  }, [isDark]);
+
   const toogleMode = () => {
-    localStorage.setItem("themePreference", String(!isDark))
+    const body = document.querySelector("#root");
+    body.classList.toggle("dark-mode");
+    localStorage.setItem("themePreference", String(!isDark));
     setIsDark(!isDark);
-  }
+  };
 
   return (
     <>

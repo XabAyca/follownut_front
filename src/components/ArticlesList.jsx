@@ -43,40 +43,44 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setO
           </div>
         </div>
         <div className="details-container p-3">
-          <table className="table patient-table">
-            <thead>
-              <tr>
-                <th scope="col">Réf.</th>
-                <th scope="col">Date</th>
-                <th scope="col">Titre</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-            {
-                articles.map((article) => {
-                  return (
-                    <tr>
-                      <th scope="row" key={article.id}>{article.id}</th>
-                      <td>{createDate(article.updated_at)}</td>
-                      <td>{ article.title }</td>
-                      <td>
-                        <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(article)}></i>
-                      </td>
-                      <td>
-                        <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(article)}></i>
-                      </td>
-                      <td>
-                        <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteArticle(article, e)}></i>
-                      </td>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
+          { articles.length > 0 ?
+            <table className="table patient-table">
+              <thead>
+                <tr>
+                  <th scope="col">Réf.</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Titre</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+              {
+                  articles.map((article) => {
+                    return (
+                      <tr>
+                        <th scope="row" key={article.id}>{article.id}</th>
+                        <td>{createDate(article.updated_at)}</td>
+                        <td>{ article.title }</td>
+                        <td>
+                          <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(article)}></i>
+                        </td>
+                        <td>
+                          <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(article)}></i>
+                        </td>
+                        <td>
+                          <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteArticle(article, e)}></i>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+            : <p>Vous n'avez pas encore publié d'article</p>
+          }
+          
         </div>
       </div>
     </div>

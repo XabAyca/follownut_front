@@ -33,18 +33,21 @@ const AppointmentModal = ({ appointment }) => {
       closeModal()
   };
 
-  console.log(appointment)
-
-  const getAge = () => {
-    const dateOfBirthasADate = new Date(appointment.patient.date_of_birth);
-    const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed();
-    console.log(age);
-    return age
+  const computeAge = (patient) => {
+    if (patient.date_of_birth) {
+      let dob = new Date(patient.date_of_birth);
+      let age = ((Date.now() - dob) / 31536000000).toFixed();
+      return age
+    }
   }
 
-  // const dateOfBirthasADate = new Date(appointment.patient.date_of_birth)
-  // const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
-  // console.log(age)
+  const displayAge = (age) => {
+    return age == null ? "Non renseigné" : `${age} ans`
+  }
+
+  const displayGender = (gender) => {
+    return gender === "unknown" ? "Non renseigné" : (gender === "male" ? "Homme" : "Femme")
+  }
 
   return (
     <div className="read-modal">
@@ -71,17 +74,16 @@ const AppointmentModal = ({ appointment }) => {
                         " " +
                         appointment.patient.first_name
                       ) : (
-                        <span>Patient supprimé </span>
+                        <span>Utilisateur supprimé </span>
                       )}
                     </p>
-                    <p className="m-0">
+                    <p className="d-flex">
                       <strong>Âge : </strong>
-                      {appointment.patient ? getAge() : <span>?</span>}
-                      <span> ans</span>
+                      {appointment.patient && displayAge(computeAge(appointment.patient))}
                     </p>
                     <p className="m-0">
-                      <strong>Genre : </strong>
-                      {appointment.patient ? appointment.patient.gender : <span>?</span>}
+                      <strong>Sexe : </strong>
+                      {displayGender(appointment.patient.gender)}
                     </p>
                   </div>
                   <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">

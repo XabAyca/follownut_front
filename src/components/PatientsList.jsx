@@ -14,9 +14,18 @@ const PatientsList = ({ setOpenModal }) => {
 
   const getNutritionistPatients = () => {
     setNutritionistPatients(nutritionist.patients.filter((patient) => {
-      return(patient.first_name.toLowerCase().includes(filter) ||
-      patient.last_name.toLowerCase().includes(filter) ||
-      patient.email.toLowerCase().includes(filter))
+      if (patient.first_name && patient.last_name) {
+        return(
+          patient.first_name.toLowerCase().includes(filter) ||
+          patient.last_name.toLowerCase().includes(filter) ||
+          patient.email.toLowerCase().includes(filter)
+        )
+      } else {
+        return (
+          patient.email.toLowerCase().includes(filter)
+        )
+      }
+
     }));
   };
 

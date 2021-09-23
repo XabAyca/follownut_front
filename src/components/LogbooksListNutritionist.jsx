@@ -46,34 +46,41 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
           />
         </div>
         <div className="details-container p-3 mt-3">
-        <table className="table patient-table">
-          <thead>
-            <tr>
-              <th scope="col">Réf.</th>
-              <th scope="col">Date</th>
-              <th scope="col">Patient</th>
-              <th scope="col">Titre</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-          {
-              logbooks.map((logbook) => {
-                return (
-                  <tr>
-                    <th scope="row" key={logbook.id}>{logbook.id}</th>
-                    <td>{createDate(logbook.updated_at)}</td>
-                    <td>M./Mme {logbook.patient.last_name}</td>
-                    <td>{logbook.title}</td>
-                    <td>
-                      <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
-                    </td>
-                  </tr>
-                )
-              })
-            }
-          </tbody>
-        </table>
+          { logbooks.length > 0 ?
+            <table className="table patient-table">
+              <thead>
+                <tr>
+                  <th scope="col">Réf.</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Patient</th>
+                  <th scope="col">Titre</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  logbooks.map((logbook) => {
+                    return (
+                      <tr>
+                        <th scope="row" key={logbook.id}>{logbook.id}</th>
+                        <td>{createDate(logbook.updated_at)}</td>
+                        <td>M./Mme {logbook.patient.last_name}</td>
+                        <td>{logbook.title}</td>
+                        <td>
+                          <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+            : <p>Vous n'avez pas de notes pour le moment</p>
+          }
+
+          
+
+
         </div>
       </div>
     </div>
