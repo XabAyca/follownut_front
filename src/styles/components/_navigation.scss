@@ -60,7 +60,7 @@
 
 
   .dropdown-toggle {
-    background-color: $primary-color;
+    background-color: var(--prim-color);
     margin: 15px;
   }
   .dropdown-item a{
