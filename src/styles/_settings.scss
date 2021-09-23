@@ -10,36 +10,88 @@
 $primary-font: "Hind";
 
 // -------------------- COLORS VARIABLES -------------------- //
-$primary-color: #002bba;
-$transparency-primary-color: rgba(0, 43, 186, 0.7);
-$secondary-color: #91B2E2;
-$transparency-secondary-color: rgba(145, 178, 226, 0.9);
+
+// ----- DAY MODE ----- //
+$basic-color-white:#ffffff;
+$basic-color-grey: #ced4da;
+$basic-color-dark:#292929;
+$modal-bg: rgba(0, 0, 0, 0.726);
+$modal-bg-dark: rgba(255, 255, 255, 0.726);
+
+$prim-color: #002bba;
+$transparency-prim-color: rgba(0, 43, 186, 0.7);
+$sec-color: #91B2E2;
+$transparency-sec-color: rgba(145, 178, 226, 0.9);
 $third-color: #FFBF00;
-$background-color:transparent;
 $success: #5DA271;
 $danger: #fb3333;
 $warning: #efef5b;
-$white-color : #fff;
-$transparent-color: rgba(255, 255, 255, 0);
 
-// Dark Colors //
-$primary-color-dark: #0c69f5;
-$secondary-color-dark: #77abf9;
-$third-color-dark:#c58b24;
-$background-color-dark:transparent;
-$success-dark:#4a825a;
-$danger-dark:#e10000;
-$warning-dark:#e8e815;
-$transparent-color-dark: #0c69f5;
 
-// Light Colors //
-$primary-color-light: #3355c8;
-$secondary-color-light: #a7c1e8;
+// Deep Shade Colors //
+
+$prim-color-deep: #002295;
+$transparency-prim-color-deep: rgba(0, 34, 149, 0.7);
+$sec-color-deep: #748eb5;
+$transparency-sec-color-deep: rgba(116, 142, 181, 0.9);
+$third-color-deep:#cc9900;
+$success-deep:#4a825a;
+$danger-deep:#c92929;
+$warning-deep:#e8e815;
+
+
+// Light Shade Colors //
+$prim-color-light: #3355c8;
+$transparency-prim-color-light: rgba(51, 85, 200, 0.7);
+$sec-color-light: #a7c1e8;
+$transparency-sec-color-light: rgba(185, 205, 237, 0.9);
 $third-color-light: #ffcc33;
-$background-color-light:transparent;
 $success-light:#7db58d;
 $danger-light:#fc5c5c;
-$warning-light:#f2f27c;
+$warning-light:#f1f173;
+
+// Jumbotron colors
+$jb-u-n:rgba(0,0,0,0.2);
+$jb-d-n:rgba(0,0,0,0.6);
+
+
+// ----- NIGHT MODE (DARK) ----- //
+
+
+$prim-color-dark: #ffffff;
+$transparency-prim-color-dark: rgba(255, 255, 255, 0.7);
+$sec-color-dark: #383838;
+$transparency-sec-color-dark: rgba(231, 231, 231, 0.9);
+$third-color-dark: #b8b8b8;
+$success-dark: #7db58d;
+$danger-dark: #fc5c5c;
+$warning-dark: #f1f173;
+
+// Deep Shade Colors (DARK) //
+
+$prim-color-deep-dark: #002295;
+$transparency-prim-color-deep-dark: rgba(0, 17, 74, 0.7);
+$sec-color-deep-dark: #748eb5;
+$transparency-sec-color-deep-dark: rgba(116, 142, 181, 0.9);
+$third-color-deep-dark:#cc9900;
+$success-deep-dark:#4a825a;
+$danger-deep-dark:#c92929;
+$warning-deep-dark:#e8e815;
+
+
+// Light Shade Colors (DARK) //
+$prim-color-light-dark: #3355c8;
+$transparency-prim-color-light-dark: rgba(51, 85, 200, 0.7);
+$sec-color-light-dark: #a7c1e8;
+$transparency-sec-color-light-dark: rgba(185, 205, 237, 0.9);
+$third-color-light-dark: #ffcc33;
+$success-light-dark:#7db58d;
+$danger-light-dark:#fc5c5c;
+$warning-light-dark:#f1f173;
+
+// Jumbotron colors
+$jb-u-d:rgba(0,0,0,0.5);
+$jb-d-d:rgba(0,0,0,0.9);
 
 // Other variables & mixin //
 $phone-viewport:800px;
@@ -51,32 +103,92 @@ $phone-viewport:800px;
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 // DO NOT EDIT
 :root{
-  --primary-color: #{$primary-color};
-  --secondary-color:#{$secondary-color};
+
+  --modal-background:#{$modal-bg};
+  --modal-color:#{$basic-color-white};
+  --basic-color-white:#{$basic-color-white};
+  --basic-color-grey:#{$basic-color-grey};
+  --basic-color-dark:#{$basic-color-dark};
+
+  --prim-color:#{$prim-color};
+  --transparency-prim-color:#{$transparency-prim-color};
+  --sec-color:#{$sec-color};
+  --transparency-sec-color: #{$transparency-sec-color};
   --third-color:#{$third-color};
-  --background-color:#{$background-color};
   --success-color:#{$success};
   --danger-color:#{$danger};
   --warning-color:#{$warning};
-  --transparent-color:#{$transparent-color};
-  --background-color-blue:#{background-color-blue};
+
+  --prim-color-deep:#{$prim-color-deep};
+  --transparency-prim-color-deep:#{$transparency-prim-color-deep};
+  --sec-color-deep:#{$sec-color-deep};
+  --transparency-sec-color-deep: #{$transparency-sec-color-deep};
+  --third-color-deep:#{$third-color-deep};
+  --success-color-deep:#{$success-deep};
+  --danger-color-deep:#{$danger-deep};
+  --warning-color-deep:#{$warning-deep};
+
+  --prim-color-light:#{$prim-color-light};
+  --transparency-prim-color-light:#{$transparency-prim-color-light};
+  --sec-color-light:#{$sec-color-light};
+  --transparency-sec-color-light: #{$transparency-sec-color-light};
+  --third-color-light:#{$third-color-light};
+  --success-color-light:#{$success-light};
+  --danger-color-light:#{$danger-light};
+  --warning-color-light:#{$warning-light};
+
+  --jumbotron-up:#{$jb-u-n};
+  --jumbotron-down:#{$jb-d-n};
+
 }
 .dark-mode{
-  --primary-color: #{$primary-color-dark};
-  --secondary-color:#{$secondary-color-dark};
+
+  --modal-background:#{$modal-bg-dark};
+  --modal-color:#{$basic-color-dark};
+  --basic-color-white:#{$basic-color-dark};
+  --basic-color-grey:#{$basic-color-grey};
+  --basic-color-dark:#{$basic-color-white};
+
+  --prim-color:#{$prim-color-dark};
+  --transparency-prim-color:#{$transparency-prim-color-dark};
+  --sec-color:#{$sec-color-dark};
+  --transparency-sec-color: #{$transparency-sec-color-dark};
   --third-color:#{$third-color-dark};
-  --background-color:#{$background-color-dark};  
   --success-color:#{$success-dark};
   --danger-color:#{$danger-dark};
   --warning-color:#{$warning-dark};
-  --transparent-color:#{$transparent-color-dark};
-  --white-color:#{$white-color};
-  --background-color-blue:#{background-color-blue-dark};
+
+  --prim-color-deep:#{$prim-color-deep-dark};
+  --transparency-prim-color-deep:#{$transparency-prim-color-deep-dark};
+  --sec-color-deep:#{$sec-color-deep-dark};
+  --transparency-sec-color-deep: #{$transparency-sec-color-deep-dark};
+  --third-color-deep:#{$third-color-deep-dark};
+  --success-color-deep:#{$success-deep-dark};
+  --danger-color-deep:#{$danger-deep-dark};
+  --warning-color-deep:#{$warning-deep-dark};
+
+  --prim-color-light:#{$prim-color-light-dark};
+  --transparency-prim-color-light:#{$transparency-prim-color-light-dark};
+  --sec-color-light:#{$sec-color-light-dark};
+  --transparency-sec-color-light: #{$transparency-sec-color-light-dark};
+  --third-color-light:#{$third-color-light-dark};
+  --success-color-light:#{$success-light-dark};
+  --danger-color-light:#{$danger-light-dark};
+  --warning-color-light:#{$warning-light-dark};
+
+  --jumbotron-up:#{$jb-u-d};
+  --jumbotron-down:#{$jb-d-d};
+
 }
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
 // All app CSS //
+
+#root {
+  background-color: var(--basic-color-white);
+}
+
 *{
   font-family: $primary-font;
   margin: 0;
@@ -88,17 +200,17 @@ $phone-viewport:800px;
   text-decoration: none;
 
   a {
-    color: $white-color;
+    color: var(--basic-color-white);
   }
   a:hover {
-     color: $secondary-color;
+     color: var(--sec-color);
   }
 }
 
 body{
 
-  background-color: var(--transparent-color);
-  //-webkit-font-smoothing: antialiased;
+  background-color: var(--basic-color-white);
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   margin: 0;
@@ -122,75 +234,76 @@ body{
 
 
 .primary-button {
-  background-color: var(--primary-color);
+  background-color: var(--prim-color);
+  color: var(--basic-color-white);
   text-decoration: none;
   text-decoration: none;
 
   &:hover {
-    background-color: var(--transparent-color);
+    background-color: var(--basic-color-white);
   }
 }
 
 .outline-primary-button {
-  background-color: transparent;
-  border-color: $primary-color;
+  background-color: var(--basic-color-white);
+  border-color: var(--prim-color);
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--prim-color);
 
   &:hover {
     border-width: 1.5px;
-    border-color: $primary-color;
-    color: var(--primary-color);
+    border-color: var(--prim-color);
+    color: var(--prim-color);
   }
 }
 
 .secondary-button {
-  background-color: $secondary-color;
+  background-color: var(--sec-color);
   color: black;
   text-decoration: none;
 
   &:hover {
-    background-color: $secondary-color-dark;
+    background-color: var(--sec-color-deep);
   }
 }
 
 .third-button {
-  background-color: $third-color;
+  background-color: var(--third-color);
   text-decoration: none;
 
   &:hover {
-    background-color: $third-color-light;
+    background-color: var(--third-color-light);
   }
 }
 
 .success-button {
-  background-color: $success;
+  background-color: var(--success-color);
   text-decoration: none;
-  color: $white-color;
+  color: var(--basic-color-white);
 
   &:hover {
-    background-color: $success-dark;
-    color: $white-color;
+    background-color: var(--success-color-deep);
+    color: var(--basic-color-white);
   }
 }
 
 .danger-button {
-  background-color: $danger;
+  background-color: var(--danger-color);
   text-decoration: none;
-  color: $secondary-color;
+  color: var(--sec-color);
 
   &:hover {
-    background-color: $danger-dark;
-    color: $secondary-color;
+    background-color: var(--danger-color-deep);
+    color: var(--sec-color);
   }
 }
 
 .warning-button {
-  background-color: $warning;
+  background-color: var(--warning-color);
   text-decoration: none;
 
   &:hover {
-    background-color: $warning-dark;
+    background-color: var(--warning-color-deep);
   }
 }
 
@@ -198,105 +311,171 @@ body{
 
 h1 {
   line-height: 1.6em;
-  color: var(--white-color)
+  color: var(--prim-color);
 }
 
 h2 {
   line-height: 1.6em;
-  color: var(--white-color)
+  color: var(--prim-color);
 }
 
 h3 {
   line-height: 1.5em;
-  color: var(--white-color)
+  color: var(--prim-color);
 }
 
 h4 {
   line-height: 1.5em;
-  color: var(--white-color)
+  color: var(--prim-color);
 }
 
 h5 {
   line-height: 1.4em;
   text-align: justify;
-  color: var(--white-color)
+  color: var(--prim-color);
 }
 
 h6 {
   line-height: 1.4em;
   text-align: justify;
-  color: var(--white-color)
+  color: var(--prim-color);
 }
-p{
-  color: var(--white-color)
+
+p {
+  color: var(--prim-color);
 }
+
+
+div {
+  color: var(--prim-color);
+}
+
+
 
 // -------------------- TEXT COLORS -------------------- //
 
 .text-primary-color {
-  color: var(--transparent-color);
+  color: var(--prim-color);
 }
 
 .text-secondary-color {
-  color: $secondary-color;
+  color: var(--sec-color);
 }
 
 .text-third-color {
-  color: $third-color;
+  color: var(--third-color);
 }
 
 .text-success-color {
-  color: $success;
+  color: var(--success-color);
 }
 
 .text-danger-color {
-  color: $danger;
+  color: var(--danger-color);
 }
 
 .text-warning-color {
-  color: $warning;
+  color: var(--warning-color)
 }
 
-// -------------------- TEXT COLORS -------------------- //
+.text-white-color {
+  color: $basic-color-white;
+}
+
 .b-underline {
-  text-decoration: underline $primary-color;
+  text-decoration: underline var(--prim-color);
 }
 
 
 // -------------------- BACKGROUNDS -------------------- //
 .bg-blue {
   // background-color: #91b2e2;
-  background-color: var(--secondary-color);
+  background-color: var(--sec-color);
 }
 
 
 // -------------------- BOXES -------------------- //
 
 .form-container {
-  background: $transparency-primary-color;
+  background: var(--transparency-prim-color-deep);
   border-radius: 10px;
   padding: 3rem 3rem;
   width: 35em;
 }
 
 .details-container {
-  background-color: $secondary-color;
+  background-color: var(--sec-color);
   border-radius: 10px;
 }
+
+// -------------------- MODALS -------------------- //
+
+.read-modal{
+  position: fixed;
+  height: 100vh;
+  overflow-y: hidden;
+  top:0;
+  background-color: var(--modal-background);
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s;
+
+  .fa-times{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ffff;
+    font-size: 1.5rem;
+  }
+  .download-btn{
+    font-size: 1.2rem;
+    width: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    bottom:10px;
+    right: 10px;
+    border-radius: 50px;
+    color: #ffff;
+    background-color: rgb(129, 134, 254);
+    &:hover{
+      background-color: var(--third-color);
+    }
+  }
+
+  .content{
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    overflow-y: auto;
+    border-radius: 10px;
+    background-color: var(--modal-color);
+    box-shadow: 0 0 20px #454545;;
+    color:#454545;
+    position: relative;
+  }
+}
+
 
 // -------------------- TABLES -------------------- //
 
 .patient-table {
   width: 100%;
   margin-bottom: 1rem;
-  color: $primary-color;
+  color: var(--prim-color);
   vertical-align: top;
-  border-color: #dee2e6;
+  border-color: var(--basic-color-white);
 
   tbody {
     tr {
       &:hover {
-        background-color: $third-color;
+        background-color: var(--third-color);
       }
     }
   }
@@ -314,10 +493,10 @@ td {
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
-  color: #212529;
-  background-color: $white-color;
+  color: var(--basic-color-dark);
+  background-color: var(--basic-color-white);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--basic-color-grey);
   border-radius: 0.25rem;
   width: 100%;
   height: 2.5rem;
@@ -329,7 +508,11 @@ td {
 }
 
 .search-input {
-  border-bottom: $secondary-color solid 2px;
+  background-color: transparent;
+}
+
+.bottom-search {
+  border-bottom: var(--sec-color) solid 2px;
 }
 
 

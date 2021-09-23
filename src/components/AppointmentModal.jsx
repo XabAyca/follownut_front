@@ -5,7 +5,7 @@ const AppointmentModal = ({ appointment }) => {
   const pdfExportComponent = useRef()
   
   const closeModal = () => {
-    let modal = document.querySelector(".appointment-modal");
+    let modal = document.querySelector(".read-modal");
     modal.style.opacity = 0;
     modal.style.visibility = "hidden";
   }
@@ -28,7 +28,7 @@ const AppointmentModal = ({ appointment }) => {
 
   window.onclick = (event) => {
     event.target ===
-      document.querySelector('.appointment-modal') &&
+      document.querySelector('.read-modal') &&
       event.target !== document.querySelector('.content') &&
       closeModal()
   };
@@ -50,7 +50,7 @@ const AppointmentModal = ({ appointment }) => {
   }
 
   return (
-    <div className="appointment-modal">
+    <div className="read-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
 
       <div className="content p-3">
