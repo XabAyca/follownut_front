@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
 import Cookies from 'js-cookie';
 import { Pwa } from "components/context/InstallPwa";
+import { ModalBody } from 'react-bootstrap';
+
 
 // COMPONENTS IMPORTS
 import Navigation from 'components/Navigation';
@@ -15,6 +17,8 @@ import ScrollTop from 'components/ScrollTop';
 import CookiesConsent from 'components/CookiesConsent';
 import DarkMode from 'components/context/darkMode';
 //import ModeBtn from 'components/darkModeBTN';
+import DarkModeBtn from 'components/DarkModeBTN';
+
 
 
 // PAGES IMPORTS
@@ -46,8 +50,7 @@ import ArticleNutritionist from 'pages/ArticleNutritionist';
 import Articles from 'pages/Articles';
 import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
-import { ModalBody } from 'react-bootstrap';
-import DarkModeBtn from 'components/DarkModeBTN';
+import Nutritionists from 'pages/Nutritionists';
 
 
 
@@ -344,6 +347,7 @@ const App = () => {
             <Route exact path="/cgu" component={Cgu} />
             <Route exact path="/article/:slug" component={Article} /> 
             <Route exact path="/articles" component={Articles} />
+            <Route exact path="/nutritionists" component={Nutritionists} />
             <Route exact path="/" component={Home} />
             <Route component={NotFound} />
           </Switch>
