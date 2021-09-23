@@ -102,8 +102,7 @@ const PatientProfile = () => {
           </div>
         </div>
       </div>
-    </div>  
- 
+    </div>
   );
 };
 

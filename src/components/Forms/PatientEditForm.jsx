@@ -54,12 +54,12 @@ const PatientEditForm = ({patientData, nutritionists}) => {
 
   return (
     <>
-    <form className="col-md-5 border-right" onSubmit={updateDataPatient}>
+    <form className="border-right" onSubmit={updateDataPatient}>
         <div className="p-3 py-5">
           <div className="d-flex justify-content-between align-items-center mb-3">
-              <h4 className="text-right">Votre profil</h4>
+              <h1 className="text-right">Votre profil</h1>
           </div>
-          <select onChange={(e) => setNutritionistId(e.target.value)}className="form-select" aria-label="Default select example">
+          <select onChange={(e) => setNutritionistId(e.target.value)}className="input-display" aria-label="Default select example">
             <option selected>Selectionnez votre nutritionniste</option>
             {
               nutritionists.map((nutritionist) => {
