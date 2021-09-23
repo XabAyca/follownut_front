@@ -1,11 +1,7 @@
-body.dark {
-  background-color: #292c35;
-}
 .checkbox {
   opacity: 0;
   position: absolute;
 }
-
 .label {
   width: 50px;
   height: 20px;
@@ -18,7 +14,6 @@ body.dark {
   position: relative;
   transform: scale(1.5);
 }
-
 .ball {
   width: 20px;
   height: 18px;
@@ -30,8 +25,6 @@ body.dark {
   transition: transform 0.2s linear;
   cursor: pointer;
 }
-
-/*  target the elemenent after the label*/
 .checkbox:checked + .label .ball{
   transform: translateX(24px);
 }

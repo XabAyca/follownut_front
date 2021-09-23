@@ -20,15 +20,17 @@ $success: #5DA271;
 $danger: #fb3333;
 $warning: #efef5b;
 $white-color : #fff;
+$transparent-color: rgba(255, 255, 255, 0);
 
 // Dark Colors //
-$primary-color-dark: #002295;
-$secondary-color-dark: #748eb5;
+$primary-color-dark: #0c69f5;
+$secondary-color-dark: #77abf9;
 $third-color-dark:#c58b24;
 $background-color-dark:transparent;
 $success-dark:#4a825a;
 $danger-dark:#e10000;
 $warning-dark:#e8e815;
+$transparent-color-dark: #0c69f5;
 
 // Light Colors //
 $primary-color-light: #3355c8;
@@ -56,6 +58,8 @@ $phone-viewport:800px;
   --success-color:#{$success};
   --danger-color:#{$danger};
   --warning-color:#{$warning};
+  --transparent-color:#{$transparent-color};
+  --background-color-blue:#{background-color-blue};
 }
 .dark-mode{
   --primary-color: #{$primary-color-dark};
@@ -65,6 +69,9 @@ $phone-viewport:800px;
   --success-color:#{$success-dark};
   --danger-color:#{$danger-dark};
   --warning-color:#{$warning-dark};
+  --transparent-color:#{$transparent-color-dark};
+  --white-color:#{$white-color};
+  --background-color-blue:#{background-color-blue-dark};
 }
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
@@ -89,6 +96,7 @@ $phone-viewport:800px;
 }
 
 html,body{
+  background-color: var(--transparent-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
@@ -112,12 +120,12 @@ html,body{
 // -------------------- BUTTONS -------------------- //
 
 .primary-button {
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   text-decoration: none;
   text-decoration: none;
 
   &:hover {
-    background-color: $primary-color-dark;
+    background-color: var(--transparent-color);
   }
 }
 
@@ -175,34 +183,43 @@ html,body{
 
 h1 {
   line-height: 1.6em;
+  color: var(--white-color)
 }
 
 h2 {
   line-height: 1.6em;
+  color: var(--white-color)
 }
 
 h3 {
   line-height: 1.5em;
+  color: var(--white-color)
 }
 
 h4 {
   line-height: 1.5em;
+  color: var(--white-color)
 }
 
 h5 {
   line-height: 1.4em;
   text-align: justify;
+  color: var(--white-color)
 }
 
 h6 {
   line-height: 1.4em;
   text-align: justify;
+  color: var(--white-color)
+}
+p{
+  color: var(--white-color)
 }
 
 // -------------------- TEXT COLORS -------------------- //
 
 .text-primary-color {
-  color: $primary-color;
+  color: var(--transparent-color);
 }
 
 .text-secondary-color {
@@ -234,7 +251,7 @@ h6 {
 // -------------------- BACKGROUNDS -------------------- //
 .bg-blue {
   // background-color: #91b2e2;
-  background-color: #91b2e2;
+  background-color: var(--secondary-color);
 }
 
 
@@ -328,5 +345,4 @@ td {
 .pointer-clickable {
   cursor: pointer;
 }
-
-
+// -------------------- ICONS -------------------- //

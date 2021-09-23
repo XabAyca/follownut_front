@@ -5,7 +5,6 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { nutritionistLogout, patientLogout } from "services/apiManager";
 import Cookies from 'js-cookie';
-import DarkMode from './DarkModeBTN';
 
 // ASSETS IMPORTS
 import logo from 'assets/images/logo.svg'
@@ -85,7 +84,6 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
           )}
           
         </div>
-        <DarkMode/>
       </div>
       <div>
         {!patientAuth && !nutritionistAuth && (

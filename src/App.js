@@ -13,6 +13,8 @@ import HamburgerMenu from 'components/HamburgerMenu';
 import Footer from 'components/Footer';
 import ScrollTop from 'components/ScrollTop';
 import CookiesConsent from 'components/CookiesConsent';
+import DarkMode from 'components/context/darkMode';
+import ModeBtn from 'components/darkModeBTN';
 
 
 // PAGES IMPORTS
@@ -113,8 +115,7 @@ const App = () => {
       setLoading(true);
     });
   }, []);
-  
-  
+
   const checkPatientAuth = async () => {
     return await (loginPatientWithCookie());
   }
@@ -138,10 +139,34 @@ const App = () => {
         Cookies.get('nutritionist_token_cookie') === undefined ? false : true)
   };
 
+
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const temp = JSON.parse(localStorage.getItem('themePreference'));
+    if (temp !== undefined && temp !== null) {
+      setIsDark(temp);
+    } else if ( window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      setIsDark(true)
+    }
+  }, [])
+  
+  const toogleMode = () => {
+    localStorage.setItem("themePreference", String(!isDark))
+    setIsDark(!isDark);
+  }
+
   return (
     <>
       <BrowserRouter>
+        <DarkMode.Provider
+        value={{
+          isDark,
+          toogleMode: toogleMode
+        }}
+        >
         <ScrollTop/>
+        <ModeBtn/>
         <Pwa.Provider value={installBtn}>
           <Navigation
             patientAuth={isPatientAuth()}
@@ -301,7 +326,9 @@ const App = () => {
           <Footer />
           <CookiesConsent/>
         </Pwa.Provider>
+        </DarkMode.Provider>
       </BrowserRouter>
+
     </>
   );
 };

@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { patientLogout } from 'services/apiManager';
 import { nutritionistLogout } from 'services/apiManager';
-import DarkMode from './DarkModeBTN';
 
 
 const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
