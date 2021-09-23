@@ -7,16 +7,17 @@ import PatientCharts from './PatientCharts';
 
 const PatientModal = ({ patient }) => {
   const dispatch = useDispatch()
-  const appointments = useSelector((state) => state.appointments.appointments)
-  const [patientAppointments, setPatientAppointments] = useState(undefined)
+  const appointments = useSelector((state) => state.appointments.appointments);
+  const [patientAppointments, setPatientAppointments] = useState(undefined);
 
   useEffect(() => {
-      dispatch(appointmentsFetch())
+      dispatch(appointmentsFetch());
   }, [])
   
   useEffect(() => {
-    appointments && patient && filteredAppointment()
-  }, [appointments,patient])
+    appointments && patient && filteredAppointment();
+  }, [appointments, patient])
+
   
   const filteredAppointment = () => {
     let temp = appointments
@@ -54,8 +55,17 @@ const PatientModal = ({ patient }) => {
       closeModal();
   };
 
-  const dateOfBirthasADate = new Date(patient.date_of_birth)
-  const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
+  const computeAge = () => {
+    if (patient && patient.date_of_birth) {
+      let dob = new Date(patient.date_of_birth);
+      let age = ((Date.now() - dob) / 31536000000).toFixed();
+      return age
+    }
+  }
+
+  const displayGender = (gender) => {
+    return gender === "unknown" ? "Non renseigné" : (gender === "male" ? "Homme" : "Femme")
+  }
 
   return (
     <div className="patient-modal">
@@ -74,8 +84,17 @@ const PatientModal = ({ patient }) => {
                     <span>Patient supprimé </span>
                   )}
                 </p>
-                <p className="m-0"><strong>Genre : </strong>{patient.gender}</p>
-                <p className="m-0"><strong>Âge : </strong>{age} ans</p>
+                <p className="m-0">
+                  <strong>Sexe : </strong>
+                  {displayGender(patient.gender)}
+                </p>
+                <p className="m-0">
+                  <strong>Âge : </strong>
+                  { patient && patient.date_of_birth ? 
+                    computeAge() + " ans"
+                    : "Non renseigné"
+                  }
+                </p>
               </div>
               <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">
                 <h1>

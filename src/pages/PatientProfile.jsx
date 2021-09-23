@@ -49,6 +49,10 @@ const PatientProfile = () => {
     }
   }
 
+  const displayGender = (gender) => {
+    return gender === "unknown" ? "Non renseigné" : (gender === "male" ? "Homme" : "Femme")
+  }
+
 
   return (
     <div className="dashboard-page page-padding">
@@ -74,6 +78,22 @@ const PatientProfile = () => {
                       {patient.first_name} {patient.last_name}
                     </h1> 
                     : <h1>Prenom Nom</h1>
+                  } 
+                </div>
+                <div>
+                  <h4 className="text-right mx-0">Date de naissance</h4> 
+                  {
+                    patient && patient.date_of_birth ?
+                    patient.date_of_birth
+                    : "Non renseigné"
+                  } 
+                </div>
+                <div>
+                  <h4 className="text-right mx-0">Sex</h4> 
+                  {
+                    patient && patient.gender ?
+                    displayGender(patient.gender)
+                    : "Non renseigné"
                   } 
                 </div>
                 <div className="my-2">
