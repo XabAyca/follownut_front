@@ -1,18 +1,18 @@
-window.onload = function() {
-  const checkbox = document.getElementById("whateveriwant");
-
-  // checkbox.addEventListener('change', ()=>{
-  //   document.body.classList.toggle('dark-mode');
-  // })
-  
-};
-
+import { useContext } from "react";
+import DarkMode from "./context/darkMode";
 
 const DarkModeBtn = () => {
-  return (
+  const { isDark, toogleMode } = useContext(DarkMode);
 
+  return (
     <div className="toggleWrapper" id="whateveriwant">
-      <input type="checkbox" className="" id="checkbox" />
+      <input
+        type="checkbox"
+        className=""
+        id="checkbox"
+        checked={isDark ? true : false}
+        onChange={toogleMode}
+      />
       <label htmlFor="checkbox" className="toggle">
         <span className="toggle__handler">
           <span className="crater crater--1"></span>
@@ -27,7 +27,7 @@ const DarkModeBtn = () => {
         <span className="star star--6"></span>
       </label>
     </div>
-  )
+  );
 }
 
 export default DarkModeBtn;
