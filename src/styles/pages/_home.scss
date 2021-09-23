@@ -1,5 +1,8 @@
 .home {
   background-color: var(--primery-color);
+  .dark-filter{
+    filter: grayscale(70%);
+  }
   img {
     pointer-events: none;
     cursor: default;
@@ -44,6 +47,7 @@
       }
       img.appointement {
         width: 100%;
+        object-fit: contain;
       }
     }
     .section3-left {
@@ -54,7 +58,7 @@
       }
       img.img-container {
         width: 100%;
-        border-radius: 60%;
+        object-fit: contain;
       }
     }
     .section3-right {

@@ -26,6 +26,7 @@ $third-color: #FFBF00;
 $success: #5DA271;
 $danger: #fb3333;
 $warning: #efef5b;
+$footer-color:#d1d1d1;
 
 
 // Deep Shade Colors //
@@ -65,6 +66,7 @@ $third-color-dark: #b8b8b8;
 $success-dark: #7db58d;
 $danger-dark: #fc5c5c;
 $warning-dark: #f1f173;
+$footer-color-dark:#7e7e7e;
 
 // Deep Shade Colors (DARK) //
 
@@ -117,6 +119,7 @@ $phone-viewport:800px;
   --success-color:#{$success};
   --danger-color:#{$danger};
   --warning-color:#{$warning};
+  --footer-color:#{$footer-color};
 
   --prim-color-deep:#{$prim-color-deep};
   --transparency-prim-color-deep:#{$transparency-prim-color-deep};
@@ -156,6 +159,7 @@ $phone-viewport:800px;
   --success-color:#{$success-dark};
   --danger-color:#{$danger-dark};
   --warning-color:#{$warning-dark};
+  --footer-color:#{$footer-color-dark};
 
   --prim-color-deep:#{$prim-color-deep-dark};
   --transparency-prim-color-deep:#{$transparency-prim-color-deep-dark};
