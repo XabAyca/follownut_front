@@ -1,10 +1,11 @@
-const checkbox = document.getElementById("whateveriwant");
+window.onload = function() {
+  const checkbox = document.getElementById("whateveriwant");
 
-console.log(checkbox);
-
-//checkbox.addEventListener('change', ()=>{
-  //document.body.classList.toggle('dark');
-//})
+  checkbox.addEventListener('change', ()=>{
+    document.body.classList.toggle('dark');
+  })
+  
+};
 
 
 const DarkModeBtn = () => {
