@@ -1,21 +1,25 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import {React, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import DarkMode from '../components/context/darkMode';
-import { useParams } from 'react-router-dom';
 
 // ASSETS IMPORTS
 import appointement from 'assets/images/appointement.png';
-import calendar from 'assets/images/online_calendar.png';
-import doctors from 'assets/images/doctors.png';
-import dashboard from 'assets/images/dashboard.png';
-import data from 'assets/images/data.png';
-import app from 'assets/images/app.png';
-import notebook from 'assets/images/notebook.png';
-import article from 'assets/images/article.png';
+import calendar from 'assets/images/online_calendar.svg';
+import calendar_dark from 'assets/images/online_calendar_dark.svg';
+import doctors from 'assets/images/doctors.svg';
+import dashboard from 'assets/images/dashboard.svg';
+import dashboard_dark from 'assets/images/dashboard_dark.svg';
+import data from 'assets/images/data.svg';
+import data_dark from 'assets/images/data_dark.svg';
+import app from 'assets/images/app.svg';
+import app_dark from 'assets/images/app_dark.svg';
+import notebook from 'assets/images/notebook.svg';
+import notebook_dark from 'assets/images/notebook_dark.svg';
+import article from 'assets/images/article.svg';
+import article_dark from 'assets/images/article_dark.svg';
 import PwaModal from 'components/PwaModal';
 import Cookies from 'js-cookie';
+import doctors_dark from 'assets/images/doctors_dark.svg';
 
 const Home = () => {
   const { isDark } = useContext(DarkMode);
@@ -50,7 +54,7 @@ const Home = () => {
           </div>
           <div className="section1-right">
             <img
-              className="appointement"
+              className={`appointement ${isDark && 'dark-filter'}`}
               src={appointement}
               alt="Calendar illustration"
             />
@@ -61,7 +65,7 @@ const Home = () => {
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
               <div className="img-box mb-3">
-                <img src={data} alt="Data illustration" />
+                <img src={isDark?data_dark:data} alt="Data illustration" />
               </div>
               <h4>Données sécurisées</h4>
               <p>
@@ -77,7 +81,7 @@ const Home = () => {
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
               <div className="img-box mb-3">
-                <img src={doctors} alt="Docs illustration" />
+                <img src={isDark?doctors_dark:doctors} alt="Docs illustration" />
               </div>
               <h4>Gestion simplifiée</h4>
               <p>
@@ -93,7 +97,7 @@ const Home = () => {
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
               <div className="img-box mb-3">
-                <img className="calendar" src={calendar} alt="Calendar illustration"/>
+                <img className="calendar" src={isDark?calendar_dark:calendar} alt="Calendar illustration"/>
               </div>
               <h4>Prise de rendez-vous</h4>
               <p>
@@ -109,7 +113,7 @@ const Home = () => {
 
         <section className="section bg-blue align-items-center">
           <div className="section3-left">
-            <img className="img-container" src={dashboard} alt="Dashboard illustration" />
+            <img className="img-container" src={isDark?dashboard_dark:dashboard} alt="Dashboard illustration" />
           </div>
           <div className="section3-right">
             <h2 className="text-white-color">Tableau de bord</h2>
@@ -128,7 +132,7 @@ const Home = () => {
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
               <div className="img-box mb-3">
-                <img src={notebook} alt="Notebook illustration" />
+                <img src={isDark?notebook_dark:notebook} alt="Notebook illustration" />
               </div>
               <h4>Journal personnel</h4>
               <p>
@@ -143,7 +147,7 @@ const Home = () => {
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
               <div className="img-box mb-3">
-                <img src={app} alt="Web app illustration" />
+                <img src={isDark?app_dark:app} alt="Web app illustration" />
               </div>
               <h4>Application web</h4>
               <p>
@@ -159,7 +163,7 @@ const Home = () => {
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
               <div className="img-box mb-3">
-                <img src={article} alt="Article illustration" />
+                <img src={isDark?article_dark:article} alt="Article illustration" />
               </div>
               <h4>Construire une communauté</h4>
               <p>
