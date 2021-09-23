@@ -96,7 +96,7 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
       </div>
       <div className="d-flex">
       <div className="px-5 align-self-center">
-        <DarkModeBtn/>
+        {/* <DarkModeBtn/> */}
       </div>
       
         {!patientAuth && !nutritionistAuth && (

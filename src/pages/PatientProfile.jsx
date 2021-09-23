@@ -68,7 +68,13 @@ const PatientProfile = () => {
             <div className="col-md-5 mt-5 border-right text-primary-color">
               <div>
                 <div>
-                  <h1 className="text-right mx-0">{patient && patient.first_name}{" "}{patient && patient.last_name}</h1>
+                  {
+                    patient && patient.first_name && patient.last_name ?
+                    <h1 className="text-right mx-0">
+                      {patient.first_name} {patient.last_name}
+                    </h1> 
+                    : <h1>Prenom Nom</h1>
+                  } 
                 </div>
                 <div className="my-2">
                   <div className="col-md-12 d-flex py-2">
@@ -77,11 +83,12 @@ const PatientProfile = () => {
                   </div>
                   <div>
                     Nutritioniste : 
-                    { 
-                      patient ? 
+                    {
+                      patient && patient.nutritionist && patient.nutritionist.first_name && patient.nutritionist.last_name ? 
                       <p>{patient.nutritionist.first_name} {patient.nutritionist.last_name}</p> 
-                      : <Loading color={"blue"} />} </div>
-
+                      : <p>Vous n'avez pas encore renseigné de praticien</p>
+                    }
+                  </div>
                 </div>
                 <Link
                   exact
