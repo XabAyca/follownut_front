@@ -9,7 +9,7 @@ import Loading from 'components/Loading';
 import { nutritionistsFetch } from 'services/apiManager';
 import SidebarPatient from 'components/SidebarPatient';
 
-import profileDrawing from 'assets/images/profile-drawing.svg'
+import profileDrawing from 'assets/images/patient-profile-drawing.svg'
 
 
 const PatientEditProfile = () => {

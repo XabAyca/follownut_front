@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { deletePatientFetch } from 'services/apiManager';
 import { patientLogout } from 'services/apiManager';
 
-import profileDrawing from 'assets/images/profile-drawing.svg'
+import profileDrawing from 'assets/images/patient-profile-drawing.svg'
 
 const PatientProfile = () => {
   const [patient, setPatient] = useState();

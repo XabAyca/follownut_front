@@ -7,6 +7,11 @@ import SidebarNutritionist from 'components/SidebarNutritionist';
 import { Link } from 'react-router-dom';
 import { nutritionistLogout } from 'services/apiManager';
 import { deleteNutritionistFetch } from 'services/apiManager';
+import Loading from 'components/Loading';
+
+import profileDrawing from 'assets/images/nutritionist-profile-drawing.svg'
+
+
 
 const NutritionistProfile = () => {
   const [nutritionist, setNutritionist] = useState();
@@ -52,61 +57,39 @@ const NutritionistProfile = () => {
       <div className="dashboard-page-left">
         <SidebarNutritionist />
       </div>
-      <div className="dashboard-page-right my-5">
-        <div className="container rounded patient-details col-lg-9 col-sm-12">
-          <div className="row">
-            <div className="col-md-6 border-right d-flex justify-content-center align-items-center">
-              <div className="d-flex flex-column align-items-center text-center ">
-                <img
-                  className="rounded-circle"
-                  width="200px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                  alt="profile"
-                />
-              </div>
-            </div>
-            <div className="col-md-5 mt-5 border-right text-primary-color">
-              <div>
-                <div>
-                  <h1 className="text-right mx-0">
-                    {nutritionist && nutritionist.first_name}{" "}{nutritionist && nutritionist.last_name}</h1>
-                </div>
-                <div className="my-2">
-                  <div className="col-md-12 d-flex py-2">
-                    <i className="align-self-center far fa-envelope"></i>
-                    <div className="align-self-center mx-2">
-                      {nutritionist && nutritionist.email}
-                    </div>
-                  </div>
-                  <div className="col-md-12 d-flex py-2">
-                    <i className="align-self-center fas fa-phone"></i>
-                    <div className="align-self-center mx-2">
-                      {nutritionist && nutritionist.phone_number}
-                    </div>
-                  </div>
-                  <div className="col-md-12 py-2">
-                    <div>
-                      {nutritionist && nutritionist.slug_calendly }
-                    </div>
-                  </div>
-                  <Link
-                    exact
-                    to="/nutritionist-edit-profile"
-                    className="sidebar-nutritionist-link text-dark"
-                  >
-                    <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">
-                      Modifier mon profil
-                    </div>
-                  </Link>
-                  <form onSubmit={deleteProfileNutritionist}>
-                    <input
-                      className="btn danger-button text-white-color p-2 mt-4 w-100"
-                      type="submit"
-                      value="Supprimer mon compte"
-                    />
-                  </form>
-                </div>
-              </div>
+      <div className="background-of-edit-profile">
+        <div className="details-container-alt d-flex justify-content-around p-5 col-8">
+          <div className="align-self-center">
+            <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
+          </div>
+          <div className="align-self-center">
+            {
+              nutritionist && nutritionist.first_name && nutritionist.last_name ?
+              <h1 className="text-right mx-0">
+                {nutritionist.first_name} {nutritionist.last_name}
+              </h1> 
+              : <h1>Nom Prénom</h1>
+            }
+            <h5 className="d-flex">
+              <i className="align-self-center fas fa-envelope"></i>
+              <div className="align-self-center mx-2">{ nutritionist ? nutritionist.email  : <Loading color={"blue"} />} </div>
+            </h5>
+            <h5 className="d-flex">
+              <i className="align-self-center fas fa-phone"></i>
+              <div className="align-self-center mx-2">{ nutritionist ? nutritionist.phone_number  : <Loading color={"blue"} />} </div>
+            </h5>
+            <h5 className="d-flex">
+              <i className="align-self-center fas fa-calendar-check"></i>
+              <div className="align-self-center mx-2">{ nutritionist ? nutritionist.slug_calendly  : <Loading color={"blue"} />} </div>
+            </h5>
+            <hr />
+            <div className="my-3">
+              <Link exact to="/nutritionist-edit-profile" className="sidebar-nutritionist-link text-dark">
+                <div className="btn success-button text-white-color w-100 my-1">Modifier mon profil</div>
+              </Link>
+              <form onSubmit={deleteProfileNutritionist} >
+                <input className="btn danger-button text-white-color w-100 my-1" type="submit"  value="Supprimer mon compte" />
+              </form>
             </div>
           </div>
         </div>
