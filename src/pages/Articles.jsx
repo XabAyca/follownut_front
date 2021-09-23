@@ -11,13 +11,16 @@ const Articles = () => {
   const dispatch = useDispatch() 
 
   const getFilterArticles = () => {
-    setArticlesNutritionist(articles.articles.filter((article) => {
-      return (
-        article.nutritionist.first_name.toLowerCase().includes(filter) ||
-        article.nutritionist.last_name.toLowerCase().includes(filter) ||
-        article.nutritionist.email.toLowerCase().includes(filter)) ||
-        article.title.toLowerCase().includes(filter)
-    }));
+    if (articles.articles) {
+      setArticlesNutritionist(articles.articles.filter((article) => {
+        return (
+          article.nutritionist.first_name.toLowerCase().includes(filter) ||
+          article.nutritionist.last_name.toLowerCase().includes(filter) ||
+          article.nutritionist.email.toLowerCase().includes(filter)) ||
+          article.title.toLowerCase().includes(filter)
+      }));
+    }
+
   }
 
   useEffect(() => { 
