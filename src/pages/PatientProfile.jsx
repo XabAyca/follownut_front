@@ -72,9 +72,16 @@ const PatientProfile = () => {
                 </div>
                 <div className="my-2">
                   <div className="col-md-12 d-flex py-2">
-                    <i className="align-self-center far fa-envelope"></i>
-                    <div className="align-self-center mx-2"> { patient ? patient.email : <Loading color={"blue"} />} </div>
+                    <i className="far fa-envelope"></i>
+                    <div className="align-self-center mx-2">{ patient ? patient.email : <Loading color={"blue"} />} </div>
                   </div>
+                  <div>
+                    Nutritioniste : 
+                    { 
+                      patient ? 
+                      <p>{patient.nutritionist.first_name} {patient.nutritionist.last_name}</p> 
+                      : <Loading color={"blue"} />} </div>
+
                 </div>
                 <Link
                   exact
