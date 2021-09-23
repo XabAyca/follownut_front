@@ -18,7 +18,6 @@ import PwaModal from 'components/PwaModal';
 import Cookies from 'js-cookie';
 
 const Home = () => {
-  const { article } = useParams();
   const { isDark } = useContext(DarkMode);
 
   return (
