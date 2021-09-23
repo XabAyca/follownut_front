@@ -111,7 +111,7 @@
   width: 2px;
   height: 2px;
 }
-    
+
 .star--4,
 .star--5,
 .star--6 {
@@ -149,7 +149,7 @@
 input:checked {
   + .toggle {
     background-color: #83D8FF;
-  
+
     &:before {
       color: #749ED7;
     }
@@ -157,34 +157,34 @@ input:checked {
     &:after {
       color: #ffffff;
     }
-    
+
     .toggle__handler {
       background-color: #FFCF96;
       transform: translate3d(27px, 0, 0) rotate(0);
-  
+
       .crater {
         opacity: 0;
       }
     }
-    
+
     .star--1 {
       width: 30px;
       height: 3px;
       transform: translate3d(-14px, 0, 0);
     }
-    
+
     .star--2 {
       width: 30px;
       height: 3px;
       transform: translate3d(-28px, 0, 0);
     }
-    
+
     .star--3 {
       width: 30px;
       height: 3px;
       transform: translate3d(-45px, 0, 0);
     }
-    
+
     .star--4,
     .star--5,
     .star--6 {
@@ -202,5 +202,3 @@ input:checked {
     }
   }
 }
-
-

@@ -1,15 +1,17 @@
-/*
-const checkbox = document.getElementById('checkbox');
+window.onload = function() {
+  const checkbox = document.getElementById("whateveriwant");
 
-checkbox.addEventListener('change', ()=>{
-  document.body.classList.toggle('dark');
-})
-*/
+  checkbox.addEventListener('change', ()=>{
+    document.body.classList.toggle('dark-mode');
+  })
+  
+};
 
-const DarkMode = () => {
+
+const DarkModeBtn = () => {
   return (
 
-    <div className="toggleWrapper">
+    <div className="toggleWrapper" id="whateveriwant">
       <input type="checkbox" className="" id="checkbox" />
       <label htmlFor="checkbox" className="toggle">
         <span className="toggle__handler">
@@ -28,4 +30,4 @@ const DarkMode = () => {
   )
 }
 
-export default DarkMode;
+export default DarkModeBtn;
