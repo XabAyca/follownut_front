@@ -60,7 +60,8 @@
 
 
   .dropdown-toggle {
-    background-color: $primary-color;
+    background-color: var(--prim-color);
+    color: var(--basic-color-white);
     margin: 15px;
   }
   .dropdown-item a{
@@ -78,7 +79,7 @@
     background-color: none;
     margin: 0;
     font-size: 0.9rem;
-    color:#454545;
+    color:var(--prim-color);
     cursor: pointer;
     width: 100%;
     position: relative;
@@ -86,7 +87,7 @@
       content: '';
       width: 0;
       height: 2px;
-      background: #454545;
+      background: var(--prim-color);
       position: absolute;
       left: 0;
       bottom:0px;

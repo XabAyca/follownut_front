@@ -36,7 +36,7 @@ const DashboardNutritionist = () => {
 
   const openModal = (appointment) => {
     setCurrentAppointment(appointment)
-    let modal = document.querySelector(".appointment-modal");
+    let modal = document.querySelector(".read-modal");
     modal.style.opacity=1
     modal.style.visibility = 'visible'
   }

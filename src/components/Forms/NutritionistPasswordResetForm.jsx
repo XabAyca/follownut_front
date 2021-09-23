@@ -50,7 +50,7 @@ const NutritionistPasswordResetForm = () => {
       <ErrorsModalPawd errors={reset.error} />
       <div className="form-container">
         <form onSubmit={(e) => handleNutritionistPasswordReset(e)}>
-          <label htmlFor="email" className="text-white pt-2">
+          <label htmlFor="email" className="text-white-color pt-2">
             Email*
           </label>
           <input
@@ -60,7 +60,7 @@ const NutritionistPasswordResetForm = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="password" className="text-white pt-2">
+          <label htmlFor="password" className="text-white-color pt-2">
             Nouveau mot de passe*
           </label>
           <input

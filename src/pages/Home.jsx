@@ -26,10 +26,10 @@ const Home = () => {
         {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
         <section className="section bg-blue align-items-center">
           <div className="section1-left">
-            <h1 className="text-white">
+            <h1 className="text-white-color">
               Le suivi parfait entre patient et nutritioniste
             </h1>
-            <h5 className="text-white pt-2 pb-4 text-justify">
+            <h5 className="text-white-color pt-2 pb-4 text-justify">
               De la prise de rendez-vous, au suivi des patients, FollowNut offre
               une solution gratuite, simple et efficace. Inscrivez-vous !
             </h5>
@@ -37,12 +37,12 @@ const Home = () => {
               Cookies.get("nutritionist_token_cookie") === undefined &&
               <div className="d-flex row div-btn-home-responsive">
                 <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                  <Link to="/signup-nutritionist" className="px-5 primary-button btn-lg btn-primary text-white ">
+                  <Link to="/signup-nutritionist" className="px-5 primary-button btn-lg">
                     Je suis un nutritioniste
                   </Link>
                 </div>
                 <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                  <Link to="/signup-patient" className="px-5 primary-button btn-lg btn-primary text-white">
+                  <Link to="/signup-patient" className="px-5 primary-button btn-lg">
                     Je suis un patient
                   </Link>
                 </div>
@@ -112,13 +112,13 @@ const Home = () => {
             <img className="img-container" src={dashboard} alt="Dashboard illustration" />
           </div>
           <div className="section3-right">
-            <h2 className="text-white">Tableau de bord</h2>
-            <h6 className="my-3 text-justified text-white">
+            <h2 className="text-white-color">Tableau de bord</h2>
+            <h6 className="my-3 text-justified text-white-color">
               Des graphiques pour suivre les constantes de vos patients,
               un bloc-notes pour rédiger puis partager les compte-rendu de rendez-vous avec vos patients,
               un journal où rédiger des articles pour valoriser votre expertise aurpès de vos patients et bien plus encore ...
             </h6>
-            <Link to="/exemple/tableau-de-bord" className=" my-3 primary-button btn-sm btn-primary text-white">
+            <Link to="/exemple/tableau-de-bord" className=" my-3 primary-button btn-sm">
               Découvrir
             </Link>
           </div>

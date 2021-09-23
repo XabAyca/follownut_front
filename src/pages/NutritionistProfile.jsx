@@ -100,7 +100,7 @@ const NutritionistProfile = () => {
                   </Link>
                   <form onSubmit={deleteProfileNutritionist}>
                     <input
-                      className="btn danger-button text-white p-2 mt-4 w-100"
+                      className="btn danger-button text-white-color p-2 mt-4 w-100"
                       type="submit"
                       value="Supprimer mon compte"
                     />
