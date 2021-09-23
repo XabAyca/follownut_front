@@ -51,7 +51,7 @@ const NutritionistForgottenForm = () => {
           réinitialiser votre mot de passe.
         </p>
         <form onSubmit={(e) => handleNutritionistForgottenPassword(e)}>
-          <label htmlFor="email" className="text-white pt-2">
+          <label htmlFor="email" className="white-text-color pt-2">
             Email*
           </label>
           <input

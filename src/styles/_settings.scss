@@ -12,8 +12,8 @@ $primary-font: "Hind";
 // -------------------- COLORS VARIABLES -------------------- //
 
 // ----- DAY MODE ----- //
-$basic-color-white:transparent;
-$basic-color-dark:#111111;
+$basic-color-white:#ffffff;
+$basic-color-dark:#000000;
 
 $prim-color: #002bba;
 $transparency-prim-color: rgba(0, 43, 186, 0.7);
@@ -51,14 +51,14 @@ $warning-light:#f1f173;
 // ----- NIGHT MODE (DARK) ----- //
 
 
-$prim-color-dark: #002bba;
-$transparency-prim-color-dark: rgba(0, 43, 186, 0.7);
-$sec-color-dark: #91B2E2;
-$transparency-sec-color-dark: rgba(145, 178, 226, 0.9);
-$third-color-dark: #FFBF00;
-$success-dark: #5DA271;
-$danger-dark: #fb3333;
-$warning-dark: #efef5b;
+$prim-color-dark: #ffffff;
+$transparency-prim-color-dark: rgba(255, 255, 255, 0.7);
+$sec-color-dark: #707070;
+$transparency-sec-color-dark: rgba(231, 231, 231, 0.9);
+$third-color-dark: #b8b8b8;
+$success-dark: #7db58d;
+$danger-dark: #fc5c5c;
+$warning-dark: #f1f173;
 
 // Deep Shade Colors (DARK) //
 
@@ -314,6 +314,10 @@ h6 {
 
 p {
   color: var(--prim-color);
+}
+
+.white-text-color {
+  color: var(--basic-color-white);
 }
 
 div {
