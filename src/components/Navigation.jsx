@@ -5,7 +5,6 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { nutritionistLogout, patientLogout } from "services/apiManager";
 import Cookies from 'js-cookie';
-import DarkModeBtn from './DarkModeBTN';
 
 // ASSETS IMPORTS
 import logo from 'assets/images/logo.svg'
@@ -95,10 +94,6 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
         </div>
       </div>
       <div className="d-flex">
-      <div className="px-5 align-self-center">
-        <DarkModeBtn/>
-      </div>
-      
         {!patientAuth && !nutritionistAuth && (
           <>
             <DropdownButton title="Mon espace">

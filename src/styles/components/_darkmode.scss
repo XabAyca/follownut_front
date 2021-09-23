@@ -1,9 +1,14 @@
 .toggleWrapper {
-  // margin: 50px 0;
-  display: flex;
-  // overflow: hidden;
-  // padding: 0 200px;
-  // transform: translate3d(-50%, -50%, 0);
+  position:absolute;
+  top:23px;
+  right: 200px;
+  z-index: 10;
+  transition: all .5s;
+  @include phone{
+    top:8px;
+    right: 75px;
+    z-index: 9;
+  }
   
   input {
     position: absolute;

@@ -47,6 +47,7 @@ import Articles from 'pages/Articles';
 import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
 import { ModalBody } from 'react-bootstrap';
+import DarkModeBtn from 'components/DarkModeBTN';
 
 
 
@@ -188,7 +189,8 @@ const App = () => {
           <HamburgerMenu
             patientAuth={isPatientAuth()}
             nutritionistAuth={isNutritionistAuth()}
-          />
+            />
+          <DarkModeBtn/>
           <Switch>
             <Route exact path="/signup-nutritionist">
               {isNutritionistAuth() ? (
