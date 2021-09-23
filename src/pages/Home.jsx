@@ -21,7 +21,7 @@ const Home = () => {
   const { isDark } = useContext(DarkMode);
 
   return (
-    <div className={isDark?"home dark": "home"}>
+    <div className="home dark">
       <div className="home page-padding">
         {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
         <section className="section bg-blue align-items-center">
