@@ -41,24 +41,24 @@ const PatientEditProfile = () => {
 
   return (
     <div className="dashboard-page page-padding">
-    <div className="dashboard-page-left">
-      <SidebarPatient />
-    </div>
-    <div className="background-of-edit-profile">
-      <div className="details-container-alt d-flex justify-content-around px-5 col-8">
-        <div className="align-self-center">
-          <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
-        </div>
-        <div className="align-self-center">
-          {
-            (patient && nutritionists)?
-              <PatientEditForm patientData={patient} nutritionists={nutritionists}/> : <Loading />
-          }
+      <div className="dashboard-page-left">
+        <SidebarPatient />
+      </div>
+      <div className="background-of-edit-profile">
+        <div className="details-container-alt d-flex justify-content-around px-5 col-8">
+          <div className="align-self-center">
+            <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
+          </div>
+          <div className="align-self-center">
+            {
+              (patient && nutritionists)?
+                <PatientEditForm patientData={patient} nutritionists={nutritionists}/> : <Loading />
+            }
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  )
+  );
 };
 
 export default PatientEditProfile;

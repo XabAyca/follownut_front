@@ -53,7 +53,6 @@ const PatientEditForm = ({patientData, nutritionists}) => {
 
 
   return (
-    <>
     <form className="border-right" onSubmit={updateDataPatient}>
         <div className="p-3 py-5">
           <div className="d-flex justify-content-between align-items-center mb-3">
@@ -117,8 +116,7 @@ const PatientEditForm = ({patientData, nutritionists}) => {
           </div>
         </div>
     </form>
-    </>
-  )
-}
+  );
+};
 
 export default PatientEditForm;
