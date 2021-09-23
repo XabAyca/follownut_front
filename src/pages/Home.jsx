@@ -118,7 +118,7 @@ const Home = () => {
               un bloc-notes pour rédiger puis partager les compte-rendu de rendez-vous avec vos patients,
               un journal où rédiger des articles pour valoriser votre expertise aurpès de vos patients et bien plus encore ...
             </h6>
-            <Link to="/exemple/tableau-de-bord" className=" my-3 primary-button btn-sm btn-primary text-white-color">
+            <Link to="/exemple/tableau-de-bord" className=" my-3 primary-button btn-sm">
               Découvrir
             </Link>
           </div>

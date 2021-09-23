@@ -503,8 +503,11 @@ td {
 }
 
 .search-input {
-  border-bottom: var(--sec-color) solid 2px;
   background-color: transparent;
+}
+
+.bottom-search {
+  border-bottom: var(--sec-color) solid 2px;
 }
 
 
