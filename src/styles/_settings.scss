@@ -50,13 +50,17 @@ $success-light:#7db58d;
 $danger-light:#fc5c5c;
 $warning-light:#f1f173;
 
+// Jumbotron colors
+$jb-u-n:rgba(0,0,0,0.2);
+$jb-d-n:rgba(0,0,0,0.6);
+
 
 // ----- NIGHT MODE (DARK) ----- //
 
 
 $prim-color-dark: #ffffff;
 $transparency-prim-color-dark: rgba(255, 255, 255, 0.7);
-$sec-color-dark: #707070;
+$sec-color-dark: #383838;
 $transparency-sec-color-dark: rgba(231, 231, 231, 0.9);
 $third-color-dark: #b8b8b8;
 $success-dark: #7db58d;
@@ -85,7 +89,9 @@ $success-light-dark:#7db58d;
 $danger-light-dark:#fc5c5c;
 $warning-light-dark:#f1f173;
 
-
+// Jumbotron colors
+$jb-u-d:rgba(0,0,0,0.4);
+$jb-d-d:rgba(0,0,0,0.8);
 
 // Other variables & mixin //
 $phone-viewport:800px;
@@ -130,6 +136,10 @@ $phone-viewport:800px;
   --success-color-light:#{$success-light};
   --danger-color-light:#{$danger-light};
   --warning-color-light:#{$warning-light};
+
+  --jumbotron-up:#{$jb-u-n};
+  --jumbotron-down:#{$jb-d-n};
+
 }
 .dark-mode{
 
@@ -165,6 +175,10 @@ $phone-viewport:800px;
   --success-color-light:#{$success-light-dark};
   --danger-color-light:#{$danger-light-dark};
   --warning-color-light:#{$warning-light-dark};
+
+  --jumbotron-up:#{$jb-u-d};
+  --jumbotron-down:#{$jb-d-d};
+
 }
 // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
