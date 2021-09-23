@@ -32,21 +32,21 @@ const NutritionistLoginForm = () => {
       <div className="form-container">
       <h5 className="d-flex justify-content-center text-third-color pb-3">Connectez-vous et retrouvez vos patients</h5>
         <form onSubmit={ (e) => handleNutritionistLogin(e) }>
-          <label htmlFor="email" className="white-text-color pt-2">Email*</label>
+          <label htmlFor="email" className="text-white-color pt-2">Email*</label>
           <input type="email" className="input-display" placeholder="Votre email"
           value={email} onChange={ (e) => setEmail(e.target.value) }/>
-          <label htmlFor="password" className="white-text-color pt-2">Mot de passe*</label>
+          <label htmlFor="password" className="text-white-color pt-2">Mot de passe*</label>
           <input type="password" className="input-display" placeholder="Votre mot de passe"
           value={password} onChange={ (e) => setPassword(e.target.value) }/>
           <input type="submit" className="btn success-button mt-5 w-100" value="Se connecter" />
         </form>
         <Link to="/signup-nutritionist">
-          <div className="d-flex justify-content-center mt-2 w-100">
+          <div className="d-flex justify-content-center text-white-color mt-2 w-100">
             S'inscrire
           </div>
         </Link>
         <Link to="/nutritionist/forgotten-password">
-          <div className="d-flex justify-content-center mt-2">Mot de passe oublié ?</div>
+          <div className="d-flex justify-content-center text-white-color mt-2">Mot de passe oublié ?</div>
         </Link>
       </div>
     </div>

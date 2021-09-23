@@ -14,7 +14,7 @@ $primary-font: "Hind";
 // ----- DAY MODE ----- //
 $basic-color-white:#ffffff;
 $basic-color-grey: #ced4da;
-$basic-color-dark:#000000;
+$basic-color-dark:#292929;
 $modal-bg: rgba(0, 0, 0, 0.726);
 $modal-bg-dark: rgba(255, 255, 255, 0.726);
 
@@ -66,7 +66,7 @@ $warning-dark: #f1f173;
 // Deep Shade Colors (DARK) //
 
 $prim-color-deep-dark: #002295;
-$transparency-prim-color-deep-dark: rgba(0, 34, 149, 0.7);
+$transparency-prim-color-deep-dark: rgba(0, 17, 74, 0.7);
 $sec-color-deep-dark: #748eb5;
 $transparency-sec-color-deep-dark: rgba(116, 142, 181, 0.9);
 $third-color-deep-dark:#cc9900;
@@ -216,6 +216,7 @@ body{
 
 .primary-button {
   background-color: var(--prim-color);
+  color: var(--basic-color-white);
   text-decoration: none;
   text-decoration: none;
 
@@ -325,13 +326,6 @@ p {
   color: var(--prim-color);
 }
 
-.white-text-color {
-  color: var(--basic-color-white);
-}
-
-.blue-text-color {
-  color: var(--prim-color);
-}
 
 div {
   color: var(--prim-color);
@@ -365,7 +359,10 @@ div {
   color: var(--warning-color)
 }
 
-// -------------------- TEXT COLORS -------------------- //
+.text-white-color {
+  color: $basic-color-white;
+}
+
 .b-underline {
   text-decoration: underline var(--prim-color);
 }
@@ -431,7 +428,6 @@ div {
     &:hover{
       background-color: var(--third-color);
     }
-
   }
 
   .content{
@@ -494,6 +490,7 @@ td {
 
 .search-input {
   border-bottom: var(--sec-color) solid 2px;
+  background-color: transparent;
 }
 
 

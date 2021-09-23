@@ -61,11 +61,11 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
             </Link>
           </div>
         </div>
-        <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+        <div className="col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
           <i className="fas fa-search"></i>
           <input
             type="text"
-            className=""
+            className="search-input"
             placeholder="    Recherche..."
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />

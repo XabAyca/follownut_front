@@ -93,7 +93,7 @@ const PatientProfile = () => {
                   
                 </Link>
                 <form onSubmit={deleteProfilePatient} >
-                  <input className="btn danger-button white-text-color p-2 mt-4 w-100" type="submit"  value="Supprimer mon compte" />
+                  <input className="btn danger-button text-white-color p-2 mt-4 w-100" type="submit"  value="Supprimer mon compte" />
                 </form>
               </div>
             </div>

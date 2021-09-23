@@ -51,7 +51,7 @@ const PatientForgottenForm = () => {
           réinitialiser votre mot de passe.
         </p>
         <form onSubmit={(e) => handlePatientForgottenForm(e)}>
-          <label htmlFor="email" className="white-text-color pt-2">
+          <label htmlFor="email" className="text-white-color pt-2">
             Email*
           </label>
           <input

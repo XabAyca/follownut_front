@@ -36,11 +36,11 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
         <div className="d-flex justify-content-between">
           <h2>Voici la liste des notes de vos patients</h2>
         </div>
-        <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+        <div className="col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
           <i className="fas fa-search"></i>
           <input
             type="text"
-            className=""
+            className="search-input"
             placeholder="    Recherche..."
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
