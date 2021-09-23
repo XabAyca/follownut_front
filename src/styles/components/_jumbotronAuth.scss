@@ -6,11 +6,11 @@
 }
 
 .jb-signup {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6)100%), url(../../assets/images/patient-signup-background.jpg);
+  background-image: linear-gradient(to bottom, var(--jumbotron-up) 0%, var(--jumbotron-down) 100%), url(../../assets/images/patient-signup-background.jpg);
 }
 .jb-login {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6)100%), url(../../assets/images/running-login-page.jpg);
+  background-image: linear-gradient(to bottom, var(--jumbotron-up) 0%, var(--jumbotron-down) 100%), url(../../assets/images/running-login-page.jpg);
 }
 .jb-forgotten {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6)100%), url(../../assets/images/fg-pw2.jpg);
+  background-image: linear-gradient(to bottom, var(--jumbotron-up) 0%, var(--jumbotron-down) 100%), url(../../assets/images/fg-pw2.jpg);
 }
