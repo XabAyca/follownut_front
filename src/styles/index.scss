@@ -15,6 +15,8 @@
 @import './pages/connect';
 @import './pages/logbookPatient';
 @import './pages/articleNutritionist';
+@import './pages/articles';
+@import './pages/article';
 
 // Import components styles
 @import './components/navigation';
@@ -25,7 +27,6 @@
 @import './components/sidebarNutritionist';
 @import './components/appointmentsList';
 @import './components/appointmentModal';
-@import "./components/patientsList";
 @import './components/footer';
 @import './components/hamburgerMenu';
 @import './components/errorModal';
@@ -35,5 +36,9 @@
 @import './components/darkmode';
 @import './components/nutritionistResponsive';
 @import './components/logbookModal';
+@import './components/logbookModalCreate';
+@import './components/logbookModalUpdate';
 @import './components/articleModal';
-@import './components/createLogbookModal';
+@import './components/articleModalCreate';
+@import './components/articleModalUpdate';
+@import './components/articleCard';

@@ -14,7 +14,7 @@ import Footer from 'components/Footer';
 import ScrollTop from 'components/ScrollTop';
 import CookiesConsent from 'components/CookiesConsent';
 import DarkMode from 'components/context/darkMode';
-import ModeBtn from 'components/darkModeBTN';
+//import ModeBtn from 'components/darkModeBTN';
 
 
 // PAGES IMPORTS
@@ -43,6 +43,8 @@ import ExampleDashboard from 'pages/ExampleDashboard';
 import DashboardNutritionistCreatePatient from 'pages/DashboardNutritionistCreatePatient';
 import LogbookPatient from 'pages/LogbookPatient';
 import ArticleNutritionist from 'pages/ArticleNutritionist';
+import Articles from 'pages/Articles';
+import Article from 'pages/Article';
 
 
 
@@ -166,7 +168,6 @@ const App = () => {
         }}
         >
         <ScrollTop/>
-        <ModeBtn/>
         <Pwa.Provider value={installBtn}>
           <Navigation
             patientAuth={isPatientAuth()}
@@ -320,6 +321,8 @@ const App = () => {
             <Route exact path="/exemple/tableau-de-bord" component={ExampleDashboard} />
             <Route exact path="/about" component={About} />
             <Route exact path="/cgu" component={Cgu} />
+            <Route exact path="/article/:slug" component={Article} /> 
+            <Route exact path="/articles" component={Articles} />
             <Route exact path="/" component={Home} />
             <Route component={NotFound} />
           </Switch>

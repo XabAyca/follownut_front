@@ -1,11 +1,11 @@
-.create-logbook-modal {
+.create-article-modal {
   position: fixed;
   height: 100vh;
   overflow-y: hidden;
   top:0;
   background-color: rgba(0, 0, 0, 0.526);
   width: 100%;
-  z-index: 10;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,5 +29,9 @@
     box-shadow: 0 0 20px #454545;;
     color:#454545;
     position: relative;
+  }
+  .content{
+    max-width: 75%;
+    overflow-y: auto;
   }
 }

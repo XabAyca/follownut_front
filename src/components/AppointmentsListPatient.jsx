@@ -16,8 +16,8 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
   };
 
   return (
-    <div className="patients-list text-primary-color">
-      <div className="patient-list-header mx-3 p-2">
+    <div className="text-primary-color">
+      <div className="mx-3 p-2">
         <h2>Voici la liste de vos rendez-vous</h2>
       </div>
       <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">

@@ -34,22 +34,16 @@ const Home = () => {
               De la prise de rendez-vous, au suivi des patients, FollowNut offre
               une solution gratuite, simple et efficace. Inscrivez-vous !
             </h5>
-            {Cookies.get("patient_token_cookie") === undefined && 
+              {Cookies.get("patient_token_cookie") === undefined && 
               Cookies.get("nutritionist_token_cookie") === undefined &&
               <div className="d-flex row div-btn-home-responsive">
-                {/* <Link to="/signup-nutritionist" className=" my-1 primary-button btn-lg btn-primary text-white">
-                  Je suis un nutritioniste
-                </Link>
-                <Link to="/signup-nutritionist" className=" my-1 primary-button btn-lg btn-primary text-white">
-                  Je suis un patient
-                </Link> */}
-                <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-5 col-xl-4">
-                  <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white ">
+                <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                  <Link to="/signup-nutritionist" className="px-5 primary-button btn-lg btn-primary text-white ">
                     Je suis un nutritioniste
                   </Link>
                 </div>
-                <div className=" my-2 d-flex col-12 col-md-12 col-lg-5 col-xl-4">
-                  <Link to="/signup-nutritionist" className="primary-button btn-lg btn-primary text-white">
+                <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-6">
+                  <Link to="/signup-patient" className="px-5 primary-button btn-lg btn-primary text-white">
                     Je suis un patient
                   </Link>
                 </div>

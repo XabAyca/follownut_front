@@ -37,7 +37,7 @@ const PatientEditProfile = () => {
 
   return (
     <>
-      <div className="background-of-edit-profile">
+      <div className="background-of-edit-profile page-padding">
         <div className="container rounded bg-white content-edit-profile">
           <div className="row">
             <div className="col-md-3 border-right">

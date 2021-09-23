@@ -33,18 +33,31 @@ const AppointmentModal = ({ appointment }) => {
       closeModal()
   };
 
+  console.log(appointment)
+
+  const getAge = () => {
+    const dateOfBirthasADate = new Date(appointment.patient.date_of_birth);
+    const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed();
+    console.log(age);
+    return age
+  }
+
+  // const dateOfBirthasADate = new Date(appointment.patient.date_of_birth)
+  // const age = ((Date.now() - dateOfBirthasADate)/ 31536000000).toFixed()
+  // console.log(age)
+
   return (
     <div className="appointment-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
 
-      <div className="content p-3 ">
+      <div className="content p-3">
         <PDFExport ref={pdfExportComponent} paperSize="A4">
           <div className="p-3">
             <div
               className="download-btn btn"
               onClick={handleExportWithComponent}
             >
-              Télécharger<i class="fas fa-file-download"></i>
+              Télécharger<i className="fas fa-file-download"></i>
             </div>
             {appointment && (
               <>
@@ -62,15 +75,13 @@ const AppointmentModal = ({ appointment }) => {
                       )}
                     </p>
                     <p className="m-0">
-                      {" "}
-                      <strong>Nutritioniste : </strong>
-                      {appointment.nutritionist ? (
-                        appointment.nutritionist.last_name +
-                        " " +
-                        appointment.nutritionist.first_name
-                      ) : (
-                        <span>Nutritioniste supprimé </span>
-                      )}
+                      <strong>Âge : </strong>
+                      {appointment.patient ? getAge() : <span>?</span>}
+                      <span> ans</span>
+                    </p>
+                    <p className="m-0">
+                      <strong>Genre : </strong>
+                      {appointment.patient ? appointment.patient.gender : <span>?</span>}
                     </p>
                   </div>
                   <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">

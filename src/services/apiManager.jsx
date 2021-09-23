@@ -12,9 +12,21 @@ import { fetchLogbooksFailure, fetchLogbooksRequest, fetchLogbooksSuccess } from
 import { fetchNutritionistLoginFailure, fetchNutritionistLoginLogout, fetchNutritionistLoginRequest, fetchNutritionistLoginSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistRegisterFailure, fetchNutritionistRegisterRequest, fetchNutritionistRegisterSuccess, fetchNutritionistRegisterUnregister } from "store/actions/nutritionistActions";
 import { fetchNutritionistDeleteFailure, fetchNutritionistDeleteRequest, fetchNutritionistDeleteSuccess } from "store/actions/nutritionistActions";
+import { forgotPasswordNutritionistRequest } from "store/actions/nutritionistActions";
+import { forgotPasswordNutritionistSuccess } from "store/actions/nutritionistActions";
+import { resetPasswordNutritionistFailure } from "store/actions/nutritionistActions";
+import { resetPasswordNutritionistSuccess } from "store/actions/nutritionistActions";
+import { resetPasswordNutritionistRequest } from "store/actions/nutritionistActions";
+import { forgotPasswordNutritionistFailure } from "store/actions/nutritionistActions";
 import { fetchNutritionistUpdateFailure, fetchNutritionistUpdateRequest, fetchNutritionistUpdateSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistFailure, fetchNutritionistRequest, fetchNutritionistSuccess } from "store/actions/nutritionistActions";
 import { fetchNutritionistsFailure, fetchNutritionistsRequest, fetchNutritionistsSuccess } from "store/actions/nutritionistActions";
+import { forgotPasswordPatientRequest } from "store/actions/patientActions";
+import { forgotPasswordPatientFailure } from "store/actions/patientActions";
+import { forgotPasswordPatientSuccess } from "store/actions/patientActions";
+import { resetPasswordPatientFailure } from "store/actions/patientActions";
+import { resetPasswordPatientSuccess } from "store/actions/patientActions";
+import { resetPasswordPatientRequest } from "store/actions/patientActions";
 import { fetchPatientUpdateFailure, fetchPatientUpdateRequest, fetchPatientUpdateSuccess } from "store/actions/patientActions";
 import { fetchOnePatientsRequest, fetchOnePatientsFailure, fetchOnePatientsSuccess } from "store/actions/patientActions";
 import { fetchPatientCreateFailure, fetchPatientCreateRequest, fetchPatientCreateSuccess } from "store/actions/patientActions";
@@ -172,29 +184,43 @@ export const nutritionistFetch = () => {
 
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A NUTRITIONIST
 export const nutritionistPasswordForgottenFetch = (nutritionistResetEmail) => {
-
-  return () => {
+  return (dispatch) => {
+    dispatch(forgotPasswordNutritionistRequest())
     fetch(baseUrl + "/api/nutritionist/password/forgot", {
       method: "post",
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify(nutritionistResetEmail),
-      });
+    }).then((response) => response.json())
+      .then((response) => {
+        if (response.error) {
+          dispatch(forgotPasswordNutritionistFailure(response.error));
+        } else {
+          dispatch(forgotPasswordNutritionistSuccess(response));
+        }
+      })
   };
 };
 
 // BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A NUTRITIONIST
 export const nutritionistResetPasswordFetch = (newNutritionistData) => {
 
-  return () => {
+  return (dispatch) => {
+    dispatch(resetPasswordNutritionistRequest())
     fetch(baseUrl + "/api/nutritionist/password/reset", {
       method: "post",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(newNutritionistData),
-    }).then((response) => console.log(response))
+    }).then((response) => {
+      if (response.error) {
+        dispatch(resetPasswordNutritionistFailure(response.error));
+      } else {
+        dispatch(resetPasswordNutritionistSuccess(response));
+      }
+    })
   };
 };
 
@@ -415,20 +441,30 @@ export const patientFetch = () => {
 
 // BELOW IS THE FUNCTION TO SEND A RESET PASSWORD EMAIL TO A PATIENT
 export const patientPasswordForgottenFetch = (patientResetEmail) => {
-  return () => {
+  return (dispatch) => {
+    dispatch(forgotPasswordPatientRequest())
     fetch(baseUrl + "/api/patient/password/forgot", {
       method: "post",
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
       },
       body: JSON.stringify(patientResetEmail),
-      });
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.error) {
+          dispatch(forgotPasswordPatientFailure(response.error))
+        } else {
+          dispatch(forgotPasswordPatientSuccess(response))
+        }
+      })
   };
 };
 
 // BELOW IS THE FUNCTION TO RESET A PASSWORD VIA EMAIL LINK FOR A PATIENT
 export const patientResetPasswordFetch = (newPatientData) => {
-  return () => {
+  return (dispatch) => {
+    dispatch(resetPasswordPatientRequest())
     fetch(baseUrl + "/api/patient/password/reset", {
       method: "post",
       headers: {
@@ -436,6 +472,15 @@ export const patientResetPasswordFetch = (newPatientData) => {
       },
       body: JSON.stringify(newPatientData),
     })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        if (response.error) {
+          dispatch(resetPasswordPatientFailure(response.error));
+        } else {
+          dispatch(resetPasswordPatientSuccess(response));
+        }
+      })
   };
 };
 
@@ -620,7 +665,7 @@ export const createArticle = (data) => {
   return (dispatch) => {
     const token = Cookies.get("nutritionist_token_cookie");
     dispatch(createArticleRequest());
-    fetch(baseUrl + `/api/v1/appointments`, {
+    fetch(baseUrl + `/api/v1/articles`, {
       method: "post",
       headers: {
         "Content-type": "application/json",
@@ -644,7 +689,7 @@ export const updateArticle = (data, id) => {
   return (dispatch) => {
     const token = Cookies.get("nutritionist_token_cookie");
     dispatch(updateArticleRequest());
-    fetch(baseUrl + `/api/v1/appointments/${id}`, {
+    fetch(baseUrl + `/api/v1/articles/${id}`, {
       method: "put",
       headers: {
         "Content-type": "application/json",

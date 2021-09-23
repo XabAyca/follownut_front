@@ -6,6 +6,8 @@ import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import ArticlesList from 'components/ArticlesList';
 import ArticleModal from 'components/ArticleModal';
+import ArticleModalCreate from 'components/ArticleModalCreate';
+import ArticleModalUpdate from 'components/ArticleModalUpdate';
 
 const ArticleNutritionist = () => {
   const [articlesNutritionist, setArticlesNutritionist] = useState();
@@ -22,9 +24,10 @@ const ArticleNutritionist = () => {
         .filter((article) => {
           return article.nutritionist_id === nutritionist_id
         })
-        setArticlesNutritionist(atls)
+        .sort((a, b) => b.updated_at.localeCompare(a.updated_at))
+      setArticlesNutritionist(atls)
     }
-  }
+  };
 
   useEffect(() => { 
     dispatch(articlesFetch());
@@ -32,15 +35,29 @@ const ArticleNutritionist = () => {
   
   useEffect(() => {
     getArticleNutritionist();
-    console.log(articlesNutritionist ? articlesNutritionist : "test")
   },[articles])
 
 
   const openModal = (article) => {
-    setCurrentArticle(article)
+    setCurrentArticle(article);
     let modal = document.querySelector(".article-modal");
     modal.style.opacity = 1
     modal.style.visibility = 'visible'
+  }
+
+  const openCreateModal = () => {
+    let modal = document.querySelector(".create-article-modal");
+    modal.style.opacity = 1;
+    modal.style.visibility = 'visible';
+  }
+
+  const openUpdateModal = (article) => {
+    setCurrentArticle(article);
+    if (currentArticle) {
+      let modal = document.querySelector(".update-article-modal");
+      modal.style.opacity = 1;
+      modal.style.visibility = 'visible';
+    }
   }
 
   return (
@@ -48,13 +65,20 @@ const ArticleNutritionist = () => {
       <div className="dashboard-page-left">
         <SidebarNutritionist />
         <ArticleModal article={currentArticle} />
+        <ArticleModalCreate />
+        
+        { currentArticle ?
+          <ArticleModalUpdate article={currentArticle}/> : ""
+        }
       </div>
       <div className="dashboard-page-right">
-        <div className="m-5">
-          {articlesNutritionist ?  
+        <div className="d-flex justify-content-center py-5">
+        {articlesNutritionist ?  
             <ArticlesList
               filteredArticles={articlesNutritionist}
               setOpenModal={openModal}
+              setOpenCreateModal={openCreateModal}
+              setOpenUpdateModal={openUpdateModal}
             /> :
             <Loading />
           } 
