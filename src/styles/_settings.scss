@@ -411,6 +411,11 @@ div {
   border-radius: 10px;
 }
 
+.details-container-alt {
+  background-color: var(--basic-color-white);
+  border-radius: 10px;
+}
+
 // -------------------- MODALS -------------------- //
 
 .read-modal{
@@ -517,6 +522,7 @@ td {
 .bottom-search {
   border-bottom: var(--sec-color) solid 2px;
 }
+
 
 
 // -------------------- ICONS -------------------- //

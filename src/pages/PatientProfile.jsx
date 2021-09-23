@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import { deletePatientFetch } from 'services/apiManager';
 import { patientLogout } from 'services/apiManager';
 
+import profileDrawing from 'assets/images/patient-profile-drawing.svg'
+
 const PatientProfile = () => {
   const [patient, setPatient] = useState();
   const patient_id = parseInt(Cookies.get('patient_id_cookie'));
@@ -59,70 +61,43 @@ const PatientProfile = () => {
       <div className="dashboard-page-left">
         <SidebarPatient />
       </div>
-      <div className="dashboard-page-right my-5">
-        <div className="container rounded patient-details col-lg-9 col-sm-12">
-          <div className="row">
-            <div className="col-md-6 border-right d-flex justify-content-center align-items-center">
-              <div className="d-flex flex-column align-items-center text-center mt-5">
-                <img className="rounded-circle" width="200px" 
-                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                alt="profile"/>
-              </div>
-            </div>
-            <div className="col-md-5 mt-5 border-right text-primary-color">
-              <div>
-                <div>
-                  {
-                    patient && patient.first_name && patient.last_name ?
-                    <h1 className="text-right mx-0">
-                      {patient.first_name} {patient.last_name}
-                    </h1> 
-                    : <h1>Prenom Nom</h1>
-                  } 
-                </div>
-                <div>
-                  <h4 className="text-right mx-0">Date de naissance</h4> 
-                  {
-                    patient && patient.date_of_birth ?
-                    patient.date_of_birth
-                    : "Non renseigné"
-                  } 
-                </div>
-                <div>
-                  <h4 className="text-right mx-0">Sex</h4> 
-                  {
-                    patient && patient.gender ?
-                    displayGender(patient.gender)
-                    : "Non renseigné"
-                  } 
-                </div>
-                <div className="my-2">
-                  <div className="col-md-12 d-flex py-2">
-                    <i className="far fa-envelope"></i>
-                    <div className="align-self-center mx-2">{ patient ? patient.email : <Loading color={"blue"} />} </div>
-                  </div>
-                  <div>
-                    Nutritioniste : 
-                    {
-                      patient && patient.nutritionist && patient.nutritionist.first_name && patient.nutritionist.last_name ? 
-                      <p>{patient.nutritionist.first_name} {patient.nutritionist.last_name}</p> 
-                      : <p>Vous n'avez pas encore renseigné de praticien</p>
-                    }
-                  </div>
-                </div>
-                <Link
-                  exact
-                  to="/patient-edit-profile"
-                  className="sidebar-nutritionist-link text-dark"
-                >
-                
-                  <div className="btn success-button text-center patient-edit-profile-button w-100 mt-4">Modifier mon profil</div>
-                  
-                </Link>
-                <form onSubmit={deleteProfilePatient} >
-                  <input className="btn danger-button text-white-color p-2 mt-4 w-100" type="submit"  value="Supprimer mon compte" />
-                </form>
-              </div>
+      <div className="background-of-edit-profile">
+        <div className="details-container-alt d-flex justify-content-around p-5 col-8">
+          <div className="align-self-center">
+            <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
+          </div>
+          <div className="align-self-center">
+            {
+              patient && patient.first_name && patient.last_name ?
+              <h1 className="text-right mx-0">
+                {patient.first_name} {patient.last_name}
+              </h1> 
+              : <h1>Nom Prénom</h1>
+            }
+            {
+              patient && patient.date_of_birth ? ( <h4> <strong>Date de naissance :</strong>  {patient.date_of_birth}</h4>)  
+              : " "
+            }
+            {
+              patient && patient.gender ? (<h4><strong>Genre : </strong>{displayGender(patient.gender)}</h4>) : " "
+            }
+            <h4 className="d-flex">
+              <i className="align-self-center far fa-envelope"></i>
+              <div className="align-self-center mx-2">{ patient ? patient.email  : <Loading color={"blue"} />} </div>
+            </h4>
+            <hr />
+            {
+              patient && patient.nutritionist && patient.nutritionist.first_name && patient.nutritionist.last_name ? 
+              <h4> <strong>Nutritioniste : </strong> {patient.nutritionist.first_name} {patient.nutritionist.last_name}</h4> 
+              : <p>Vous n'avez pas encore renseigné de praticien</p>
+            }
+            <div className="my-3">
+              <Link exact to="/patient-edit-profile" className="sidebar-nutritionist-link text-dark">
+                <div className="btn success-button text-white-color w-100 my-1">Modifier mon profil</div>
+              </Link>
+              <form onSubmit={deleteProfilePatient} >
+                <input className="btn danger-button text-white-color w-100 my-1" type="submit"  value="Supprimer mon compte" />
+              </form>
             </div>
           </div>
         </div>
