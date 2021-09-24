@@ -33,20 +33,42 @@ const Article = () => {
 
   useEffect(() => { 
     getArticle();
-  }, [article]);
+  }, [articles]);
+
+    const createDate = (el) => {
+      let date = new Date(el);
+      return date.toLocaleDateString("fr", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: "UTC",
+      });
+    };
 
   return (
     <div className="article page-padding ">
-      { article ?
+      {article ? (
         <div>
-          <h1>{article.title}</h1>
-          <h3>
-            <strong>Auteur </strong>: {article.nutritionist.first_name} {article.nutritionist.last_name}
-          </h3> 
-          <p>{article.content}</p> 
+          <h2>{article.title}</h2>
+          <div className="infos">
+            <h5>
+              Auteur : {article.nutritionist.first_name}{" "}
+              {article.nutritionist.last_name}
+            </h5>
+
+            <h6>
+              <strong>Date </strong>: {createDate(article.created_at)}
+            </h6>
+          </div>
+          <hr/>
+          <p>{article.content}</p>
         </div>
-        : <Loading />
-      }
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
