@@ -1,0 +1,164 @@
+//Home
+@media screen and (max-width: 582px) {
+  .home .section{
+    width: 100%;
+    padding: 10px !important;
+  }
+  .home .section1-left{
+    margin-top: 5px;
+    width: 100% !important;
+    text-align: center;
+    padding: 0px;
+  }
+  .home .section1-left h5{
+    margin-top: 5px;
+    width: 100% !important;
+    text-align: center;
+    padding: 0px;
+  }
+  .div-btn-home-responsive div{
+    // width: 50%;
+    justify-content: center;
+  }
+  .section1-right{
+    width: 100% !important;
+  }
+  .sub-section{
+    width: 100% !important;
+  }
+  .sub-section h4{
+    text-align: center;
+  }
+  .sub-section p{
+    text-align: center;
+  }
+  .home .section3-left{
+    width: 100% !important;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .home .section3-right{
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .home .section3-right h1{
+    text-align: center;
+    padding: 0px !important;
+    margin: 0;
+    width: 90% !important;
+    margin-left: 15px;
+  }
+  .home .section3-right h6{
+        text-align: center;
+    padding: 0px !important;
+    margin: 0;
+    width: 100% !important;
+  }
+  .home .section3-right a{
+    text-align: center;
+  }
+}
+//--------------------------
+
+//Patient
+
+//Main Dashboard
+@media screen and (max-width: 682px) {
+  .dashboard-page-right{
+    padding: 0px !important;
+  }
+  .dashboard-page-right h1{
+    margin: 0px !important;
+    text-align: center !important;
+  }
+  .patient-charts{
+    padding: 0px !important;
+  }
+}
+// Rendez-vous list
+@media screen and (max-width: 682px) {
+  .dashboard-page-right div{
+    margin: 0px !important;
+    padding: 5px;
+  }
+  .patient-list-header h2{
+    text-align: center;
+  }
+}
+//Profile
+@media screen and (max-width: 682px) {
+  .patient-details{
+    text-align: center;
+    padding: 0px !important;
+  }
+  .patient-details .rounded-circle{
+    width: 80%;
+  }
+}
+//---------------------------
+
+//Nutritionnist
+
+//Nutritionnist Rédiger un compte-rendu
+
+@media screen and (max-width: 682px) {
+  .create-appointment-form h1{
+    text-align: center;
+  }
+  .create-appointment-form{
+    margin: 0 !important;
+  }
+}
+//------------------------
+
+//Login
+
+@media screen and (max-width: 682px) {
+  .patient-signup-form .form-container h5{
+    text-align: center;
+  }
+  .nutritionist-signup-form .form-container h5{
+    text-align: center;
+  }
+}
+
+//Inscription
+
+@media screen and (max-width: 682px) {
+  .jumbotron jb-signup div{
+    margin-right: -10px;
+  }
+  .jumbotron jb-signup div h1{
+    margin-right: -25px;
+  }
+
+  .jumbotron-login div{
+    margin-right: -10px;
+  }
+  .jumbotron-login div h1{
+    margin-right: -25px;
+  }
+}
+
+//-------------------------
+
+
+//Footer
+
+
+@media screen and (max-width: 682px) {
+  footer h6{
+    text-align: center;
+  }
+  footer h6 a{
+    text-align: center;
+    margin-left: -50px;
+  }
+  footer h6 .fa-gem{
+    text-align: center;
+    margin-left: -25px;
+  }
+}
