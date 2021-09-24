@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
 import Cookies from 'js-cookie';
 import { Pwa } from "components/context/InstallPwa";
-import { ModalBody } from 'react-bootstrap';
 
 
 // COMPONENTS IMPORTS
@@ -16,7 +15,6 @@ import Footer from 'components/Footer';
 import ScrollTop from 'components/ScrollTop';
 import CookiesConsent from 'components/CookiesConsent';
 import DarkMode from 'components/context/darkMode';
-//import ModeBtn from 'components/darkModeBTN';
 import DarkModeBtn from 'components/DarkModeBTN';
 
 
