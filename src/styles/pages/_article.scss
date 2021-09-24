@@ -1,3 +1,14 @@
-.article {
-  
+.article{
+  padding-top: 150px;
+  padding-left: 30px;
+  padding-right: 30px;
+  .infos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  hr{
+    margin-top: 25px;
+    margin-right: 25px;
+  }
 }
