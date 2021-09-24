@@ -49,6 +49,7 @@ import Articles from 'pages/Articles';
 import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
 import Nutritionists from 'pages/Nutritionists';
+import UncompletedPatientModal from 'components/UncompletedPatientModal';
 
 
 
@@ -177,26 +178,20 @@ const App = () => {
     setIsDark(!isDark);
   };
 
-
-  if (currentPatient != "") {
-    if (currentPatient.first_name != undefined && currentPatient.last_name != undefined && currentPatient.date_of_birth != undefined && currentPatient.nutritionist_id != undefined) {
-      console.log("patient complet")
-    } else {
-      console.log("patient incomplet")
-    }
-  } else if (currentNutritionist != "")  {
-    if (currentNutritionist.first_name != undefined) {
-      console.log("nutritioniste complet")
-    } else {
-      console.log("nutritioniste  incomplet")
-    }
-  } else {
-    console.log("rien ne se passe")
-  }
-
-
   return (
     <>
+
+    { currentPatient != "" ?
+        currentPatient.first_name != undefined &&
+        currentPatient.last_name != undefined &&
+        currentPatient.date_of_birth != undefined &&
+        currentPatient.nutritionist_id != undefined ?
+          console.log("patient complet")
+          :
+          // console.log("patient incomplet")
+          (<UncompletedPatientModal />)
+        : console.log("aucun patient n'est connecté")
+    }
 
       <BrowserRouter>
         <DarkMode.Provider
