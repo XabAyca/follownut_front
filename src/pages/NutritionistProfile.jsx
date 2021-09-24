@@ -60,12 +60,12 @@ const NutritionistProfile = () => {
         <SidebarNutritionist />
       </div>
       <div className="background-of-edit-profile">
-      <div class="container details-container-alt">
-        <div class="row d-flex justify-content-center">
-          <div class="col-12 d-flex img-control">
+      <div className="container details-container-alt">
+        <div className="row d-flex justify-content-center">
+          <div className="col-12 d-flex img-control">
            <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
           </div>
-          <div class="col-12 control-form-profile-nutritionist">
+          <div className="col-12 control-form-profile-nutritionist">
             {
               nutritionist && nutritionist.first_name && nutritionist.last_name ?
               <h1 className="text-right mx-0">

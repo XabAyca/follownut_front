@@ -2,8 +2,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { useSelector } from "react-redux";
-import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
+import { useSelector, useDispatch } from "react-redux";
+import { loginPatientWithCookie, loginNutritionistWithCookie, patientFetch, nutritionistFetch } from 'services/apiManager';
 import Cookies from 'js-cookie';
 import { Pwa } from "components/context/InstallPwa";
 
@@ -106,11 +106,13 @@ const App = () => {
     });
 // ------------------------- Web app end -------------------------
 
-
+  const dispatch = useDispatch()
   const loginPatient = useSelector((state) => state.patient.login);
   const registerPatient = useSelector((state) => state.patient.register);
   const loginNutritionist = useSelector((state) => state.nutritionists.login);
   const registerNutritionist = useSelector((state) => state.nutritionists.register);
+  const currentPatient = useSelector((state) => state.patient.currentPatient);
+  const currentNutritionist = useSelector((state) => state.nutritionists.currentNutritionist);
   const [loading, setLoading] = useState(false);
   const [isDark, setIsDark] = useState(false);
   
@@ -147,6 +149,8 @@ const App = () => {
   };
 
   useEffect(() => {
+    dispatch(patientFetch())
+    dispatch(nutritionistFetch())
     const temp = JSON.parse(localStorage.getItem("themePreference"));
     if (temp !== undefined && temp !== null) {
       setIsDark(temp);
@@ -173,8 +177,27 @@ const App = () => {
     setIsDark(!isDark);
   };
 
+
+  if (currentPatient != "") {
+    if (currentPatient.first_name != undefined && currentPatient.last_name != undefined && currentPatient.date_of_birth != undefined && currentPatient.nutritionist_id != undefined) {
+      console.log("patient complet")
+    } else {
+      console.log("patient incomplet")
+    }
+  } else if (currentNutritionist != "")  {
+    if (currentNutritionist.first_name != undefined) {
+      console.log("nutritioniste complet")
+    } else {
+      console.log("nutritioniste  incomplet")
+    }
+  } else {
+    console.log("rien ne se passe")
+  }
+
+
   return (
     <>
+
       <BrowserRouter>
         <DarkMode.Provider
         value={{

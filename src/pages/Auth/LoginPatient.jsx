@@ -6,7 +6,7 @@ import ErrorModal from 'components/ErrorModal';
 import PatientLoginForm from 'components/Forms/PatientLoginForm';
 
 
-const SignupPatient = () => {
+const LoginPatient = () => {
   const error = useSelector(state => state.patient.error)
 
   return (
@@ -24,4 +24,4 @@ const SignupPatient = () => {
   );
 };
 
-export default SignupPatient;
+export default LoginPatient;
