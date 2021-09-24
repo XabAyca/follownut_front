@@ -58,11 +58,12 @@ const NutritionistProfile = () => {
         <SidebarNutritionist />
       </div>
       <div className="background-of-edit-profile">
-        <div className="details-container-alt d-flex justify-content-around p-5 col-8">
-          <div className="align-self-center">
-            <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
+      <div class="container details-container-alt">
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 d-flex img-control">
+           <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
           </div>
-          <div className="align-self-center">
+          <div class="col-12 control-form-profile-nutritionist">
             {
               nutritionist && nutritionist.first_name && nutritionist.last_name ?
               <h1 className="text-right mx-0">
@@ -70,6 +71,7 @@ const NutritionistProfile = () => {
               </h1> 
               : <h1>Nom Prénom</h1>
             }
+
             <h5 className="d-flex">
               <i className="align-self-center fas fa-envelope"></i>
               <div className="align-self-center mx-2">{ nutritionist ? nutritionist.email  : <Loading color={"blue"} />} </div>
@@ -93,6 +95,7 @@ const NutritionistProfile = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

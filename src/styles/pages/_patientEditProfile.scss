@@ -5,6 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include phone{
+    width: 100%;
+  }
   .content-edit-profile{
     display: flex;
     flex-direction: column;
