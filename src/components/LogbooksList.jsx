@@ -35,7 +35,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
   }
   
   return (
-    <div className="text-primary-color col-lg-8 col-sm-6">
+    <div className="text-primary-color col-lg-8 col-sm-12">
       <div className="p-2">
         <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos notes</h2>
@@ -46,7 +46,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
             </button>
           </div>
         </div>
-        <div className="details-container p-3">
+        <div className="details-container p-3 mt-3">
           {
             logbooks.length > 0 ? 
             <table className="table patient-table">

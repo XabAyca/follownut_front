@@ -61,11 +61,11 @@ const NutritionistProfile = () => {
       </div>
       <div className="background-of-edit-profile">
       <div class="container details-container-alt">
-        <div class="row d-flex justify-content-center">
-          <div class="col-12 d-flex img-control">
+        <div class="row profile-picture-nutritionist">
+          <div class="col-6 d-flex img-control">
            <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
           </div>
-          <div class="col-12 control-form-profile-nutritionist">
+          <div class="col-6 control-form-profile-nutritionist">
             {
               nutritionist && nutritionist.first_name && nutritionist.last_name ?
               <h1 className="text-right mx-0">

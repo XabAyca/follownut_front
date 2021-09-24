@@ -48,8 +48,8 @@ const NutritionistEditProfile = () => {
         <SidebarNutritionist />
       </div>
       <div className="background-of-edit-profile">
-        <div className="details-container-alt d-flex justify-content-around px-5 col-8">
-          <div className="align-self-center">
+        <div className="details-container-alt control-edit-nutritionist-profile px-5 col-8">
+          <div className="align-self-center constrol-edit-profile-nutritionist-picture">
             <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
           </div>
           <div className="align-self-center">

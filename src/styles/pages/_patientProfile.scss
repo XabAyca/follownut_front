@@ -1,0 +1,25 @@
+.background-of-edit-profile{
+  @include phone{
+    padding: 0;
+    width: 93%;
+  }
+
+  .container{
+    @include phone{
+      width: 95%;
+      padding: 0;
+    }
+  }
+}
+.control-profile-patient{
+  margin: 0;
+  @include phone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.control-profile-patient-picture{
+  display: flex;
+  justify-content: center;
+}

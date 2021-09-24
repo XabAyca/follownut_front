@@ -14,7 +14,7 @@ const LoginNutritionist = () => {
       <ErrorModal error={error}/>
       <div className="jumbotron jb-login d-flex align-items-center py-5">
         <div className="d-flex justify-content-center col-12 my-5 row">
-          <h1 className="d-flex justify-content-center text-white-color my-2">Bon retour parmi nous !</h1>
+          <h1 className="d-flex justify-content-center text-white-color my-2 welcome-text">Bon retour parmi nous !</h1>
           <NutritionistLoginForm />
         </div>
       </div>
