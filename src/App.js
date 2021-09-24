@@ -178,6 +178,12 @@ const App = () => {
     setIsDark(!isDark);
   };
 
+  const openModal = () => {
+    let modal = document.querySelector(".patient-modal");
+    modal.style.opacity=1
+    modal.style.visibility = 'visible'
+  }
+
   return (
     <>
 
@@ -189,10 +195,10 @@ const App = () => {
           console.log("patient complet")
           :
           // console.log("patient incomplet")
-          (<UncompletedPatientModal />)
+          ( openModal() )
         : console.log("aucun patient n'est connecté")
     }
-
+      <UncompletedPatientModal />
       <BrowserRouter>
         <DarkMode.Provider
         value={{

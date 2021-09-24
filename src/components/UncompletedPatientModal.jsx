@@ -18,25 +18,24 @@ const UncompletedPatientModal = () => {
     dispatch(patientFetch())
   }, [])
 
+  const closeModal = () => {
+    let modal = document.querySelector(".patient-modal");
+    modal.style.opacity = 0;
+    modal.style.visibility = "hidden";
+    setTimeout(() => {
+      console.log("test");
+    }, 1000)
+  };
 
-  // const closeModal = () => {
-  //   let modal = document.querySelector(".patient-modal");
-  //   modal.style.opacity = 0;
-  //   modal.style.visibility = "hidden";
-  //   setTimeout(() => {
-  //     setPatientAppointments(undefined);
-  //   }, 1000)
-  // };
 
-
-  // window.onclick = (event) => {
-  //   event.target === document.querySelector(".patient-modal") &&
-  //     event.target !== document.querySelector(".content") &&
-  //     closeModal();
-  // };
+  window.onclick = (event) => {
+    event.target === document.querySelector(".patient-modal") &&
+      event.target !== document.querySelector(".content") &&
+      closeModal();
+  };
 
   return (
-    <div className="read-modal">
+    <div className="patient-modal">
       {/* <i className="pointer-clickable fas fa-times" onClick={closeModal}></i> */}
       <div className="content p-5 my-5">
         {
