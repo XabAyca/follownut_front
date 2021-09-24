@@ -12,23 +12,26 @@ const Articles = () => {
 
   const getFilterArticles = () => {
     if (articles.articles) {
-      setArticlesNutritionist(articles.articles.filter((article) => {
-        if (article.nutritionist.first_name && article.nutritionist.last_name) {
-          return (
-            article.nutritionist.first_name.toLowerCase().includes(filter) ||
-            article.nutritionist.last_name.toLowerCase().includes(filter) ||
-            article.nutritionist.email.toLowerCase().includes(filter) ||
-            article.title.toLowerCase().includes(filter)
-          )
-        } else {
-          return (
-            article.nutritionist.email.toLowerCase().includes(filter) ||
-            article.title.toLowerCase().includes(filter)
-          )
-        }
-      }));
+      setArticlesNutritionist(articles.articles
+        .filter((article) => {
+          if (article.nutritionist.first_name && article.nutritionist.last_name) {
+            return (
+              article.nutritionist.first_name.toLowerCase().includes(filter) ||
+              article.nutritionist.last_name.toLowerCase().includes(filter) ||
+              article.nutritionist.email.toLowerCase().includes(filter) ||
+              article.title.toLowerCase().includes(filter)
+            )
+          } else {
+            return (
+              article.nutritionist.email.toLowerCase().includes(filter) ||
+              article.title.toLowerCase().includes(filter)
+            )
+          }
+        })
+        .sort((a, b) => b.created_at.localeCompare(a.created_at))
+      );
     }
-  }
+  };
 
   useEffect(() => { 
     dispatch(articlesFetch()); 
