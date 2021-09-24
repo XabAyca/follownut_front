@@ -1,0 +1,33 @@
+.exemple-dashboard{
+  section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    &.bg1{
+      background-color: var(--sec-color);
+    }
+    @include phone{
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    img{
+      width: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.288);
+      border-radius: 25px;
+      margin: 10px;
+      @include phone{
+        width: 100%;
+      }
+    }
+    h2{
+      margin-top: 25px;
+      width: 40%;
+      @include phone{
+        width: 80%;
+      }
+    }
+  }
+
+}
