@@ -1,12 +1,35 @@
+.background-of-edit-profile{
+   @include phone{
 
-.nutritionist-profile {
-
-  .avatar {
-    width: 10%;
-  }
-  
+   }
 }
-.nutritionist-details {
-  background-color: #e1eaf7;
-  border-radius: 15px;
+
+.details-container-alt{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  @include phone{
+    width: 100%;
+  }
+}
+
+.details-container-alt .row .img-control {
+  display: flex;
+  justify-content: center;
+  @include phone{
+    width: 150px;
+  }
+}
+
+.details-container-alt .row .col-sm h1{
+  @include phone{
+    text-align:center; 
+    margin-top: 20px;
+  }
+}
+
+.control-form-profile-nutritionist{
+  @include phone{
+    margin-top: 40px;
+  }
 }

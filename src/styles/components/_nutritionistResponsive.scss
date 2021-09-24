@@ -31,3 +31,17 @@
     }
   }
 }
+.dashboard-page .dashboard-page-right{
+  .bottom-search{
+    @include phone{
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+    }
+  }
+  input{
+    @include phone{
+      width: 100%;
+    }
+  }
+}
