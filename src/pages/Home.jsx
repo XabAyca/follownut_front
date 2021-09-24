@@ -1,6 +1,11 @@
-import {React, useContext} from 'react';
+// CONFIG IMPORTS
+import { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import DarkMode from '../components/context/darkMode';
+import Cookies from 'js-cookie';
+
+// COMPONENT IMPORTS
+import PwaModal from 'components/PwaModal';
 
 // ASSETS IMPORTS
 import appointement from 'assets/images/appointement.png';
@@ -17,9 +22,8 @@ import notebook from 'assets/images/notebook.svg';
 import notebook_dark from 'assets/images/notebook_dark.svg';
 import article from 'assets/images/article.svg';
 import article_dark from 'assets/images/article_dark.svg';
-import PwaModal from 'components/PwaModal';
-import Cookies from 'js-cookie';
 import doctors_dark from 'assets/images/doctors_dark.svg';
+
 
 const Home = () => {
   const { isDark } = useContext(DarkMode);
@@ -73,10 +77,6 @@ const Home = () => {
                 et accessibles de n'importe où.
               </p>
             </div>
-            {/* <Link to="/" className="link">
-              <span>En savoir plus</span>
-              <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-            </Link> */}
           </div>
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
@@ -89,10 +89,6 @@ const Home = () => {
                 nutritionistes pour un suivi de santé optimal.
               </p>
             </div>
-            {/* <Link to="/" className="link">
-              <span>En savoir plus</span>
-              <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-            </Link> */}
           </div>
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
@@ -104,10 +100,6 @@ const Home = () => {
               Une gestion des rendez-vous directement intégrée à FollowNut pour plus de facilité.
               </p>
             </div>
-            {/* <Link to="/" className="link">
-              <span>En savoir plus</span>
-              <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-            </Link> */}
           </div>
         </section>
 
@@ -139,10 +131,6 @@ const Home = () => {
                 Un bloc note à portée de main permettre aux patients de noter leurs menus et activités sportives.
               </p>
             </div>
-            {/* <Link to="/" className="link">
-              <span>En savoir plus</span>
-              <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-            </Link> */}
           </div>
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
@@ -155,10 +143,6 @@ const Home = () => {
                 contact aussi facilement que possible.
               </p>
             </div>
-            {/* <Link to="/" className="link">
-              <span>En savoir plus</span>
-              <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-            </Link> */}
           </div>
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
@@ -170,10 +154,6 @@ const Home = () => {
                 Chaque nutritioniste peut partager ses astuces, recettes et conseils avec la communauté FollowNut
               </p>
             </div>
-            {/* <Link to="/" className="link">
-              <span>En savoir plus</span>
-              <FontAwesomeIcon icon={faArrowRight} className="mx-2" />
-            </Link> */}
           </div>
         </section>
       </div>

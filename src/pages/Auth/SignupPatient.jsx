@@ -1,6 +1,10 @@
+// CONFIG IMPORTS
+import { useSelector } from 'react-redux';
+
+// COMPONENT IMPORTS
 import ErrorsModal from 'components/ErrorsModal';
 import PatientSignupForm from 'components/Forms/PatientSignupForm';
-import { useSelector } from 'react-redux';
+
 
 const SignupPatient = () => {
 

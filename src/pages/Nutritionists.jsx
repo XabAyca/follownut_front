@@ -1,7 +1,13 @@
-import NutritionistCard from 'components/NutritionistCard';
-import React, { useEffect, useState } from 'react';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+// COMPONENT IMPORTS
+import NutritionistCard from 'components/NutritionistCard';
+
+// SERVICES IMPORTS
 import { nutritionistsFetch } from 'services/apiManager';
+
 
 const Nutritionists = () => {
   const [nutritionistsPartenaires, setNutritionistsPartenaires] = useState("");

@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { patientsFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
+import { Link } from 'react-router-dom';
+
+// COMPONENT IMPORTS
 import Loading from 'components/Loading';
 import SidebarPatient from 'components/SidebarPatient';
-import { Link } from 'react-router-dom';
-import { deletePatientFetch } from 'services/apiManager';
-import { patientLogout } from 'services/apiManager';
 
+// ASSET IMPORTS
 import profileDrawing from 'assets/images/patient-profile-drawing.svg'
+
+// SERVICES IMPORTS
+import { patientsFetch, deletePatientFetch, patientLogout } from 'services/apiManager';
+
 
 const PatientProfile = () => {
   const [patient, setPatient] = useState();

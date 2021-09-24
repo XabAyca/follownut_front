@@ -1,3 +1,4 @@
+// COMPONENT IMPORTS
 import NutritionistForgottenForm from 'components/Forms/NutritionistForgottenForm';
 
 const ForgottenPasswordNutritionist = () => {

@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { articlesFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
+
+// COMPONENT IMPORTS
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import ArticlesList from 'components/ArticlesList';
 import ArticleModal from 'components/ArticleModal';
 import ArticleModalCreate from 'components/ArticleModalCreate';
 import ArticleModalUpdate from 'components/ArticleModalUpdate';
+
+// SERVICES IMPORTS
+import { articlesFetch } from 'services/apiManager';
+
+
+
 
 const ArticleNutritionist = () => {
   const [articlesNutritionist, setArticlesNutritionist] = useState();

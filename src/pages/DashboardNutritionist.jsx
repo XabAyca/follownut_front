@@ -1,6 +1,6 @@
 // CONFIG IMPORTS
 import Cookies from 'js-cookie';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { nutritionistFetch, appointmentsFetch } from 'services/apiManager';
 

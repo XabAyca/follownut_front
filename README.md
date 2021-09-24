@@ -9,7 +9,7 @@
 </br></br>
 
 <p align="center" >
-  <a href="https://follownut.herokuapp.com/"><img src="https://github.com/MathieuParadis/follownut_front/blob/master/src/assets/images/baniere.png" alt="banniere_followNut"/></a>
+  <a href="https://follownut.herokuapp.com/"><img src="https://github.com/MathieuParadis/follownut_front/blob/master/src/assets/logos/baniere.png" alt="banniere_followNut"/></a>
 </p>
 
 

@@ -1,6 +1,6 @@
+// COMPONENT IMPORTS
 import PatientCreateForm from 'components/Forms/PatientCreateForm';
 import SidebarNutritionist from 'components/SidebarNutritionist';
-import React from 'react';
 
 const DashboardNutritionistCreatePatient = () => {
   return (

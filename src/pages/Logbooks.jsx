@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logbooksFetch } from 'services/apiManager';
 import Cookies from "js-cookie";
+
+// COMPONENT IMPORTS
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import LogbooksListNutritionist from 'components/LogbooksListNutritionist';
 import LogbookModal from 'components/LogbookModal';
+
+// SERVICES IMPORTS
+import { logbooksFetch } from 'services/apiManager';
+
 
 const Logbooks = () => {
 
