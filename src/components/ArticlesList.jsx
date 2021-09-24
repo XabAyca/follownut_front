@@ -31,7 +31,7 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setO
   }
   
   return (
-    <div className="text-primary-color col-lg-8 col-sm-6">
+    <div className="text-primary-color col-lg-8 col-md-12 col-sm-12 col-xl-8">
       <div className="p-2">
         <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos articles</h2>
