@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { nutritionistFetch, appointmentsFetch } from 'services/apiManager';
 
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import AppointmentModal from 'components/AppointmentModal';
 import AppointmentsListNutritionist from 'components/AppointmentsListNutritionist';
 import CalendlyBtn from 'components/CalendlyBtn';

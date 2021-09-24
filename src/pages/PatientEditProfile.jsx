@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
 
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import PatientEditForm from "components/Forms/PatientEditForm";
 import Loading from 'components/Loading';
 import SidebarPatient from 'components/SidebarPatient';
 
-// ASSET IMPORTS
+// ASSETS IMPORTS
 import profileDrawing from 'assets/images/patient-profile-drawing.svg'
 
 // SERVICES IMPORTS

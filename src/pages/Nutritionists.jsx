@@ -2,11 +2,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// COMPONENT IMPORTS
-import NutritionistCard from 'components/NutritionistCard';
-
 // SERVICES IMPORTS
 import { nutritionistsFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import NutritionistCard from 'components/NutritionistCard';
+
+
 
 
 const Nutritionists = () => {
@@ -39,12 +41,6 @@ const Nutritionists = () => {
     dispatch(nutritionistsFetch()); 
   }, []);
 
-  // useEffect(() => { 
-  //   setNutritionistsPartenaires(nutritionists); 
-  //       console.log(nutritionists)
-
-  // }, [nutritionists]);
-
   useEffect(() => {
     getFilterNutritionists();
     console.log(nutritionistsPartenaires)
@@ -54,7 +50,6 @@ const Nutritionists = () => {
     <div className="page-padding">
       <div className="search-input col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
         <i className="fas fa-search"></i>
-        {/* <input type="text" placeholder="    Recherche..." onChange={(e) => setFilter(e.target.value.toLowerCase())} /> */}
       </div>
       <div className=" d-flex flex-wrap">
         { nutritionistsPartenaires &&

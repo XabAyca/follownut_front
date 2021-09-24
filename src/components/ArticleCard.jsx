@@ -1,4 +1,4 @@
-import React from 'react';
+// CONFIG IMPORTS
 import { useHistory } from 'react-router';
 
 const ArticleCard = ({ articleData }) => {

@@ -1,13 +1,15 @@
 // CONFIG IMPORTS
-import React from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { nutritionistLogout, patientLogout } from "services/apiManager";
 import Cookies from 'js-cookie';
+
+// SERICES IMPORTS
+import { nutritionistLogout, patientLogout } from "services/apiManager";
 
 // ASSETS IMPORTS
 import logo from 'assets/images/logo.svg'
+
 
 const Navigation = ({patientAuth, nutritionistAuth}) => {
   const dispatch = useDispatch();

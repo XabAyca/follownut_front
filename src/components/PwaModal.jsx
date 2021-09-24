@@ -1,4 +1,7 @@
-import React, { useContext } from 'react';
+// CONFIG IMPORTS
+import { useContext } from 'react';
+
+// CONTEXTS IMPORTS
 import { Pwa } from './context/InstallPwa';
 
 const PwaModal = () => {

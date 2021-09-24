@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+// CONFIG IMPORTS
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+// SERVICES IMPORTS
 import { deleteArticleFetch } from 'services/apiManager';
+
 
 const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setOpenUpdateModal }) => {
   const [articles, setArticles] = useState(filteredArticles);

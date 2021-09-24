@@ -3,16 +3,16 @@ import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-// COMPONENT IMPORTS
+// SERVICES IMPORTS
+import { appointmentsFetch, patientFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import SidebarPatient from "components/SidebarPatient";
 import PatientSituation from "components/PatientSituation";
 import PatientCharts from "components/PatientCharts";
 import PwaModal from 'components/PwaModal';
 import CalendlyBtn from 'components/CalendlyBtn';
 import ProfileToCompleteModal from 'components/ProfileToCompleteModal';
-
-// SERVICES IMPORTS
-import { appointmentsFetch, patientFetch } from 'services/apiManager';
 
 
 const DashboardPatient = () => {

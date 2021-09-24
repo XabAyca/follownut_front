@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from "js-cookie";
 
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import Loading from 'components/Loading';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import LogbooksListNutritionist from 'components/LogbooksListNutritionist';

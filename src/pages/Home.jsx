@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import DarkMode from '../components/context/darkMode';
 import Cookies from 'js-cookie';
 
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import PwaModal from 'components/PwaModal';
 
 // ASSETS IMPORTS

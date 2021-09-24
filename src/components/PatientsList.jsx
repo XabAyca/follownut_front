@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import Loading from './Loading';
-import { nutritionistFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+// SERVICES IMPORTS
+import { nutritionistFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import Loading from 'components/Loading';
 
 
 const PatientsList = ({ setOpenModal }) => {
@@ -68,7 +72,6 @@ const PatientsList = ({ setOpenModal }) => {
         <table className="table patient-table">
           <thead>
             <tr>
-              {/* <th scope="col">Réf.</th> */}
               <th scope="col">Prénom</th>
               <th scope="col">Nom</th>
               <th scope="col">Email</th>
@@ -80,7 +83,6 @@ const PatientsList = ({ setOpenModal }) => {
               nutritionistPatients.map((patient) => {
                 return (
                   <tr key={patient.id}>
-                    {/* <th scope="row" key={patient.id}>{patient.id}</th> */}
                     <td>
                       {patient.last_name ? patient.last_name : <span>?</span>}
                     </td>

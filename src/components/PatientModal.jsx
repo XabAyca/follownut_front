@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+// SERVICES IMPORTS
 import { appointmentsFetch } from 'services/apiManager';
-import { patientFetch } from 'services/apiManager';
-import PatientCharts from './PatientCharts';
+
+// COMPONENTS IMPORTS
+import PatientCharts from 'components/PatientCharts';
+
 
 const PatientModal = ({ patient }) => {
   const dispatch = useDispatch()

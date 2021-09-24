@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// CONFIG IMPORTS
+import { Component } from 'react';
 
 class CalculateBMI extends Component {
 

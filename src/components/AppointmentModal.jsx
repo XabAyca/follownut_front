@@ -1,5 +1,7 @@
-import React, { useRef } from 'react';
+// CONFIG IMPORTS
+import { useRef } from 'react';
 import { PDFExport } from '@progress/kendo-react-pdf';
+
 
 const AppointmentModal = ({ appointment }) => {
   const pdfExportComponent = useRef()

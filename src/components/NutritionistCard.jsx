@@ -1,5 +1,3 @@
-import React from 'react';
-
 const NutritionistCard = ({ nutritionistData }) => {
   const {first_name, last_name, email, phone_number, avatar} = nutritionistData;
 

@@ -1,4 +1,4 @@
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import PatientCreateForm from 'components/Forms/PatientCreateForm';
 import SidebarNutritionist from 'components/SidebarNutritionist';
 

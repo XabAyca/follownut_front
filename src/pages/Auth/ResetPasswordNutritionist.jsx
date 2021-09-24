@@ -1,4 +1,4 @@
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import NutritionistPasswordResetForm from "components/Forms/NutritionistPasswordResetForm";
 
 const ResetPasswordNutritionist = () => {

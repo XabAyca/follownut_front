@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Cookies from "js-cookie";
 
-// COMPONENT IMPORTS
+// SERVICES IMPORTS
+import { nutritionistsFetch, nutritionistLogout, deleteNutritionistFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import Loading from 'components/Loading';
 
-// ASSET IMPORTS
+// ASSETS IMPORTS
 import profileDrawing from 'assets/images/nutritionist-profile-drawing.svg'
-
-// SERVICES IMPORTS
-import { nutritionistsFetch, nutritionistLogout, deleteNutritionistFetch } from 'services/apiManager';
 
 
 const NutritionistProfile = () => {

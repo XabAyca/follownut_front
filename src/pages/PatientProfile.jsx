@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
 import { Link } from 'react-router-dom';
 
-// COMPONENT IMPORTS
+// SERVICES IMPORTS
+import { patientsFetch, deletePatientFetch, patientLogout } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import Loading from 'components/Loading';
 import SidebarPatient from 'components/SidebarPatient';
 
-// ASSET IMPORTS
+// ASSETS IMPORTS
 import profileDrawing from 'assets/images/patient-profile-drawing.svg'
-
-// SERVICES IMPORTS
-import { patientsFetch, deletePatientFetch, patientLogout } from 'services/apiManager';
 
 
 const PatientProfile = () => {

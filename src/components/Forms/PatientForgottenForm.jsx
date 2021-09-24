@@ -1,9 +1,14 @@
-import ErrorsModalPawd from 'components/ErrorsModalPawd';
+// CONFIG IMPORTS
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+
+// SERVICES IMPORTS
 import { patientPasswordForgottenFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import ErrorsModalPawd from 'components/ErrorsModalPawd';
+
 
 const PatientForgottenForm = () => {
   const dispatch = useDispatch();

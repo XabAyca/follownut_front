@@ -55,7 +55,8 @@ import Nutritionists from 'pages/Nutritionists';
 
 
 const App = () => {
-  /////////////////// Web app /////////////////////////////////////////////////////////////
+
+// ------------------------- Web app start -------------------------
   //Before install PWA
   let deferredPrompt;
   window.addEventListener("beforeinstallprompt", (e) => {
@@ -105,7 +106,7 @@ const App = () => {
       // Log display mode change to analytics
       console.log("DISPLAY_MODE_CHANGED", displayMode);
     });
-  /////////////////// Web app /////////////////////////////////////////////////////////////
+// ------------------------- Web app end -------------------------
 
 
   const loginPatient = useSelector((state) => state.patient.login);

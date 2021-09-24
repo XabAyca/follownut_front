@@ -1,4 +1,4 @@
-import React from 'react';
+// CONFIG IMPORTS
 import CookieConsent from 'react-cookie-consent';
 
 const CookiesConsent = () => {

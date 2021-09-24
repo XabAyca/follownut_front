@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+// CONFIG IMPORTS
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { updatePatientFetch } from 'services/apiManager';
 import { Link } from 'react-router-dom';
+
+// SERVICES IMPORTS
+import { updatePatientFetch } from 'services/apiManager';
 
 
 const PatientEditForm = ({patientData, nutritionists}) => {

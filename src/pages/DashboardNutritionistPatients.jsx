@@ -1,7 +1,7 @@
 // CONFIG IMPORTS
 import { useState } from 'react';
 
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import SidebarNutritionist from 'components/SidebarNutritionist';
 import PatientsList from 'components/PatientsList';
 import PatientModal from 'components/PatientModal';

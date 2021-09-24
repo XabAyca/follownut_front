@@ -1,4 +1,4 @@
-import React from 'react';
+// CONFIG IMPORTS
 import ReactLoading from 'react-loading';
  
 const Loading = ({ type, color }) => (

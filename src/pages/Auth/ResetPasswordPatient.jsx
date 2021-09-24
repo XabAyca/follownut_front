@@ -1,4 +1,4 @@
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import PatientPasswordResetForm from 'components/Forms/PatientPasswordResetForm';
 
 const ResetPasswordPatient = () => {

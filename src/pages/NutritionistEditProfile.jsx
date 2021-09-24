@@ -3,15 +3,17 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
 
-// COMPONENT IMPORTS
+// SERVICES IMPORTS
+import { nutritionistsFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import NutritionistEditForm from "components/Forms/NutritionistEditForm";
 import SidebarNutritionist from 'components/SidebarNutritionist';
 
-// ASSET IMPORTS
+// ASSETS IMPORTS
 import profileDrawing from 'assets/images/nutritionist-profile-drawing.svg'
 
-// SERVICES IMPORTS
-import { nutritionistsFetch } from 'services/apiManager';
+
 
 
 const NutritionistEditProfile = () => {

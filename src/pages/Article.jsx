@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 
-// COMPONENT IMPORTS
-import Loading from 'components/Loading';
-
 // SERVICES IMPORTS
 import { articlesFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import Loading from 'components/Loading';
 
 
 const Article = () => {

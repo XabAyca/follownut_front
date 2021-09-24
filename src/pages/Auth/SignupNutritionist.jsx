@@ -1,7 +1,7 @@
 // CONFIG IMPORTS
 import { useSelector } from 'react-redux';
 
-// COMPONENT IMPORTS
+// COMPONENTS IMPORTS
 import ErrorsModal from 'components/ErrorsModal';
 import NutritionistSignupForm from 'components/Forms/NutritionistSignupForm';
 

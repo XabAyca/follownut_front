@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from "js-cookie";
 
-// COMPONENT IMPORTS
+// SERVICES IMPORTS
+import { appointmentsFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import AppointmentsListPatient from 'components/AppointmentsListPatient';
 import SidebarPatient from 'components/SidebarPatient';
 import Loading from 'components/Loading';
 import AppointmentModal from 'components/AppointmentModal';
-
-// SERVICES IMPORTS
-import { appointmentsFetch } from 'services/apiManager';
 
 
 const DashboardPatientAptsList = () => {
