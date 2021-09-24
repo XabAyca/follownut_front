@@ -10,4 +10,12 @@
     justify-content: space-evenly;
     overflow: auto;
   }
+  .basic-card{
+    position: relative;
+  }
+  .take-appointment{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+  }
 }
