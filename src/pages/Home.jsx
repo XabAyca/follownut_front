@@ -8,7 +8,8 @@ import Cookies from 'js-cookie';
 import PwaModal from 'components/PwaModal';
 
 // ASSETS IMPORTS
-import appointement from 'assets/images/appointement.png';
+import appointment from 'assets/images/appointment.svg';
+import appointment_dark from 'assets/images/appointment_dark.svg';
 import calendar from 'assets/images/online_calendar.svg';
 import calendar_dark from 'assets/images/online_calendar_dark.svg';
 import doctors from 'assets/images/doctors.svg';
@@ -58,9 +59,9 @@ const Home = () => {
           </div>
           <div className="section1-right">
             <img
-              className={`appointement ${isDark && 'dark-filter'}`}
-              src={appointement}
-              alt="Calendar illustration"
+              className="appointement"
+              src={isDark ? appointment_dark : appointment}
+              alt="Appointment illustration"
             />
           </div>
         </section>
@@ -105,7 +106,7 @@ const Home = () => {
 
         <section className="section bg-blue align-items-center">
           <div className="section3-left">
-            <img className="img-container" src={isDark?dashboard_dark:dashboard} alt="Dashboard illustration" />
+            <img className="img-container" src={isDark ? dashboard_dark : dashboard} alt="Dashboard illustration" />
           </div>
           <div className="section3-right">
             <h2 className="text-white-color">Tableau de bord</h2>
