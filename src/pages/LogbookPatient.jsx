@@ -1,13 +1,19 @@
- import React, { useEffect, useState } from 'react';
-import SidebarPatient from 'components/SidebarPatient';
-import { logbooksFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
+
+// SERVICES IMPORTS
+import { logbooksFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import SidebarPatient from 'components/SidebarPatient';
 import Loading from 'components/Loading';
 import LogbooksList from 'components/LogbooksList';
 import LogbookModal from 'components/LogbookModal';
 import LogbookModalCreate from 'components/LogbookModalCreate';
 import LogbookModalUpdate from 'components/LogbookModalUpdate';
+
 
 const LogbookPatient = () => {
   const [logbooksPatient, setLogbooksPatient] = useState();

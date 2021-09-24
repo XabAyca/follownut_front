@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import Loading from './Loading';
-import { nutritionistFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+// SERVICES IMPORTS
+import { nutritionistFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import Loading from 'components/Loading';
+
 
 const PatientsList = ({ setOpenModal }) => {
   const [nutritionistPatients, setNutritionistPatients] = useState();

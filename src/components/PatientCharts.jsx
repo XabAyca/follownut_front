@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
-import { useState } from 'react';
 
+// COMPONENTS IMPORTS
 import Weight from "components/Charts/Weight";
 import BMI from "components/Charts/BMI";
 import FatnMuscle from "components/Charts/FatnMuscle";
-import Height from './Charts/Height';
+import Height from 'components/Charts/Height';
+
 
 const PatientCharts = ({appointments}) => {
   const [key, setKey] = useState("weight");

@@ -1,4 +1,4 @@
-import React from 'react';
+// CONFIG IMPORTS
 import { PopupWidget } from 'react-calendly';
 
 const CalendlyBtn = ({slug}) => {

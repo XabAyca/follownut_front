@@ -1,10 +1,15 @@
-import ErrorsModal from 'components/ErrorsModal';
+// CONFIG IMPORTS
 import Cookies from 'js-cookie';
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+
+// SERVICES IMPORTS
 import { patientCreateFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import ErrorsModal from 'components/ErrorsModal';
+
 
 const PatientCreateForm = () => {
   const dispatch = useDispatch()

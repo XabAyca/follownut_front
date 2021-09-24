@@ -1,3 +1,4 @@
+// CONFIG IMPORTS
 import { Link } from "react-router-dom";
 
 const Footer = () => {

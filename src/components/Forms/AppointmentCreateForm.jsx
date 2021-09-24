@@ -1,11 +1,14 @@
+// CONFIG IMPORTS
 import Cookies from 'js-cookie';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { appointmentsFetch } from 'services/apiManager';
-import { createAppointment } from 'services/apiManager';
-import { patientsFetch } from 'services/apiManager';
+
+// SERVICES IMPORTS
+import { appointmentsFetch, createAppointment, patientsFetch  } from 'services/apiManager';
+
+
+
 
 const AppointmentCreateForm = () => {
   const dispatch = useDispatch()

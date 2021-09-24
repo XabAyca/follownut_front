@@ -1,7 +1,11 @@
+// CONFIG IMPORTS
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+// SERVICES IMPORTS
 import { nutritionistLoginFetch } from 'services/apiManager';
+
 
 const NutritionistLoginForm = () => {
 

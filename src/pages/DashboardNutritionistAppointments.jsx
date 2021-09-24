@@ -1,6 +1,7 @@
+// COMPONENTS IMPORTS
 import AppointmentCreateForm from 'components/Forms/AppointmentCreateForm';
 import SidebarNutritionist from 'components/SidebarNutritionist';
-import React from 'react';
+
 
 const DashboardNutritionistAppointments = () => {
   return (

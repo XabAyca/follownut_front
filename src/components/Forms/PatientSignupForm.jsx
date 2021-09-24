@@ -1,7 +1,11 @@
-import { patientRegisterFetch } from 'services/apiManager';
+// CONFIG IMPORTS
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+// SERVICES IMPORTS
+import { patientRegisterFetch } from 'services/apiManager';
+
 
 const PatientSignupForm = () => {
 
