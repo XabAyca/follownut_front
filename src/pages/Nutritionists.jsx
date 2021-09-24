@@ -6,7 +6,6 @@ import { nutritionistsFetch } from 'services/apiManager';
 const Nutritionists = () => {
   const [nutritionistsPartenaires, setNutritionistsPartenaires] = useState("");
   const [filter, setFilter] = useState("");
- 
   const nutritionists = useSelector(state => state.nutritionists.nutritionist);
   const dispatch = useDispatch();
 
@@ -37,27 +36,30 @@ const Nutritionists = () => {
   }, [filter, nutritionists]);
 
   return (
-    <div className="page-padding">
+    <div className="page-padding nutritionists">
       <div className="mx-4">
-        <div className="search-input my-3 col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
+        <div className="bottom-search my-3 col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
           <i className="fas fa-search"></i>
-          <input type="text" placeholder="    Recherche..." onChange={(e) => setFilter(e.target.value.toLowerCase())} />
+          <input
+            className="search-input px-3"
+            type="text"
+            placeholder="Recherche..."
+            onChange={(e) => setFilter(e.target.value.toLowerCase())}
+          />
         </div>
-        <h2>Voici les nutritionistes utilisant notre application</h2>
+        <h2>Voici les nutritionnistes utilisant notre application</h2>
       </div>
-      <div className=" d-flex flex-wrap">
-        { nutritionistsPartenaires &&
-          ( nutritionistsPartenaires.length > 0 ?
+      <div className="box">
+        {nutritionistsPartenaires &&
+          (nutritionistsPartenaires.length > 0 ? (
             nutritionistsPartenaires.map((nutritionist) => {
-              return (
-                <NutritionistCard nutritionistData={nutritionist} />
-              )
+              return <NutritionistCard nutritionistData={nutritionist} />;
             })
-            : ( nutritionistsPartenaires.length === 0 && filter === "" ?
+          ) : nutritionistsPartenaires.length === 0 && filter === "" ? (
             <p>Il n'y a aucun nutritioniste d'enregistré pour le moment</p>
-            : <p>Aucun résultat ne correspond à votre recherche</p>)
-          )
-        }
+          ) : (
+            <p>Aucun résultat ne correspond à votre recherche</p>
+          ))}
       </div>
     </div>
   );
