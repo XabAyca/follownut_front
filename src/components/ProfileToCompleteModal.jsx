@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ProfileToCompleteModal = () => {
   return (
     <div className='profile-to-complete'>

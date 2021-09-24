@@ -1,7 +1,10 @@
+// CONFIG IMPORTS
+import { useSelector } from 'react-redux';
+
+// COMPONENTS IMPORTS
 import ErrorModal from 'components/ErrorModal';
 import NutritionistLoginForm from 'components/Forms/NutritionistLoginForm';
-import React from 'react';
-import { useSelector } from 'react-redux';
+
 
 const LoginNutritionist = () => {
   const error = useSelector(state => state.nutritionists.error)

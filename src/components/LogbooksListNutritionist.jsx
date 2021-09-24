@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 
 const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
   const [logbooks, setLogbooks] = useState(filteredLogbooks);
@@ -31,7 +31,7 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
   }
   
   return (
-    <div className="text-primary-color col-lg-8 col-sm-12">
+    <div className="text-primary-color col-lg-8 col-sm-6">
       <div className="p-2">
         <div className="d-flex justify-content-between">
           <h2>Voici la liste des notes de vos patients</h2>

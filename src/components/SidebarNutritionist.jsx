@@ -1,4 +1,4 @@
-import React from 'react';
+// CONFIG IMPORTS
 import { Link } from 'react-router-dom';
 
 const SidebarNutritionist = () => {

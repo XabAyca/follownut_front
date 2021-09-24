@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { nutritionistsFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
+
+// SERVICES IMPORTS
+import { nutritionistsFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import NutritionistEditForm from "components/Forms/NutritionistEditForm";
 import SidebarNutritionist from 'components/SidebarNutritionist';
 
+// ASSETS IMPORTS
 import profileDrawing from 'assets/images/nutritionist-profile-drawing.svg'
+
+
 
 
 const NutritionistEditProfile = () => {

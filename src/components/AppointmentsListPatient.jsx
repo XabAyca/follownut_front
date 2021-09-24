@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// CONFIG IMPORTS
+import { useState } from 'react';
 
 const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
   const [appointments, setAppointments] = useState(filteredAppointments)
@@ -20,7 +21,7 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
       <div className="mx-3 p-2">
         <h2>Voici la liste de vos rendez-vous passés</h2>
       </div>
-      <div className="details-container p-3 col-lg-8 col-sm-12">
+      <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
         {
           appointments.length > 0 ? 
           <table className="table patient-table">

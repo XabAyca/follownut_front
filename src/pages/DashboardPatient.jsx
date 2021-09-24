@@ -1,15 +1,19 @@
+// CONFIG IMPORTS
 import Cookies from 'js-cookie';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { appointmentsFetch } from 'services/apiManager';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+// SERVICES IMPORTS
+import { appointmentsFetch, patientFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import SidebarPatient from "components/SidebarPatient";
 import PatientSituation from "components/PatientSituation";
 import PatientCharts from "components/PatientCharts";
 import PwaModal from 'components/PwaModal';
-import { patientFetch } from 'services/apiManager';
 import CalendlyBtn from 'components/CalendlyBtn';
 import ProfileToCompleteModal from 'components/ProfileToCompleteModal';
+
 
 const DashboardPatient = () => {
   const dispatch = useDispatch()

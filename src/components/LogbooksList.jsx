@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+// CONFIG IMPORTS
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+// SERVICES IMPORTS
 import { deleteLogbookFetch } from 'services/apiManager';
 
 
@@ -32,7 +35,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
   }
   
   return (
-    <div className="text-primary-color col-lg-8 col-sm-12">
+    <div className="text-primary-color col-lg-8 col-sm-6">
       <div className="p-2">
         <div className="d-flex justify-content-between">
           <h2>Voici la liste de vos notes</h2>

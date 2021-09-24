@@ -1,10 +1,15 @@
-import ErrorsModal from 'components/ErrorsModal';
+// CONFIG IMPORTS
 import Cookies from 'js-cookie';
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+
+// SERVICES IMPORTS
 import { patientCreateFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import ErrorsModal from 'components/ErrorsModal';
+
 
 const PatientCreateForm = () => {
   const dispatch = useDispatch()
@@ -50,7 +55,7 @@ const PatientCreateForm = () => {
         onSubmit={createPatient}
       >
         <div className="d-flex row justify-content-left py-2">
-          <div className="col-lg-3 col-sm-8">
+          <div className="col-lg-4 col-sm-12">
             <label>Prénom</label>
             <input
               className="input-display"
@@ -60,7 +65,7 @@ const PatientCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-3 col-sm-8">
+          <div className="col-lg-4 col-sm-12">
             <label>Nom</label>
             <input
               className="input-display"
@@ -72,7 +77,7 @@ const PatientCreateForm = () => {
           </div>
         </div>
         <div>
-          <div className="col-lg-5 col-sm-8">
+          <div className="col-lg-6 col-sm-12">
             <label>Email</label>
             <input
               className="input-display"
@@ -84,7 +89,7 @@ const PatientCreateForm = () => {
           </div>
           <hr className="m-4" />
           <div className="d-flex row justify-content-left py-2">
-            <div className="col-lg-3 col-sm-12">
+            <div className="col-lg-4 col-sm-12">
               <label>Mot de passe</label>
               <input
                 className="input-display"
@@ -94,7 +99,7 @@ const PatientCreateForm = () => {
                 required
               />
             </div>
-            <div className="col-lg-3 col-sm-12">
+            <div className="col-lg-4 col-sm-12">
               <label>Confirmation de mot de passe</label>
               <input
                 className="input-display"
@@ -107,15 +112,11 @@ const PatientCreateForm = () => {
             <p className='text-muted'>N'oubliez pas de transmettre le mot de passe à votre patient</p>
           </div>
         </div>
-        <div className="row">
-          <div className="col-lg-3 col-sm-8 creer-button">
-            <input
-              type="submit"
-              value="Créer"
-              className="btn success-button my-3 col-lg-3 col-sm-12"
-            />
-          </div>
-        </div>
+        <input
+          type="submit"
+          value="Créer"
+          className="btn success-button my-3 col-lg-3 col-sm-12"
+        />
       </form>
     </div>
   );

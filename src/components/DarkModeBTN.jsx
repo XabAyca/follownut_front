@@ -1,5 +1,9 @@
+// CONFIG IMPORTS
 import { useContext } from "react";
+
+// CONTEXTS IMPORTS
 import DarkMode from "./context/darkMode";
+
 
 const DarkModeBtn = () => {
   const { isDark, toogleMode } = useContext(DarkMode);

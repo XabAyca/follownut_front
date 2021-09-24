@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from 'react';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateLogbook, logbooksFetch } from 'services/apiManager';
+
+// SERVICES IMPORTS
+import { updateLogbook } from 'services/apiManager';
+
 
 const LogbookModalUpdate = ({logbook}) => {
   const logbookF = useSelector((state) => state.logbooks.logbook);

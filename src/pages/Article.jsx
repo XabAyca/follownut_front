@@ -1,8 +1,14 @@
-import Loading from 'components/Loading';
-import React, { useEffect, useState } from 'react';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+
+// SERVICES IMPORTS
 import { articlesFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import Loading from 'components/Loading';
+
 
 const Article = () => {
   const slug = useParams(); 
