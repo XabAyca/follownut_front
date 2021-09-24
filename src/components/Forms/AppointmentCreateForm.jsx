@@ -69,35 +69,33 @@ const AppointmentCreateForm = () => {
         className="appointment-form text-primary-color"
         onSubmit={createDataAppointment}
       >
-        <div className="row">
-          <div className="col-lg-3 col-sm-8 control-first-part">
-            <select
-              name="patient"
-              id="patient_id"
-              className="input-display my-2"
-              required
-            >
-              <option>Sélectionnez un patient</option>
-              {sortedPatients &&
-                sortedPatients.map((patient) => {
-                  return (
-                    <option key={patient.id} value={patient.id}>
-                      {patient.last_name ? patient.last_name : patient.email}
-                    </option>
-                  );
-                })}
-            </select>
-            <input
-              className="input-display my-2"
-              type="datetime-local"
-              id="date"
-              required
-            />
-          </div>
+        <div className="col-lg-3 col-sm-12">
+          <select
+            name="patient"
+            id="patient_id"
+            className="input-display my-2"
+            required
+          >
+            <option>Sélectionnez un patient</option>
+            {sortedPatients &&
+              sortedPatients.map((patient) => {
+                return (
+                  <option key={patient.id} value={patient.id}>
+                    {patient.last_name ? patient.last_name : patient.email}
+                  </option>
+                );
+              })}
+          </select>
+          <input
+            className="input-display my-2"
+            type="datetime-local"
+            id="date"
+            required
+          />
         </div>
 
         <div className="d-flex row justify-content-between py-2">
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Graisse viscérale</label>
             <input
               className="input-display"
@@ -109,7 +107,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Masse musculaire</label>
             <input
               className="input-display"
@@ -121,7 +119,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Masse grasse</label>
             <input
               className="input-display"
@@ -133,7 +131,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Taille</label>
             <input
               className="input-display"
@@ -146,7 +144,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Poids</label>
             <input
               className="input-display"
@@ -160,23 +158,19 @@ const AppointmentCreateForm = () => {
             />
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-8 control-third-part">
-            <hr className="my-4" />
-            <label>Compte-rendu</label>
-            <textarea
-              placeholder="Formulez des recommandations à votre patient ..."
-              id="content"
-              className="input-display textarea-display col-sm-8"
-              required
-            />
-            <input
-              type="submit"
-              value="Créer"
-              className="btn success-button my-3 col-lg-3 col-sm-8"
-            />
-          </div>
-        </div>
+        <hr className="my-4" />
+        <label>Compte-rendu</label>
+        <textarea
+          placeholder="Formulez des recommandations à votre patient ..."
+          id="content"
+          className="input-display textarea-display"
+          required
+        />
+        <input
+          type="submit"
+          value="Créer"
+          className="btn success-button my-3 col-lg-3 col-sm-12"
+        />
       </form>
     </div>
   );

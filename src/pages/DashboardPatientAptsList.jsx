@@ -42,7 +42,7 @@ const DashboardPatientAptsList = () => {
         <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-page-right">
-        <div className="">
+        <div className="m-5">
           {patientAppointments ?  
             <AppointmentsListPatient
               filteredAppointments={patientAppointments}
