@@ -1,43 +1,23 @@
-.login-patient .jumbotron-auth div{
+.login-patient .jumbotron div{
   @include phone{
-    margin-right: -10px;
+    margin-right: -12px;
   }
   h1{
-    @include phone{
-      margin-right: -25px;
-    }
+    margin-right: -30px;
   }
-  .form-container{
-    @include phone{
-      width: 100%;
-      padding: 25px;
-    }
-    h5{
-      @include phone{
-        text-align: center;
-      }
-    }
+  h5{
+    text-align: center;
   }
 }
 //Nutritionnist
-.login-nutritionist .jumbotron-auth div{
+.login-nutritionist .jumbotron div{
   @include phone{
-    margin-right: -10px;
+    margin-right: -12px;
   }
   h1{
-    @include phone{
-      margin-right: -25px;
-    }
+    margin-right: -30px;
   }
-  .form-container{
-    @include phone{
-      width: 100%;
-      padding: 25px;
-    }
-    h5{
-      @include phone{
-        text-align: center;
-      }
-    }
+  h5{
+    text-align: center;
   }
 }
