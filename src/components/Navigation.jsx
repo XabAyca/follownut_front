@@ -57,7 +57,7 @@ const Navigation = ({patientAuth, nutritionistAuth}) => {
             activeClassName="nav-active"
             className="nav-link"
           >
-            Partenaires affiliés
+            Nutritionnistes
           </NavLink>
           {patientAuth && (
             <>

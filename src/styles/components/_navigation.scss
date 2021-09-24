@@ -15,14 +15,14 @@
   .nav-link{
     padding: 10px;
     position: relative;
-    color: var(--primary-color);
+    color: var(--prim-color);
     text-decoration: none;
     transition: all .5s;
     &::after {
       content: '';
       width: 0;
       height: 3px;
-      background: var(--secondary-color);
+      background: var(--sec-color);
       position: absolute;
       bottom: 1px;
       left: 50%;
@@ -31,7 +31,7 @@
       transition: all .5s;
     }
     &:hover{
-    color:var(--secondary-color);
+    color:var(--sec-color);
       &::after{
         width: 85%;
       }
@@ -39,12 +39,12 @@
   }
 
   .nav-active {
-    color:var(--secondary-color);
+    color:var(--sec-color);
     &::after {
       content: '';
       width: 85%;
       height: 3px;
-      background: var(--secondary-color);
+      background: var(--sec-color);
       position: absolute;
       left: 50%;
       bottom:10px;
