@@ -1,5 +1,11 @@
-footer {
+footer{
   background-color: var(--footer-color);
+}
+footer section div p,a,h6{
+  color:var(--basic-color-grey);
+}
+footer div{
+  color:var(--basic-color-grey);
 }
 
 footer section .container .row{

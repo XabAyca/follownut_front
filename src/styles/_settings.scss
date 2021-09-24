@@ -13,7 +13,7 @@ $primary-font: "Hind";
 
 // ----- DAY MODE ----- //
 $basic-color-white:#ffffff;
-$basic-color-grey: #ced4da;
+$basic-color-grey: #adb2b8;
 $basic-color-dark:#292929;
 $modal-bg: rgba(0, 0, 0, 0.726);
 $modal-bg-dark: rgba(255, 255, 255, 0.726);
@@ -26,7 +26,7 @@ $third-color: #FFBF00;
 $success: #5DA271;
 $danger: #fb3333;
 $warning: #efef5b;
-$footer-color:#d1d1d1;
+$footer-color:#ebebeb;
 
 
 // Deep Shade Colors //
@@ -392,7 +392,6 @@ div {
 
 // -------------------- BACKGROUNDS -------------------- //
 .bg-blue {
-  // background-color: #91b2e2;
   background-color: var(--sec-color);
 }
 
