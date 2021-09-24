@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// CONFIG IMPORTS
+import { useState } from 'react';
 
 // COMPONENTS IMPORTS
 import SidebarNutritionist from 'components/SidebarNutritionist';

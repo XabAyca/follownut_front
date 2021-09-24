@@ -1,8 +1,14 @@
-import ErrorsModalPawd from 'components/ErrorsModalPawd';
+// CONFIG IMPORTS
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router';
+
+// SERVICES IMPORTS
 import { nutritionistPasswordForgottenFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import ErrorsModalPawd from 'components/ErrorsModalPawd';
+
 
 const NutritionistForgottenForm = () => {
   

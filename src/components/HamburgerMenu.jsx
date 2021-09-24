@@ -1,9 +1,10 @@
+// CONFIG IMPORTS
 import Cookies from 'js-cookie';
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { patientLogout } from 'services/apiManager';
-import { nutritionistLogout } from 'services/apiManager';
+
+// SERVICES IMPORTS
+import { patientLogout, nutritionistLogout } from 'services/apiManager';
 
 
 const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {

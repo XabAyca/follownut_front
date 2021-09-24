@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 
 const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
   const [logbooks, setLogbooks] = useState(filteredLogbooks);

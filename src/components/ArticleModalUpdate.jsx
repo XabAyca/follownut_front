@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { updateArticle, articlesFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+// SERVICES IMPORTS
+import { updateArticle } from 'services/apiManager';
+
 
 const ArticleModalUpdate = ({article}) => {
 

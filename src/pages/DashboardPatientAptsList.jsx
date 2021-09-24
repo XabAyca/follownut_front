@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from "js-cookie";
+
+// SERVICES IMPORTS
 import { appointmentsFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
 import AppointmentsListPatient from 'components/AppointmentsListPatient';
 import SidebarPatient from 'components/SidebarPatient';
 import Loading from 'components/Loading';
 import AppointmentModal from 'components/AppointmentModal';
+
 
 const DashboardPatientAptsList = () => {
   const [patientAppointments, setPatientAppointments] = useState();

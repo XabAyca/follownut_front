@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// CONFIG IMPORTS
+import { useState } from 'react';
 
 const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
   const [appointments, setAppointments] = useState(filteredAppointments)

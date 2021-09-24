@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteAppointmentFetch } from 'services/apiManager';
 import { Link } from 'react-router-dom';
+
+// SERVICES IMPORTS
+import { deleteAppointmentFetch } from 'services/apiManager';
+
 
 const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) => {
   const dispatch = useDispatch();

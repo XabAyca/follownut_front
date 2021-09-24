@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { nutritionistsFetch } from 'services/apiManager';
-import Cookies from "js-cookie";
-import SidebarNutritionist from 'components/SidebarNutritionist';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { nutritionistLogout } from 'services/apiManager';
-import { deleteNutritionistFetch } from 'services/apiManager';
+import Cookies from "js-cookie";
+
+// SERVICES IMPORTS
+import { nutritionistsFetch, nutritionistLogout, deleteNutritionistFetch } from 'services/apiManager';
+
+// COMPONENTS IMPORTS
+import SidebarNutritionist from 'components/SidebarNutritionist';
 import Loading from 'components/Loading';
 
+// ASSETS IMPORTS
 import profileDrawing from 'assets/images/nutritionist-profile-drawing.svg'
-
 
 
 const NutritionistProfile = () => {

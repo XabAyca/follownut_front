@@ -1,5 +1,3 @@
-import React from 'react';
-
 const NutritionistCard = ({ nutritionistData }) => {
   const {first_name, last_name, email, phone_number, avatar} = nutritionistData;
   const defaultAvatar = "https://cdn.pixabay.com/photo/2013/07/13/12/07/avatar-159236_1280.png";

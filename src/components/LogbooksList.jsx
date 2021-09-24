@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+// CONFIG IMPORTS
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
+// SERVICES IMPORTS
 import { deleteLogbookFetch } from 'services/apiManager';
 
 

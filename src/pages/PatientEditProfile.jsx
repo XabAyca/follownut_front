@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { patientsFetch } from 'services/apiManager';
+// CONFIG IMPORTS
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Cookies from "js-cookie";
 
+// COMPONENTS IMPORTS
 import PatientEditForm from "components/Forms/PatientEditForm";
 import Loading from 'components/Loading';
-import { nutritionistsFetch } from 'services/apiManager';
 import SidebarPatient from 'components/SidebarPatient';
 
+// ASSETS IMPORTS
 import profileDrawing from 'assets/images/patient-profile-drawing.svg'
+
+// SERVICES IMPORTS
+import { patientsFetch, nutritionistsFetch } from 'services/apiManager';
 
 
 const PatientEditProfile = () => {
