@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // SERVICES IMPORTS
-import { patientFetch } from 'services/apiManager';
+import { patientFetch, nutritionistsFetch } from 'services/apiManager';
 
 // COMPONENTS IMPORTS
 import PatientEditForm from "components/Forms/PatientEditForm";
@@ -16,28 +16,13 @@ const UncompletedPatientModal = () => {
 
   useEffect(() => {
     dispatch(patientFetch())
+    dispatch(nutritionistsFetch())
   }, [])
 
-  const closeModal = () => {
-    let modal = document.querySelector(".patient-modal");
-    modal.style.opacity = 0;
-    modal.style.visibility = "hidden";
-    setTimeout(() => {
-      console.log("test");
-    }, 1000)
-  };
-
-
-  window.onclick = (event) => {
-    event.target === document.querySelector(".patient-modal") &&
-      event.target !== document.querySelector(".content") &&
-      closeModal();
-  };
-
   return (
-    <div className="patient-modal">
-      {/* <i className="pointer-clickable fas fa-times" onClick={closeModal}></i> */}
+    <div className="read-modal visible-modal">
       <div className="content p-5 my-5">
+        <h2>Vous devez compléter votre profil pour pouvoir utiliser FollowNut</h2>
         {
           nutritionists ? <PatientEditForm patientData={currentPatient} nutritionists={nutritionists}/> : <Loading />
         }

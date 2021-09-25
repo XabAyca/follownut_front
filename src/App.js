@@ -16,8 +16,8 @@ import ScrollTop from 'components/ScrollTop';
 import CookiesConsent from 'components/CookiesConsent';
 import DarkMode from 'components/context/darkMode';
 import DarkModeBtn from 'components/DarkModeBTN';
-
-
+import UncompletedPatientModal from 'components/UncompletedPatientModal';
+import UncompletedNutritionistModal from 'components/UncompletedNutritionistModal';
 
 // PAGES IMPORTS
 import Home from 'pages/Home';
@@ -49,7 +49,7 @@ import Articles from 'pages/Articles';
 import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
 import Nutritionists from 'pages/Nutritionists';
-import UncompletedPatientModal from 'components/UncompletedPatientModal';
+
 
 
 
@@ -113,6 +113,8 @@ const App = () => {
   const loginNutritionist = useSelector((state) => state.nutritionists.login);
   const registerNutritionist = useSelector((state) => state.nutritionists.register);
   const currentPatient = useSelector((state) => state.patient.currentPatient);
+  const updPatient = useSelector((state) => state.patient.patientUpd);
+  const updNutritionist = useSelector((state) => state.nutritionists.nutritionistUpd);
   const currentNutritionist = useSelector((state) => state.nutritionists.currentNutritionist);
   const [loading, setLoading] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -162,7 +164,7 @@ const App = () => {
     ) {
       setIsDark(true);
     }
-  }, []);
+  }, [updPatient, updNutritionist]);
   
   useEffect(() => {
     if (isDark) {
@@ -178,12 +180,6 @@ const App = () => {
     setIsDark(!isDark);
   };
 
-  const openModal = () => {
-    let modal = document.querySelector(".patient-modal");
-    modal.style.opacity=1
-    modal.style.visibility = 'visible'
-  }
-
   return (
     <>
 
@@ -192,13 +188,17 @@ const App = () => {
         currentPatient.last_name != undefined &&
         currentPatient.date_of_birth != undefined &&
         currentPatient.nutritionist_id != undefined ?
-          console.log("patient complet")
-          :
-          // console.log("patient incomplet")
-          ( openModal() )
-        : console.log("aucun patient n'est connecté")
+          null : <UncompletedPatientModal /> : null
     }
-      <UncompletedPatientModal />
+
+    { currentNutritionist != "" ?
+        currentNutritionist.first_name != undefined &&
+        currentNutritionist.last_name != undefined &&
+        currentNutritionist.slug_calendly != undefined &&
+        currentNutritionist.phone_number != undefined ?
+          null : <UncompletedNutritionistModal /> : null
+    }
+
       <BrowserRouter>
         <DarkMode.Provider
         value={{
