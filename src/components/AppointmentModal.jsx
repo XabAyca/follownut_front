@@ -21,6 +21,7 @@ const AppointmentModal = ({ appointment }) => {
       hour: "numeric",
       minute: "2-digit",
       hour12: false,
+      timeZone: "UTC",
     });
   };
 

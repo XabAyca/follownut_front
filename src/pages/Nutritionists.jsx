@@ -7,13 +7,15 @@ import { nutritionistsFetch } from 'services/apiManager';
 
 // COMPONENTS IMPORTS
 import NutritionistCard from 'components/NutritionistCard';
+import { useParams } from 'react-router';
 
 
 
 
 const Nutritionists = () => {
   const [nutritionistsPartenaires, setNutritionistsPartenaires] = useState("");
-  const [filter, setFilter] = useState("");
+  const {slug} = useParams()
+  const [filter, setFilter] = useState(slug || "");
   const nutritionists = useSelector(state => state.nutritionists.nutritionist);
   const dispatch = useDispatch();
 
@@ -22,10 +24,16 @@ const Nutritionists = () => {
       setNutritionistsPartenaires(nutritionists.filter((nutritionist) => {
         if (nutritionist.first_name && nutritionist.last_name) {
           return (
-            nutritionist.first_name.toLowerCase().includes(filter) ||
-            nutritionist.last_name.toLowerCase().includes(filter) ||
-            nutritionist.email.toLowerCase().includes(filter)
-          ) 
+            nutritionist.first_name
+              .toLowerCase()
+              .includes(filter.toLowerCase()) ||
+            nutritionist.last_name
+              .toLowerCase()
+              .includes(filter.toLowerCase()) ||
+            nutritionist.email
+              .toLowerCase()
+              .includes(filter.toLowerCase())
+          ); 
         } else {
           return (
             nutritionist.email.toLowerCase().includes(filter)
@@ -52,6 +60,7 @@ const Nutritionists = () => {
             className="search-input px-3"
             type="text"
             placeholder="Recherche..."
+            value={filter}
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
         </div>

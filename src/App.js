@@ -371,6 +371,7 @@ const App = () => {
             <Route exact path="/article/:slug" component={Article} /> 
             <Route exact path="/articles" component={Articles} />
             <Route exact path="/nutritionists" component={Nutritionists} />
+            <Route exact path="/nutritionists/:slug" component={Nutritionists} />
             <Route exact path="/" component={Home} />
             <Route component={NotFound} />
           </Switch>
