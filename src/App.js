@@ -8,17 +8,6 @@ import Cookies from 'js-cookie';
 import { Pwa } from "components/context/InstallPwa";
 
 
-// COMPONENTS IMPORTS
-import Navigation from 'components/Navigation';
-import HamburgerMenu from 'components/HamburgerMenu';
-import Footer from 'components/Footer';
-import ScrollTop from 'components/ScrollTop';
-import CookiesConsent from 'components/CookiesConsent';
-import DarkMode from 'components/context/darkMode';
-import DarkModeBtn from 'components/DarkModeBTN';
-import UncompletedPatientModal from 'components/UncompletedPatientModal';
-import UncompletedNutritionistModal from 'components/UncompletedNutritionistModal';
-
 // PAGES IMPORTS
 import Home from 'pages/Home';
 import NotFound from 'pages/NotFound';
@@ -50,7 +39,16 @@ import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
 import Nutritionists from 'pages/Nutritionists';
 
-
+// COMPONENTS IMPORTS
+import Navigation from 'components/Navigation';
+import HamburgerMenu from 'components/HamburgerMenu';
+import Footer from 'components/Footer';
+import ScrollTop from 'components/ScrollTop';
+import CookiesConsent from 'components/CookiesConsent';
+import DarkMode from 'components/context/darkMode';
+import DarkModeBtn from 'components/DarkModeBTN';
+import UncompletedPatientModal from 'components/UncompletedPatientModal';
+import UncompletedNutritionistModal from 'components/UncompletedNutritionistModal';
 
 
 const App = () => {
