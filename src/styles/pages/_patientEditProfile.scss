@@ -5,9 +5,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  @include phone{
-    width: 100%;
-  }
   .content-edit-profile{
     display: flex;
     flex-direction: column;
@@ -38,6 +35,19 @@
   }
 }
 
+.control-edit-profile{
+  @include phone{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .constrol-edit-profile-picture img{
+    @include phone{
+      width: 100%;
+    }
+  }
+}
 
 
 

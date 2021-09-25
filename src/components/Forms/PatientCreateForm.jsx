@@ -55,7 +55,7 @@ const PatientCreateForm = () => {
         onSubmit={createPatient}
       >
         <div className="d-flex row justify-content-left py-2">
-          <div className="col-lg-4 col-sm-12">
+          <div className="col-lg-4 col-sm-8">
             <label>Prénom</label>
             <input
               className="input-display"
@@ -65,7 +65,7 @@ const PatientCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-4 col-sm-12">
+          <div className="col-lg-4 col-sm-8">
             <label>Nom</label>
             <input
               className="input-display"
@@ -77,7 +77,7 @@ const PatientCreateForm = () => {
           </div>
         </div>
         <div>
-          <div className="col-lg-6 col-sm-12">
+          <div className="col-lg-6 col-sm-8">
             <label>Email</label>
             <input
               className="input-display"
@@ -112,11 +112,15 @@ const PatientCreateForm = () => {
             <p className='text-muted'>N'oubliez pas de transmettre le mot de passe à votre patient</p>
           </div>
         </div>
-        <input
-          type="submit"
-          value="Créer"
-          className="btn success-button my-3 col-lg-3 col-sm-12"
-        />
+        <div className="row">
+          <div className="col-lg-4 col-sm-8">
+            <input
+              type="submit"
+              value="Créer"
+              className="btn success-button my-3 col-lg-3 col-sm-12"
+            />
+          </div>
+        </div>
       </form>
     </div>
   );

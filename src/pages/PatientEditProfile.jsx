@@ -48,8 +48,8 @@ const PatientEditProfile = () => {
         <SidebarPatient />
       </div>
       <div className="background-of-edit-profile">
-        <div className="details-container-alt d-flex justify-content-around px-5 col-8">
-          <div className="align-self-center">
+        <div className="details-container-alt control-edit-profile col-8">
+          <div className="align-self-center constrol-edit-profile-picture">
             <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
           </div>
           <div className="align-self-center">

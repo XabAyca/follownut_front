@@ -60,44 +60,44 @@ const NutritionistProfile = () => {
         <SidebarNutritionist />
       </div>
       <div className="background-of-edit-profile">
-      <div className="container details-container-alt">
-        <div className="row d-flex justify-content-center">
-          <div className="col-12 d-flex img-control">
-           <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
-          </div>
-          <div className="col-12 control-form-profile-nutritionist">
-            {
-              nutritionist && nutritionist.first_name && nutritionist.last_name ?
-              <h1 className="text-right mx-0">
-                {nutritionist.first_name} {nutritionist.last_name}
-              </h1> 
-              : <h1>Nom Prénom</h1>
-            }
+        <div class="container details-container-alt">
+          <div class="row profile-picture-nutritionist">
+            <div class="col-6 d-flex img-control">
+             <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
+            </div>
+            <div class="col-6 control-form-profile-nutritionist">
+              {
+                nutritionist && nutritionist.first_name && nutritionist.last_name ?
+                <h1 className="text-right mx-0">
+                  {nutritionist.first_name} {nutritionist.last_name}
+                </h1> 
+                : <h1>Nom Prénom</h1>
+              }
 
-            <h5 className="d-flex">
-              <i className="align-self-center fas fa-envelope"></i>
-              <div className="align-self-center mx-2">{ nutritionist ? nutritionist.email  : <Loading color={"blue"} />} </div>
-            </h5>
-            <h5 className="d-flex">
-              <i className="align-self-center fas fa-phone"></i>
-              <div className="align-self-center mx-2">{ nutritionist ? nutritionist.phone_number  : <Loading color={"blue"} />} </div>
-            </h5>
-            <h5 className="d-flex">
-              <i className="align-self-center fas fa-calendar-check"></i>
-              <div className="align-self-center mx-2">{ nutritionist ? nutritionist.slug_calendly  : <Loading color={"blue"} />} </div>
-            </h5>
-            <hr />
-            <div className="my-3">
-              <Link exact to="/nutritionist-edit-profile" className="sidebar-nutritionist-link text-dark">
-                <div className="btn success-button text-white-color w-100 my-1">Modifier mon profil</div>
-              </Link>
-              <form onSubmit={deleteProfileNutritionist} >
-                <input className="btn danger-button text-white-color w-100 my-1" type="submit"  value="Supprimer mon compte" />
-              </form>
+              <h5 className="d-flex">
+                <i className="align-self-center fas fa-envelope"></i>
+                <div className="align-self-center mx-2">{ nutritionist ? nutritionist.email  : <Loading color={"blue"} />} </div>
+              </h5>
+              <h5 className="d-flex">
+                <i className="align-self-center fas fa-phone"></i>
+                <div className="align-self-center mx-2">{ nutritionist ? nutritionist.phone_number  : <Loading color={"blue"} />} </div>
+              </h5>
+              <h5 className="d-flex">
+                <i className="align-self-center fas fa-calendar-check"></i>
+                <div className="align-self-center mx-2">{ nutritionist ? nutritionist.slug_calendly  : <Loading color={"blue"} />} </div>
+              </h5>
+              <hr />
+              <div className="my-3">
+                <Link exact to="/nutritionist-edit-profile" className="sidebar-nutritionist-link text-dark">
+                  <div className="btn success-button text-white-color w-100 my-1">Modifier mon profil</div>
+                </Link>
+                <form onSubmit={deleteProfileNutritionist} >
+                  <input className="btn danger-button text-white-color w-100 my-1" type="submit"  value="Supprimer mon compte" />
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );
