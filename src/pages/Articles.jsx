@@ -42,27 +42,29 @@ const Articles = () => {
   }, [filter, articles]);
 
   return (
-    <div className="articles page-padding">
-      <div className="col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex mx-4 bottom-search">
-        <i className="fas fa-search"></i>
-        <input
-          type="text"
-          className="search-input px-3"
-          placeholder="Rechercher..."
-          onChange={(e) => setFilter(e.target.value.toLowerCase())}
-        />
-      </div>
-      <div className='box'>
-        {articlesNutritionist &&
-          (articlesNutritionist.length > 0 ? (
-            articlesNutritionist.map((article) => {
-              return <ArticleCard articleData={article} />;
-            })
-          ) : articlesNutritionist.length === 0 && filter === "" ? (
-            <p>Il n'y a aucun article de publié pour le moment</p>
-          ) : (
-            <p>Aucun résultat ne correspond à votre recherche</p>
-          ))}
+    <div className="articles page-padding d-flex justify-content-center">
+      <div className="col-10">
+        <div className="col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex my-3 bottom-search">
+          <i className="fas fa-search"></i>
+          <input
+            type="text"
+            className="search-input px-3"
+            placeholder="Rechercher..."
+            onChange={(e) => setFilter(e.target.value.toLowerCase())}
+          />
+        </div>
+        <div className="d-flex row justify-content-between">
+          {articlesNutritionist &&
+            (articlesNutritionist.length > 0 ? (
+              articlesNutritionist.map((article) => {
+                return (<ArticleCard articleData={article} />);
+              })
+            ) : articlesNutritionist.length === 0 && filter === "" ? (
+              <p>Il n'y a aucun article de publié pour le moment</p>
+            ) : (
+              <p>Aucun résultat ne correspond à votre recherche</p>
+            ))}
+        </div>
       </div>
     </div>
   );

@@ -27,14 +27,19 @@ const truncateString = (str, num)=> {
   };
 
   return (
-    <div className="article-card">
+    <div className="col-3 article-card-content mx-1 my-3">
       <div className="img-box">
-        <i class="fas fa-newspaper"></i>
+        <i className="fas fa-newspaper"></i>
         <h6 className="card-title">{truncateString(title,100)}</h6>
       </div>
       <div className="card_body">
         <div>
-          <h5 className="author" onClick={() => history.push(`/nutritionists`)}>
+          <h5
+            className="author"
+            onClick={() =>
+              history.push(`/nutritionists/${nutritionist.last_name}`)
+            }
+          >
             Par {nutritionist.first_name} {nutritionist.last_name}
           </h5>
           <h6>{createDate(created_at)}</h6>
