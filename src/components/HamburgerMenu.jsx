@@ -44,6 +44,24 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
         >
           Accueil
         </NavLink>
+        <NavLink
+          exact
+          to="/articles"
+          activeClassName="nav-active"
+          className="menu-link"
+          onClick={handleMenu}
+        >
+          Articles
+        </NavLink>
+        <NavLink
+          exact
+          to="/nutritionists/"
+          activeClassName="nav-active"
+          className="menu-link"
+          onClick={handleMenu}
+        >
+          Nutritionnistes
+        </NavLink>
         {patientAuth && (
           <>
             <NavLink
@@ -132,10 +150,13 @@ const HamburgerMenu = ({ patientAuth, nutritionistAuth }) => {
           </>
         )}
         {(patientAuth || nutritionistAuth) && (
-          <p onClick={() => {
-            handleLogOut()
-            handleMenu()
-          }} className="deconnexion">
+          <p
+            onClick={() => {
+              handleLogOut();
+              handleMenu();
+            }}
+            className="deconnexion"
+          >
             Se déconnecter ➞
           </p>
         )}
