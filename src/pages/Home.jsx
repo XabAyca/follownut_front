@@ -57,7 +57,7 @@ const Home = () => {
                 </div>
               </div>}
           </div>
-          <div className="section1-right">
+          <div className="section1-right p-5">
             <img
               className="appointement"
               src={isDark ? appointment_dark : appointment}
@@ -104,7 +104,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="section bg-blue align-items-center">
+        <section className="section bg-blue align-items-center p-5">
           <div className="section3-left">
             <img className="img-container" src={isDark ? dashboard_dark : dashboard} alt="Dashboard illustration" />
           </div>
@@ -121,7 +121,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="section align-items-center">
+        <section className="section align-items-center my-3">
           <div className="sub-section d-flex flex-column justify-content-between">
             <div>
               <div className="img-box mb-3">
@@ -133,7 +133,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="sub-section d-flex flex-column justify-content-between">
+          <div className="sub-section d-flex flex-column justify-content-between my-3">
             <div>
               <div className="img-box mb-3">
                 <img src={isDark?app_dark:app} alt="Web app illustration" />
@@ -145,7 +145,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="sub-section d-flex flex-column justify-content-between">
+          <div className="sub-section d-flex flex-column justify-content-between my-3">
             <div>
               <div className="img-box mb-3">
                 <img src={isDark?article_dark:article} alt="Article illustration" />

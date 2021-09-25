@@ -53,7 +53,7 @@ const LogbookModalUpdate = ({logbook}) => {
       <div className="content p-3 ">
       {logbook &&
         <div className="p-3">
-          <h1 className="text-primary-color">Editer une note</h1>
+          <h1 className="text-primary-color">Éditer une note</h1>
           <form className="appointment-form text-primary-color" onSubmit={updateNote}>
             <div className="d-flex row justify-content-between py-2">
               <div className="col-lg-6 col-sm-12 my-2">
@@ -62,7 +62,7 @@ const LogbookModalUpdate = ({logbook}) => {
               </div>
             </div>
             <label>Votre note</label>
-            <textarea type="text" className="input-display" placeholder={contentNote} value={contentNote} onChange={(e) => setContentNote(e.target.value)} required />
+            <textarea type="text" className="input-display textarea-display" placeholder={contentNote} value={contentNote} onChange={(e) => setContentNote(e.target.value)} required />
             <div className="d-flex my-2">
               <input type="checkbox" checked={is_sharedNote} onChange={(e) => setIs_shareNote(e.target.checked)} />
               <label className="labels align-self-center mx-2">  Partager cette note avec mon nutritioniste ?</label>

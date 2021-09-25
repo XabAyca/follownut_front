@@ -54,6 +54,7 @@ const Nutritionists = () => {
   return (
     <div className="page-padding nutritionists">
       <div className="mx-4">
+        <h2 className="my-3">Voici les nutritionnistes utilisant notre application</h2>
         <div className="bottom-search my-3 col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex">
           <i className="fas fa-search"></i>
           <input
@@ -64,7 +65,6 @@ const Nutritionists = () => {
             onChange={(e) => setFilter(e.target.value.toLowerCase())}
           />
         </div>
-        <h2>Voici les nutritionnistes utilisant notre application</h2>
       </div>
       <div className="box">
         {nutritionistsPartenaires &&
