@@ -79,20 +79,20 @@ const PatientProfile = () => {
               : <h1>Nom Prénom</h1>
             }
             {
-              patient && patient.date_of_birth ? ( <h4> <strong>Date de naissance :</strong>  {patient.date_of_birth}</h4>)  
+              patient && patient.date_of_birth ? ( <h5> <strong>Date de naissance :</strong>  {patient.date_of_birth}</h5>)  
               : " "
             }
             {
-              patient && patient.gender ? (<h4><strong>Genre : </strong>{displayGender(patient.gender)}</h4>) : " "
+              patient && patient.gender ? (<h5><strong>Genre : </strong>{displayGender(patient.gender)}</h5>) : " "
             }
-            <h4 className="d-flex">
+            <h5 className="d-flex">
               <i className="align-self-center far fa-envelope"></i>
               <div className="align-self-center mx-2">{ patient ? patient.email  : <Loading color={"blue"} />} </div>
-            </h4>
+            </h5>
             <hr />
             {
               patient && patient.nutritionist && patient.nutritionist.first_name && patient.nutritionist.last_name ? 
-              <h4> <strong>Nutritioniste : </strong> {patient.nutritionist.first_name} {patient.nutritionist.last_name}</h4> 
+              <h5> <strong>Nutritioniste : </strong> {patient.nutritionist.first_name} {patient.nutritionist.last_name}</h5> 
               : <p>Vous n'avez pas encore renseigné de praticien</p>
             }
             <div className="my-3">

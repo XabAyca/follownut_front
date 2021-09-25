@@ -174,7 +174,6 @@ export const nutritionistFetch = () => {
       .then((response) => response.json())
       .then((response) => {
         if (response.errors) {
-          dispatch(fetchNutritionistFailure(response.errors));
         } else {
           dispatch(fetchNutritionistSuccess(response));
         }
@@ -431,7 +430,6 @@ export const patientFetch = () => {
       .then((response) => response.json())
       .then((response) => {
         if (response.errors) {
-          dispatch(fetchOnePatientsFailure(response.errors));
         } else {
           dispatch(fetchOnePatientsSuccess(response));
         }

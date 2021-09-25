@@ -2,23 +2,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { useSelector } from "react-redux";
-import { loginPatientWithCookie, loginNutritionistWithCookie } from 'services/apiManager';
+import { useSelector, useDispatch } from "react-redux";
+import { loginPatientWithCookie, loginNutritionistWithCookie, patientFetch, nutritionistFetch } from 'services/apiManager';
 import Cookies from 'js-cookie';
 import { Pwa } from "components/context/InstallPwa";
-import { ModalBody } from 'react-bootstrap';
-
-
-// COMPONENTS IMPORTS
-import Navigation from 'components/Navigation';
-import HamburgerMenu from 'components/HamburgerMenu';
-import Footer from 'components/Footer';
-import ScrollTop from 'components/ScrollTop';
-import CookiesConsent from 'components/CookiesConsent';
-import DarkMode from 'components/context/darkMode';
-//import ModeBtn from 'components/darkModeBTN';
-import DarkModeBtn from 'components/DarkModeBTN';
-
 
 
 // PAGES IMPORTS
@@ -52,6 +39,16 @@ import Article from 'pages/Article';
 import Logbooks from 'pages/Logbooks';
 import Nutritionists from 'pages/Nutritionists';
 
+// COMPONENTS IMPORTS
+import Navigation from 'components/Navigation';
+import HamburgerMenu from 'components/HamburgerMenu';
+import Footer from 'components/Footer';
+import ScrollTop from 'components/ScrollTop';
+import CookiesConsent from 'components/CookiesConsent';
+import DarkMode from 'components/context/darkMode';
+import DarkModeBtn from 'components/DarkModeBTN';
+import UncompletedPatientModal from 'components/UncompletedPatientModal';
+import UncompletedNutritionistModal from 'components/UncompletedNutritionistModal';
 
 
 const App = () => {
@@ -108,11 +105,15 @@ const App = () => {
     });
 // ------------------------- Web app end -------------------------
 
-
+  const dispatch = useDispatch()
   const loginPatient = useSelector((state) => state.patient.login);
   const registerPatient = useSelector((state) => state.patient.register);
   const loginNutritionist = useSelector((state) => state.nutritionists.login);
   const registerNutritionist = useSelector((state) => state.nutritionists.register);
+  const currentPatient = useSelector((state) => state.patient.currentPatient);
+  const updPatient = useSelector((state) => state.patient.patientUpd);
+  const updNutritionist = useSelector((state) => state.nutritionists.nutritionistUpd);
+  const currentNutritionist = useSelector((state) => state.nutritionists.currentNutritionist);
   const [loading, setLoading] = useState(false);
   const [isDark, setIsDark] = useState(false);
   
@@ -149,6 +150,8 @@ const App = () => {
   };
 
   useEffect(() => {
+    dispatch(patientFetch())
+    dispatch(nutritionistFetch())
     const temp = JSON.parse(localStorage.getItem("themePreference"));
     if (temp !== undefined && temp !== null) {
       setIsDark(temp);
@@ -159,7 +162,7 @@ const App = () => {
     ) {
       setIsDark(true);
     }
-  }, []);
+  }, [updPatient, updNutritionist]);
   
   useEffect(() => {
     if (isDark) {
@@ -177,6 +180,23 @@ const App = () => {
 
   return (
     <>
+
+    { currentPatient != "" ?
+        currentPatient.first_name != undefined &&
+        currentPatient.last_name != undefined &&
+        currentPatient.date_of_birth != undefined &&
+        currentPatient.nutritionist_id != undefined ?
+          null : <UncompletedPatientModal /> : null
+    }
+
+    { currentNutritionist != "" ?
+        currentNutritionist.first_name != undefined &&
+        currentNutritionist.last_name != undefined &&
+        currentNutritionist.slug_calendly != undefined &&
+        currentNutritionist.phone_number != undefined ?
+          null : <UncompletedNutritionistModal /> : null
+    }
+
       <BrowserRouter>
         <DarkMode.Provider
         value={{

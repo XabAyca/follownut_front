@@ -29,8 +29,8 @@ const truncateString = (str, num)=> {
   return (
     <div className="article-card">
       <div className="img-box">
-        <i class="fas fa-newspaper"></i>
-        <h6 className="card-title">{truncateString(title, 100)}</h6>
+        <i className="fas fa-newspaper"></i>
+        <h6 className="card-title">{truncateString(title,100)}</h6>
       </div>
       <div className="card_body">
         <div>

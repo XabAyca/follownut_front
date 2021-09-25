@@ -43,7 +43,7 @@ const Articles = () => {
 
   return (
     <div className="articles page-padding">
-      <div className="col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex mx-4 bottom-search">
+      <div className="col-sm-5 col-md-4 col-lg-5 col-xl-3 d-flex my-5 bottom-search">
         <i className="fas fa-search"></i>
         <input
           type="text"
@@ -52,7 +52,7 @@ const Articles = () => {
           onChange={(e) => setFilter(e.target.value.toLowerCase())}
         />
       </div>
-      <div className='box'>
+      <div className='articles-box'>
         {articlesNutritionist &&
           (articlesNutritionist.length > 0 ? (
             articlesNutritionist.map((article) => {
