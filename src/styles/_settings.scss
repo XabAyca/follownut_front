@@ -442,6 +442,11 @@ div {
   }
 }
 
+.details-break-line {
+  word-wrap: break-word;
+  max-width: 350px;
+}
+
 
 
 // -------------------- CARD -------------------- //
@@ -498,6 +503,7 @@ div {
   height: 100vh;
   overflow-y: hidden;
   top:0;
+  left:0;
   background-color: var(--modal-background);
   width: 100%;
   z-index: 1000;
@@ -532,10 +538,17 @@ div {
     }
   }
 
+  i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ffff;
+    font-size: 1.5rem;
+  }
+
   .content{
     position: absolute;
     width: 75%;
-    height: 75%;
     overflow-y: auto;
     border-radius: 10px;
     background-color: var(--modal-color);
@@ -543,6 +556,7 @@ div {
     color:#454545;
     position: relative;
   }
+
 }
 
 .visible-modal {

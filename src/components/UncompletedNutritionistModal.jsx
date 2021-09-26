@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { nutritionistFetch } from 'services/apiManager';
 
 // COMPONENTS IMPORTS
-import NutritionistEditForm from './Forms/NutritionistEditForm';
+import NutritionistMustCompleteProfile from './Forms/NutritionistMustCompleteProfile';
 
 const UncompletedNutritionistModal = () => {
   const currentNutritionist = useSelector((state) => state.nutritionists.currentNutritionist);
@@ -20,7 +20,7 @@ const UncompletedNutritionistModal = () => {
     <div className="read-modal visible-modal">
       <div className="content p-5 my-5">
         <h2>Vous devez compléter votre profil pour pouvoir utiliser FollowNut</h2>
-          <NutritionistEditForm nutritionistData={currentNutritionist} />
+          <NutritionistMustCompleteProfile nutritionistData={currentNutritionist} />
       </div>
     </div>
   );
