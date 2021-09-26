@@ -249,7 +249,8 @@ body{
   text-decoration: none;
 
   &:hover {
-    background-color: var(--basic-color-white);
+    background-color: var(--prim-color-deep);
+    color: $basic-color-white;
   }
 }
 
