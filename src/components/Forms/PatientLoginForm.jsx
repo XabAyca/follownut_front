@@ -34,7 +34,7 @@ const PatientLoginForm = () => {
 
   return (
     <div className="patient-signup-form d-flex justify-content-center">
-      <div className="form-container">
+      <div className="form-container bg-prim-transp">
       <h5 className="d-flex justify-content-center text-third-color my-2">Connexion patient</h5>
         <form onSubmit={ (e) => handlePatientLogin(e) }>
           <label htmlFor="email" className="text-white-color pt-2">Email*</label>

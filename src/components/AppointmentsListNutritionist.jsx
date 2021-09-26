@@ -75,7 +75,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
           />
         </div>
       </div>
-      <div className="details-container p-3">
+      <div className="details-container bg-purple p-3">
         { appointments && 
           ( appointments.length > 0 ?
             <table className="table patient-table">

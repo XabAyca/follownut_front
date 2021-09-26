@@ -78,7 +78,7 @@ const PatientModal = ({ patient }) => {
         {patient && (
           <>
             <div className="d-flex text-primary-color my-4 row">
-              <div className="col-lg-3 col-md-12 col-sm-12 details-container p-4">
+              <div className="col-lg-3 col-md-12 col-sm-12 details-container bg-purple p-4">
                 <p>
                   {" "}
                   <strong>Patient : </strong>

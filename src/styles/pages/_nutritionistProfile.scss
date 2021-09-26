@@ -1,52 +1,52 @@
-.details-container-alt{
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  @include phone{
-    width: 100%;
-  }
-  .profile-picture-nutritionist{
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    @include phone{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .img-control{
-      @include phone{
-        display: grid;
-        grid-column: 1/12;
-      }
-    }
-    .control-form-profile-nutritionist{
-      @include phone{
-        width: 100%;
-      }
-    }
-  }
-}
-.details-container-alt .row .img-control {
-  display: flex;
-  justify-content: center;
-}
-.details-container-alt .row .col-sm h1{
-  @include phone{
-    text-align:center; 
-    margin-top: 20px;
-  }
-}
-.control-form-profile-nutritionist{
-  @include phone{
-    margin-top: 40px;
-  }
-}
-//Nutritionist Edit Profile
-.control-edit-nutritionist-profile{
-  @include phone{
-    display: flex;
-    flex-direction: column;
-  }
-}
+// .details-container-alt{
+//   padding: 20px;
+//   display: flex;
+//   justify-content: center;
+//   @include phone{
+//     width: 100%;
+//   }
+//   .profile-picture-nutritionist{
+//     display: flex;
+//     justify-content: flex-start;
+//     width: 100%;
+//     @include phone{
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: center;
+//       align-items: center;
+//     }
+//     .img-control{
+//       @include phone{
+//         display: grid;
+//         grid-column: 1/12;
+//       }
+//     }
+//     .control-form-profile{
+//       @include phone{
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
+// .details-container-alt .row .img-control {
+//   display: flex;
+//   justify-content: center;
+// }
+// .details-container-alt .row .col-sm h1{
+//   @include phone{
+//     text-align:center; 
+//     margin-top: 20px;
+//   }
+// }
+// .control-form-profile{
+//   @include phone{
+//     margin-top: 40px;
+//   }
+// }
+// //Nutritionist Edit Profile
+// .control-form-edit-profile{
+//   @include phone{
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }

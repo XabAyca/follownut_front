@@ -1,53 +1,53 @@
-.background-of-edit-profile{
-  background-color: var(--sec-color);
-  min-height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .content-edit-profile{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    .form-control:focus {
-      box-shadow: none;
-      border-color: #BA68C8;
-    }
-    .labels {
-     font-size: 11px;
-    }
-    .profile-button {
-      background: rgb(99, 39, 120);
-      box-shadow: none;
-      border: none;
-    }
-    .profile-button:hover {
-      background: #682773;
-    }
-    .profile-button:focus {
-      background: #682773;
-      box-shadow: none;
-    }
-    .profile-button:active {
-      background: #682773;
-      box-shadow: none;
-    }
-  }
-}
+// .background-of-edit-profile{
+//   background-color: var(--sec-color);
+//   min-height: 100vh;
+//   width: 100vw;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   .content-edit-profile{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-end;
+//     .form-control:focus {
+//       box-shadow: none;
+//       border-color: #BA68C8;
+//     }
+//     .labels {
+//      font-size: 11px;
+//     }
+//     .profile-button {
+//       background: rgb(99, 39, 120);
+//       box-shadow: none;
+//       border: none;
+//     }
+//     .profile-button:hover {
+//       background: #682773;
+//     }
+//     .profile-button:focus {
+//       background: #682773;
+//       box-shadow: none;
+//     }
+//     .profile-button:active {
+//       background: #682773;
+//       box-shadow: none;
+//     }
+//   }
+// }
 
-.control-edit-profile{
-  @include phone{
-    display: flex;
-    flex-direction: column;
-  }
+// .control-edit-profile{
+//   @include phone{
+//     display: flex;
+//     flex-direction: column;
+//   }
 
 
-  .constrol-edit-profile-picture img{
-    @include phone{
-      width: 100%;
-    }
-  }
-}
+//   .constrol-edit-profile-picture img{
+//     @include phone{
+//       width: 100%;
+//     }
+//   }
+// }
 
 
 
