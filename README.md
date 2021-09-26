@@ -1,5 +1,9 @@
 # Welcome on FollowNut', the best follow up app for nutritionists and patients, on the market
 
+## For test you can connect as:
+Nutritionist: id `marie-delarue@yopmail.com` pwd `azerty123`   
+Patient: id `audrey.gergo@yopmail.com` pwd `azerty123`   
+   
 <div>
   <p align="center" >
     <a href="https://www.thehackingproject.org/"><img src="https://i0.wp.com/chromebooklive.com/wp-content/uploads/2018/11/the_hacking_project_logo.png?resize=620%2C171&ssl=1" alt="thp_thp"/></a>
