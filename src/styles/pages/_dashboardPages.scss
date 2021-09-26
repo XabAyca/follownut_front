@@ -39,27 +39,7 @@
     }
 
   }
-  .create-appointment-form .appointment-form .control-first-part{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    @include phone{
-      display: flex;
-    }
-  }
-  .create-appointment-form .appointment-form .control-third-part{
-    @include phone{
-      display: flex;
-    }
-  }
-  .create-appointment-form .creer-button{
-    @include phone{
-      display: flex;
-      justify-content: center;
-      align-items: center
-    }
-  }
+
   .create-appointment-form .appointment-form div{
     @include phone{
       display: flex;

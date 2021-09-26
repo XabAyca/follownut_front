@@ -63,7 +63,7 @@ const PatientsList = ({ setOpenModal }) => {
             <table className="table patient-table">
               <thead>
                 <tr>
-                  <th scope="col">Prénom</th>
+                  <th className="hidden-on-mobile" scope="col">Prénom</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Email</th>
                   <th scope="col"></th>
@@ -74,7 +74,7 @@ const PatientsList = ({ setOpenModal }) => {
                   nutritionistPatients.map((patient) => {
                     return (
                       <tr key={patient.id}>
-                        <td>
+                        <td className="hidden-on-mobile">
                           {patient.last_name ? patient.last_name : <span>?</span>}
                         </td>
                         <td>

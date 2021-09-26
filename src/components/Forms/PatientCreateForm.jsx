@@ -47,15 +47,15 @@ const PatientCreateForm = () => {
   }, [isRegistered])
 
   return (
-    <div className="create-appointment-form">
+    <div className="patient-create-form col-xl-6 col-lg-6 col-md-6 col-sm-12">
       {isRegistered.error && <ErrorsModal errors={isRegistered.error.errors} />}
-      <h1 className="text-primary-color">Nouveau patient</h1>
+      <h1 className="text-center text-primary-color">Nouveau patient</h1>
       <form
-        className="appointment-form text-primary-color"
+        className="text-primary-color"
         onSubmit={createPatient}
       >
         <div className="d-flex row justify-content-left py-2">
-          <div className="col-lg-4 col-sm-8">
+          <div className="col-lg-6 col-sm-12">
             <label>Prénom</label>
             <input
               className="input-display"
@@ -65,7 +65,7 @@ const PatientCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-4 col-sm-8">
+          <div className="col-lg-6 col-sm-12">
             <label>Nom</label>
             <input
               className="input-display"
@@ -77,7 +77,7 @@ const PatientCreateForm = () => {
           </div>
         </div>
         <div>
-          <div className="col-lg-6 col-sm-8">
+          <div className="col-lg-6 col-sm-12">
             <label>Email</label>
             <input
               className="input-display"
@@ -89,7 +89,7 @@ const PatientCreateForm = () => {
           </div>
           <hr className="m-4" />
           <div className="d-flex row justify-content-left py-2">
-            <div className="col-lg-4 col-sm-12">
+            <div className="col-lg-6 col-sm-12">
               <label>Mot de passe</label>
               <input
                 className="input-display"
@@ -99,7 +99,7 @@ const PatientCreateForm = () => {
                 required
               />
             </div>
-            <div className="col-lg-4 col-sm-12">
+            <div className="col-lg-6 col-sm-12">
               <label>Confirmation de mot de passe</label>
               <input
                 className="input-display"
@@ -113,11 +113,11 @@ const PatientCreateForm = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-4 col-sm-8">
+          <div className="">
             <input
               type="submit"
               value="Créer"
-              className="btn success-button my-3 col-lg-3 col-sm-12"
+              className="btn success-button col-lg-3 col-sm-12"
             />
           </div>
         </div>

@@ -51,11 +51,9 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setO
             <table className="table patient-table">
               <thead>
                 <tr>
-                  <th scope="col">Réf.</th>
+                  <th className="hidden-on-mobile" scope="col">Réf.</th>
                   <th scope="col">Date</th>
                   <th scope="col">Titre</th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -64,17 +62,13 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setO
                   articles.map((article) => {
                     return (
                       <tr>
-                        <th scope="row" key={article.id}>{article.id}</th>
+                        <th className="hidden-on-mobile" scope="row" key={article.id}>{article.id}</th>
                         <td>{createDate(article.updated_at)}</td>
                         <td>{ article.title }</td>
-                        <td>
-                          <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(article)}></i>
-                        </td>
-                        <td>
-                          <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(article)}></i>
-                        </td>
-                        <td>
-                          <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteArticle(article, e)}></i>
+                        <td className="table-icons-center">
+                          <i className="pointer-clickable far fa-eye px-1" onClick={() => setOpenModal(article)}></i>
+                          <i className="pointer-clickable fas fa-pencil-alt px-1" onClick={() => setOpenUpdateModal(article)}></i>
+                          <i className="pointer-clickable fas fa-trash-alt px-1" onClick={(e) => deleteArticle(article, e)}></i>
                         </td>
                       </tr>
                     )

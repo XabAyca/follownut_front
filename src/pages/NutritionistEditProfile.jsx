@@ -43,21 +43,16 @@ const NutritionistEditProfile = () => {
 
 
   return (
-    <div className="dashboard-page page-padding">
-      <div className="dashboard-page-left">
-        <SidebarNutritionist />
-      </div>
-      <div className="background-of-edit-profile">
-        <div className="details-container-alt control-form-edit-profile px-5 col-8">
-          <div className="align-self-center constrol-edit-profile-nutritionist-picture">
-            <img className="rounded-circle" width="400px" src={profileDrawing} alt="profile"/>
-          </div>
-          <div className="align-self-center">
+    <div className="page-padding bg-purple d-flex align-items-center justify-content-center">
+      <div className="bg-white-color details-container p-4 col-xl-6 col-lg-8 col-md-8 col-sm-12 d-flex row my-5">
+        <div className="py-4 d-flex justify-content-center">
+          <img className="rounded-circle" width="240px" src={profileDrawing} alt="profile"/>
+        </div>
+        <div className="">
           {
-                nutritionist &&
-                <NutritionistEditForm nutritionistData={nutritionist} />
-              }
-          </div>
+            nutritionist &&
+            <NutritionistEditForm nutritionistData={nutritionist} />
+          }
         </div>
       </div>
     </div>

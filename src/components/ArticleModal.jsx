@@ -1,7 +1,7 @@
 const ArticleModal = ({ article }) => {
 
   const closeModal = () => {
-    let modal = document.querySelector(".article-modal");
+    let modal = document.querySelector(".read-modal");
     modal.style.opacity = 0;
     modal.style.visibility = "hidden";
   }
@@ -26,16 +26,16 @@ const ArticleModal = ({ article }) => {
 
   return (
 
-    <div className="article-modal">
+    <div className="read-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
       <div className="content p-3 ">
           <div className="p-3">
             {article && (
               <>
                 <div className="d-flex text-primary-color my-4 row">
-                  <div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-between">
-                    <h2 className="b-underline align-self-center">{article.title}</h2>
-                    <h6 className="align-self-center details-container bg-purple p-2">{createDate(article.updated_at)}</h6>
+                  <div className="d-flex row justify-content-between">
+                    <h2 className="b-underline align-self-center col-xl-6 col-lg-6 col-md-12 col-sm-12">{article.title}</h2>
+                    <h6 className="align-self-center details-container text-white-color bg-purple p-2 col-xl-3 col-lg-3 col-md-4 col-sm-4">{createDate(article.updated_at)}</h6>
                   </div>
                 </div>
                 <div className="report my-4">

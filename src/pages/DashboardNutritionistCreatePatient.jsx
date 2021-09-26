@@ -9,7 +9,7 @@ const DashboardNutritionistCreatePatient = () => {
         <SidebarNutritionist />
       </div>
       <div className="dashboard-page-right">
-        <div className="">
+        <div className="d-flex justify-content-center">
           <PatientCreateForm/>
         </div>
       </div>

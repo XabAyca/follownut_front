@@ -67,13 +67,13 @@ const AppointmentCreateForm = () => {
 
   return (
     <div className="create-appointment-form">
-      <h1 className="text-primary-color">Rédiger un compte-rendu</h1>
+      <h1 className="text-primary-color text-center">Rédiger un compte-rendu</h1>
       <form
         className="appointment-form text-primary-color"
         onSubmit={createDataAppointment}
       >
         <div className="row">
-          <div className="col-lg-3 col-sm-8">
+          <div>
             <select
               name="patient"
               id="patient_id"
@@ -100,7 +100,7 @@ const AppointmentCreateForm = () => {
         </div>
 
         <div className="d-flex row justify-content-between py-2">
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-3 col-sm-12">
             <label>Graisse viscérale</label>
             <input
               className="input-display"
@@ -112,7 +112,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-3 col-sm-12">
             <label>Masse musculaire</label>
             <input
               className="input-display"
@@ -124,7 +124,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Masse grasse</label>
             <input
               className="input-display"
@@ -136,7 +136,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Taille</label>
             <input
               className="input-display"
@@ -149,7 +149,7 @@ const AppointmentCreateForm = () => {
               required
             />
           </div>
-          <div className="col-lg-2 col-sm-8">
+          <div className="col-lg-2 col-sm-12">
             <label>Poids</label>
             <input
               className="input-display"
@@ -164,7 +164,7 @@ const AppointmentCreateForm = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-2 col-sm-8">
+          <div>
             <hr className="my-4" />
             <label>Compte-rendu</label>
             <textarea

@@ -22,7 +22,7 @@
       content: '';
       width: 0;
       height: 3px;
-      background: var(--sec-color);
+      background: var(--basic-color-dark);
       position: absolute;
       bottom: 1px;
       left: 50%;
@@ -31,7 +31,7 @@
       transition: all .5s;
     }
     &:hover{
-    color:var(--sec-color);
+    color:var(--basic-color-dark);
       &::after{
         width: 85%;
       }
@@ -39,12 +39,12 @@
   }
 
   .nav-active {
-    color:var(--sec-color);
+    color:var(--basic-color-dark);
     &::after {
       content: '';
       width: 85%;
       height: 3px;
-      background: var(--sec-color);
+      background: var(--basic-color-dark);
       position: absolute;
       left: 50%;
       bottom:10px;

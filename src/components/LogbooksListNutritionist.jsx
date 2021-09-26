@@ -46,7 +46,7 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
               <table className="table patient-table">
               <thead>
                 <tr>
-                  <th scope="col">Réf.</th>
+                  <th className="hidden-on-mobile" scope="col">Réf.</th>
                   <th scope="col">Date</th>
                   <th scope="col">Patient</th>
                   <th scope="col">Titre</th>
@@ -58,7 +58,7 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
                   logbooks.map((logbook) => {
                     return (
                       <tr>
-                        <th scope="row" key={logbook.id}>{logbook.id}</th>
+                        <th className="hidden-on-mobile" scope="row" key={logbook.id}>{logbook.id}</th>
                         <td>{createDate(logbook.updated_at)}</td>
                         <td>M./Mme {logbook.patient.last_name}</td>
                         <td>{logbook.title}</td>

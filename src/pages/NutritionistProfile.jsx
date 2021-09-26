@@ -55,51 +55,42 @@ const NutritionistProfile = () => {
   }
 
   return (
-    <div className="dashboard-page page-padding">
-      <div className="dashboard-page-left">
-        <SidebarNutritionist />
+    <div className="page-padding bg-purple d-flex align-items-center justify-content-center">
+    <div className="bg-white-color details-container py-4 col-xl-6 col-lg-8 col-md-8 col-sm-12 d-flex row align-items-center justify-content-center">
+      <div className="py-4 col-xl-6 col-lg-6 col-md-10 col-sm-10 d-flex justify-content-center">
+        <img className="rounded-circle" width="260px" src={profileDrawing} alt="profile"/>
       </div>
-      <div className="background-of-edit-profile">
-        <div class="container details-container-alt">
-          <div class="row profile-picture-nutritionist">
-            <div class="col-6 d-flex img-control">
-             <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
-            </div>
-            <div class="col-6 control-form-profile">
-              {
-                nutritionist && nutritionist.first_name && nutritionist.last_name ?
-                <h1 className="text-right mx-0">
-                  {nutritionist.first_name} {nutritionist.last_name}
-                </h1> 
-                : <h1>Nom Prénom</h1>
-              }
-
-              <h5 className="d-flex">
-                <i className="align-self-center fas fa-envelope"></i>
-                <div className="align-self-center mx-2">{ nutritionist ? nutritionist.email  : <Loading color={"blue"} />} </div>
-              </h5>
-              <h5 className="d-flex">
-                <i className="align-self-center fas fa-phone"></i>
-                <div className="align-self-center mx-2">{ nutritionist ? nutritionist.phone_number  : <Loading color={"blue"} />} </div>
-              </h5>
-              <h5 className="d-flex">
-                <i className="align-self-center fas fa-calendar-check"></i>
-                <div className="align-self-center mx-2">{ nutritionist ? nutritionist.slug_calendly  : <Loading color={"blue"} />} </div>
-              </h5>
-              <hr />
-              <div className="my-3">
-                <Link exact to="/nutritionist-edit-profile" className="sidebar-nutritionist-link text-dark">
-                  <div className="btn success-button text-white-color w-100 my-1">Modifier mon profil</div>
-                </Link>
-                <form onSubmit={deleteProfileNutritionist} >
-                  <input className="btn danger-button text-white-color w-100 my-1" type="submit"  value="Supprimer mon compte" />
-                </form>
-              </div>
-            </div>
-          </div>
+      <div className="col-xl-6 col-lg-6 col-md-10 col-sm-10 d-flex row justify-content-center">
+        <h1 className="text-right mx-0">
+          { nutritionist &&
+            (
+              nutritionist.first_name && nutritionist.last_name ? `${nutritionist.first_name + " " + nutritionist.last_name}` : "Prénom Nom"
+            )
+          }
+        </h1>
+        <h5 className="d-flex">
+          <i className="align-self-center fas fa-envelope"></i>
+          <div className="align-self-center mx-2">{ nutritionist ? nutritionist.email  : <Loading color={"blue"} />} </div>
+        </h5>
+        <h5 className="d-flex">
+          <i className="align-self-center fas fa-phone"></i>
+          <div className="align-self-center mx-2">{ nutritionist ? nutritionist.phone_number  : <Loading color={"blue"} />} </div>
+        </h5>
+        <h5 className="d-flex">
+          <i className="align-self-center fas fa-calendar-check"></i>
+          <div className="align-self-center details-break-line mx-2">{ nutritionist ? nutritionist.slug_calendly  : <Loading color={"blue"} />} </div>
+        </h5>
+        <div className="my-3">
+          <Link exact to="/nutritionist-edit-profile">
+            <div className="btn success-button text-white-color my-1">Éditer mon profil</div>
+          </Link>
+          <form onSubmit={deleteProfileNutritionist} >
+            <input className="btn danger-button text-white-color my-1" type="submit"  value="Supprimer mon compte" />
+          </form>
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

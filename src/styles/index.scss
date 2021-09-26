@@ -6,29 +6,18 @@
 @import './pages/about';
 @import './pages/home';
 @import './pages/notFound';
-@import './pages/nutritionistProfile';
 @import './pages/dashboardPages';
-@import './pages/patientEditProfile';
-@import './pages/dashboardPatientAptsList';
 @import './pages/cgu';
-@import './pages/signup';
-@import './pages/connect';
-@import './pages/logbookPatient';
 @import './pages/article';
-@import './pages/logbooks';
 @import './pages/nutritionists';
-@import './pages/patientProfile';
-@import './pages/passwordForgot';
 @import './pages/exempleDashboard';
 
 // Import components styles
 @import './components/navigation';
 @import './components/jumbotronAuth';
 @import './components/SidebarPatient';
-@import './components/graphWeight';
 @import './components/calendlyBtn';
 @import './components/sidebarNutritionist';
-@import './components/appointmentsList';
 @import './components/footer';
 @import './components/hamburgerMenu';
 @import './components/errorModal';
@@ -36,11 +25,9 @@
 @import './components/profileToComplete';
 @import './components/patientModal';
 @import './components/darkmode';
-@import './components/nutritionistResponsive';
 @import './components/logbookModal';
 @import './components/logbookModalCreate';
 @import './components/logbookModalUpdate';
-@import './components/articleModal';
 @import './components/articleModalCreate';
 @import './components/articleModalUpdate';
 @import './components/articleCard';

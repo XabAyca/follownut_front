@@ -10,7 +10,7 @@ const DashboardNutritionistAppointments = () => {
         <SidebarNutritionist />
       </div>
       <div className="dashboard-page-right">
-        <div className="">
+        <div className="d-flex justify-content-center">
           <AppointmentCreateForm />
         </div>
       </div>

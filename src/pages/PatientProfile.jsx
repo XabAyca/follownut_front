@@ -9,10 +9,10 @@ import { patientsFetch, deletePatientFetch, patientLogout } from 'services/apiMa
 
 // COMPONENTS IMPORTS
 import Loading from 'components/Loading';
-import SidebarPatient from 'components/SidebarPatient';
 
 // ASSETS IMPORTS
 import profileDrawing from 'assets/images/patient-profile-drawing.svg'
+
 
 const PatientProfile = () => {
   const [patient, setPatient] = useState();
@@ -59,11 +59,11 @@ const PatientProfile = () => {
 
   return (
     <div className="page-padding bg-purple d-flex align-items-center justify-content-center">
-      <div class="bg-white-color details-container py-4 col-xl-6 col-lg-8 col-md-8 col-sm-12 d-flex row align-items-center justify-content-center">
-        <div class="py-4 col-xl-6 col-lg-6 col-md-10 col-sm-10 d-flex justify-content-center">
+      <div className="bg-white-color details-container py-4 col-xl-6 col-lg-8 col-md-8 col-sm-12 d-flex row align-items-center justify-content-center">
+        <div className="py-4 col-xl-6 col-lg-6 col-md-10 col-sm-10 d-flex justify-content-center">
           <img className="rounded-circle" width="260px" src={profileDrawing} alt="profile"/>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-10 col-sm-10 d-flex row justify-content-center">
+        <div className="col-xl-6 col-lg-6 col-md-10 col-sm-10 d-flex row justify-content-center">
           <h1 className="text-right mx-0">
             { patient &&
               (
@@ -78,18 +78,18 @@ const PatientProfile = () => {
               )
             }
           </h5>
-          <h5> <strong>Sexe :</strong>  
+          <h5> <strong>Sexe : </strong>  
             { patient && 
               displayGender(patient.gender) 
             }
           </h5>
           <h5 className="d-flex">
-          <i className="align-self-center fas fa-envelope"></i>
-          <div className="align-self-center mx-2 details-break-line">
-            { 
-              patient ? patient.email  : <Loading color={"blue"} />
-            } 
-          </div>
+            <i className="align-self-center fas fa-envelope"></i>
+            <div className="align-self-center mx-2 details-break-line">
+              { 
+                patient ? patient.email  : <Loading color={"blue"} />
+              } 
+            </div>
           </h5>
           <div className="my-3">
             <Link exact to="/patient-edit-profile">

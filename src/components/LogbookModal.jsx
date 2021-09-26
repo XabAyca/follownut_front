@@ -32,9 +32,9 @@ const LogbookModal = ({ logbook }) => {
             {logbook && (
               <>
                 <div className="d-flex text-primary-color my-4 row">
-                  <div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-between">
-                    <h2 className="b-underline align-self-center">{logbook.title}</h2>
-                    <h6 className="align-self-center details-container bg-purple p-2">{createDate(logbook.updated_at)}</h6>
+                  <div className="d-flex row justify-content-between">
+                    <h2 className="b-underline align-self-center col-xl-6 col-lg-6 col-md-8 col-sm-12">{logbook.title}</h2>
+                    <h6 className="align-self-center text-white-color details-container bg-purple p-2 col-xl-3 col-lg-3 col-md-4 col-sm-4">{createDate(logbook.updated_at)}</h6>
                   </div>
                 </div>
                 <div className="report my-4">

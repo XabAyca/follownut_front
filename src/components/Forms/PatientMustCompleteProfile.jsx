@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { updatePatientFetch } from 'services/apiManager';
 
 
-const PatientEditForm = ({patientData, nutritionists}) => {
+const PatientMustCompleteProfile = ({patientData, nutritionists}) => {
   const {first_name, last_name, gender, date_of_birth, email} = patientData
 
   const [fname, setFname] = useState(first_name);
@@ -57,7 +57,7 @@ const PatientEditForm = ({patientData, nutritionists}) => {
 
 
   return (
-    <form onSubmit={updateDataPatient}>
+    <form className="my-5" onSubmit={updateDataPatient}>
       <div className="d-flex justify-content-between align-items-center mb-3">
           <h1 className="text-right">Éditer votre profil</h1>
       </div>
@@ -97,28 +97,11 @@ const PatientEditForm = ({patientData, nutritionists}) => {
             <input type="date" className="input-display" placeholder={dateOfBirth} value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
           </div>
       </div>
-      <div className="row mt-3">
-        <div className="col-md-12">
-          <label className="labels">Email</label>
-          <input type="text" className="input-display" placeholder={mail} value={mail} onChange={(e) => setMail(e.target.value)} />
-        </div>
-        <div className="col-md-12">
-          <label className="labels">Mot de passe (seulement pour modifier votre mot de passe)</label>
-          <input type="password" className="input-display" placeholder="" value={pword} onChange={(e) => setPword(e.target.value)} />
-        </div>
-        <div className="col-md-12">
-          <label className="labels">Confirmation de mot de passe</label>
-          <input type="password" className="input-display" placeholder="" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
-        </div>            
-      </div>
       <div className="my-2 text-center">
         <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button mt-4" />
-        <Link to="/patient-profile">
-          <div className="d-flex justify-content-center mt-2 text-primary-color">Retour</div>
-        </Link>
       </div>
     </form>
   );
 };
 
-export default PatientEditForm;
+export default PatientMustCompleteProfile;

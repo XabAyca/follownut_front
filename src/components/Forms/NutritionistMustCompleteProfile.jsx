@@ -6,7 +6,7 @@ import { updateNutritionistFetch } from 'services/apiManager';
 import { Link } from 'react-router-dom';
 
 
-const NutritionistEditForm = ({nutritionistData}) => {
+const NutritionistMustCompleteProfile = ({nutritionistData}) => {
   const {first_name, last_name, email, phone_number, avatar, slug_calendly, api_key} = nutritionistData
 
   const [fname, setFname] = useState(first_name);
@@ -84,25 +84,14 @@ const NutritionistEditForm = ({nutritionistData}) => {
           <div className="my-1 col-md-12">
             <label className="labels">Photo (url)</label>
             <input type="text" className="input-display" placeholder={profilePic} value={profilePic} onChange={(e) => setProfilePic(e.target.value)}/>
-          </div>
-          <div className="my-1 col-md-12">
-            <label className="labels">Mot de passe (seulement pour modifier votre mot de passe)</label>
-            <input type="password" className="input-display" value={pword} onChange={(e) => setPword(e.target.value)} />
-          </div>
-          <div className="my-1 col-md-12">
-            <label className="labels">Confirmation de mot de passe</label>
-            <input type="password" className="input-display" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
-          </div>            
+          </div>           
         </div>
         <div className=" my-2 text-center">
           <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button" />
-          <Link to="/nutritionist-profile">
-            <div className="d-flex justify-content-center mt-2 text-primary-color">Retour</div>
-          </Link>
         </div>
       </div>
     </form>
   );
 };
 
-export default NutritionistEditForm;
+export default NutritionistMustCompleteProfile;
