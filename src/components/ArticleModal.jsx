@@ -35,7 +35,7 @@ const ArticleModal = ({ article }) => {
                 <div className="d-flex text-primary-color my-4 row">
                   <div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-between">
                     <h2 className="b-underline align-self-center">{article.title}</h2>
-                    <h6 className="align-self-center details-container p-2">{createDate(article.updated_at)}</h6>
+                    <h6 className="align-self-center details-container bg-purple p-2">{createDate(article.updated_at)}</h6>
                   </div>
                 </div>
                 <div className="report my-4">

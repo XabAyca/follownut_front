@@ -46,7 +46,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
             </button>
           </div>
         </div>
-        <div className="details-container p-3 mt-3">
+        <div className="details-container bg-purple p-3 mt-3">
           {
             logbooks.length > 0 ? 
             <table className="table patient-table">

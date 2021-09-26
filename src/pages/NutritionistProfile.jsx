@@ -65,7 +65,7 @@ const NutritionistProfile = () => {
             <div class="col-6 d-flex img-control">
              <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
             </div>
-            <div class="col-6 control-form-profile-nutritionist">
+            <div class="col-6 control-form-profile">
               {
                 nutritionist && nutritionist.first_name && nutritionist.last_name ?
                 <h1 className="text-right mx-0">

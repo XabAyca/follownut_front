@@ -54,7 +54,7 @@ const PatientPasswordResetForm = () => {
   return (
     <div className="patient-reset-password-form d-flex justify-content-center">
       <ErrorsModalPawd errors={reset.error} />
-      <div className="form-container">
+      <div className="form-container bg-prim-transp">
         <form onSubmit={(e) => handlePatientPasswordReset(e)}>
           <label htmlFor="email" className="text-white-color pt-2">
             Email*

@@ -40,7 +40,7 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
           <i className="fas fa-search"></i>
           <input type="text" className="search-input px-3" placeholder="Rechercher..." onChange={(e) => setFilter(e.target.value.toLowerCase())} />
         </div>
-        <div className="details-container p-3 mt-3">
+        <div className="details-container bg-purple p-3 mt-3">
           { logbooks &&
             (logbooks.length > 0 ?
               <table className="table patient-table">

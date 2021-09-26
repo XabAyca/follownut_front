@@ -46,7 +46,7 @@ const ArticlesList = ({ filteredArticles, setOpenModal, setOpenCreateModal, setO
             </button>
           </div>
         </div>
-        <div className="details-container p-3 mt-4">
+        <div className="details-container bg-purple p-3 mt-4">
           { articles.length > 0 ?
             <table className="table patient-table">
               <thead>
