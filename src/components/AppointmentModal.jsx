@@ -67,8 +67,8 @@ const AppointmentModal = ({ appointment }) => {
             </div>
             {appointment && (
               <>
-                <div className="d-flex text-primary-color my-4 row">
-                  <div className="col-lg-3 col-md-12 col-sm-12 details-container bg-purple p-4">
+                <div className="d-flex text-primary-color my-2 row">
+                  <div className="col-lg-4 col-md-6 col-sm-12 details-container bg-purple p-4 my-2">
                     <p className="m-0">
                       {" "}
                       <strong>Patient : </strong>
@@ -89,11 +89,11 @@ const AppointmentModal = ({ appointment }) => {
                       {displayGender(appointment.patient.gender)}
                     </p>
                   </div>
-                  <div className="col-lg-9 col-md-12 col-sm-12 d-flex align-items-center justify-content-end">
+                  <div className="col-lg-8 col-md-6 col-sm-12 d-flex align-items-center justify-content-end my-2">
                     <h1>{createDate(appointment.date)}</h1>
                   </div>
                 </div>
-                <div className="d-flex text-primary-color my-4 row">
+                <div className="d-flex text-primary-color my-2 row">
                   <h2 className="b-underline">Mesures</h2>
                   <div className="my-2 d-flex flex-wrap">
                     <p className="mx-1">
