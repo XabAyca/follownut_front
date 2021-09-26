@@ -403,7 +403,7 @@ div {
   background-color: var(--sec-color);
 }
 
-bg-white {
+.bg-white-color {
   background-color: var(--basic-color-white);
 }
 
@@ -429,9 +429,9 @@ bg-white {
   
 }
 
-.details-container-alt {
-  background-color: var(--basic-color-white);
-  border-radius: 10px;
+.details-break-line {
+  word-wrap: break-word;
+  max-width: 150px;
 }
 
 // -------------------- CARD -------------------- //
