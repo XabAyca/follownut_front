@@ -1,4 +1,5 @@
 .article-card-content {
+  margin:2rem;
   width: 20rem;
   height: 17rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.377);
@@ -10,16 +11,7 @@
     transform: scale(1.03);
   }
   .img-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     padding: 20px 10px 10px;
-    .fas{
-      color: var(--sec-color);
-      font-size: 2.5rem;
-      margin-bottom:10px;
-    }
     .card-title{
       width: 100%;
     }
