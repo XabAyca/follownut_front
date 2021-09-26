@@ -8,13 +8,7 @@ const Footer = () => {
         <div className="container text-center text-md-start">
           <div className="row mt-3">
             
-            <div className="col-md-2 col-lg-4 col-xl-3 mx-auto">
-              <h6 className="text-uppercase fw-bold about-footer">
-                <i className="fas me-5 mx-1"></i>
-                <a href="/about" className="text-reset text-decoration-none">
-                  About
-                </a>
-              </h6>
+            <div className="col-md-3 col-lg-3 col-xl-4 mx-auto">
               <h6 className="text-uppercase fw-bold follownut-footer">
                 <i className="fas fa-gem me-3"></i>FollowNut'
               </h6>
@@ -23,7 +17,7 @@ const Footer = () => {
                 offre une solution simple et efficace.
               </p>
             </div>
-            <div className="col-md-2 col-lg-2 col-xl-2 mx-auto">
+            <div className="col-md-3 col-lg-3 col-xl-2 mx-auto">
               <h6 className="text-uppercase fw-bold ">Liens utiles</h6>
               <p>
                 <Link to="/about" className="text-reset">
@@ -37,7 +31,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 ">
+            <div className="col-md-3 col-lg-3 col-xl-4 mx-auto mb-md-0 ">
               <h6 className="text-uppercase fw-bold ">Contact</h6>
               <p>
                 <i className="fas fa-home me-3"></i> France
