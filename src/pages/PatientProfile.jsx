@@ -14,22 +14,20 @@ import SidebarPatient from 'components/SidebarPatient';
 // ASSETS IMPORTS
 import profileDrawing from 'assets/images/patient-profile-drawing.svg'
 
-
 const PatientProfile = () => {
   const [patient, setPatient] = useState();
   const patient_id = parseInt(Cookies.get('patient_id_cookie'));
 
-  const patients = useSelector(state => state.patient)
-  const dispatch = useDispatch() 
+  const patients = useSelector(state => state.patient);
+  const dispatch = useDispatch();
 
   const getPatient = () => {
-    ;
     if (patients.patient) {
       let patient = patients.patient
         .filter((patient) => {
           return patient.id === patient_id
         })
-      setPatient(patient[0])
+      setPatient(patient[0]);
     }
   }
 
@@ -56,7 +54,7 @@ const PatientProfile = () => {
   }
 
   const displayGender = (gender) => {
-    return gender === "unknown" ? "Non renseigné" : (gender === "male" ? "Homme" : "Femme")
+    return gender === "male" ? "Homme" : (gender === "female" ? " Femme" : " Non renseigné")
   }
 
   return (
@@ -71,32 +69,32 @@ const PatientProfile = () => {
              <img className="rounded-circle" width="250px" src={profileDrawing} alt="profile"/>
             </div>
             <div class="col-6 control-form-profile-nutritionist">
-             {
-                  patient && patient.first_name && patient.last_name ?
-                  <h1 className="text-right mx-0">
-                    {patient.first_name} {patient.last_name}
-                  </h1> 
-                  : <h1>Nom Prénom</h1>
+              <h1 className="text-right mx-0">
+                { patient &&
+                  (
+                    patient.first_name && patient.last_name ? `${patient.first_name + " " + patient.last_name}` : "Prénom Nom"
+                  )
                 }
-                {
-                  patient && patient.date_of_birth ? ( <h4> <strong>Date de naissance :</strong>  {patient.date_of_birth}</h4>)  
-                  : " "
+              </h1>
+              <h4> <strong>Date de naissance :</strong>  
+                { patient &&
+                  (
+                    patient.date_of_birth ? `${" " + patient.date_of_birth}` : " "
+                  )
                 }
-                {
-                  patient && patient.gender ? (<h4><strong>Genre : </strong>{displayGender(patient.gender)}</h4>) : " "
+              </h4>
+              <h4> <strong>Sexe :</strong>  
+                { patient && 
+                  displayGender(patient.gender) 
                 }
-
+              </h4>
               <h5 className="d-flex">
                 <i className="align-self-center fas fa-envelope"></i>
-                <div className="align-self-center mx-2">{ patient ? patient.email  : <Loading color={"blue"} />} </div>
-              </h5>
-              <h5 className="d-flex">
-                <i className="align-self-center fas fa-phone"></i>
-                <div className="align-self-center mx-2">{ patient ? patient.phone_number  : <Loading color={"blue"} />} </div>
-              </h5>
-              <h5 className="d-flex">
-                <i className="align-self-center fas fa-calendar-check"></i>
-                <div className="align-self-center mx-2">{ patient ? patient.slug_calendly  : <Loading color={"blue"} />} </div>
+                <div className="align-self-center mx-2">
+                  { 
+                    patient ? patient.email  : <Loading color={"blue"} />
+                  } 
+                </div>
               </h5>
               <hr />
               <div className="my-3">

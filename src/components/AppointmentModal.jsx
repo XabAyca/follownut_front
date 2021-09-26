@@ -49,7 +49,7 @@ const AppointmentModal = ({ appointment }) => {
   }
 
   const displayGender = (gender) => {
-    return gender === "unknown" ? "Non renseigné" : (gender === "male" ? "Homme" : "Femme")
+    return gender === "male" ? " Homme" : (gender === "female" ? " Femme" : " Non renseigné")
   }
 
   return (
