@@ -84,12 +84,12 @@ const PatientProfile = () => {
             }
           </h5>
           <h5 className="d-flex">
-          <i className="align-self-center fas fa-envelope"></i>
-          <div className="align-self-center mx-2 details-break-line">
-            { 
-              patient ? patient.email  : <Loading color={"blue"} />
-            } 
-          </div>
+            <i className="align-self-center fas fa-envelope"></i>
+            <div className="align-self-center mx-2 details-break-line">
+              { 
+                patient ? patient.email  : <Loading color={"blue"} />
+              } 
+            </div>
           </h5>
           <div className="my-3">
             <Link exact to="/patient-edit-profile">
