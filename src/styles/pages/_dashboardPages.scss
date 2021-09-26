@@ -53,13 +53,7 @@
       display: flex;
     }
   }
-  .create-appointment-form .creer-button{
-    @include phone{
-      display: flex;
-      justify-content: center;
-      align-items: center
-    }
-  }
+
   .create-appointment-form .appointment-form div{
     @include phone{
       display: flex;
