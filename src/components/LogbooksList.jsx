@@ -54,9 +54,7 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
               <tr>
                 <th scope="col">Date</th>
                 <th scope="col">Titre</th>
-                <th scope="col">Partagé</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col" className="hidden-on-mobile">Partagé</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -67,15 +65,11 @@ const LogbooksList = ({ filteredLogbooks, setOpenModal, setOpenCreateModal, setO
                     <tr>
                       <td>{createDate(logbook.updated_at)}</td>
                       <td>{logbook.title}</td>
-                      <td>{logbook.is_shared ? "oui" : "non"}</td>
-                      <td>
-                        <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
-                      </td>
-                      <td>
-                        <i className="pointer-clickable fas fa-pencil-alt" onClick={() => setOpenUpdateModal(logbook)}></i>
-                      </td>
-                      <td>
-                        <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteLogbook(logbook, e)}></i>
+                      <td className="hidden-on-mobile">{logbook.is_shared ? "oui" : "non"}</td>
+                      <td className="table-icons-center">
+                        <i className="pointer-clickable far fa-eye px-1" onClick={() => setOpenModal(logbook)}></i>
+                        <i className="pointer-clickable fas fa-pencil-alt px-1" onClick={() => setOpenUpdateModal(logbook)}></i>
+                        <i className="pointer-clickable fas fa-trash-alt px-1" onClick={(e) => deleteLogbook(logbook, e)}></i>
                       </td>
                     </tr>
                   )

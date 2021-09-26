@@ -7,15 +7,15 @@ const PatientSituation = ({appointment, patient}) => {
 
   return (
     <div className="patient-situation text-primary-color">
-      <div className="patient-situation-header mx-3 p-2">
+      <div className="patient-situation-header py-2">
         <h2 className="my-1">Derniers relevés</h2>
         <small className="my-1">
           Découvrez ci-dessous les relevés pris par votre praticien lors de
           votre dernier rendez-vous
         </small>
       </div>
-      <div className="details-container mx-3 p-3 col-lg-8 col-sm-12">
-        <div className="data-columns row mx-3">
+      <div className="details-container p-3">
+        <div className="data-columns row mx-1">
           <div className="py-2"><strong>Genre : </strong>{patient.gender}</div>
           <div className="py-2"><strong>Âge : </strong>{age} ans</div>
           <div className="left-details col-lg-6 col-sm-12">

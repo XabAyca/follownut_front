@@ -18,17 +18,17 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
   };
 
   return (
-    <div className="text-primary-color">
-      <div className="mx-3 p-2">
+    <div className="text-primary-color col-lg-8 col-sm-12">
+      <div className="my-3">
         <h2>Voici la liste de vos rendez-vous passés</h2>
       </div>
-      <div className="details-container p-3 col-lg-8 col-sm-12">
+      <div className="details-container p-3">
         {
           appointments.length > 0 ? 
           <table className="table patient-table">
             <thead>
               <tr>
-                <th scope="col">Réf.</th>
+                <th scope="col" className="hidden-on-mobile">Réf.</th>
                 <th scope="col">Date</th>
                 <th scope="col">Nutritioniste</th>
                 <th scope="col"></th>
@@ -39,7 +39,7 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
                 appointments.map((appointment) => {
                   return (
                     <tr>
-                      <th scope="row" key={appointment.id}>{appointment.id}</th>
+                      <th className="hidden-on-mobile" scope="row" key={appointment.id}>{appointment.id} </th>
                       <td>{createDate(appointment.date)}</td>
                       <td>{ appointment.nutritionist ? appointment.nutritionist.last_name ?
                             ( <span>M./Mme {appointment.nutritionist.last_name}</span>)

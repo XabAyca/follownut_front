@@ -234,6 +234,11 @@ body{
 
 // -------------------- BUTTONS -------------------- //
 
+.button-styling {
+  text-align: center;
+  width: 300px;
+  border-radius: 5px;
+}
 
 .primary-button {
   background-color: var(--prim-color);
@@ -263,6 +268,7 @@ body{
   background-color: var(--sec-color);
   color: black;
   text-decoration: none;
+  
 
   &:hover {
     background-color: var(--sec-color-deep);
@@ -407,6 +413,11 @@ div {
 .details-container {
   background-color: var(--sec-color);
   border-radius: 10px;
+
+  @media screen and (max-width: 480px){
+    max-width: 220px;
+  }
+  
 }
 
 .details-container-alt {
@@ -540,7 +551,21 @@ div {
 
 td {
   word-wrap: break-word;
-  max-width: 1px;
+  max-width: 100px;
+}
+
+th {
+  max-width: 60px;
+}
+
+.table-icons-center {
+  text-align: center;
+}
+
+@media screen and (max-width: 480px){
+  .hidden-on-mobile{
+    display: none;
+  }
 }
 
 // -------------------- FORMS -------------------- //
