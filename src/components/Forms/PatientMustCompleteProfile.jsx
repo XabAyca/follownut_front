@@ -39,7 +39,6 @@ const PatientMustCompleteProfile = ({patientData, nutritionists}) => {
       };
       dispatch(updatePatientFetch(data))
       setTimeout(() => {
-        // window.location.reload();
         history.push("/patient-profile");
       },300)  
     } else {

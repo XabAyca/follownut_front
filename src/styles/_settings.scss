@@ -440,11 +440,15 @@ div {
     word-wrap: break-word;
     max-width: 200px;
   }
+  .title-break-line {
+    word-wrap: break-word;
+    max-width: 70px;
+  }
 }
 
 .details-break-line {
   word-wrap: break-word;
-  max-width: 350px;
+  max-width: 200px;
 }
 
 
@@ -549,6 +553,7 @@ div {
   .content{
     position: absolute;
     width: 75%;
+    max-height: 75%;
     overflow-y: auto;
     border-radius: 10px;
     background-color: var(--modal-color);

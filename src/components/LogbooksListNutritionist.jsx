@@ -61,7 +61,7 @@ const LogbooksListNutritionist = ({ filteredLogbooks, setOpenModal }) => {
                         <th className="hidden-on-mobile" scope="row" key={logbook.id}>{logbook.id}</th>
                         <td>{createDate(logbook.updated_at)}</td>
                         <td>M./Mme {logbook.patient.last_name}</td>
-                        <td>{logbook.title}</td>
+                        <td className="title-break-line">{logbook.title}</td>
                         <td>
                           <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(logbook)}></i>
                         </td>
