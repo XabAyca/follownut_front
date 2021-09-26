@@ -34,7 +34,7 @@ const Home = () => {
       <div className="home page-padding">
         {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
         <section className="section bg-blue align-items-center">
-          <div className="section1-left">
+          <div className="section1-left content-center">
             <h1 className="text-white-color">
               Le suivi parfait entre patient et nutritioniste
             </h1>
@@ -44,14 +44,14 @@ const Home = () => {
             </h5>
               {Cookies.get("patient_token_cookie") === undefined && 
               Cookies.get("nutritionist_token_cookie") === undefined &&
-              <div className="d-flex row div-btn-home-responsive">
-                <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                  <Link to="/signup-nutritionist" className="py-2 primary-button button-styling">
+              <div className="d-flex justify-content-between col-sm-12 col-md-8 col-lg-12 col-xl-8">
+                <div className="d-flex mx-1">
+                  <Link to="/signup-nutritionist" className="btn-lg primary-button">
                     Je suis un nutritioniste
                   </Link>
                 </div>
-                <div className=" my-2 d-flex col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                  <Link to="/signup-patient" className="py-2 primary-button button-styling">
+                <div className="d-flex mx-1">
+                  <Link to="/signup-patient" className="btn-lg primary-button">
                     Je suis un patient
                   </Link>
                 </div>
