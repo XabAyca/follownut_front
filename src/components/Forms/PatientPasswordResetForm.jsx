@@ -42,7 +42,7 @@ const PatientPasswordResetForm = () => {
     if (reset.resetPassword.status) {
       alert("Mot de passe réinitialisé");
       setTimeout(() => {
-        history.push("/login-nutritionist");
+        history.push("/login-patient");
       }, 1000);
     }
     if (reset.error) {
