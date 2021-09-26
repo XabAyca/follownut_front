@@ -33,7 +33,7 @@ const Home = () => {
     <div className="home">
       <div className="home page-padding">
         {!window.matchMedia("(display-mode: standalone)").matches && <PwaModal />}
-        <section className="section bg-blue align-items-center">
+        <section className="section bg-purple align-items-center">
           <div className="section1-left content-center">
             <h1 className="text-white-color">
               Le suivi parfait entre patient et nutritioniste
@@ -104,7 +104,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="section bg-blue align-items-center p-5">
+        <section className="section bg-purple align-items-center p-5">
           <div className="section3-left">
             <img className="img-container" src={isDark ? dashboard_dark : dashboard} alt="Dashboard illustration" />
           </div>

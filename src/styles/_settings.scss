@@ -399,22 +399,28 @@ div {
 
 
 // -------------------- BACKGROUNDS -------------------- //
-.bg-blue {
+.bg-purple {
   background-color: var(--sec-color);
+}
+
+bg-white {
+  background-color: var(--basic-color-white);
+}
+
+.bg-prim-transp {
+  background: var(--transparency-prim-color-deep);
 }
 
 
 // -------------------- BOXES -------------------- //
 
 .form-container {
-  background: var(--transparency-prim-color-deep);
   border-radius: 10px;
   padding: 0.5rem 3rem;
   width: 35em;
 }
 
 .details-container {
-  background-color: var(--sec-color);
   border-radius: 10px;
 
   @media screen and (max-width: 480px){

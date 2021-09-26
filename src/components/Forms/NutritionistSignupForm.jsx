@@ -35,7 +35,7 @@ const NutritionistSignupForm = () => {
 
   return (
     <div className="nutritionist-signup-form d-flex justify-content-center">
-      <div className="form-container">
+      <div className="form-container bg-prim-transp">
       <h5 className="d-flex justify-content-center text-third-color py-1">Inscription nutritioniste</h5>
         <form onSubmit={ (e) => handleNutritionistSignup(e) }>
           <label htmlFor="email" className="text-white-color pt-2">Email*</label>

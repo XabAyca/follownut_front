@@ -33,13 +33,7 @@
         padding: 15px;
       }
     }
-    // .section1-left .div-btn-home-responsive div{
-    //   @include phone{
-    //     display: flex;
-    //     flex-direction: column;
-    //     text-align: center;
-    //   }
-    // }
+
     .section1-right {
       width: 50%;
       @include phone{
