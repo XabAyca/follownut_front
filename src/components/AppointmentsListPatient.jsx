@@ -18,11 +18,11 @@ const AppointmentsListPatient = ({ filteredAppointments, setOpenModal }) => {
   };
 
   return (
-    <div className="text-primary-color">
-      <div className="mx-3 p-2">
+    <div className="text-primary-color col-lg-8 col-sm-12">
+      <div className="my-3">
         <h2>Voici la liste de vos rendez-vous passés</h2>
       </div>
-      <div className="details-container p-3 col-lg-8 col-sm-12">
+      <div className="details-container p-3">
         {
           appointments.length > 0 ? 
           <table className="table patient-table">

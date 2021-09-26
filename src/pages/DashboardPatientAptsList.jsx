@@ -48,14 +48,14 @@ const DashboardPatientAptsList = () => {
         <AppointmentModal appointment={currentAppointment} />
       </div>
       <div className="dashboard-page-right">
-        <div className="">
-          {patientAppointments ?  
-            <AppointmentsListPatient
-              filteredAppointments={patientAppointments}
-              setOpenModal={openModal}
-            /> :
-            <Loading />
-          } 
+        <div className="d-flex justify-content-center py-5">
+            {patientAppointments ?  
+              <AppointmentsListPatient
+                filteredAppointments={patientAppointments}
+                setOpenModal={openModal}
+              /> :
+              <Loading />
+            }
         </div>
       </div>
     </div>
