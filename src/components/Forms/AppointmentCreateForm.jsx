@@ -67,7 +67,7 @@ const AppointmentCreateForm = () => {
 
   return (
     <div className="create-appointment-form">
-      <h1 className="text-primary-color">Rédiger un compte-rendu</h1>
+      <h1 className="text-primary-color text-center">Rédiger un compte-rendu</h1>
       <form
         className="appointment-form text-primary-color"
         onSubmit={createDataAppointment}
@@ -164,7 +164,7 @@ const AppointmentCreateForm = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-2 col-sm-8">
+          <div>
             <hr className="my-4" />
             <label>Compte-rendu</label>
             <textarea

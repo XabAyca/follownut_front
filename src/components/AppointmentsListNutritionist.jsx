@@ -81,10 +81,9 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
             <table className="table patient-table">
               <thead>
                 <tr>
-                  <th scope="col">Réf.</th>
+                  <th className="hidden-on-mobile" scope="col">Réf.</th>
                   <th scope="col">Date</th>
                   <th scope="col">Patient</th>
-                  <th scope="col"></th>
                   <th scope="col"></th>
                 </tr>
               </thead>
@@ -92,7 +91,7 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
                 {appointments.map((appointment) => {
                   return (
                     <tr key={appointment.id}>
-                      <th scope="row" key={appointment.id}>
+                      <th className="hidden-on-mobile" scope="row" key={appointment.id}>
                         {appointment.id}
                       </th>
                       <td>{createDate(appointment.date)}</td>
@@ -107,11 +106,9 @@ const AppointmentsListNutritionist = ({ filteredAppointments, setOpenModal }) =>
                           <span> Profil supprimé </span>
                         )}
                       </td>
-                      <td>
-                        <i className="pointer-clickable far fa-eye" onClick={() => setOpenModal(appointment)}></i>
-                      </td>
-                      <td>
-                        <i className="pointer-clickable fas fa-trash-alt" onClick={(e) => deleteAppointment(appointment, e)}></i>
+                      <td className="table-icons-center">
+                        <i className="pointer-clickable far fa-eye px-1" onClick={() => setOpenModal(appointment)}></i>
+                        <i className="pointer-clickable fas fa-trash-alt px-1" onClick={(e) => deleteAppointment(appointment, e)}></i>
                       </td>
                     </tr>
                   );
