@@ -1,9 +1,6 @@
 // CONFIG IMPORTS
 import { useHistory } from 'react-router';
 
-// ASSETS IMPORTS
-import article_nutrition from 'assets/images/article_nutrition.svg';
-
 const ArticleCard = ({ articleData }) => {
   const {title, nutritionist, id,created_at} = articleData;
   const history = useHistory();
@@ -32,7 +29,6 @@ const truncateString = (str, num)=> {
   return (
     <div className="col-3 article-card-content mx-4 my-3">
       <div className="img-box">
-        <img src={article_nutrition} alt="Nutrition article illustration" />
         <h6 className="card-title">{truncateString(title,100)}</h6>
       </div>
       <div className="card_body">
