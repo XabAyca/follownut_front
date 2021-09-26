@@ -57,6 +57,17 @@ FollowNut' stands in the middle, i.e. a user friendly and affordable application
 * redux-thunk
 
 
+## FollowNut Backend:
+* [Git repository](https://github.com/XabAyca/follownut_back)
+
+Hereafter a few links to our production back end
+* [Patients](https://follownut-back.herokuapp.com/api/v1/patients)
+* [Nutritionists](https://follownut-back.herokuapp.com/api/v1/nutritionists)
+* [Appointments](https://follownut-back.herokuapp.com/api/v1/appointments)
+* [Logbooks](https://follownut-back.herokuapp.com/api/v1/logbooks)
+* [Articles](https://follownut-back.herokuapp.com/api/v1/articles)
+
+
 ## How to use it:
  - In development, clone the repository on your machine, and run:
   ```
@@ -67,3 +78,5 @@ FollowNut' stands in the middle, i.e. a user friendly and affordable application
   Then, access the app in your browser at http://localhost:3000/ 
 
  - In production, go to the [FollowNut'](https://follownut.herokuapp.com/) and enjoy the experience
+
+
