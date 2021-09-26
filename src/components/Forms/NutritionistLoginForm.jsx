@@ -32,7 +32,7 @@ const NutritionistLoginForm = () => {
   };
 
   return (
-    <div className="nutritionist-signup-form d-flex justify-content-center">
+    <div className="d-flex justify-content-center">
       <div className="form-container bg-prim-transp">
       <h5 className="d-flex justify-content-center text-third-color my-1">Connexion nutritioniste</h5>
         <form onSubmit={ (e) => handleNutritionistLogin(e) }>
