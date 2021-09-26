@@ -13,8 +13,8 @@ const SignupNutritionist = () => {
   return (
     <div className="signup-nutritionist">
       <ErrorsModal errors={errors}/>
-      <div className="jumbotron jb-signup d-flex align-items-center">
-        <div className="d-flex justify-content-center col-12 row">
+      <div className="jumbotron jb-signup d-flex align-items-center justify-content-center">
+        <div className="d-flex justify-content-center row">
         <h1 className="d-flex justify-content-center text-white-color my-2 welcome-text">Bienvenue sur Follownut'</h1>
           <NutritionistSignupForm />
         </div>
