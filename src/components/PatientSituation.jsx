@@ -15,7 +15,7 @@ const PatientSituation = ({appointment, patient}) => {
         </small>
       </div>
       <div className="details-container p-3">
-        <div className="data-columns row mx-3">
+        <div className="data-columns row mx-1">
           <div className="py-2"><strong>Genre : </strong>{patient.gender}</div>
           <div className="py-2"><strong>Âge : </strong>{age} ans</div>
           <div className="left-details col-lg-6 col-sm-12">

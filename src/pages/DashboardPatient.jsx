@@ -57,16 +57,16 @@ const DashboardPatient = () => {
       </div>
       <div className="dashboard-page-right mx-1">
         <div className="d-flex row justify-content-center py-5">
-          <h1 className="text-primary-color col-lg-8 col-sm-12">
+          <h1 className="text-primary-color col-lg-10 col-sm-12">
             Bienvenue sur votre dashboard
             {lastAppointment && lastAppointment.first_name}
           </h1>
-          <div className="col-lg-8 col-sm-12">
+          <div className="col-lg-10 col-sm-12">
             {lastAppointment && (
               <PatientSituation appointment={lastAppointment} patient={currentPatient} />
             )}
           </div>
-          <div className="col-lg-8 col-sm-12 my-4">
+          <div className="col-lg-10 col-sm-12 my-4">
             {filteredAppointments && (
               <PatientCharts appointments={filteredAppointments} />
             )}
