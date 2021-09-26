@@ -58,7 +58,7 @@ const PatientProfile = () => {
   }
 
   return (
-    <div className="dashboard-page page-padding bg-purple d-flex align-items-center">
+    <div className="page-padding bg-purple d-flex align-items-center justify-content-center">
       <div class="bg-white-color details-container py-4 col-xl-6 col-lg-8 col-md-8 col-sm-12 d-flex row align-items-center justify-content-center">
         <div class="py-4 col-xl-6 col-lg-6 col-md-10 col-sm-10 d-flex justify-content-center">
           <img className="rounded-circle" width="260px" src={profileDrawing} alt="profile"/>

@@ -57,68 +57,66 @@ const PatientEditForm = ({patientData, nutritionists}) => {
 
 
   return (
-    <form className="border-right" onSubmit={updateDataPatient}>
-        <div className="p-3 py-5">
-          <div className="d-flex justify-content-between align-items-center mb-3">
-              <h1 className="text-right">Votre profil</h1>
+    <form onSubmit={updateDataPatient}>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+          <h1 className="text-right">Votre profil</h1>
+      </div>
+      <select onChange={(e) => setNutritionistId(e.target.value)}className="input-display" aria-label="Default select example">
+        <option selected>Selectionnez votre nutritionniste</option>
+        {
+          nutritionists.map((nutritionist) => {
+            return nutritionist.last_name &&
+              (
+                <option value={nutritionist.id}>M. {nutritionist.last_name} {nutritionist.first_name && nutritionist.first_name}</option>
+              )
+          })
+        }
+      </select>
+      <div className="row mt-2">
+          <div className="col-md-6">
+            <label className="labels">Nom</label>
+            <input type="text" className="input-display" placeholder={lname} value={lname} onChange={(e) => setLname(e.target.value)} />
           </div>
-          <select onChange={(e) => setNutritionistId(e.target.value)}className="input-display" aria-label="Default select example">
-            <option selected>Selectionnez votre nutritionniste</option>
-            {
-              nutritionists.map((nutritionist) => {
-                return nutritionist.last_name &&
-                  (
-                    <option value={nutritionist.id}>M. {nutritionist.last_name} {nutritionist.first_name && nutritionist.first_name}</option>
-                  )
-              })
-            }
-          </select>
-          <div className="row mt-2">
-              <div className="col-md-6">
-                <label className="labels">Nom</label>
-                <input type="text" className="input-display" placeholder={lname} value={lname} onChange={(e) => setLname(e.target.value)} />
-              </div>
-              <div className="col-md-6">
-                <label className="labels">Prénom</label>
-                <input type="text" className="input-display" placeholder={fname} value={fname} onChange={(e) => setFname(e.target.value)} />
-              </div>
+          <div className="col-md-6">
+            <label className="labels">Prénom</label>
+            <input type="text" className="input-display" placeholder={fname} value={fname} onChange={(e) => setFname(e.target.value)} />
           </div>
-          <div className="row mt-2">
-              <div className="col-md-6">
-                <label className="labels">Sexe</label>
-                <select className="input-display" name={sex} value={sex} onChange={(e) => setSex(e.target.value)}>
-                  <option value='0'>Non renseigné</option>
-                  <option value='1'>Homme</option>
-                  <option value='2'>Femme</option>
-                </select>
+      </div>
+      <div className="row mt-2">
+          <div className="col-md-6">
+            <label className="labels">Sexe</label>
+            <select className="input-display" name={sex} value={sex} onChange={(e) => setSex(e.target.value)}>
+              <option value='0'>Non renseigné</option>
+              <option value='1'>Homme</option>
+              <option value='2'>Femme</option>
+            </select>
 
-              </div>
-              <div className="col-md-6">
-                <label className="labels">Date de naissance</label>
-                <input type="date" className="input-display" placeholder={dateOfBirth} value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
-              </div>
           </div>
-          <div className="row mt-3">
-            <div className="col-md-12">
-              <label className="labels">Email</label>
-              <input type="text" className="input-display" placeholder={mail} value={mail} onChange={(e) => setMail(e.target.value)} />
-            </div>
-            <div className="col-md-12">
-              <label className="labels">Mot de passe (seulement pour modifier votre mot de passe)</label>
-              <input type="password" className="input-display" placeholder="" value={pword} onChange={(e) => setPword(e.target.value)} />
-            </div>
-            <div className="col-md-12">
-              <label className="labels">Confirmation de mot de passe</label>
-              <input type="password" className="input-display" placeholder="" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
-            </div>            
+          <div className="col-md-6">
+            <label className="labels">Date de naissance</label>
+            <input type="date" className="input-display" placeholder={dateOfBirth} value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
           </div>
-          <div className="mt-5 text-center">
-            <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button w-100 mt-4" />
-            <Link to="/patient-profile">
-              <div className="d-flex justify-content-center mt-2 text-primary-color">Retour</div>
-            </Link>
-          </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col-md-12">
+          <label className="labels">Email</label>
+          <input type="text" className="input-display" placeholder={mail} value={mail} onChange={(e) => setMail(e.target.value)} />
         </div>
+        <div className="col-md-12">
+          <label className="labels">Mot de passe (seulement pour modifier votre mot de passe)</label>
+          <input type="password" className="input-display" placeholder="" value={pword} onChange={(e) => setPword(e.target.value)} />
+        </div>
+        <div className="col-md-12">
+          <label className="labels">Confirmation de mot de passe</label>
+          <input type="password" className="input-display" placeholder="" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
+        </div>            
+      </div>
+      <div className="my-2 text-center">
+        <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button mt-4" />
+        <Link to="/patient-profile">
+          <div className="d-flex justify-content-center mt-2 text-primary-color">Retour</div>
+        </Link>
+      </div>
     </form>
   );
 };
