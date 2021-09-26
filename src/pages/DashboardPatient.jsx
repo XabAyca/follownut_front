@@ -57,7 +57,7 @@ const DashboardPatient = () => {
       </div>
       <div className="dashboard-page-right">
         <h1 className="text-primary-color">
-          Bienvenue sur votre dashboard{" "}
+          Bienvenue sur votre dashboard
           {lastAppointment && lastAppointment.first_name}
         </h1>
         <div className="col-12">
