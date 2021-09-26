@@ -57,7 +57,7 @@ const NutritionistEditForm = ({nutritionistData}) => {
     <form className="border-right" onSubmit={updateDataNutritionist}>
       <div className="p-3 py-5">
         <div className="d-flex justify-content-between align-items-center mb-3">
-            <h1 className="text-right">Votre profil</h1>
+            <h1 className="text-right">Éditer votre profil</h1>
         </div>
 
         <div className="row my-2">
@@ -90,8 +90,8 @@ const NutritionistEditForm = ({nutritionistData}) => {
             <input type="password" className="input-display" value={pwordConfirmation} onChange={(e) => setPwordConfirmation(e.target.value)} />
           </div>            
         </div>
-        <div className="mt-5 text-center">
-          <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button w-100 mt-4" />
+        <div className=" my-2 text-center">
+          <input type="submit" value="Sauvegarder" className="btn success-button text-center patient-edit-profile-button" />
           <Link to="/nutritionist-profile">
             <div className="d-flex justify-content-center mt-2 text-primary-color">Retour</div>
           </Link>

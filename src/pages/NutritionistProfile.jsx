@@ -81,7 +81,7 @@ const NutritionistProfile = () => {
           <div className="align-self-center details-break-line mx-2">{ nutritionist ? nutritionist.slug_calendly  : <Loading color={"blue"} />} </div>
         </h5>
         <div className="my-3">
-          <Link exact to="/patient-edit-profile">
+          <Link exact to="/nutritionist-edit-profile">
             <div className="btn success-button text-white-color my-1">Éditer mon profil</div>
           </Link>
           <form onSubmit={deleteProfileNutritionist} >
