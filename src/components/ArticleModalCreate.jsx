@@ -49,7 +49,7 @@ const ArticleModalCreate = () => {
     <div className="create-article-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
       <div className="content p-3 ">
-        <div className="create-appointment-form">
+        <div>
           <h1 className="text-primary-color">Rédiger un article</h1>
           <form className="appointment-form text-primary-color" onSubmit={createPublication}>
             <div className="d-flex row justify-content-between py-2">

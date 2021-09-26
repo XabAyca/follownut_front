@@ -50,7 +50,7 @@ const LogbookModalCreate = () => {
     <div className="create-logbook-modal">
       <i className="pointer-clickable fas fa-times" onClick={closeModal}></i>
       <div className="content p-3 ">
-        <div className="create-appointment-form">
+        <div>
           <h1 className="text-primary-color">Rédiger une nouvelle note</h1>
           <form className="appointment-form text-primary-color" onSubmit={createNote}>
             <div className="d-flex row justify-content-between py-2">
