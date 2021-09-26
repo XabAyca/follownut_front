@@ -46,7 +46,7 @@ const ArticleNutritionist = () => {
 
   const openModal = (article) => {
     setCurrentArticle(article);
-    let modal = document.querySelector(".article-modal");
+    let modal = document.querySelector(".read-modal");
     modal.style.opacity = 1
     modal.style.visibility = 'visible'
   }
