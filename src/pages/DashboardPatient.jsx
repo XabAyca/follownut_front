@@ -66,7 +66,7 @@ const DashboardPatient = () => {
               <PatientSituation appointment={lastAppointment} patient={currentPatient} />
             )}
           </div>
-          <div className="col-lg-10 col-sm-12 my-4">
+          <div className="col-lg-10 col-sm-12 my-4 hidden-on-mobile">
             {filteredAppointments && (
               <PatientCharts appointments={filteredAppointments} />
             )}
