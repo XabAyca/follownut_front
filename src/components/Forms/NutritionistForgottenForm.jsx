@@ -52,7 +52,7 @@ const NutritionistForgottenForm = () => {
     <div className="nutritionist-forgotten-form d-flex justify-content-center">
       <ErrorsModalPawd errors={forgot.error} />
       <div className="form-container bg-prim-transp py-3">
-        <p className="text-third-color">
+        <p className="text-third-color text-center">
           Renseignez votre email pour recevoir un lien et
           réinitialiser votre mot de passe.
         </p>
