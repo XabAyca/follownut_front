@@ -29,7 +29,7 @@ const truncateString = (str, num)=> {
   return (
     <div className="article-card-content">
       <div className="img-box">
-        <h3 className="card-title">{truncateString(title,70)}</h3>
+        <h3 className="card-title">{truncateString(title,35)}</h3>
       </div>
       <div className="card_body">
         <div>
